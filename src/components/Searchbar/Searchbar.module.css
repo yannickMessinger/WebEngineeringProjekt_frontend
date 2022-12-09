@@ -1,16 +1,13 @@
 * {
-    box-sizing: border-box;
-    border : none ;
+
 
 }
     
-body {
-    background: rgb(180, 69, 69);
-}
 
 .search {
     position: relative;
     width: 300px;
+    box-sizing: border-box;
 }
 
 .search input {
