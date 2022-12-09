@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Question } from './components/Question/questionComponent';
 import { IAnswer } from './components/Answer/IAnswer';
+import { Searchbar } from './components/Searchbar/Searchbar';
 
 const answers:IAnswer[] = [
   {
@@ -18,9 +19,7 @@ const answers:IAnswer[] = [
 function App() {
   return (
     <div className="App">
-      <Question 
-        question="Wer ist der Vater von Luke Skywalker?"
-        answerOptions={answers} />
+      <Searchbar/>
     </div>
   );
 }
