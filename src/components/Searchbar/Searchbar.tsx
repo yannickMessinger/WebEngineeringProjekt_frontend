@@ -12,6 +12,7 @@ export const Searchbar = () => {
     function handleSubmitAfterPressEnter(submitEvent: FormEvent) {
         submitEvent.preventDefault();
         console.log(value);
+
     }
     return (
         <div className={css.search}>
