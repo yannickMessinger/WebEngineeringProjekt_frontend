@@ -1,0 +1,19 @@
+.no_list {
+    list-style-type: none;
+}
+
+.list_item {
+    font-size: 20px;
+    background-color: darkgray;
+    padding: 16px;
+    border-radius: 16px;
+    color: black;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.list_item:hover {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 0 20px 10px blue
+}

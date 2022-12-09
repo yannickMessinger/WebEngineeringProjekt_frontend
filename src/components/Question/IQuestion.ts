@@ -1,6 +1,6 @@
 import { IAnswer } from "../Answer/IAnswer";
 
 export interface IQuestion {
-    question: string,
+    question_text: string,
     answerOptions: IAnswer[], 
 }
