@@ -9,15 +9,21 @@ import { Quiz } from './pages/Quiz';
 //import './App.css';
 import { SignUp } from './pages/SignUp/SignUp';
 
+
 function App() {
   return (
-    <BrowserRouter>
+   <SignUp></SignUp>
+  );
+}
+
+export default App;
+
+
+/*
+ <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/quiz' element={<Quiz />} />
       </Routes>
     </BrowserRouter>
-  );
-}
-
-export default App;
+*/
