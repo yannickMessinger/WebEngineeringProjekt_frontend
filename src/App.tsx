@@ -7,12 +7,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Quiz } from './pages/Quiz';
 import { Searchbar } from './components/Searchbar/Searchbar';
+import { WeatherScreen } from './components/WeatherScreen/WeatherScreen';
 
 function App() {
   return (
     <>
     <div className="App">
-      <Searchbar/>
+      <WeatherScreen/>
     </div>
     <BrowserRouter>
       <Routes>
