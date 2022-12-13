@@ -50,6 +50,7 @@
 
 .choice { 
     padding-top: 5%;
+    padding-bottom: 5%;
     background-color: #d9d9d9;
     display: grid; 
     justify-items: center;
@@ -81,8 +82,12 @@
 .characterDisplay:hover {
     
     color: white;
-    border-color: red;
-    box-shadow: 0 0 20px 10px red
+    border-color: blue;
+    box-shadow: 0 0 20px 10px blue
+}
+
+.characterDisplayToggle{
+    border-color: rgb(54, 231, 18);
 }
 
 .character_img{
