@@ -10,7 +10,18 @@ export const CharacterChoice = () => {
     <div className={css.characterChoice}>
       
       <div className={css.top}>
-        <img src={logo} className={css.logo}/>
+        <div className={css.toptext}>
+          <p>Choose your</p>
+        </div>
+       
+       <div className={css.toplogo}>
+          <img src={logo} className={css.logoSizing}/>
+       </div>
+
+       <div className={css.toptext}>
+        <p>Character</p>
+       </div>
+       
       </div>
 
       <div className={css.choice}>
