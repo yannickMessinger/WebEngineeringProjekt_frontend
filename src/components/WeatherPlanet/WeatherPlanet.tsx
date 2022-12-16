@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./WeatherPlanet.module.css"
 
-export const WeatherPlanet = () => {
+interface WeatherPlanetProps{
+    planetName: string
+}
+
+export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ planetName }) => {
+
     return (
         <div className={css.WeatherPlanet}>
             <div className={css.Like}>
                 like
             </div>
             <div className= {css.PlanetName}>
-                Hoth
+                {planetName}
             </div>
         </div>
     )

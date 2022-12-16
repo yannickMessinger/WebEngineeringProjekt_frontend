@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
@@ -11,6 +11,9 @@ export const WeatherScreen = () => {
 
 
     const { location, setLocation, fetchCoordinates, weatherData } = useWeather();
+
+    const [planetName, setPlanetName] = useState("Hodt");
+
 
     useEffect(() => {
         if (location != "") {
@@ -30,7 +33,7 @@ export const WeatherScreen = () => {
                         <span>{location} </span>
                     </div>
                     <div className={css.StarWarsPlanet}>
-                        <WeatherPlanet />
+                        <WeatherPlanet planetName={planetName} />
                     </div>
                     <div className={css.WeatherDescription}>
                         <WeatherDescription weatherData={weatherData} />
