@@ -4,15 +4,18 @@ import { RouterButton } from "../components/Menu/RouterButton";
 import { useUser } from "../hooks/useUser";
 
 export const Home = () => {
-    const {loggedIn} = useUser();
+    const { loggedIn } = useUser();
 
     // if(!loggedIn) {
     //     return (
     //         redirect("/login")
     //     )
     // }
-    
+
     return (
-        <RouterButton display={"Quiz"} to={"/quiz"} />  
+        <>
+            <RouterButton display={"Quiz"} to={"/quiz"} />
+            <RouterButton display={"Weather"} to={"/weather"} />
+        </>
     )
 }

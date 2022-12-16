@@ -1,0 +1,44 @@
+.WholeWeather {
+    color: white;
+    display: flex;
+
+}
+
+.Background {
+    background-image: url("./hoth.png");
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+
+.Searchbar {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.Location {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.StarWarsPlanet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.WeatherDescription {
+    position: absolute;
+    bottom: 150px;
+    right: 150px;
+}

@@ -8,17 +8,18 @@ import { Home } from './pages/Home';
 import { Quiz } from './pages/Quiz';
 import { Searchbar } from './components/Searchbar/Searchbar';
 import { WeatherScreen } from './components/WeatherScreen/WeatherScreen';
+import { Weather } from './pages/Weather';
 
 function App() {
   return (
     <>
     <div className="App">
-      <WeatherScreen/>
     </div>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/quiz' element={<Quiz />} />
+        <Route path='/weather' element={<Weather />} />
       </Routes>
     </BrowserRouter>
     </>

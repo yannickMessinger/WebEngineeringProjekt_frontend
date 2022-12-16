@@ -9,8 +9,6 @@ export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps
 
     return (
         <div className={css.weather_description}>
-            <h1>Aktuelle Temperatur in: {weatherData.location} </h1>
-            <br />
             Temperatur: {weatherData.temp}
             <br />
             Beschreibung: {weatherData.weatherDescription}
