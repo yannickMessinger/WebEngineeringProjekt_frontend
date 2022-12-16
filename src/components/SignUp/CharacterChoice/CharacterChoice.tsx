@@ -11,7 +11,7 @@ import darthvader from '../../../assets/darth_vader.png'
 export const CharacterChoice = () => {
 
   const [charPicPath, setCharPicPath] = useState(yoda);
-  const [toggleChar, setToggleChar] = useState(true);
+  const [toggleChar, setToggleChar] = useState(false);
 
   //TODO: anpasse auf passende prev und next bilder!
   const charChoiceHandler = () => {
