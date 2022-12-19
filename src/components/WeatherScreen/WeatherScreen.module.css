@@ -5,12 +5,12 @@
 }
 
 .Background {
-    background-image: url("./hoth.png");
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
     background-size: 100%;
 }
+
 
 
 
