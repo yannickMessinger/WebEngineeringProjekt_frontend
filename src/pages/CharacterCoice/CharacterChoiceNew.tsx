@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import css from "./Choicenew.module.css";
-import hyperspace from "../../assets/hyperspace.jpg";
 import logo from "../../assets/logo_no_back.png";
 
-import yoda from "../../assets/yoda.png";
+import yoda from "../../assets/yoda_fly.png";
 import boba from "../../assets/boba.png";
 import darthvader from "../../assets/darth_vader.png";
+import rebel_logo from "../../assets/rebel_logo.png";
+import empire_logo from "../../assets/empire_logo.png";
+
 
 export const CharacterChoiceNew = () => {
   const [charPicPath, setCharPicPath] = useState(yoda);
@@ -13,6 +15,7 @@ export const CharacterChoiceNew = () => {
 
   //TODO: anpasse auf passende prev und next bilder!
   const charChoiceHandler = () => {
+    console.log("choice")
     if (charPicPath === yoda) {
       setCharPicPath(boba);
     } else if (charPicPath === boba) {
@@ -41,7 +44,8 @@ export const CharacterChoiceNew = () => {
         </div>
 
 
-            <img src={logo} className={css.logoSizing}></img>
+            <div className={css.logoWrapper}><img src={logo} className={css.logoSizing}></img></div>
+           
             <div className={css.toptext}>
         
         <p>Character</p>
@@ -51,7 +55,10 @@ export const CharacterChoiceNew = () => {
           </div>
 
 
-          <div className={css.switchtheme}>switch</div>
+          <div className={css.switchtheme}>
+          <img src={rebel_logo} className={css.rebelLogo} />
+          <img src={empire_logo} className={css.empireLogo} />
+          </div>
           
           <div className={css.choosechar}>
             
@@ -73,7 +80,9 @@ export const CharacterChoiceNew = () => {
               ></div>
             
           </div>
-          <div className={css.buttonbox}>button</div>
+          <div className={css.buttonbox}>
+            <button className={css.startbutton}>GO</button>
+          </div>
         </div>
       </div>
 
