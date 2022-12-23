@@ -52,11 +52,22 @@ export const useWeather = () => {
     }
 
     function decideStarWarsPlanet(temp: number) {
-        if (temp < 15) {
+        if (temp <= 0) {
             setStarWarsPlanet("Hoth");
-        } else {
+        } else if (temp <= 7) {
+            setStarWarsPlanet("Dagobah");
+        }else if (temp <= 14) {
+            setStarWarsPlanet("Naboo");
+        }else if (temp <= 21) {
+            setStarWarsPlanet("Yavin4");
+        }else if (temp <= 28) {
+            setStarWarsPlanet("Bespin");
+        }else if (temp <= 35) {
             setStarWarsPlanet("Tatooine");
+        }else if (temp > 35) {
+            setStarWarsPlanet("Mustafa");
         }
+        
     }
 
     return {
