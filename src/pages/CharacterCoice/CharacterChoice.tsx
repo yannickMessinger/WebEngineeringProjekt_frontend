@@ -18,19 +18,19 @@ export const CharacterChoiceNew = () => {
       <div className={css.charakterbox}>
         <div className={css.charselect}>
           <div>
-            <TopLogo></TopLogo>
+            <TopLogo/>
           </div>
 
           <div >
-            <SideChoice></SideChoice>
+            <SideChoice/>
           </div>
 
           <div>
-            <CharacterChoice></CharacterChoice>
+            <CharacterChoice/>
           </div>
 
           <div>
-            <ButtonBox></ButtonBox>
+            <ButtonBox/>
           </div>
         </div>
       </div>

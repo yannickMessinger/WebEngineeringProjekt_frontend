@@ -33,6 +33,7 @@ export function CharacterContextProvider({ children }: any) {
     { name: "Tusk", swapi_id: 5, img_path: tusk },
   ];
 
+  //mit modulo kuhla lösbar
   const charChoiceHandlerNext = () => {
     if (charIndex === 5) {
       setCharIndex(0);
