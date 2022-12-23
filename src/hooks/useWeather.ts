@@ -20,7 +20,7 @@ export const useWeather = () => {
             .then(response => response.json())
             .then((obj) => {
                 console.log(obj);
-                fetchWeather(obj[0].lat, obj[0].lon);
+                fetchWeather(obj[0].lat, obj[0].lon, obj[0].local_names.de);
             })
             .catch((err) => {
                 console.log(err);
@@ -28,7 +28,7 @@ export const useWeather = () => {
             })
     }
 
-    function fetchWeather(lat: string, lon: string) {
+    function fetchWeather(lat: string, lon: string, locationName: string) {
         console.log(lat);
         console.log(lon);
         const url = new URL(WEATHER_DATA_RELATIVE_URL, BASE_WEATHER_URL);
@@ -40,7 +40,7 @@ export const useWeather = () => {
         fetch(url.toString())
             .then(response => response.json())
             .then((obj) => {
-                const wheaterData = { location: location, temp: (obj.main.temp - 273.15).toFixed(2) + "°C", weatherDescription: obj.weather[0].description };
+                const wheaterData = { location: locationName, temp: (obj.main.temp - 273.15).toFixed(2) + "°C", weatherDescription: obj.weather[0].description };
                 decideStarWarsPlanet(parseInt(wheaterData.temp));
                 setWeatherData(wheaterData);
                 console.log(wheaterData);

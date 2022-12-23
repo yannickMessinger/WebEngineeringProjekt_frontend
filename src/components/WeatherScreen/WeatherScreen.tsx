@@ -7,7 +7,7 @@ import css from "./WeatherScreen.module.css"
 
 export const WeatherScreen = () => {
 
-
+    let weatherLocation;
     const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet} = useWeather();
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
@@ -22,6 +22,12 @@ export const WeatherScreen = () => {
         setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
         console.log(backgroundPlanetUrl)
     }, [starWarsPlanet])
+
+    if(starWarsPlanet != "noPlanet") {
+        weatherLocation =  <span>{weatherData.location} </span>;
+    }else {
+        weatherLocation = <span></span>;
+    }
 
     return (
         <>
@@ -38,8 +44,8 @@ export const WeatherScreen = () => {
                         <Searchbar setLocation={setLocation} />
                     </div>
                     <div className={css.Location}>
-                        <span>{location} </span>
-                    </div>
+                        {weatherLocation}
+                    </div> 
                     <div className={css.StarWarsPlanet}>
                         <WeatherPlanet planetName={starWarsPlanet} />
                     </div>
