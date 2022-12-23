@@ -1,5 +1,6 @@
 .no_list {
     list-style-type: none;
+    padding: 15px;
 }
 
 .list_item {

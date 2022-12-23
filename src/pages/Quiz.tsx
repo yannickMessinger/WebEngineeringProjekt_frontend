@@ -2,10 +2,12 @@ import React from "react";
 import { IAnswer } from "../components/Answer/IAnswer";
 import { Question } from "../components/Question/Question";
 import { Header } from "../layouts/Header/Header";
+import { QuestionType } from "../components/Question/IQuestion";
+import { QuizHeader } from "../components/Header/QuizHeader";
 
 const answers:IAnswer[] = [
     {
-      text:"Darth Vader", 
+      text:"Darth `ader", 
       isRight: true
     },{
       text:"Hello Kitty",
@@ -19,23 +21,24 @@ const answers:IAnswer[] = [
     }
 ]
 
+const qType = QuestionType.MULTIPLE_CHOICE;
+
 export const Quiz = () => {
     return (
     <div className="App">
       {/* 1. Header */}
       <Header />
-      <h1>Star Wars Quiz</h1>
-
-      {/* 2. Current Score */}
-      <h2>Current Score</h2>
+      <QuizHeader />
 
       {/* 3. Question Card */}
       <div className='question-card'>
 
       </div>
       <Question 
-        question_text="Wer ist der Vater von Luke Skywalker?"
-        answerOptions={answers} />
+        question_text="Wer ist der `ater von Luke Skywalker ?"
+        answerOptions={answers}
+        questionType={qType}
+      />
     </div>
     )
 }

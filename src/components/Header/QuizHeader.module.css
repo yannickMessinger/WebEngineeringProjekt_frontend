@@ -1,0 +1,11 @@
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.info {
+    color: aliceblue;
+    text-align: right;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
