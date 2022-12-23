@@ -11,11 +11,15 @@ import { SignUp } from './pages/SignUp/SignUp';
 import { CharacterChoiceNew } from './pages/CharacterCoice/CharacterChoice';
 import { CharacterChoice } from './components/SignUp/CharacterChoiceDisplay/CharacterChoiceDisplay';
 import { SideChoice } from './components/SignUp/SideChoice/SideChoice';
+import { CharacterContextProvider } from './context/CharacterContext';
 
 
 function App() {
   return (
+    <CharacterContextProvider>
    <CharacterChoiceNew></CharacterChoiceNew>
+   </CharacterContextProvider>
+   
   );
 }
 

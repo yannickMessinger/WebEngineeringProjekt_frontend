@@ -1,11 +1,15 @@
 import React from 'react'
+import css from "./Characterstyle.module.css";
+import { ICharacter } from "../../../typings/ICharacter"
 
 
 
 
 
-export const Character = () => {
+export const Character = ({img_path}:ICharacter) => {
   return (
-    <div>Character</div>
+    <>
+      <img src={img_path} className={css.character_img} ></img>
+    </>
   )
 }
