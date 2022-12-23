@@ -20,7 +20,11 @@ export const useWeather = () => {
             .then(response => response.json())
             .then((obj) => {
                 console.log(obj);
-                fetchWeather(obj[0].lat, obj[0].lon, obj[0].local_names.de);
+                if(obj[0].hasOwnProperty('local_names')) {
+                    fetchWeather(obj[0].lat, obj[0].lon, obj[0].local_names.de);
+                }else {
+                    fetchWeather(obj[0].lat, obj[0].lon, location);
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -35,7 +39,6 @@ export const useWeather = () => {
         url.searchParams.append("lat", lat);
         url.searchParams.append("lon", lon);
         url.searchParams.append("appid", API_KEY);
-
 
         fetch(url.toString())
             .then(response => response.json())
