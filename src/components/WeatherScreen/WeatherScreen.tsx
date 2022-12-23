@@ -8,14 +8,10 @@ import css from "./WeatherScreen.module.css"
 export const WeatherScreen = () => {
 
 
-    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet } = useWeather();
-    const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("./hoth.png");
-    //const [planetName, setPlanetName] = useState("Hodth");
-/*
-    function createImageUrl() {
-        backgroundPlanetUrl = "./" + starWarsPlanet.toLowerCase() + "png";
-    }*/ 
-    
+    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet} = useWeather();
+    const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
+
+
     useEffect(() => {
         if (location != "") {
             fetchCoordinates();
@@ -23,21 +19,21 @@ export const WeatherScreen = () => {
     }, [location]);
 
     useEffect(() => {
-        setBackgroundPlanetUrl("./" + starWarsPlanet.toLowerCase() + ".png");   
+        setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
         console.log(backgroundPlanetUrl)
     }, [starWarsPlanet])
 
     return (
         <>
             <div className={css.WholeWeather}>
-                <div className={css.Background} 
-                      style={{
+                <div className={css.Background}
+                    style={{
                         backgroundImage: `url(${backgroundPlanetUrl})`,
                         backgroundSize: '100%',
                         backgroundRepeat: 'no-repeat',
                         height: '100vh',
                         width: '100vw',
-                      }} >
+                    }} >
                     <div className={css.Searchbar}>
                         <Searchbar setLocation={setLocation} />
                     </div>
@@ -52,6 +48,7 @@ export const WeatherScreen = () => {
                     </div>
                 </div>
             </div>
+
         </>
     );
 }

@@ -4,12 +4,11 @@ import { useEffect, useState } from "react"
 export const useWeather = () => {
     const [location, setLocation] = useState("");
     const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: "" });
-    const [starWarsPlanet, setStarWarsPlanet] = useState("");
+    const [starWarsPlanet, setStarWarsPlanet] = useState("default");
     const API_KEY = "79a9ad1cd477e4c6265d4b1882c856b0";
     const BASE_WEATHER_URL = "https://api.openweathermap.org";
     const GEO_ENCODING_RELATIVE_URL = "/geo/1.0/direct";
     const WEATHER_DATA_RELATIVE_URL = "/data/2.5/weather";
-
 
     function fetchCoordinates() {
         const url = new URL(GEO_ENCODING_RELATIVE_URL, BASE_WEATHER_URL);
@@ -25,6 +24,7 @@ export const useWeather = () => {
             })
             .catch((err) => {
                 console.log(err);
+                setStarWarsPlanet("noPlanet")
             })
     }
 
@@ -40,13 +40,12 @@ export const useWeather = () => {
         fetch(url.toString())
             .then(response => response.json())
             .then((obj) => {
-                const wheaterData = { location: location, temp: (obj.main.temp - 273.15).toFixed(2), weatherDescription: obj.weather[0].description };
+                const wheaterData = { location: location, temp: (obj.main.temp - 273.15).toFixed(2) + "°C", weatherDescription: obj.weather[0].description };
                 decideStarWarsPlanet(parseInt(wheaterData.temp));
                 setWeatherData(wheaterData);
                 console.log(wheaterData);
             })
             .catch((err) => {
-
                 console.log(err);
             })
     }
@@ -67,7 +66,6 @@ export const useWeather = () => {
         }else if (temp > 35) {
             setStarWarsPlanet("Mustafa");
         }
-        
     }
 
     return {
@@ -75,7 +73,7 @@ export const useWeather = () => {
         setLocation,
         fetchCoordinates,
         weatherData,
-        starWarsPlanet
+        starWarsPlanet,
     }
 
 }

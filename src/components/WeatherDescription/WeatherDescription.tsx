@@ -9,9 +9,9 @@ export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps
 
     return (
         <div className={css.weather_description}>
-            Temperatur: {weatherData.temp}
+            {weatherData.temp}
             <br />
-            Beschreibung: {weatherData.weatherDescription}
+            {weatherData.weatherDescription}
         </div>
     )
 }
