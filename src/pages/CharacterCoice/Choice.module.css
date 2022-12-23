@@ -1,0 +1,51 @@
+.background{
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1.2fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    
+
+    grid-template-areas: 
+    "charakterbox rest"
+    "charakterbox rest"; 
+
+    background-image:url('../../assets/hyper_black_white.jpg');
+    
+    height: 100%;
+    min-height: 100vh;
+    overflow: auto; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
+   
+    
+}
+
+.charakterbox { 
+    
+    background-color: black;
+    clip-path: polygon(0% 0%,
+                   100% 0%,
+                   100% 100%,
+                    0% 100%);
+    opacity: 90%;
+    grid-area: charakterbox;
+ }
+
+
+
+ .charselect {
+    display: grid; 
+    min-height: 100vh;
+    grid-auto-columns: 1fr; 
+    grid-template-rows:  1.3fr 0.3fr 1.5fr 0.4fr; 
+    gap: 0px 0px; 
+  }
+
+  
+  .rest { 
+    
+    grid-area: rest;
+ }

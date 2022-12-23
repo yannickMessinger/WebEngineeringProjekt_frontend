@@ -8,7 +8,9 @@ import { Home } from './pages/Home';
 import { Quiz } from './pages/Quiz';
 //import './App.css';
 import { SignUp } from './pages/SignUp/SignUp';
-import { CharacterChoiceNew } from './pages/CharacterCoice/CharacterChoiceNew';
+import { CharacterChoiceNew } from './pages/CharacterCoice/CharacterChoice';
+import { CharacterChoice } from './components/SignUp/CharacterChoiceDisplay/CharacterChoiceDisplay';
+import { SideChoice } from './components/SignUp/SideChoice/SideChoice';
 
 
 function App() {

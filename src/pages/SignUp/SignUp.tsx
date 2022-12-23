@@ -1,5 +1,5 @@
 import React from 'react'
-import {CharacterChoice} from '../../components/SignUp/CharacterChoice/CharacterChoice';
+import {CharacterChoice} from '../../components/SignUp/CharacterChoiceDisplay/CharacterChoiceDisplay';
 import { LoginForm } from '../../components/SignUp/LoginForm/LoginForm';
 import './signUpStyle.css';
 
