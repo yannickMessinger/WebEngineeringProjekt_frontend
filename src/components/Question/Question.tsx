@@ -4,7 +4,7 @@ import { IQuestion, QuestionType } from "./IQuestion";
 import css from "./Question.module.css";
 
 export const Question = (question:IQuestion) => {
-    const {question_text, answerOptions, questionType} = question;
+    const {questionText, answerOptions, questionType} = question;
     // !!! Switch Case for different question types
     /*
     switch(questionType) {
@@ -20,7 +20,7 @@ export const Question = (question:IQuestion) => {
     */
     return (
         <div className={css.question_card}>
-            <h2 className={css.question_text}>{question_text}</h2>
+            <h2 className={css.question_text}>{questionText}</h2>
             <MultipleChoice answers={answerOptions} />
         </div>
     )

@@ -10,7 +10,7 @@ export const QuizHeader = () => {
   return (
     <>
     <div className={css.info}>
-      <p>Score 50/100</p>
+      <p>Score {score}/100</p>
     </div>
     </>
   );
