@@ -7,8 +7,10 @@ import boba from "../../../assets/boba.png";
 import darthvader from "../../../assets/darth_vader.png";
 import { Character } from "../Character/Character";
 
+
 export const CharacterChoice = () => {
   const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterContext);
+  
   const [toggleChar, setToggleChar] = useState(false);
 
   const handleTogglePicture = () => {
