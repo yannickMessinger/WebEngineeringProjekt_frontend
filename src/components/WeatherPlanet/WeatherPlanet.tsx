@@ -16,7 +16,7 @@ export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ pla
     } else {
         content = (
             <><div className={css.Like}>
-                like
+                wie auf
             </div><div className={css.PlanetName}>
                     {planetName}
                 </div></>
