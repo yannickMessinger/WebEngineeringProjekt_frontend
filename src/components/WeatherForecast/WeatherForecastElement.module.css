@@ -1,0 +1,38 @@
+.Element {
+    background-color:rgba(255, 255, 255, 0.55);
+    min-width:10%;
+    flex: auto;
+    height : 100% ; 
+    width : 280px ; 
+    color: rgb(0, 0, 0);
+    
+}
+
+.Date {
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.Description {
+  text-align: center;
+  padding: 40px 0;
+  font-weight: bold;
+  font-size: larger;
+  text-decoration: underline;
+}
+
+.TempMax {
+    float: right;
+    font-size: large;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.TempMin {
+    float: left;
+    font-size: large;
+    margin-left: 7px;
+    font-weight: bold;
+}

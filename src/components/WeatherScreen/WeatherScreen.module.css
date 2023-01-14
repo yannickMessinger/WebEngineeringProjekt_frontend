@@ -36,6 +36,13 @@
 
 .WeatherDescription {
     position: absolute;
-    bottom: 100px;
+    bottom: 250px;
     right: 100px;
+}
+
+.WeatherForecast {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
 }

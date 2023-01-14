@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
+import { WeatherForecast } from "../WeatherForecast/WeatherForecast";
 import { WeatherPlanet } from "../WeatherPlanet/WeatherPlanet";
 import css from "./WeatherScreen.module.css"
 
 export const WeatherScreen = () => {
 
     let weatherLocation;
-    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet} = useWeather();
+    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet, weatherDataForecast} = useWeather();
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
 
@@ -51,6 +52,9 @@ export const WeatherScreen = () => {
                     </div>
                     <div className={css.WeatherDescription}>
                         <WeatherDescription weatherData={weatherData} />
+                    </div>
+                    <div className={css.WeatherForecast}>
+                        <WeatherForecast weatherForecast={weatherDataForecast}  />
                     </div>
                 </div>
             </div>
