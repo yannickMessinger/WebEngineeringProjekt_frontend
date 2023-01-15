@@ -9,7 +9,9 @@ import css from "./WeatherScreen.module.css"
 export const WeatherScreen = () => {
 
     let weatherLocation;
-    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet, weatherDataForecast} = useWeather();
+    let weatherForecast;
+    let weatherDescription;
+    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet, weatherDataForecast } = useWeather();
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
 
@@ -24,10 +26,14 @@ export const WeatherScreen = () => {
         console.log(backgroundPlanetUrl)
     }, [starWarsPlanet])
 
-    if(starWarsPlanet != "noPlanet") {
-        weatherLocation =  <span>{weatherData.location} </span>;
-    }else {
+    if (starWarsPlanet != "noPlanet" && starWarsPlanet != "default") {
+        weatherLocation = <span>{weatherData.location} </span>;
+        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} />;
+        weatherDescription = <WeatherDescription weatherData={weatherData} />;
+    } else {
         weatherLocation = <span></span>;
+        weatherForecast = <span></span>;
+        weatherDescription = <span></span>;
     }
 
     return (
@@ -46,15 +52,15 @@ export const WeatherScreen = () => {
                     </div>
                     <div className={css.Location}>
                         {weatherLocation}
-                    </div> 
+                    </div>
                     <div className={css.StarWarsPlanet}>
                         <WeatherPlanet planetName={starWarsPlanet} />
                     </div>
                     <div className={css.WeatherDescription}>
-                        <WeatherDescription weatherData={weatherData} />
+                        {weatherDescription}
                     </div>
                     <div className={css.WeatherForecast}>
-                        <WeatherForecast weatherForecast={weatherDataForecast}  />
+                        {weatherForecast}
                     </div>
                 </div>
             </div>

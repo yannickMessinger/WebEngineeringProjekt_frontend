@@ -2,7 +2,7 @@ import React from "react";
 import css from "./WeatherDescription.module.css"
 
 interface WeatherDescriptionProps {
-    weatherData: { location: string, temp: string, weatherDescription: string };
+    weatherData: { location: string, temp: string, weatherDescription: {description: string, image: string} };
 }
 
 export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps> = ({ weatherData }) => {
@@ -11,7 +11,7 @@ export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps
         <div className={css.weather_description}>
             {weatherData.temp}
             <br />
-            {weatherData.weatherDescription}
+            {weatherData.weatherDescription.description}
         </div>
     )
 }

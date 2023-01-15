@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 export const useWeather = () => {
     const [location, setLocation] = useState("");
-    const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: "" });
+    const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: {description: "", image: ""} });
     const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weathercode: [], windspeed: [] });
     const [starWarsPlanet, setStarWarsPlanet] = useState("default");
     const API_KEY = "79a9ad1cd477e4c6265d4b1882c856b0";
@@ -58,7 +58,7 @@ export const useWeather = () => {
             .then(response => response.json())
             .then((obj) => {
                 console.log(obj);
-                const weatherDataObj = { location: locationName, temp: obj.current_weather.temperature + "°C", weatherDescription: "" + weatherCodeMap.get(obj.current_weather.weathercode) };
+                const weatherDataObj = { location: locationName, temp: obj.current_weather.temperature + "°C", weatherDescription:   weatherCodeMap.get(obj.current_weather.weathercode) };
                 console.log(weatherDataObj)
                 decideStarWarsPlanet(parseInt(weatherDataObj.temp));
                 setWeatherData(weatherDataObj);
@@ -102,23 +102,23 @@ export const useWeather = () => {
 
     function initializeWeatherCodeMap() {
         const weatherCodeMap = new Map();
-        const CLEAR_SKY = 'klarer Himmel';
-        const CLEAR = 'meist klar';
-        const CLOUDY = 'teilweise bewölkt';
-        const OVERCAST = 'bedeckt';
-        const FOG = 'Nebel';
-        const RAIN_LOW = 'leichter Regen';
-        const RAIN_MID = 'mäßiger Regen';
-        const RAIN_HARD = 'starker Regen';
-        const SNOW_LOW = 'leichter Schneefall';
-        const SNOW_MID = 'mäßiger Schneefall';
-        const SNOW_HARD = 'starker Schneefall';
-        const RAIN_LOW_SHOWER = 'leichter Regenschauer';
-        const RAIN_HARD_SHOWER = 'starker Regenschauer';
-        const SNOW_LOW_SHOWER = 'leichter Schneeschauer';
-        const SNOW_HARD_SHOWER = 'starker Schneeschauer';
-        const STORM = 'Gewitter';
-        const STORM_HAIL = 'Gewitter mit Hagel';
+        const CLEAR_SKY = {description : 'klarer Himmel', image : "sun"};
+        const CLEAR = {description : 'meist klar', image : "clear"};
+        const CLOUDY = {description :'teilweise bewölkt', image: "cloudy"};
+        const OVERCAST = {description:'bedeckt', image: "overcast"};
+        const FOG = {description: 'Nebel', image: "fog"};
+        const RAIN_LOW = {description:'leichter Regen', image: "rain"};
+        const RAIN_MID = {description : 'mäßiger Regen', image: "rain"};
+        const RAIN_HARD = {description :'starker Regen', image: "rain"};
+        const SNOW_LOW = {description: 'leichter Schneefall', image: "snow"};
+        const SNOW_MID = {description : 'mäßiger Schneefall', image: "snow"};
+        const SNOW_HARD = {description:  'starker Schneefall', image: "snow"};
+        const RAIN_LOW_SHOWER = {description :'leichter Regenschauer', image: "rain"};
+        const RAIN_HARD_SHOWER = {description :'starker Regenschauer', image: "rain"};
+        const SNOW_LOW_SHOWER = {description:  'leichter Schneeschauer', image: "snow"};
+        const SNOW_HARD_SHOWER = {description:  'starker Schneeschauer', image: "snow"};
+        const STORM = {description:  'Gewitter', image: "storm"};
+        const STORM_HAIL = {description:  'Gewitter mit Hagel', image: "storm"};
 
         weatherCodeMap.set(0, CLEAR_SKY);
         weatherCodeMap.set(1, CLEAR);

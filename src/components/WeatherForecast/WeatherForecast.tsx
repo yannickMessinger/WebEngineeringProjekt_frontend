@@ -10,7 +10,7 @@ interface WeatherForecastProps {
         sunrise : Array<number>
         sunset : Array<number>
         time : Array<string>
-        weathercode: Array<string>
+        weathercode: Array<{description: string, image: string}>
         windspeed : Array<number>
     };
 }
