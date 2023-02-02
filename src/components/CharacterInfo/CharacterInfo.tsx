@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CharacterContext } from '../../context/CharacterContext';
+import { ICharacter } from '../../typings/ICharacter';
+
 
 export const CharacterInfo = () => {
-  return (
+  
+
+ 
+ 
+
+ return (
     <div>CharacterInfo</div>
   )
 }

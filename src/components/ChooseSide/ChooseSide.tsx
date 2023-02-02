@@ -15,15 +15,16 @@ export const ChooseSide = ({side,logopath,className}:SideProps) => {
 
   let choosenSide = side
 
-  const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterContext);
+  const {setFilterList} = useContext(CharacterContext);
 
   function filterChooseSide(){
-    console.log(choosenSide)
+    //console.log(choosenSide)
+    setFilterList(choosenSide)
   }
 
   return (
     <div>
-         <img src={logopath} className={className} onClick={() =>{ filterChooseSide()}} />
+         <img src={logopath} className={className} onClick={() =>{filterChooseSide()}} />
     </div>
    
   )
