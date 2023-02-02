@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CharacterContext } from '../context/CharacterContext';
+import { ICharacterInfo } from '../typings/ICharacterInfo';
 
 
 
@@ -8,8 +9,9 @@ export const useSWAPI = () => {
   
     const { returnCharacter } = useContext(CharacterContext);
   
+    //brauche noch zweiten fetch falls notwneige Daten für Home Planet oder Straship nötig sind
 
-    async function fetchCharInfo(): Promise<void> {
+    async function fetchCharInfo(): Promise<ICharacterInfo> {
         console.log("fetch Char Info from Swapi");
        
 
@@ -19,17 +21,26 @@ export const useSWAPI = () => {
           const response = await fetch(SWAPI_URL, { method: "GET" });
           
           if (!response.ok) {
-            console.log("Error fetch Frontend todo Liste");
+            console.log("Error fetch swapi");
             throw new Error(response.statusText);
           }
       
-          const charinfo = await response.json();
-          console.log(charinfo.results)
+          const rawInfo = await response.json()
+          const charInfo:ICharacterInfo = rawInfo.results[0]
+         
+          console.log(charInfo)
       
-          return charinfo;
+          return charInfo;
         } catch (error) {
           console.log(error);
           
+          return {name:"",
+            birth_year:"",
+            eye_color:"",
+            hair_color:"",
+            height:"",
+            homeworld:"",
+            skin_color:""}
         }
       }
   
