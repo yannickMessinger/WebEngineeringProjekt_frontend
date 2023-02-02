@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Question } from "./components/Question/Question";
-import { IAnswer } from "./components/Answer/IAnswer";
+import { Question } from "./components/Quiz/Question/Question";
+import { IAnswer } from "./components/Quiz/Answer/IAnswer";
 import { Header } from "./layouts/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";

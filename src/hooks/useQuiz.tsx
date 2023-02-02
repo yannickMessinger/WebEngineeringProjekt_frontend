@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IQuestion } from "../components/Question/IQuestion";
+import { IQuestion } from "../components/Quiz/Question/IQuestion";
 
 export const useQuiz = (difficulty: string) => {
   const [questions, setQuestions] = useState(Array<{attributes:IQuestion, id:number}>());

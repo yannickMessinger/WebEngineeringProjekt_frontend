@@ -4,9 +4,12 @@ import css from "./Slider.module.css";
 interface IProps {
     value: number
     updateValue: (value:number) => void
+    minValue:number
+    maxValue:number
+    step:number
 }
 
-export const Slider = ({value, updateValue}:IProps) => {
+export const Slider = ({value, updateValue, minValue, maxValue, step}:IProps) => {
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         updateValue(Number(e.target.value))
     }
@@ -15,9 +18,9 @@ export const Slider = ({value, updateValue}:IProps) => {
         <input
             className={css.slider}
             type="range"
-            step={5}
-            min={0}
-            max={1000}
+            step={step}
+            min={minValue}
+            max={maxValue}
             value={value}
             onChange={handleChange} 
         />
