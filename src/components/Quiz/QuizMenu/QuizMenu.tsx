@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../../layouts/Header/Header";
-import { Select, Option } from "../../InputTypes/Select";
+import { Select, Option } from "../../UI/Select/Select";
 import css from "./QuizMenu.module.css";
 import { useQuiz } from "../../../hooks/useQuiz";
 import { Link, useNavigate } from "react-router-dom";

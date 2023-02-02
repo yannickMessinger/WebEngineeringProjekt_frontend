@@ -1,0 +1,43 @@
+.title {
+    color: #ffe81f;
+    text-align: center;
+}
+
+.score {
+    color: white;
+}
+
+.Icon {
+    perspective: 1000px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    animation: spin 3s linear infinite;
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.front {
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}

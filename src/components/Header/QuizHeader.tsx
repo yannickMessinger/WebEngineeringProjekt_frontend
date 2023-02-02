@@ -4,9 +4,10 @@ import css from "./QuizHeader.module.css";
 import { useUser } from "../../hooks/useUser";
 import { text } from "stream/consumers";
 
-export const QuizHeader = () => {
-  const { score } = useUser();
-
+interface IProps{
+  score:number
+}
+export const QuizHeader = ({score}:IProps) => {
   return (
     <>
     <div className={css.info}>

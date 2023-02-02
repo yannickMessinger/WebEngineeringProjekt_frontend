@@ -5,12 +5,16 @@ export const useUser = () => {
     const [username, setUsername] = useState("");
     const [score, setScore] = useState(0);
 
+    const updateScore = (points:number) => {
+        setScore(score + points)
+    }
+
     return {
         loggedIn,
         setLoggedIn,
         username,
         setUsername,
         score,
-        setScore,
+        updateScore,
     }
 }
