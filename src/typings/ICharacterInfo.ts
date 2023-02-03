@@ -1,12 +1,12 @@
 export interface ICharacterInfo{
     
-        name:string
-        birth_year:string
-        eye_color:string,
-        hair_color:string,
-        height:string,
-        homeworld:string,
-        skin_color:string,
+        name:string | undefined
+        birth_year:string | undefined
+        eye_color:string |undefined
+        hair_color:string | undefined
+        height:string | undefined
+        homeworld:string | undefined
+        skin_color:string | undefined
         
       
 }

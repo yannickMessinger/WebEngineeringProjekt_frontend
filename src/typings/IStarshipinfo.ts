@@ -1,4 +1,4 @@
-export interface StarshipInfoProps{
+export interface StarshipInfo{
     name:string,
     model:string,
     manufacturer:string,

@@ -9,7 +9,7 @@ export const ButtonBox = () => {
 
   return (
     <div className={css.buttonbox}>
-    <button className={css.startbutton} onClick = {() => {fetchCharInfo()}}>GO</button>
+    <Link to={`/charinfo`}><button className={css.startbutton} onClick = {() => {fetchCharInfo()}}>GO</button></Link>
   </div>
   )
 }

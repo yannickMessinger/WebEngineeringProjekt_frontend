@@ -9,10 +9,8 @@ import { Quiz } from "./pages/Quiz";
 //import './App.css';
 import { SignUp } from "./pages/SignUp/SignUp";
 import { CharacterChoiceNew } from "./pages/CharacterCoice/CharacterChoice";
-import { CharacterChoice } from "./components/SignUp/CharacterChoiceDisplay/CharacterChoiceDisplay";
-import { SideChoice } from "./components/SignUp/SideChoice/SideChoice";
 import { CharacterContextProvider } from "./context/CharacterContext";
-import { CharacterInfo } from "./components/CharacterInfo/CharacterInfo";
+import { CharacterInfoFetchWrapper } from "./components/CharacterInfo/Wrapper/CharacterInfoFetchWrapper";
 
 function App() {
   return (
@@ -20,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/charinfo" element ={<CharacterInfoFetchWrapper/>}/>
       </Routes>
       <CharacterContextProvider>
         <CharacterChoiceNew></CharacterChoiceNew>
