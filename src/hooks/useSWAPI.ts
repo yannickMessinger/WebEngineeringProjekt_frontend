@@ -9,6 +9,7 @@ import { StarshipInfo } from '../typings/IStarshipinfo';
 export const useSWAPI = () => {
   
     const [charInfo, setCharInfo] = useState<ICharacterInfo>()
+    const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>()
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const { returnCharacter } = useContext(CharacterContext);

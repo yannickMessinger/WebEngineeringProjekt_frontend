@@ -13,13 +13,7 @@ export const CharacterChoice = () => {
   
   const [toggleChar, setToggleChar] = useState(false);
 
-  const handleTogglePicture = () => {
-    setToggleChar(!toggleChar);
-
-    if (toggleChar) {
-      console.log("grünen Rahmen anzeigen");
-    }
-  };
+  
 
   return (
     <div className={css.choosechar}>
@@ -31,7 +25,7 @@ export const CharacterChoice = () => {
         className={`${css.characterDisplay} ${
           toggleChar ? css.characterDisplayToggle : css.characterDisplay
         }`}
-        onClick={() => handleTogglePicture()}
+        
       >
         <Character
           swapi_id={returnCharacter().swapi_id}

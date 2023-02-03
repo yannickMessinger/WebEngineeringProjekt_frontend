@@ -1,4 +1,4 @@
-import React, {useMemo, useState } from "react";
+import React, {useEffect, useMemo, useState } from "react";
 import { ICharacter } from "../typings/ICharacter";
 import {side} from "../typings/ESide"
 
@@ -20,22 +20,23 @@ interface CharacterContextProps {
   charChoiceHandlerNext: () => void;
   charChoiceHandlerPrev: () => void;
   returnCharacter: () => ICharacter;
-  setFilterList:(filter:string) => string
-}
+  setDarkCharacters:() => void;
+  setLightCharacters:() => void;
+ }
 
 export const CharacterContext = React.createContext<CharacterContextProps>({
   charChoiceHandlerNext: () => {},
   charChoiceHandlerPrev: () => {},
   returnCharacter: (): any => {},
-  setFilterList:():any => {}
+  setDarkCharacters:() => {},
+  setLightCharacters:() => {}
+ 
 });
 
 export function CharacterContextProvider({ children }: any) {
   const [charPicPath, setCharPicPath] = useState(yoda);
   const [charIndex, setCharIndex] = useState(0);
-  //const [charList, setCharlist] = useState(Array<ICharacter>)
-
-  let characterList: Array<ICharacter> = [
+  const charList: Array<ICharacter> = [
     { name: "Yoda", img_path: yoda, side: side.LIGHT},
     { name: "C-3PO",  img_path: c3po,side: side.LIGHT},
     { name: "R2-D2", img_path: r2, side:side.LIGHT},
@@ -51,14 +52,30 @@ export function CharacterContextProvider({ children }: any) {
     {name:"Obi Wan Kenobi", img_path:obiwan, side:side.LIGHT}
   ];
 
-  //setCharlist(characterList)
-  //console.log(characterList)
+  
 
-  const lightCharsList:Array<ICharacter> = characterList.filter((char) =>{
+
+  const [characterList, setCharacterlist] = useState(charList)
+  
+  function setDarkCharacters():void{
+    
+    const newList = darkCharsList
+    setCharacterlist(newList)
+    setCharIndex(0)
+  }
+
+  function setLightCharacters():void{
+   
+    const newList = lightCharsList
+    setCharacterlist(newList)
+    setCharIndex(0)
+  }
+
+  const lightCharsList:Array<ICharacter> = charList.filter((char) =>{
     return char.side === side.LIGHT
   })
 
-  const darkCharsList:Array<ICharacter>  = characterList.filter((char) =>{
+  const darkCharsList:Array<ICharacter>  = charList.filter((char) =>{
     return char.side === side.DARK
   })
 
@@ -77,31 +94,14 @@ export function CharacterContextProvider({ children }: any) {
 
       return;
     }
-    setCharIndex((prevCharIndex) => prevCharIndex - 1);
+    setCharIndex((prevCharIndex) => (prevCharIndex - 1));
   };
 
   function returnCharacter(): ICharacter{
     return characterList[charIndex];
   };
 
-  function setFilterList(filter:string):string{
-    
-    if(filter === "light"){
-      console.log("filtere nach light side")
-      characterList = characterList.filter((char) =>{
-        return char.side === side.LIGHT
-      })
-      //console.log(characterList)
-    }else if(filter === "dark"){
-      console.log("filtere nach dark side")
-      characterList = characterList.filter((char) =>{
-        return char.side === side.DARK
-      })
-      //console.log(characterList)
-    }
-
-    return "error"
-  }
+  
 
 
   
@@ -111,9 +111,10 @@ export function CharacterContextProvider({ children }: any) {
       charChoiceHandlerNext,
       charChoiceHandlerPrev,
       returnCharacter,
-      setFilterList
+      setDarkCharacters,
+      setLightCharacters
     }),
-    [charChoiceHandlerNext, charChoiceHandlerPrev,returnCharacter,setFilterList]
+    [charChoiceHandlerNext,charChoiceHandlerPrev,returnCharacter, setLightCharacters,setDarkCharacters]
   );
 
   // wrap the context around all children

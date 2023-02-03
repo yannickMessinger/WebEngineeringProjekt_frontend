@@ -14,16 +14,19 @@ import { CharacterInfoFetchWrapper } from "./components/CharacterInfo/Wrapper/Ch
 
 function App() {
   return (
+    <CharacterContextProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<CharacterChoiceNew />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/charinfo" element ={<CharacterInfoFetchWrapper/>}/>
+        
       </Routes>
-      <CharacterContextProvider>
-        <CharacterChoiceNew></CharacterChoiceNew>
-      </CharacterContextProvider>
+      
+       
+      
     </BrowserRouter>
+  </CharacterContextProvider>
   );
 }
 

@@ -1,7 +1,6 @@
 .switchtheme {
     display: flex;
     justify-content: space-around;
-    /*background-color: coral;*/
     grid-area: 2 / 1 / 3 / 2;
  }
 
