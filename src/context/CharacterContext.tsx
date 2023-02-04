@@ -34,7 +34,7 @@ export const CharacterContext = React.createContext<CharacterContextProps>({
 });
 
 export function CharacterContextProvider({ children }: any) {
-  const [charPicPath, setCharPicPath] = useState(yoda);
+  
   const [charIndex, setCharIndex] = useState(0);
   const charList: Array<ICharacter> = [
     { name: "Yoda", img_path: yoda, side: side.LIGHT, validationErrorMsg:"correcting alle errors you must!"},
