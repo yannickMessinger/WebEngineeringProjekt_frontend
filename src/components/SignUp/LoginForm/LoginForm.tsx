@@ -14,11 +14,11 @@ export const LoginForm = () => {
   // ggf doch lieber auf Form ändern?
   const {returnCharacter} = useContext(CharacterContext)
 
-  const firstName = useRef("");
-  const lastName = useRef("");
-  const birthday = useRef("")
-  const adress = useRef("");
-  const phoneNumber = useRef("")
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [birthday, setBirthday] = useState("")
+  const [adress, setAdress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("")
   const [formErrors, setFormErrors] = useState({firstName:"", lastName:"",phoneNumber:"", birthday:"", adress:""});
 
   
@@ -30,23 +30,23 @@ export const LoginForm = () => {
     event.preventDefault();
     const errors = {firstName:"", lastName:"",phoneNumber:"", birthday:"",adress:""};
     
-    if(firstName.current === ''){
+    if(firstName === ''){
       errors.firstName = "kaa leere vorname";
     }
 
-    if(lastName.current === ''){
+    if(lastName === ''){
       errors.lastName = "kaa leere nachname";
     }
 
-    if(phoneNumber.current === ''){
+    if(phoneNumber === ''){
       errors.phoneNumber = "kaa leere nummä";
     }
 
-    if(birthday.current === ''){
+    if(birthday === ''){
       errors.birthday = "kaa leere geboortsdaach";
     }
 
-    if(adress.current === ''){
+    if(adress === ''){
       errors.adress ="kaa leere Adress"
     }
 
@@ -72,27 +72,27 @@ export const LoginForm = () => {
         <div className={css.logininputfields}>
 
           <div className={css.firstname}>
-          <StyledFormInput  value={firstName.current} type ={'text'} classname={css.styledinput} placeholder={'firstname'}></StyledFormInput>
+          <StyledFormInput value={firstName}  onchange = {setFirstName} type ={'text'} classname={css.styledinput} placeholder={'firstname'}></StyledFormInput>
           {formErrors.firstName && <FormError name = {formErrors.firstName}></FormError>}  
           </div>
 
           <div className={css.lastname}>
-          <StyledFormInput  value={lastName.current} type ={'text'} classname={css.styledinput} placeholder={'lastname'}></StyledFormInput>
+          <StyledFormInput   value={lastName}  onchange = {setLastName} type ={'text'} classname={css.styledinput} placeholder={'lastname'}></StyledFormInput>
           {formErrors.lastName && <FormError name = {formErrors.lastName}></FormError>} 
           </div>
 
           <div className={css.birthday}>
-          <StyledFormInput  value={birthday.current} type ={'date'} classname={css.styledinput} placeholder={'birthday'}></StyledFormInput>
+          <StyledFormInput  value={birthday}  onchange = {setBirthday} type ={'date'} classname={css.styledinput} placeholder={'birthday'}></StyledFormInput>
           {formErrors.birthday && <FormError name = {formErrors.birthday}></FormError>} 
           </div>
 
           <div className={css.adress}>
-          <StyledFormInput  value={adress.current} type ={'text'} classname={css.styledinput} placeholder={'adress'}></StyledFormInput>
+          <StyledFormInput  value={adress}  onchange = {setAdress} type ={'text'} classname={css.styledinput} placeholder={'adress'}></StyledFormInput>
           {formErrors.adress && <FormError name = {formErrors.adress}></FormError>} 
           </div>
 
           <div className={css.phonenumber}>
-          <StyledFormInput  value={phoneNumber.current} type ={'text'} classname={css.styledinput} placeholder={'phonenumber'}></StyledFormInput>
+          <StyledFormInput  value={phoneNumber}  onchange = {setPhoneNumber} type ={'text'} classname={css.styledinput} placeholder={'phonenumber'}></StyledFormInput>
           {formErrors.phoneNumber && <FormError name = {formErrors.phoneNumber}></FormError>} 
           </div>
         </div>

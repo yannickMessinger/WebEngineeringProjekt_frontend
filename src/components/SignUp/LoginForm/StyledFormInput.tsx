@@ -3,7 +3,7 @@ import Styling from "./Input.module.css";
 
 interface FormInputProps {
   value: string | number;
-  onchange?: Dispatch<SetStateAction<string>>;
+  onchange: Dispatch<SetStateAction<string>>;
   type: string;
   classname: string;
   placeholder: string;
