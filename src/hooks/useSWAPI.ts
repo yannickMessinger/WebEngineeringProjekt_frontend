@@ -14,6 +14,8 @@ export const useSWAPI = () => {
     const [loading, setLoading] = useState(false);
     const { returnCharacter } = useContext(CharacterContext);
   
+    //const controller = new AbortController() nutzen?
+
     useEffect(() => {
       setError(false);
       setLoading(true);
