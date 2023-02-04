@@ -1,8 +1,6 @@
-import React, { ChangeEvent, Dispatch, FormEvent, SetStateAction, useEffect, useState } from "react";
+import React, { ChangeEvent, Dispatch, FormEvent, SetStateAction, useState } from "react";
 import css from "./Searchbar.module.css"
-import icon from "../../assets/icons/search_icon.png"
-import { useWeather } from "../../hooks/useWeather";
-
+import icon from "../../../assets/icons/search_icon.png"
 
 interface SearchbarProps {
     setLocation: Dispatch<SetStateAction<string>> ; 

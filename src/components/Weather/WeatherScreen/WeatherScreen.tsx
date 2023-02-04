@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useWeather } from "../../hooks/useWeather";
-import { Searchbar } from "../Searchbar/Searchbar";
+import { useWeather } from "../../../hooks/useWeather";
+import { Searchbar } from "../../UI/Searchbar/Searchbar";
 import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
 import { WeatherForecast } from "../WeatherForecast/WeatherForecast";
 import { WeatherPlanet } from "../WeatherPlanet/WeatherPlanet";
