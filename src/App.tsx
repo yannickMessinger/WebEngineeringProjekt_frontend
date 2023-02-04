@@ -1,25 +1,27 @@
 import React from "react";
 import "./App.css";
-import { Question } from "./components/Quiz/Question/Question";
-import { IAnswer } from "./components/Quiz/Answer/IAnswer";
-import { Header } from "./layouts/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
-//import './App.css';
 import { SignUp } from "./pages/SignUp/SignUp";
 import { QuizMenu } from "./components/Quiz/QuizMenu/QuizMenu";
+import { Weather } from './pages/Weather';
 
 function App() {
   return (
+    <>
+    <div className="App">
+    </div>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<QuizMenu />} />
+        <Route path='/' element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/quiz" element={<QuizMenu />} />
         <Route path="/quiz/play" element={<Quiz />} />
+        <Route path='/weather' element={<Weather />} />
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
