@@ -1,4 +1,4 @@
-import {side} from "../../typings/ESide"
+import {side} from "../../../../typings/ESide"
 
 
 interface SideProps{

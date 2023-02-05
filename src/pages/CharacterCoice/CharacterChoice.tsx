@@ -3,12 +3,12 @@ import css from "./Choice.module.css";
 
 
 
-import { CharacterChoice } from "../../components/SignUp/CharacterChoiceDisplay/CharacterChoiceDisplay";
-import { SideChoice } from "../../components/SignUp/SideChoice/SideChoice";
-import { TopLogo } from "../../components/SignUp/TopLogo/TopLogo";
-import { ButtonBox } from "../../components/SignUp/BottomButtonBox/ButtonBox";
+import { CharacterChoiceDisplay } from "../../components/Character/CharacterChoiceDisplay/CharacterChoiceDisplay";
+import { LightDarkSideChoice} from "../../components/Character/LightDarkSideChoice/LightDarkSideChoice";
+import { TopLogo } from "../../components/Character/TopLogo/TopLogo";
+import { ButtonBox } from "../../components/Character/BottomButtonBox/ButtonBox";
 
-export const CharacterChoiceNew = () => {
+export const CharacterChoice = () => {
  
 
  
@@ -22,11 +22,11 @@ export const CharacterChoiceNew = () => {
           </div>
 
           <div >
-            <SideChoice/>
+            <LightDarkSideChoice/>
           </div>
 
           <div>
-            <CharacterChoice/>
+            <CharacterChoiceDisplay/>
           </div>
 
           <div>

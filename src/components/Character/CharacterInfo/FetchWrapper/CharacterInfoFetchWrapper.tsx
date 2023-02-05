@@ -1,5 +1,5 @@
 import React from "react";
-import { useSWAPI } from "../../../hooks/useSWAPI";
+import { useSWAPI } from "../../../../hooks/useSWAPI";
 import { CharacterInfo } from "../CharacterInfo";
 import css from "./CharacterInfoWrapperStyle.module.css";
 

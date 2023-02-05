@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import css from "./Loginform.module.css";
-import { CharacterContext } from "../../../context/CharacterContext";
+import { CharacterContext } from "../../context/CharacterContext";
 import { Link } from "react-router-dom";
 import { StyledFormInput } from "./StyledFormInput";
 import { FormError } from "./FormError";
-import saberhandle from "../../../assets/saber.png";
+import saberhandle from "../../assets/saber.png";
 
 export const LoginForm = () => {
   // TODO: Groesse des Bildes anpasse

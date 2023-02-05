@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICharacterInfo } from '../../typings/ICharacterInfo';
+import { ICharacterInfo } from '../../../typings/ICharacterInfo';
 
 interface CharInfoProps{
   charInfo: ICharacterInfo | undefined

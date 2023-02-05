@@ -1,14 +1,10 @@
 import React, { useContext, useState } from "react";
-import css from "./CharacterChoice.module.css";
+import css from "./CharacterChoiceDisplay.module.css";
 import { CharacterContext } from "../../../context/CharacterContext";
-
-import yoda from "../../../assets/yoda_fly.png";
-import boba from "../../../assets/boba.png";
-import darthvader from "../../../assets/darth_vader.png";
-import { Character } from "../Character/Character";
+import { Character } from "../CharacterPicture/CharacterPicture";
 
 
-export const CharacterChoice = () => {
+export const CharacterChoiceDisplay= () => {
   const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterContext);
   
   const [toggleChar, setToggleChar] = useState(false);
