@@ -8,7 +8,49 @@
     right: 20px;
     bottom: 15px;
     gap: 15px;
+}
 
+
+.Element {
+    background-color:rgba(255, 255, 255, 0.55);
+    min-width:10%;
+    flex: auto;
+    height : 100% ; 
+    width : 280px ; 
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    border-width: 3px;
+    border-style: solid;
+    border-color: transparent;
+
+    
+}
+
+.ElementSelected {
+    background-color:rgba(255, 255, 255, 0.55);
+    min-width:10%;
+    flex: auto;
+    height : 100% ; 
+    width : 280px ; 
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.BackToCurrentWeather {
+    position: fixed;
+    left: 30px;
+    right: 0px;
+    bottom: 250px;
+    font-size: xx-large;
 
 }
 
+.showCurrentWeatherButton{
+    background: transparent;
+    
+    font-size: 20px;
+
+
+}

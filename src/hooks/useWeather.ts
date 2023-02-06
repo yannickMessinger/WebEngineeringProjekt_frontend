@@ -1,12 +1,19 @@
 import { url } from "inspector";
 import { useEffect, useState } from "react"
 
+export enum WeatherMode {
+    FORECAST = 'Vorhersage',
+    CURRENT = 'Akutelles Wetter'
+};
 
 export const useWeather = () => {
+
+
     const [location, setLocation] = useState("");
     const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: {description: "", image: ""} });
     const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weathercode: [], windspeed: [] });
     const [starWarsPlanet, setStarWarsPlanet] = useState("default");
+    const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT); 
     const API_KEY = "79a9ad1cd477e4c6265d4b1882c856b0";
     const BASE_WEATHER_ENCODING_URL = "https://api.openweathermap.org";
     const GEO_ENCODING_RELATIVE_URL = "/geo/1.0/direct";
@@ -63,6 +70,7 @@ export const useWeather = () => {
                 decideStarWarsPlanet(parseInt(weatherDataObj.temp));
                 setWeatherData(weatherDataObj);
                 buildForecastObject(obj.daily);
+                setWeatherMode(WeatherMode.CURRENT)
             })
             .catch((err) => {
                 console.log(err);
@@ -98,6 +106,13 @@ export const useWeather = () => {
         console.log(weatherDescriptions);
         const weatherDataObjForecast = { tempMax: dailyForecast.apparent_temperature_max, tempMin: dailyForecast.apparent_temperature_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
         setWeatherDataForecast(weatherDataObjForecast);
+    }
+
+    function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) {
+        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2)+ "°C", weatherDescription: weathercode};
+        decideStarWarsPlanet((tempMin + tempMax) / 2);
+        setWeatherData(weatherDataObj);
+        setWeatherMode(WeatherMode.FORECAST)
     }
 
     function initializeWeatherCodeMap() {
@@ -158,7 +173,9 @@ export const useWeather = () => {
         fetchCoordinates,
         weatherData,
         starWarsPlanet,
-        weatherDataForecast
+        weatherDataForecast,
+        fillWeatherDataWithForecast,
+        weatherMode
     }
 
 }

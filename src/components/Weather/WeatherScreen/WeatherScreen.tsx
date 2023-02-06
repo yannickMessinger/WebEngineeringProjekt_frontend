@@ -11,7 +11,7 @@ export const WeatherScreen = () => {
     let weatherLocation;
     let weatherForecast;
     let weatherDescription;
-    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet, weatherDataForecast } = useWeather();
+    const { location, setLocation, fetchCoordinates, weatherData, starWarsPlanet, weatherDataForecast, fillWeatherDataWithForecast, weatherMode } = useWeather();
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
 
@@ -28,7 +28,7 @@ export const WeatherScreen = () => {
 
     if (starWarsPlanet !== "noPlanet" && starWarsPlanet !== "default") {
         weatherLocation = <span>{weatherData.location} </span>;
-        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} />;
+        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchCoordinates={fetchCoordinates} weatherMode={weatherMode} />;
         weatherDescription = <WeatherDescription weatherData={weatherData} />;
     } else {
         weatherLocation = <span></span>;

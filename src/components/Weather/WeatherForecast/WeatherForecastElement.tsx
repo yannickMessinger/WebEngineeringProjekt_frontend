@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
+import ReactDOM from "react-dom";
 import css from "./WeatherForecastElement.module.css"
 
 interface WeatherForecastElementProps {
@@ -8,11 +9,11 @@ interface WeatherForecastElementProps {
     description: {description: string, image: string },
 }
 
-export const WeatherForecastElement: React.FunctionComponent<WeatherForecastElementProps> = ({ tempMax, tempMin, time, description }) => {
 
+export const WeatherForecastElement: React.FunctionComponent<WeatherForecastElementProps> = ({ tempMax, tempMin, time, description }) => {
     return (
         <>
-            <div className={css.Element}>
+            <div>
                 <div className={css.Date} >
                     {time}
                 </div>

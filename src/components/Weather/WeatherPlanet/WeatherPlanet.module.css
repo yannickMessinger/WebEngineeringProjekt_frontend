@@ -2,18 +2,15 @@
 
 .Like {
     font-size: xx-large;
-    font-weight: bold;
 }
 
 .PlanetName {
     font-size: 100px;
-    font-weight: bolder;
 }
 
 
 .InitialStatement {
     font-size: xx-large;
-    font-weight: bolder;
     text-align: center;
     color: rgb(255, 232, 31);
 }
