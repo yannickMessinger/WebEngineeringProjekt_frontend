@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CharInfoLoadingScreen = () => {
+export const CharInfoTransisitonScreen = () => {
   return (
     <div>CharInfoLoadingScreen</div>
   )

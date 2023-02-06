@@ -11,7 +11,8 @@ import { SignUp } from "./pages/SignUp/SignUp";
 import { CharacterChoice } from "./pages/CharacterCoice/CharacterChoice";
 import { CharacterContextProvider } from "./context/CharacterContext";
 import { CharacterInfoFetchWrapper } from "./components/Character/CharacterInfo/FetchWrapper/CharacterInfoFetchWrapper";
-import { LoginForm } from "./components/LoginForm/LoginForm";
+import { LoginForm } from "./components/LoginForm/Form/LoginForm";
+import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/" element={<CharacterChoice />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/charinfo" element ={<CharacterInfoFetchWrapper/>}/>
-        <Route path="/signup" element={<LoginForm/>} />
+        <Route path="/signup" element={<LoginFormRework/>} />
       </Routes>
       
        

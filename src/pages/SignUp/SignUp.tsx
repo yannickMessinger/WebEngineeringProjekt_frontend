@@ -1,6 +1,6 @@
 import React from 'react'
 import {CharacterChoiceDisplay} from '../../components/Character/CharacterChoiceDisplay/CharacterChoiceDisplay';
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { LoginForm } from '../../components/LoginForm/Form/LoginForm';
 import './signUpStyle.css';
 
 export const SignUp = () => {

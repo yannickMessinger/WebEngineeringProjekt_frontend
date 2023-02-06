@@ -1,0 +1,14 @@
+.frame{
+    display: flex;
+    justify-content: center;
+    width:150px;
+    height:150px;
+    border-radius: 25px;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgb(85, 84, 84) 100%, rgba(167,167,167,1) 100%);
+}
+
+.login_character_img{
+    max-width:100%;
+    max-height:100%;
+    object-fit: contain;
+}
