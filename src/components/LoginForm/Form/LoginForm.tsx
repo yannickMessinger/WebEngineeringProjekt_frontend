@@ -65,7 +65,9 @@ export const LoginForm = () => {
         </div>
       </div>
       <div className={css.login_main}>
+        
         <div className={css.first_name}>
+          {/*<label className={css.styledInputLabel}>firstname</label>*/}
           <StyledFormInput
             value={firstName}
             onchange={setFirstName}
@@ -79,6 +81,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.last_name}>
+        {/*<label className={css.styledInputLabel}>lastname</label>*/}
           <StyledFormInput
             value={lastName}
             onchange={setLastName}
@@ -92,6 +95,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.birthday}>
+        {/*<label className={css.styledInputLabel}>birthday</label>*/}
           <StyledFormInput
             value={birthday}
             onchange={setBirthday}
@@ -105,6 +109,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.adress}>
+        {/*<label className={css.styledInputLabel}>adress</label>*/}
           <StyledFormInput
             value={adress}
             onchange={setAdress}
@@ -118,6 +123,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.phone_number}>
+        {/*<label className={css.styledInputLabel}>phonenumber</label>*/}
         <StyledFormInput
               value={phoneNumber}
               onchange={setPhoneNumber}
