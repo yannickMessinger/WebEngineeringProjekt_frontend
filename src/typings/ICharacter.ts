@@ -6,5 +6,6 @@ export interface ICharacter {
     img_path: string,
     side?:side
     validationErrorMsg?:string
+    login_img_path?:string
 }
   
