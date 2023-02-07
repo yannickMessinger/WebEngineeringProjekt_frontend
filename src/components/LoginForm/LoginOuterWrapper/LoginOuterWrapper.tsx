@@ -4,11 +4,13 @@ import css from "./LoginOuterWrapperStyle.module.css"
 import lightsaber_green from "../../../assets/assets_login_screen/lightsaber_green.png"
 import lightsaber_red from "../../../assets/assets_login_screen/lightsaber_red.png"
 import { CharacterContext } from '../../../context/CharacterContext'
-import Background from '../../../assets/assets_login_screen/bosk1.jpg';
+
 
 export const LoginFormRework = () => {
 
-  //TODO: FormStyle dynamisch zum background
+  //TODO: FormStyle dynamisch zum background, Formstyle anspassen
+  //TODO: Background bilde vllt noch verbessern / anpassen
+  //Transition Screen mit Übergang zur Info Seite
   const { returnCharacter } = useContext(CharacterContext);
   
   const imgStyles = {
@@ -20,13 +22,13 @@ export const LoginFormRework = () => {
     backgroundRepeat: 'no-repeat'
   }
 
-
+//hier auch noch style variabel durchgeben je nach character
   return (
     <div className={css.outerWrapper} style={imgStyles}>
       <div className={css.saber_left}>
         <img src={lightsaber_green}></img></div>
       <div className={css.login_form}>
-        <LoginForm/></div>
+        <LoginForm loginFormStyle={returnCharacter().loginStyle!} /></div>
       <div className={css.saber_right}>
         <img src={lightsaber_red}></img></div>
     </div>

@@ -5,7 +5,14 @@ import { StyledFormInput } from "./FormInput/StyledFormInput";
 import css from "./LoginFormStyle.module.css";
 import { LoginPictureFrame } from "./LoginPictureFrame/LoginPictureFrame";
 
-export const LoginForm = () => {
+
+interface  LoginStyleProps{
+  loginFormStyle:{background:string}
+}
+
+export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
+  
+  
   //bild evtl besser per css anpassen mit width auto
   const { returnCharacter } = useContext(CharacterContext);
 
@@ -57,7 +64,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className={css.loginForm}>
+    <div className={css.loginForm} style={loginFormStyle}>
       <div className={css.login_header}>
         <p>Welcome</p>
         <div>
@@ -115,7 +122,7 @@ export const LoginForm = () => {
             onchange={setAdress}
             type={"text"}
             classname={css.styledinput}
-            placeholder={"adress"}
+            placeholder={"emailadress"}
           ></StyledFormInput>
           {formErrors.adress && (
             <FormError name={formErrors.adress}></FormError>
@@ -137,7 +144,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.submit_button}>
-        <button
+        <button style={returnCharacter().button_style}
             onClick={(e) => {
               validateFormData(e);
             }}

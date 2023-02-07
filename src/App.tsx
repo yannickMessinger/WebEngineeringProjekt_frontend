@@ -7,11 +7,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
 //import './App.css';
-import { SignUp } from "./pages/SignUp/SignUp";
 import { CharacterChoice } from "./pages/CharacterCoice/CharacterChoice";
 import { CharacterContextProvider } from "./context/CharacterContext";
 import { CharacterInfoFetchWrapper } from "./components/Character/CharacterInfo/FetchWrapper/CharacterInfoFetchWrapper";
-import { LoginForm } from "./components/LoginForm/Form/LoginForm";
 import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 
 function App() {
