@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Starjedi';
+    src: local('Starjedi'), url(../../../fonts/Starjedi/Starjedi.ttf) format('truetype');
+  }
+
 .buttonbox { 
     display: flex;
     justify-content: center;
@@ -6,6 +11,7 @@
  }
 
  .startbutton{
+  font-family: Starjedi;
   margin-top: 3%;
   width:350px;
   height:50px;
@@ -19,3 +25,5 @@
   display: inline-block;
   font-size: 16px;
  }
+
+ 

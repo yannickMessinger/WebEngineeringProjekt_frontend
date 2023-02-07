@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import Styling from "./Input.module.css";
+import css from "./FormErrorStyle.module.css"
 
 interface FormInputProps {
   value: string | number;

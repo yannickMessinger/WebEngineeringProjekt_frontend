@@ -7,7 +7,7 @@ interface errorProps {
 export const FormError = ({ name }: errorProps) => {
   return (
     <>
-      <strong style={{ color: "red" }}>{name}</strong>
+      <strong style={{ color: "red",paddingLeft:'5%' }}>{name}</strong>
     </>
   );
 };

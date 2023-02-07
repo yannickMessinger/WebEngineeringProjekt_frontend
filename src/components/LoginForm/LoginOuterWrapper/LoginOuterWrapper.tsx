@@ -8,8 +8,10 @@ import { CharacterContext } from '../../../context/CharacterContext'
 
 export const LoginFormRework = () => {
 
-  //TODO: FormStyle dynamisch zum background, Formstyle anspassen
   //TODO: Background bilde vllt noch verbessern / anpassen
+  //TODO: Farbverlauf weiter nach unten um Schirft besser lesbar zu machen
+  //TODO: Schriftfarbe bei hellen Hintergründen mit mehr Kontrast auf dunkel setzen
+  
   //Transition Screen mit Übergang zur Info Seite
   const { returnCharacter } = useContext(CharacterContext);
   
