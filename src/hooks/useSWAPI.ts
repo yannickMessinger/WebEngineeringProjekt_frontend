@@ -3,8 +3,7 @@ import { CharacterContext } from '../context/CharacterContext';
 import { ICharacterInfo } from '../typings/ICharacterInfo';
 import { StarshipInfo } from '../typings/IStarshipInfo';
 
-//brauche noch zweiten fetch falls notwneige Daten für Home Planet oder Straship nötig sind
-//ladescreen,error etc hinzufügen
+
 
 export const useSWAPI = () => {
   

@@ -19,7 +19,7 @@ export const CharacterInfoFetchWrapper = () => {
       {loading ? (
         <h4>loading</h4>
       ) : (
-        <CharacterInfo charInfo={charInfo} />
+        <CharacterInfo charInfo={charInfo} shipInfo={undefined} />
       )}
     </div>
   );

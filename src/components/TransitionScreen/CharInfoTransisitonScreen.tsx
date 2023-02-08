@@ -18,7 +18,7 @@ export const CharInfoTransisitonScreen = () => {
           <img src={xwing} width='50px' height='50px'/>
       </div>
       ) : (
-        <CharacterInfo charInfo={charInfo} />
+        <CharacterInfo charInfo={charInfo} shipInfo={starshipInfo}/>
       )}
       
     </div>
