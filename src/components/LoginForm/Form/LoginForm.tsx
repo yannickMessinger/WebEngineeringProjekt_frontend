@@ -4,6 +4,7 @@ import { FormError } from "./FormInput/FormError";
 import { StyledFormInput } from "./FormInput/StyledFormInput";
 import css from "./LoginFormStyle.module.css";
 import { LoginPictureFrame } from "./LoginPictureFrame/LoginPictureFrame";
+import { useNavigate } from "react-router-dom";
 
 
 interface  LoginStyleProps{
@@ -28,6 +29,8 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
     birthday: "",
     adress: "",
   });
+
+  const navigate = useNavigate();
 
   const validateFormData = (event: any) => {
     //TODO Regex Expression nutzen für Validierung????
@@ -61,6 +64,13 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
     }
 
     setFormErrors(errors);
+    if(errors.firstName === "" && errors.lastName ==="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
+      navigate("/chartransition")
+    }else{
+      //hier error msg des jeweiligen charakters triggern?
+      console.log("error in login form")
+    }
+    
   };
 
   return (
