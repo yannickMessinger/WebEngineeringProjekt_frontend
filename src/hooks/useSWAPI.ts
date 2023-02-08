@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../context/CharacterContext';
 import { ICharacterInfo } from '../typings/ICharacterInfo';
-import { StarshipInfo } from '../typings/IStarshipinfo';
+import { StarshipInfo } from '../typings/IStarshipInfo';
 
 //brauche noch zweiten fetch falls notwneige Daten für Home Planet oder Straship nötig sind
 //ladescreen,error etc hinzufügen
@@ -16,27 +16,32 @@ export const useSWAPI = () => {
   
     //const controller = new AbortController() nutzen?
 
+    
     useEffect(() => {
       setError(false);
       setLoading(true);
       fetchCharInfo().then((result) => {
         setCharInfo(result);
       }).catch((e) => setError(e))
-      .finally(() => setLoading(false));
-    },[returnCharacter]);
-
+      .finally(() => {
+        setTimeout(() =>{
+          setLoading(false)
+        },10000)});
+    },[]);
+    
     
   
     return {
         fetchCharInfo,
         charInfo,
+        starshipInfo,
         error,
         loading
   }
 
   async function fetchCharInfo(): Promise<ICharacterInfo | undefined> {
     console.log("fetch Char Info from Swapi");
-   
+    
 
     const SWAPI_URL = `http://swapi.dev/api/people/?search=${returnCharacter().name}`;
   
@@ -45,14 +50,20 @@ export const useSWAPI = () => {
       
       if (!response.ok) {
         console.log("Error fetch swapi");
+       
         throw new Error(response.statusText);
       }
   
       const rawInfo = await response.json()
       const charInfo:ICharacterInfo = rawInfo.results[0]
+      if(charInfo.starships!.length > 0){
+        setStarShipInfo(await fetchStarShipInfo(charInfo.starships![0]))
+      }
      
       console.log(charInfo)
-  
+      
+      
+      
       return charInfo;
     } catch (error) {
       console.log(error);
@@ -67,9 +78,9 @@ export const useSWAPI = () => {
     }
   }
 
-  async function fetchStarShipInfo():Promise<StarshipInfo | undefined>{
-    let STARSHIP_URL = `value from first fetch`
-
+  async function fetchStarShipInfo(STARSHIP_URL:string):Promise<StarshipInfo | undefined>{
+   
+    
 
     try {
       const response = await fetch(STARSHIP_URL, { method: "GET" });
@@ -80,8 +91,10 @@ export const useSWAPI = () => {
       }
   
       const rawInfo = await response.json()
-      const starshipInfo:StarshipInfo = rawInfo.results[0]
-     
+      console.log(rawInfo)
+      const starshipInfo:StarshipInfo = rawInfo
+      
+
       console.log(starshipInfo)
   
       return starshipInfo

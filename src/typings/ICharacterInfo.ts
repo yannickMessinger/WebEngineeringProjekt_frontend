@@ -7,6 +7,7 @@ export interface ICharacterInfo{
         height:string | undefined
         homeworld:string | undefined
         skin_color:string | undefined
+        starships?:[string] | undefined
         
       
 }
