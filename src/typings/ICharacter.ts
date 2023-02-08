@@ -9,5 +9,6 @@ export interface ICharacter {
     login_img_path?:string
     loginStyle?:{background:string}
     button_style?:{background:string, color:string}
+    ship_img_path?:string
 }
   

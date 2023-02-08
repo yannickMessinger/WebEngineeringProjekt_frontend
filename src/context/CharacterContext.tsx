@@ -34,6 +34,29 @@ import vader_login from "../assets/assets_login_screen/vader_login.jpg";
 import windu1_login from "../assets/assets_login_screen/windu1.jpg";
 import windu2_login from "../assets/assets_login_screen/windu2.jpg";
 import yoda_login from "../assets/assets_login_screen/yoda.jpg";
+
+//pics for transition screen
+
+import yodasship from "../assets/shipassets/yodasship.png"
+import vadersship from "../assets/shipassets/vaderstie.png"
+import r2d2ship from "../assets/shipassets/r2andc3ship.png"
+import macewinduship from "../assets/shipassets/starfighter.png"
+import slave1 from "../assets/shipassets/slave1.png"
+import maulsship from "../assets/shipassets/maulship.png"
+import bossksship from "../assets/shipassets/bossksship2.png"
+import falcon from "../assets/shipassets/millfalcon.png"
+import ig88ship from "../assets/shipassets/ig88ship.png"
+import stardestroyer from "../assets/shipassets/sidiousship.png"
+import jarjarsship from "../assets/shipassets/jarjarship.png"
+import winduship from "../assets/shipassets/macewinduship.png"
+import starfighter from "../assets/shipassets/starfighter.png"
+
+
+
+
+
+
+
 interface CharacterContextProps {
   charChoiceHandlerNext: () => void;
   charChoiceHandlerPrev: () => void;
@@ -55,19 +78,19 @@ export function CharacterContextProvider({ children }: any) {
   
   const [charIndex, setCharIndex] = useState(0);
   const charList: Array<ICharacter> = [
-    { name: "Yoda", img_path: yoda, side: side.LIGHT, validationErrorMsg:"correcting alle errors you must!", login_img_path: yoda_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(9,69,6,1) 80%)'}},
-    { name: "C-3PO",  img_path: c3po,side: side.LIGHT, validationErrorMsg:"sir, please correct your input!", login_img_path: c3po_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(233,224,19,1) 80%)'}},
-    { name: "R2-D2", img_path: r2, side:side.LIGHT, validationErrorMsg:"beep boop beep error beep!", login_img_path:r2d2_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(19,34,233,1) 80%)'}},
-    { name: "Darth Vader", img_path: darth_vader, side: side.DARK, validationErrorMsg:"I find your lack of data disturbing!", login_img_path:vader_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}},
-    { name: "Boba Fett", img_path: boba,side:side.DARK, validationErrorMsg:"There is a bounty on every error!", login_img_path:boba_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(8,34,0,1) 80%)'}},
-    { name: "Darth Maul", img_path: darthmaul,side:side.DARK, validationErrorMsg:"errors will only lead to failure!", login_img_path:maul_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}},
-    {name:"Bossk", img_path:bossk, side: side.DARK, validationErrorMsg:"time to hunt errors!", login_img_path:bosk1_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(40,34,0,1) 80%)'}},
-    {name:"Han Solo", img_path:hanyolo, side: side.LIGHT, validationErrorMsg:"Never tell me the errors!", login_img_path:hansolo_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(163,157,112,1) 80%'}},
-    {name:"IG-88", img_path:ig88, side:side.DARK, validationErrorMsg:"He is no good to me with errors!", login_img_path:ig88_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(69,69,69,1) 80%)'}},
-    {name:"Palpatine", img_path:imperator, side: side.DARK, validationErrorMsg:"correct the errors now! DO IT!", login_img_path:sidious_login ,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'},button_style:{background:'red', color:'black'}},
-    {name:"Jar Jar Bink", img_path:jarajr, side:side.LIGHT, validationErrorMsg:"yousa musta correct the erroaa!", login_img_path:jarjar_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(172,108,3,1) 80%)'}},
-    {name:"Mace Windu", img_path:macewindu, side:side.LIGHT, validationErrorMsg:"this error is over!", login_img_path:windu1_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(46,24,0,1) 80%)'}},
-    {name:"Obi Wan Kenobi", img_path:obiwan, side:side.LIGHT, validationErrorMsg:"you were supposed to correct the errors, not create them!", login_img_path:obiwan_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(150,84,12,1) 80%)'}}
+    { name: "Yoda", img_path: yoda, side: side.LIGHT, validationErrorMsg:"correcting alle errors you must!", login_img_path: yoda_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(9,69,6,1) 80%)'}, ship_img_path:yodasship},
+    { name: "C-3PO",  img_path: c3po,side: side.LIGHT, validationErrorMsg:"sir, please correct your input!", login_img_path: c3po_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(233,224,19,1) 80%)'}, ship_img_path:r2d2ship},
+    { name: "R2-D2", img_path: r2, side:side.LIGHT, validationErrorMsg:"beep boop beep error beep!", login_img_path:r2d2_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(19,34,233,1) 80%)'}, ship_img_path:r2d2ship},
+    { name: "Darth Vader", img_path: darth_vader, side: side.DARK, validationErrorMsg:"I find your lack of data disturbing!", login_img_path:vader_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:vadersship},
+    { name: "Boba Fett", img_path: boba,side:side.DARK, validationErrorMsg:"There is a bounty on every error!", login_img_path:boba_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(8,34,0,1) 80%)'}, ship_img_path:slave1},
+    { name: "Darth Maul", img_path: darthmaul,side:side.DARK, validationErrorMsg:"errors will only lead to failure!", login_img_path:maul_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:maulsship},
+    {name:"Bossk", img_path:bossk, side: side.DARK, validationErrorMsg:"time to hunt errors!", login_img_path:bosk1_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(40,34,0,1) 80%)'},ship_img_path:bossksship},
+    {name:"Han Solo", img_path:hanyolo, side: side.LIGHT, validationErrorMsg:"Never tell me the errors!", login_img_path:hansolo_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(163,157,112,1) 80%'},ship_img_path:falcon},
+    {name:"IG-88", img_path:ig88, side:side.DARK, validationErrorMsg:"He is no good to me with errors!", login_img_path:ig88_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(69,69,69,1) 80%)'}, ship_img_path:ig88ship},
+    {name:"Palpatine", img_path:imperator, side: side.DARK, validationErrorMsg:"correct the errors now! DO IT!", login_img_path:sidious_login ,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'},button_style:{background:'red', color:'black'}, ship_img_path:stardestroyer},
+    {name:"Jar Jar Bink", img_path:jarajr, side:side.LIGHT, validationErrorMsg:"yousa musta correct the erroaa!", login_img_path:jarjar_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(172,108,3,1) 80%)'}, ship_img_path:jarjarsship},
+    {name:"Mace Windu", img_path:macewindu, side:side.LIGHT, validationErrorMsg:"this error is over!", login_img_path:windu1_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(46,24,0,1) 80%)'}, ship_img_path:winduship},
+    {name:"Obi Wan Kenobi", img_path:obiwan, side:side.LIGHT, validationErrorMsg:"you were supposed to correct the errors, not create them!", login_img_path:obiwan_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(150,84,12,1) 80%)'}, ship_img_path:starfighter}
   ];
 
   
