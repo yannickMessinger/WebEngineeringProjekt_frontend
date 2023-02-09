@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { CharacterContext } from "../../../context/CharacterContext";
-import { ICharacterInfo } from "../../../typings/ICharacterInfo";
+import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
+import { ICharacterInfo } from "../../../typings/CharacterInfo";
 import { PlanetInfo } from "../../../typings/IPlanetInfo";
 import { StarshipInfo } from "../../../typings/IStarshipInfo";
 import { CharacterInfoCard } from "../../CharacterInfo/CharacterInfoCard";
@@ -19,13 +19,13 @@ interface InfoProps {
 
 export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   
-  const {returnCharacter} = useContext(CharacterContext);
+  const {returnCharacter} = useContext(CharacterStylingContext);
   const infoWrapper = useRef<HTMLInputElement>(null);
   const planetInfoDisplayCard = useRef<HTMLInputElement>(null);
   const characterInfoDisplayCard = useRef<HTMLInputElement>(null);
   const shipInfoDisplayCard = useRef<HTMLInputElement>(null);
 
-  
+
 
   const infoCardList = [
     planetInfoDisplayCard,

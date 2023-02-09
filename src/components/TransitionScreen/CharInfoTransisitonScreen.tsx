@@ -3,14 +3,14 @@ import css from "./CharInfoTransitionScreenStyle.module.css"
 import xwing from "../../assets/shipassets/xwing.png"
 import { useSWAPI } from '../../hooks/useSWAPI';
 import { InfoDisplay } from '../Character/InfoDisplay/InfoDisplay';
-import { CharacterContext } from '../../context/CharacterContext';
+import { CharacterStylingContext } from '../../context/CharacterStylingContext';
 
 //hier ggf schon data fetchen für Character info??
 
 export const CharInfoTransisitonScreen = () => {
 
   const { charInfo, starshipInfo, loading, error} = useSWAPI();
-  const {returnCharacter } = useContext(CharacterContext);
+  const {returnCharacter } = useContext(CharacterStylingContext);
  
   
   return (

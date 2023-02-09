@@ -57,7 +57,7 @@ import starfighter from "../assets/shipassets/starfighter.png"
 
 
 
-interface CharacterContextProps {
+interface CharacterStylingContextProps {
   charChoiceHandlerNext: () => void;
   charChoiceHandlerPrev: () => void;
   returnCharacter: () => ICharacter;
@@ -65,7 +65,7 @@ interface CharacterContextProps {
   setLightCharacters:() => void;
  }
 
-export const CharacterContext = React.createContext<CharacterContextProps>({
+export const CharacterStylingContext = React.createContext<CharacterStylingContextProps>({
   charChoiceHandlerNext: () => {},
   charChoiceHandlerPrev: () => {},
   returnCharacter: (): any => {},
@@ -81,9 +81,9 @@ export function CharacterContextProvider({ children }: any) {
     { name: "Yoda", img_path: yoda, side: side.LIGHT, validationErrorMsg:"correcting alle errors you must!", login_img_path: yoda_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(9,69,6,1) 80%)'}, ship_img_path:yodasship, charInfoFrameColor:{r:9,g:69,b:6, a:1}},
     { name: "C-3PO",  img_path: c3po,side: side.LIGHT, validationErrorMsg:"sir, please correct your input!", login_img_path: c3po_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(233,224,19,1) 80%)'}, ship_img_path:r2d2ship,charInfoFrameColor:{r:233,g:224,b:19, a:1}},
     { name: "R2-D2", img_path: r2, side:side.LIGHT, validationErrorMsg:"beep boop beep error beep!", login_img_path:r2d2_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(19,34,233,1) 80%)'}, ship_img_path:r2d2ship,charInfoFrameColor:{r:19,g:34,b:233, a:1}},
-    { name: "Darth Vader", img_path: darth_vader, side: side.DARK, validationErrorMsg:"I find your lack of data disturbing!", login_img_path:vader_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:vadersship,charInfoFrameColor:{r:10,g:10,b:10, a:1}},
+    { name: "Darth Vader", img_path: darth_vader, side: side.DARK, validationErrorMsg:"I find your lack of data disturbing!", login_img_path:vader_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:vadersship,charInfoFrameColor:{r:255,g:0,b:0, a:1}},
     { name: "Boba Fett", img_path: boba,side:side.DARK, validationErrorMsg:"There is a bounty on every error!", login_img_path:boba_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(8,34,0,1) 80%)'}, ship_img_path:slave1,charInfoFrameColor:{r:8,g:34,b:0, a:1}},
-    { name: "Darth Maul", img_path: darthmaul,side:side.DARK, validationErrorMsg:"errors will only lead to failure!", login_img_path:maul_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:maulsship,charInfoFrameColor:{r:10,g:10,b:10, a:1}},
+    { name: "Darth Maul", img_path: darthmaul,side:side.DARK, validationErrorMsg:"errors will only lead to failure!", login_img_path:maul_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:maulsship,charInfoFrameColor:{r:255,g:0,b:0, a:1}},
     {name:"Bossk", img_path:bossk, side: side.DARK, validationErrorMsg:"time to hunt errors!", login_img_path:bosk1_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(40,34,0,1) 80%)'},ship_img_path:bossksship,charInfoFrameColor:{r:40,g:34,b:0, a:1}},
     {name:"Han Solo", img_path:hanyolo, side: side.LIGHT, validationErrorMsg:"Never tell me the errors!", login_img_path:hansolo_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(163,157,112,1) 80%'},ship_img_path:falcon,charInfoFrameColor:{r:163,g:157,b:112, a:1}},
     {name:"IG-88", img_path:ig88, side:side.DARK, validationErrorMsg:"He is no good to me with errors!", login_img_path:ig88_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(69,69,69,1) 80%)'}, ship_img_path:ig88ship,charInfoFrameColor:{r:69,g:69,b:69, a:1}},
@@ -160,8 +160,8 @@ export function CharacterContextProvider({ children }: any) {
 
   // wrap the context around all children
   return (
-    <CharacterContext.Provider value={value}>
+    <CharacterStylingContext.Provider value={value}>
       {children}
-    </CharacterContext.Provider>
+    </CharacterStylingContext.Provider>
   );
 }

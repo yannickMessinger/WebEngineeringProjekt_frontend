@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CharacterContext } from "../context/CharacterContext";
-import { ICharacterInfo } from "../typings/ICharacterInfo";
+import { CharacterStylingContext } from "../context/CharacterStylingContext";
+import { ICharacterInfo } from "../typings/CharacterInfo";
 import { PlanetInfo } from "../typings/IPlanetInfo";
 import { StarshipInfo } from "../typings/IStarshipInfo";
 
@@ -12,7 +12,7 @@ export const useSWAPI = () => {
   const [planetInfo, setPlanetInfo] = useState<PlanetInfo>();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { returnCharacter } = useContext(CharacterContext);
+  const { returnCharacter } = useContext(CharacterStylingContext);
 
   //geht das iwie coola mit promise.all?
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { CharacterContext } from "../../../context/CharacterContext";
+import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { FormError } from "./FormInput/FormError";
 import { StyledFormInput } from "./FormInput/StyledFormInput";
 import css from "./LoginFormStyle.module.css";
@@ -15,7 +15,7 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
   
   
   //bild evtl besser per css anpassen mit width auto
-  const { returnCharacter } = useContext(CharacterContext);
+  const { returnCharacter } = useContext(CharacterStylingContext);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

@@ -3,7 +3,7 @@ import { LoginForm } from '../Form/LoginForm'
 import css from "./LoginOuterWrapperStyle.module.css"
 import lightsaber_green from "../../../assets/assets_login_screen/lightsaber_green.png"
 import lightsaber_red from "../../../assets/assets_login_screen/lightsaber_red.png"
-import { CharacterContext } from '../../../context/CharacterContext'
+import { CharacterStylingContext } from '../../../context/CharacterStylingContext'
 
 
 export const LoginFormRework = () => {
@@ -13,7 +13,7 @@ export const LoginFormRework = () => {
   //TODO: Schriftfarbe bei hellen Hintergründen mit mehr Kontrast auf dunkel setzen
   
   //Transition Screen mit Übergang zur Info Seite
-  const { returnCharacter } = useContext(CharacterContext);
+  const { returnCharacter } = useContext(CharacterStylingContext);
   
   const imgStyles = {
     backgroundImage:`url(${returnCharacter().login_img_path})`,

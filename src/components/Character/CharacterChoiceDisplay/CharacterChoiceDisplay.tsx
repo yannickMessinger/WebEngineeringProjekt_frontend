@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import css from "./CharacterChoiceDisplay.module.css";
-import { CharacterContext } from "../../../context/CharacterContext";
+import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { Character } from "../CharacterPicture/CharacterPicture";
 
 
 export const CharacterChoiceDisplay= () => {
-  const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterContext);
+  const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterStylingContext);
   
   const [toggleChar, setToggleChar] = useState(false);
 
