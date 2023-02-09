@@ -1,6 +1,6 @@
 import React from "react";
 import { useSWAPI } from "../../../../hooks/useSWAPI";
-import { CharacterInfo } from "../CharacterInfo";
+import { InfoDisplay } from "../InfoDisplay";
 import css from "./CharacterInfoWrapperStyle.module.css";
 
 
@@ -19,7 +19,7 @@ export const CharacterInfoFetchWrapper = () => {
       {loading ? (
         <h4>loading</h4>
       ) : (
-        <CharacterInfo charInfo={charInfo} shipInfo={undefined} />
+        <InfoDisplay charInfo={charInfo} shipInfo={undefined} planetInfo={undefined} />
       )}
     </div>
   );

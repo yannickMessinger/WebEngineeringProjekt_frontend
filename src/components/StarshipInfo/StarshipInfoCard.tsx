@@ -3,7 +3,7 @@ import React from 'react'
 
 
 
-export const StarshipInfo = () => {
+export const StarshipInfoCard = () => {
   return (
     <div>StarshipInfo</div>
   )

@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-import { Question } from "./components/Question/Question";
-import { IAnswer } from "./components/Answer/IAnswer";
 import { Header } from "./layouts/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
@@ -9,9 +7,10 @@ import { Quiz } from "./pages/Quiz";
 //import './App.css';
 import { CharacterChoice } from "./pages/CharacterCoice/CharacterChoice";
 import { CharacterContextProvider } from "./context/CharacterContext";
-import { CharacterInfoFetchWrapper } from "./components/Character/CharacterInfo/FetchWrapper/CharacterInfoFetchWrapper";
+import { CharacterInfoFetchWrapper } from "./components/Character/InfoDisplay/FetchWrapper/CharacterInfoFetchWrapper";
 import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInfoTransisitonScreen";
+import { Weather } from "./pages/Weather";
 
 function App() {
   return (
