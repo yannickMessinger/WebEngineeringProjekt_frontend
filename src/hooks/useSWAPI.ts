@@ -1,26 +1,48 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../context/CharacterContext';
 import { ICharacterInfo } from '../typings/ICharacterInfo';
+import { PlanetInfo } from '../typings/IPlanetInfo';
 import { StarshipInfo } from '../typings/IStarshipInfo';
 
 
+//Promise.all?
 
 export const useSWAPI = () => {
   
     const [charInfo, setCharInfo] = useState<ICharacterInfo>()
     const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>()
+    const [planetInfo, setPlanetInfo] = useState<PlanetInfo>()
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const { returnCharacter } = useContext(CharacterContext);
   
-    //const controller = new AbortController() nutzen?
+   
 
     
     useEffect(() => {
       setError(false);
       setLoading(true);
       fetchCharInfo().then((result) => {
+        
+        if(result!.starships!.length > 0){
+          fetchStarShipInfo(result!.starships![0]).then((starship) =>{
+            setStarShipInfo(starship)
+          }).catch((error) =>{
+            setError(error)
+          })
+        }
+        
+      if(result?.homeworld !== ""){
+        fetchPlanetInfo(result?.homeworld!).then((planetinfo) =>{
+          setPlanetInfo(planetInfo)
+        }).catch((error) => {
+          setError(error)
+        })
+      }
+        
+        
         setCharInfo(result);
+
       }).catch((e) => setError(e))
       .finally(() => {
         setTimeout(() =>{
@@ -54,12 +76,11 @@ export const useSWAPI = () => {
       }
   
       const rawInfo = await response.json()
+      
       const charInfo:ICharacterInfo = rawInfo.results[0]
-      if(charInfo.starships!.length > 0){
-        setStarShipInfo(await fetchStarShipInfo(charInfo.starships![0]))
-      }
+
      
-      console.log(charInfo)
+      
       
       
       
@@ -90,11 +111,11 @@ export const useSWAPI = () => {
       }
   
       const rawInfo = await response.json()
-      console.log(rawInfo)
+      
       const starshipInfo:StarshipInfo = rawInfo
       
 
-      console.log(starshipInfo)
+      
   
       return starshipInfo
     
@@ -107,6 +128,42 @@ export const useSWAPI = () => {
         length:"error",
         hyperdrive_rating:"error",
         max_atmosphering_speed:"errors"
+      }
+    }
+    
+  }
+
+
+  async function fetchPlanetInfo(PLANET_URL:string):Promise<PlanetInfo | undefined>{
+   
+    
+
+    try {
+      const response = await fetch(PLANET_URL, { method: "GET" });
+      
+      if (!response.ok) {
+        console.log("Error fetch swapi starship");
+        throw new Error(response.statusText);
+      }
+  
+      const rawInfo = await response.json()
+      console.log(rawInfo)
+      const planetInfo:PlanetInfo = rawInfo
+      
+
+     
+  
+      return planetInfo
+    
+
+  }  catch (error) {
+    console.log(error);
+    return {climate:"error",
+    diameter:"error",
+    gravity:"error",
+    name:"error",
+    population:"error",
+    terrain:"errors"
       }
     }
     
