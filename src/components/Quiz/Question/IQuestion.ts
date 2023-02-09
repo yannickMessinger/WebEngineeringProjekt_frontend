@@ -4,6 +4,8 @@ export interface IQuestion {
     questionText: string;
     answerOptions: IAnswer[];
     questionType: QuestionType;
+    image: { data: any };
+    answerImages: {data: [any]}
 }
 
 export enum QuestionType {

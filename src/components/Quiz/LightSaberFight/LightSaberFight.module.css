@@ -95,11 +95,11 @@
     }
 
     10% {
-        max-height: 66px;
+        max-height: 90px;
     }
 
     80% {
-        max-height: 66px;
+        max-height: 110px;
     }
 
     85% {
@@ -123,11 +123,11 @@
     }
 
     25% {
-        max-height: 66px;
+        max-height: 100px;
     }
 
     80% {
-        max-height: 66px;
+        max-height: 120px;
     }
 
     85% {
@@ -249,11 +249,11 @@
     }
 
     10% {
-        max-height: 70px;
+        max-height: 90px;
     }
 
     80% {
-        max-height: 100px;
+        max-height: 110px;
     }
 
     85% {
@@ -277,7 +277,7 @@
     }
 
     25% {
-        max-height: 90px;
+        max-height: 100px;
     }
 
     80% {
@@ -325,7 +325,7 @@
         -webkit-transform: rotateZ(410deg);
         transform: rotateZ(410deg);
         left: 90px;
-        bottom: 30px;
+        bottom: 39px;
     }
 
     95% {
