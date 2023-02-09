@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { ICharacterInfo } from "../../../typings/CharacterInfo";
+import { CharacterInfo } from "../../../typings/CharacterInfo";
 import { PlanetInfo } from "../../../typings/IPlanetInfo";
 import { StarshipInfo } from "../../../typings/IStarshipInfo";
 import { CharacterInfoCard } from "../../CharacterInfo/CharacterInfoCard";
@@ -12,13 +12,16 @@ import "./InfoDisplayStyle.scss";
 
 
 interface InfoProps {
-  charInfo: ICharacterInfo | undefined;
+  charInfo: CharacterInfo | undefined;
   shipInfo: StarshipInfo | undefined;
   planetInfo: PlanetInfo | undefined;
 }
 
 export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   
+  //todo: die 3 kästen centern!
+  //ggf 3D display versuchen für charakter einzubauen
+
   const {returnCharacter} = useContext(CharacterStylingContext);
   const infoWrapper = useRef<HTMLInputElement>(null);
   const planetInfoDisplayCard = useRef<HTMLInputElement>(null);
@@ -56,6 +59,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
 
 
   return (
+  <div className='wrapper'>
     <div className="infoCards" ref={infoWrapper}>
       <div
         className="infoCard"
@@ -63,7 +67,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
        
       >
         <div className='card-content'>
-        <PlanetInfoCard />
+        <PlanetInfoCard info={planetInfo!} />
         </div>
        
       </div>
@@ -75,7 +79,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
       >
         <div className='card-content'>
        
-        <CharacterInfoCard />
+        <CharacterInfoCard info={charInfo} />
         </div>
        
       </div>
@@ -86,11 +90,12 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
         
       >
         <div className='card-content'>
-        <StarshipInfoCard />
+        <StarshipInfoCard info={shipInfo} />
         </div>
        
       </div>
     </div>
+  </div>
 
   
   );

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CharacterStylingContext } from "../context/CharacterStylingContext";
-import { ICharacterInfo } from "../typings/CharacterInfo";
+import { CharacterInfo } from "../typings/CharacterInfo";
 import { PlanetInfo } from "../typings/IPlanetInfo";
 import { StarshipInfo } from "../typings/IStarshipInfo";
 
-//Promise.all?
+
 
 export const useSWAPI = () => {
-  const [charInfo, setCharInfo] = useState<ICharacterInfo>();
+  const [charInfo, setCharInfo] = useState<CharacterInfo>();
   const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>();
   const [planetInfo, setPlanetInfo] = useState<PlanetInfo>();
   const [error, setError] = useState(false);
@@ -32,7 +32,7 @@ export const useSWAPI = () => {
         }
 
         if (result?.homeworld !== "") {
-          fetchPlanetInfo(result?.homeworld!)
+          fetchPlanetInfo(result!.homeworld!)
             .then((planetInfo) => {
               setPlanetInfo(planetInfo);
             })
@@ -60,7 +60,7 @@ export const useSWAPI = () => {
     loading,
   };
 
-  async function fetchCharInfo(): Promise<ICharacterInfo | undefined> {
+  async function fetchCharInfo(): Promise<CharacterInfo | undefined> {
     console.log("fetch Char Info from Swapi");
 
     const SWAPI_URL = `http://swapi.dev/api/people/?search=${
@@ -78,7 +78,7 @@ export const useSWAPI = () => {
 
       const rawInfo = await response.json();
 
-      const charInfo: ICharacterInfo = rawInfo.results[0];
+      const charInfo: CharacterInfo = rawInfo.results[0];
 
       return charInfo;
     } catch (error) {
@@ -99,6 +99,7 @@ export const useSWAPI = () => {
   async function fetchStarShipInfo(
     STARSHIP_URL: string
   ): Promise<StarshipInfo | undefined> {
+    console.log("fetch Ship Info from Swapi");
     try {
       const response = await fetch(STARSHIP_URL, { method: "GET" });
 
@@ -128,6 +129,7 @@ export const useSWAPI = () => {
   async function fetchPlanetInfo(
     PLANET_URL: string
   ): Promise<PlanetInfo | undefined> {
+    console.log("fetch Planet Info from Swapi");
     try {
       const response = await fetch(PLANET_URL, { method: "GET" });
 

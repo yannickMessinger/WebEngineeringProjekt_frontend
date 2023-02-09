@@ -1,4 +1,4 @@
-export interface ICharacterInfo{
+export interface CharacterInfo{
     
         name:string | undefined
         birth_year:string | undefined

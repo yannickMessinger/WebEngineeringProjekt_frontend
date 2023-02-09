@@ -9,9 +9,9 @@ import { CharacterStylingContext } from '../../context/CharacterStylingContext';
 
 export const CharInfoTransisitonScreen = () => {
 
-  const { charInfo, starshipInfo, loading, error} = useSWAPI();
+  const { charInfo, starshipInfo,planetInfo, loading, error, fetchCharInfo} = useSWAPI();
   const {returnCharacter } = useContext(CharacterStylingContext);
- 
+  //fetchCharInfo()
   
   return (
     <div className={css.backgroundimg}>
@@ -20,7 +20,7 @@ export const CharInfoTransisitonScreen = () => {
           <img src={returnCharacter().ship_img_path} width='50px' height='50px'/>
       </div>
       ) : (
-        <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={undefined}/>
+        <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={planetInfo}/>
       )}
       
     </div>

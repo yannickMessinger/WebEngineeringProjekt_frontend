@@ -6,9 +6,10 @@ import css from "./CharacterInfoWrapperStyle.module.css";
 
 
 export const CharacterInfoFetchWrapper = () => {
-  const { charInfo, loading, error, fetchCharInfo } = useSWAPI();
+  
+  const { charInfo,starshipInfo,planetInfo, loading, error, fetchCharInfo } = useSWAPI();
 
-  //fetchCharInfo()
+  
   console.log("charinfo component", charInfo);
   
 
@@ -19,7 +20,7 @@ export const CharacterInfoFetchWrapper = () => {
       {loading ? (
         <h4>loading</h4>
       ) : (
-        <InfoDisplay charInfo={charInfo} shipInfo={undefined} planetInfo={undefined} />
+        <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={planetInfo} />
       )}
     </div>
   );
