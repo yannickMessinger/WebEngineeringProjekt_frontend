@@ -10,10 +10,10 @@ export const useWeather = () => {
 
 
     const [location, setLocation] = useState("");
-    const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: {description: "", image: ""} });
-    const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weathercode: [], windspeed: [] });
+    const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: { description: "", image: "" } });
+    const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weekDays: [], weathercode: [], windspeed: [] });
     const [starWarsPlanet, setStarWarsPlanet] = useState("default");
-    const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT); 
+    const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT);
     const API_KEY = "79a9ad1cd477e4c6265d4b1882c856b0";
     const BASE_WEATHER_ENCODING_URL = "https://api.openweathermap.org";
     const GEO_ENCODING_RELATIVE_URL = "/geo/1.0/direct";
@@ -22,6 +22,8 @@ export const useWeather = () => {
     const WEATHER_DATA_FORECAST_RELATIVE_URL = "v1/forecast";
 
     const weatherCodeMap = initializeWeatherCodeMap();
+    const weatherDateMap = initializeWeatherDateMap();
+
 
 
     function fetchCoordinates() {
@@ -35,7 +37,8 @@ export const useWeather = () => {
             .then((obj) => {
                 console.log(obj);
                 if (obj[0].hasOwnProperty('local_names') && obj[0].local_names.hasOwnProperty('de')) {
-                    fetchWeather(obj[0].lat, obj[0].lon, obj[0].local_names.de);
+                    setLocation(obj[0].local_names.de);
+                    fetchWeather(obj[0].lat, obj[0].lon, location);
                 } else {
                     fetchWeather(obj[0].lat, obj[0].lon, location);
                 }
@@ -53,8 +56,8 @@ export const useWeather = () => {
         url.searchParams.append("latitude", lat);
         url.searchParams.append("longitude", lon);
         url.searchParams.append("current_weather", "true");
-        url.searchParams.append("daily", "apparent_temperature_min");
-        url.searchParams.append("daily", "apparent_temperature_max");
+        url.searchParams.append("daily", "temperature_2m_min");
+        url.searchParams.append("daily", "temperature_2m_max");
         url.searchParams.append("daily", "weathercode");
         url.searchParams.append("daily", "sunrise");
         url.searchParams.append("daily", "sunset");
@@ -96,23 +99,46 @@ export const useWeather = () => {
     }
 
     function buildForecastObject(dailyForecast: any) {
+        console.log(dailyForecast);
         console.log(dailyForecast.weathercode);
         const weatherDescriptions = dailyForecast.weathercode.map((code: number) => weatherCodeMap.get(code));
         const dateEU = dailyForecast.time.map((date: string) => {
             const dateArr = date.split("-");
             return dateArr[2] + "." + dateArr[1] + "." + dateArr[0];
         })
-
+        const weekDays: any = calculateWeekdayByDate(dailyForecast.time);
+        console.log(weekDays);
+        console.log(dailyForecast.time);
         console.log(weatherDescriptions);
-        const weatherDataObjForecast = { tempMax: dailyForecast.apparent_temperature_max, tempMin: dailyForecast.apparent_temperature_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
+        const weatherDataObjForecast = { tempMax: dailyForecast.temperature_2m_max, tempMin: dailyForecast.temperature_2m_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weekDays: weekDays ,weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
         setWeatherDataForecast(weatherDataObjForecast);
     }
 
+    function calculateWeekdayByDate(dates: number[]) {
+        return dates.map((date) => {
+            const weekNumber = new Date(date);        
+            return weatherDateMap.get(weekNumber.getDay());
+        })
+    }
+
     function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) {
-        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2)+ "°C", weatherDescription: weathercode};
+        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2) + "°C", weatherDescription: weathercode };
         decideStarWarsPlanet((tempMin + tempMax) / 2);
         setWeatherData(weatherDataObj);
         setWeatherMode(WeatherMode.FORECAST)
+    }
+
+    function initializeWeatherDateMap() {
+        const weatherDateMap = new Map();
+        weatherDateMap.set(0, "Sonntag");
+        weatherDateMap.set(1, "Montag");
+        weatherDateMap.set(2, "Dienstag");
+        weatherDateMap.set(3, "Mittwoch");
+        weatherDateMap.set(4, "Donnerstag");
+        weatherDateMap.set(5, "Freitag");
+        weatherDateMap.set(6, "Samstag");
+
+        return weatherDateMap;
     }
 
     function initializeWeatherCodeMap() {

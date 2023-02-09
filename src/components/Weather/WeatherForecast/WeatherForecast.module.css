@@ -60,8 +60,16 @@
     position: fixed;
     left: 30px;
     right: 0px;
-    bottom: 250px;
+    bottom: 280px;
     font-size: xx-large;
+
+}
+
+.WeatherMode {
+    position: fixed;
+    left: 40px;
+    right: 0px;
+    bottom: 230px;
 
 }
 
