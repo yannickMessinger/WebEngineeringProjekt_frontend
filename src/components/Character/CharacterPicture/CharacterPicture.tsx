@@ -1,12 +1,12 @@
 import React from 'react'
 import css from "./Characterstyle.module.css";
-import { ICharacter } from "../../../typings/ICharacter"
+import { Character } from "../../../typings/ICharacter"
 
 
 
 
 
-export const Character = ({img_path}:ICharacter) => {
+export const CharacterPicture = ({img_path}:Character) => {
   return (
     <div className={css.imageWrapper}>
       <img src={img_path} className={css.character_img} ></img>

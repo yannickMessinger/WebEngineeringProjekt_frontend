@@ -2,6 +2,9 @@ import React from 'react'
 import { PlanetInfo } from '../../typings/IPlanetInfo'
 import css from "./PlanetInfoCardStyle.module.css"
 
+//InfoCards in eine gesamte Komponente transformieren
+
+//Planetenbilder raussuchen
 interface PlanetInfoCardProps{
   info: PlanetInfo | undefined
 }

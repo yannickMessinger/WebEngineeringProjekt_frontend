@@ -19,8 +19,9 @@ interface InfoProps {
 
 export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   
-  //todo: die 3 kästen centern!
+  
   //ggf 3D display versuchen für charakter einzubauen
+  //lässt sich die InfoCard als componente verallgemeinern?
 
   const {returnCharacter} = useContext(CharacterStylingContext);
   const infoWrapper = useRef<HTMLInputElement>(null);

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import css from "./CharacterChoiceDisplay.module.css";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { Character } from "../CharacterPicture/CharacterPicture";
+import { CharacterPicture } from "../CharacterPicture/CharacterPicture";
 
 
 export const CharacterChoiceDisplay= () => {
@@ -23,7 +23,7 @@ export const CharacterChoiceDisplay= () => {
         }`}
         
       >
-        <Character
+        <CharacterPicture
           swapi_id={returnCharacter().swapi_id}
           name={returnCharacter().name}
           img_path={returnCharacter().img_path}

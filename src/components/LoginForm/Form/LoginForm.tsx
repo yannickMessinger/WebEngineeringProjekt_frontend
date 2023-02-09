@@ -12,9 +12,11 @@ interface  LoginStyleProps{
 }
 
 export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
+  //TODO: Validierung der jeweiligen Felder mittels Regex
+  //Triggern der Fehler msg?
+  //Animation Laserschwerter
+  //contrast erhöhen durch Anpassen des Farbverlaufs
   
-  
-  //bild evtl besser per css anpassen mit width auto
   const { returnCharacter } = useContext(CharacterStylingContext);
 
   const [firstName, setFirstName] = useState("");
