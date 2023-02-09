@@ -24,8 +24,8 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   const planetInfoDisplayCard = useRef<HTMLInputElement>(null);
   const characterInfoDisplayCard = useRef<HTMLInputElement>(null);
   const shipInfoDisplayCard = useRef<HTMLInputElement>(null);
-console.log(`rgba(${returnCharacter().charInfoFrameColor!.r},${returnCharacter().charInfoFrameColor!.g},${returnCharacter().charInfoFrameColor!.b},${returnCharacter().charInfoFrameColor!.a}`)
- 
+
+  
 
   const infoCardList = [
     planetInfoDisplayCard,
