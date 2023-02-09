@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { CharacterContext } from "../../../context/CharacterContext";
 import { ICharacterInfo } from "../../../typings/ICharacterInfo";
 import { PlanetInfo } from "../../../typings/IPlanetInfo";
 import { StarshipInfo } from "../../../typings/IStarshipInfo";
@@ -18,11 +19,12 @@ interface InfoProps {
 
 export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   
+  const {returnCharacter} = useContext(CharacterContext);
   const infoWrapper = useRef<HTMLInputElement>(null);
   const planetInfoDisplayCard = useRef<HTMLInputElement>(null);
   const characterInfoDisplayCard = useRef<HTMLInputElement>(null);
   const shipInfoDisplayCard = useRef<HTMLInputElement>(null);
-
+console.log(`rgba(${returnCharacter().charInfoFrameColor!.r},${returnCharacter().charInfoFrameColor!.g},${returnCharacter().charInfoFrameColor!.b},${returnCharacter().charInfoFrameColor!.a}`)
  
 
   const infoCardList = [
@@ -41,7 +43,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
 
         card.current?.style.setProperty("--cursorX", `${x}px`);
         card.current?.style.setProperty("--cursorY", `${y}px`);
-        card.current?.style.setProperty("--color","rgba(129, 253, 13, 1)") 
+        card.current?.style.setProperty("--color",`rgba(${returnCharacter().charInfoFrameColor!.r},${returnCharacter().charInfoFrameColor!.g},${returnCharacter().charInfoFrameColor!.b},${returnCharacter().charInfoFrameColor!.a})`) 
       });
     };
 
@@ -61,7 +63,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
        
       >
         <div className='card-content'>
-        <CharacterInfoCard />
+        <PlanetInfoCard />
         </div>
        
       </div>
@@ -72,7 +74,8 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
         
       >
         <div className='card-content'>
-        <PlanetInfoCard />
+       
+        <CharacterInfoCard />
         </div>
        
       </div>
