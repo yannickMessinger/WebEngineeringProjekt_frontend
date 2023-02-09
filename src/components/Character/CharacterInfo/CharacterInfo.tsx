@@ -2,7 +2,7 @@ import React from 'react'
 import { ICharacterInfo } from '../../../typings/ICharacterInfo';
 import { StarshipInfo } from '../../../typings/IStarshipInfo';
 import { Char3D } from './Char3D';
-import css from "./CharacterInfoStyle.module.css"
+import "./CharacterInfoStyle.scss"
 
 interface InfoProps{
   charInfo: ICharacterInfo | undefined
@@ -15,9 +15,19 @@ interface InfoProps{
 
 export const CharacterInfo = ({charInfo,shipInfo}:InfoProps) => {
   
+  
+
+
+
   return (
-    <div className={css.charInfo}>
-      <div>Name: {charInfo?.name}</div>
+    <div className='cards'>
+      <div className='card'></div>
+      <div className='card'></div>
+      <div className='card'></div>
+    </div>
+
+    /**
+     * <div>Name: {charInfo?.name}</div>
       <div>birthday: {charInfo?.birth_year}</div>
       <div>eye color:{charInfo?.eye_color}</div>
       <div>hair color:{charInfo?.hair_color}</div>
@@ -32,8 +42,6 @@ export const CharacterInfo = ({charInfo,shipInfo}:InfoProps) => {
       <div>length:{shipInfo?.length}</div>
       <div>hyperdrive_rating:{shipInfo?.hyperdrive_rating}</div>
       <div>max_atmosphering_speed:{shipInfo?.max_atmosphering_speed}</div>
-
-      
-    </div>
+     */
   )
 }
