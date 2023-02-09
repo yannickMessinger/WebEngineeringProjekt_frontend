@@ -1,4 +1,9 @@
 .logo {
     width: 150px;
     height: auto;
+    margin-top: 20px;
+}
+
+.style {
+    text-align: center;
 }

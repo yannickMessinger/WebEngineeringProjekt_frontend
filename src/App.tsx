@@ -23,6 +23,7 @@ function App() {
         <Route path="/charinfo" element ={<CharacterInfoFetchWrapper/>}/>
         <Route path="/signup" element={<LoginFormRework/>} />
         <Route path="/chartransition" element={<CharInfoTransisitonScreen/>} />
+        <Route path='/weather' element={<Weather />} />
       </Routes>
       
        

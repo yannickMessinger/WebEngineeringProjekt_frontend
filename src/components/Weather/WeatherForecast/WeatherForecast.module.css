@@ -1,0 +1,89 @@
+.WeatherForecast {
+    border: 0px solid rgba(255, 255, 255, 0.815);
+    height: 180px;
+    display: inline-flex;
+    position: fixed;
+    justify-content: space-around;
+    left: 10px;
+    right: 10px;
+    bottom: 0px;
+    gap: 15px;
+    padding: 2rem;
+
+
+    display: flex;
+    /*flex-wrap: wrap;
+    flex-direction: row; */
+}
+
+.Element:hover {
+    background: radial-gradient(70rem circle at var(--xPos) var(--yPos),
+            rgb(4, 59, 95),
+            transparent 20%);
+}
+
+
+.Element {
+    /*background-color: rgba(231, 231, 231, 0.445);*/
+    min-width: 10%;
+    flex: auto;
+    height: 100%;
+    width: 280px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Content {
+    background-color: #808080a4;
+    border-radius: inherit;
+    transition: all 0.25s;
+    height: calc(100% - 0.1rem);
+    width: calc(100% - 0.1rem);
+
+}
+
+.ContentSelected {
+    background-color: rgba(58, 80, 97, 0.884);
+    border-radius: inherit;
+    transition: all 0.25s;
+    height: calc(100% - 0.1rem);
+    width: calc(100% - 0.1rem);
+}
+
+
+.BackToCurrentWeather {
+    position: fixed;
+    left: 30px;
+    right: 0px;
+    bottom: 280px;
+    font-size: xx-large;
+
+}
+
+.WeatherMode {
+    position: fixed;
+    left: 40px;
+    right: 0px;
+    bottom: 230px;
+
+}
+
+.showCurrentWeatherButton {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+    color: black;
+    border-radius: 0.4rem;
+}

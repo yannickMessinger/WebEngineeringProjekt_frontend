@@ -1,0 +1,24 @@
+.menu_button {
+    color: #ffe81f;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.style {
+    width: 100%;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.style:hover {
+    text-shadow:
+    0 0 30px rgb(255, 251, 189),
+    0 0 50px rgb(241, 237, 114),
+    0 0 100px rgb(224, 207, 110)
+}
+
+.link_style {
+    text-decoration: none;
+}

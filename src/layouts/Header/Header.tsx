@@ -4,8 +4,8 @@ import css from "./Header.module.css";
 
 export const Header = () => {
     return (
-        <>
+        <div className={css.style}>
             <img src={logo} className={css.logo}/>
-        </>
+        </div>
     )
 }
