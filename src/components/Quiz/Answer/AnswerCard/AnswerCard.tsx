@@ -3,14 +3,16 @@ import { IAnswer } from "../IAnswer";
 import { QuestionType } from "../../Question/IQuestion";
 import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Estimation } from "../Estimation/Estimation";
+import { Picture } from "../Picture/Picture";
 
 interface IProps {
     answerList: IAnswer[],
+    answerImages: {data:any},
     questionType: QuestionType
     onClickNext: (wasCorrect:boolean, onCorrect:number, onFalse:number) => void
 }
 
-export const AnswerCard = ({answerList, questionType, onClickNext}:IProps) => {
+export const AnswerCard = ({answerList, answerImages, questionType, onClickNext}:IProps) => {
     console.log(questionType)
     switch(questionType) {
         case QuestionType.MULTIPLE_CHOICE:
@@ -39,7 +41,11 @@ export const AnswerCard = ({answerList, questionType, onClickNext}:IProps) => {
             )
         case QuestionType.PICTURE:
             return (
-                <h3>Picture</h3>
+                <Picture
+                    answerList={answerList}
+                    answerImages={answerImages}
+                    onClickNext={onClickNext}
+                />
             )
         default:
             return (

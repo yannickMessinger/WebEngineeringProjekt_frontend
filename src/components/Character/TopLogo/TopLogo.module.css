@@ -1,0 +1,29 @@
+.logo { 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*background-color: cadetblue;*/
+    grid-area: 1 / 1 / 2 / 2;
+ }
+
+ .logoWrapper{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+
+ }
+
+ .logoSizing{
+    object-fit: contain;
+    max-height: 100%;
+ }
+
+ .toptext{
+    font-family: Starjedi;
+    color:yellow;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+}

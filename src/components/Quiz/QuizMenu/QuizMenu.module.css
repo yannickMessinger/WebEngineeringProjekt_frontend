@@ -2,7 +2,32 @@
     text-align: center;
 }
 
-.menubox {
-    padding: 20px;
+@media screen and (min-width:500px) {
+    .selectbox {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .selectbox {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+.text {
+    color: white;
+    font-size: large;
+}
+
+.center {
     text-align: center;
 }

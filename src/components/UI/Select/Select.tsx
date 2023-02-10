@@ -2,35 +2,59 @@ import React from "react";
 import css from "./Select.module.css";
 
 interface SelectProps {
-    label: string,
-    value: string,
-    options: Option[],
-    onChange: (e:React.ChangeEvent<HTMLSelectElement>) => void
+    label: string;
+    value: string;
+    options: Option[];
+    onChange: (option: Option) => void;
+    showDropDown: boolean;
+    setShowDropDown: (newValue: boolean) => void;
 }
 
 export interface Option {
-    label: string,
-    value: string | number
+    label: string;
+    value: string | number;
 }
 
-export const Select = ({label, value, options, onChange}: SelectProps) => {
+export const Select = ({
+    label,
+    value,
+    options,
+    onChange,
+    showDropDown,
+    setShowDropDown,
+}: SelectProps) => {
+    const isSelected = (option: Option) => {
+        if (option.value == value) {
+            return true;
+        }
+        return false;
+    };
+
     return (
-        <label
-            className={`${css.select_box}`}
-        >
-            {label}
-            <br />
-            <select
-                className={css.select}
-                value={value}
-                onChange={onChange}
+        <div className={css.select_box}>
+            <button
+                onClick={() => setShowDropDown(!showDropDown)}
+                className={css.trigger_button}
+            >
+                {label}
+            </button>
+            <div
+                className={`${css.options} ${
+                    showDropDown ? css.visible : css.hidden
+                }`}
             >
                 {options.map((option) => (
-                    <option className={`${css.option}`} key={option.value} value={option.value}>
-                        {option.value}
-                    </option>
+                    <div
+                        key={option.value}
+                        className={`${css.option} ${
+                            isSelected(option) && css.option_selected
+                        }`}
+                        onClick={() => onChange(option)}
+                    >
+                        {option.label}
+                    </div>
                 ))}
-            </select>
-        </label>
-    )
-}
+            </div>
+        </div>
+    );
+};

@@ -1,0 +1,15 @@
+.switchtheme {
+    display: flex;
+    justify-content: space-around;
+    grid-area: 2 / 1 / 3 / 2;
+ }
+
+ .empireLogo{
+  width:60px;
+  height: 60px;
+ }
+
+ .rebelLogo{
+  width:90px;
+  height: 60px;
+ }

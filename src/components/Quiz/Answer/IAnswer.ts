@@ -1,4 +1,5 @@
 export interface IAnswer {
     text: string,
-    isRight: boolean
+    isRight: boolean,
+    image: string
 }

@@ -12,5 +12,14 @@
     width: 80%;
     height: auto;
     border-style: solid;
-    box-shadow: 0 0 15px 5px ;
+    box-shadow: 0 0 15px 5px;
+}
+
+.visible {
+    height: auto;
+    width: 100%;
+}
+
+.invisible {
+    height: 0px;
 }
