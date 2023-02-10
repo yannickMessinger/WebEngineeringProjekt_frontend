@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { CharacterStylingContext } from '../../context/CharacterStylingContext'
-import { StarshipInfo } from '../../typings/IStarshipInfo'
+import { StarshipInfo } from '../../typings/IStarshipinfo'
 import { LoginPictureFrame } from '../LoginForm/Form/LoginPictureFrame/LoginPictureFrame'
 import css from './StarshipInfoCardStyle.module.css'
 //InfoCards in eine gesamte Komponente transformieren
