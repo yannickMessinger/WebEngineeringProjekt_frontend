@@ -1,10 +1,9 @@
 .Weather_description {
     color: white;
     font-size: xx-large;
-    max-width: 100px;
+    max-width: 115px;
     padding-left: 10%;
     font-family: Starjedi;
-
 }
 
 .Weather {
@@ -24,5 +23,4 @@
     position: relative;
     width: 120px;
     height: 100;
-
 }

@@ -24,8 +24,6 @@ export const useWeather = () => {
     const weatherCodeMap = initializeWeatherCodeMap();
     const weatherDateMap = initializeWeatherDateMap();
 
-
-
     function fetchCoordinates() {
         const url = new URL(GEO_ENCODING_RELATIVE_URL, BASE_WEATHER_ENCODING_URL);
         url.searchParams.append('q', location);
@@ -147,7 +145,7 @@ export const useWeather = () => {
         const CLEAR = { description: 'meist klar', image: "clear" };
         const CLOUDY = { description: 'teilweise bewölkt', image: "cloudy" };
         const OVERCAST = { description: 'bedeckt', image: "overcast" };
-        const FOG = { description: 'Nebel', image: "fog" };
+        const OVERCAST_STRONG = { description: 'stark bewölkt', image: "overcast" };
         const RAIN_LOW = { description: 'leichter Regen', image: "rain" };
         const RAIN_MID = { description: 'mäßiger Regen', image: "rain" };
         const RAIN_HARD = { description: 'starker Regen', image: "rain" };
@@ -165,8 +163,8 @@ export const useWeather = () => {
         weatherCodeMap.set(1, CLEAR);
         weatherCodeMap.set(2, CLOUDY);
         weatherCodeMap.set(3, OVERCAST);
-        weatherCodeMap.set(45, FOG);
-        weatherCodeMap.set(48, FOG);
+        weatherCodeMap.set(45, OVERCAST_STRONG);
+        weatherCodeMap.set(48, OVERCAST_STRONG);
         weatherCodeMap.set(51, RAIN_LOW);
         weatherCodeMap.set(53, RAIN_MID);
         weatherCodeMap.set(55, RAIN_HARD);

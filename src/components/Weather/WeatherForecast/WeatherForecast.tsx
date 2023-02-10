@@ -40,8 +40,7 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
 
 
     useEffect(() => {
-
-        const mouseMoved = ($event: MouseEvent) => {
+        const mouseMovedForElements = ($event: MouseEvent) => {
             console.log("TEst test ets")
             cardRefs.forEach((card) => {
                 const rect = card.current?.getBoundingClientRect();
@@ -54,10 +53,10 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
                 }
             })
         }
-        wrapperRef.current?.addEventListener('mousemove', mouseMoved);
+        wrapperRef.current?.addEventListener('mousemove', mouseMovedForElements);
 
         return () => {
-            wrapperRef.current?.removeEventListener('mousemove', mouseMoved)
+            wrapperRef.current?.removeEventListener('mousemove', mouseMovedForElements);
         }
     }, [])
 
@@ -74,25 +73,22 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     }
 
     useEffect(() => {
+        const currentButton = currentWeatherButtonRef.current;
         if (weatherMode === WeatherMode.CURRENT) {
             const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
             setContentState(arr)
-            if (currentWeatherButtonRef.current !== null) {
-                currentWeatherButtonRef.current.style.backgroundColor = "#808080a4";
-                currentWeatherButtonRef.current.style.color = "#696969";
+            if (currentButton !== null) {
+                currentButton.className = css.showCurrentWeatherButton_disabled;
+
             }
         } else if (weatherMode === WeatherMode.FORECAST) {
-            if (currentWeatherButtonRef.current !== null) {
-                currentWeatherButtonRef.current.style.backgroundColor = "#e7e7e7";
-                currentWeatherButtonRef.current.style.color = "black";
-
+            if (currentButton !== null) {
+                currentButton.className = css.showCurrentWeatherButton;
             }
         }
-
     }, [weatherMode])
 
     return (
-
         <>
             <div className={css.BackToCurrentWeather}>
                 <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
