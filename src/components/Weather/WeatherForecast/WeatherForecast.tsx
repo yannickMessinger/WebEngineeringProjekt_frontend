@@ -25,7 +25,7 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
 
     const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
     const [contentState, setContentState] = useState(arr);
-    const [dateState, setDateState] = useState("");
+    const [dateState, setDateState] = useState({ weekDay: "", date: "" });
     const wrapperRef = useRef<HTMLInputElement>(null);
     const cardRef0 = useRef<HTMLInputElement>(null);
     const cardRef1 = useRef<HTMLInputElement>(null);
@@ -65,7 +65,7 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
         fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.weathercode[count])
         arr[count] = css.ContentSelected;
         setContentState(arr);
-        setDateState(weatherForecast.weekDays[count]);
+        setDateState({ weekDay: weatherForecast.weekDays[count], date: weatherForecast.time[count] });
     }
     const showCurrenWeather = () => {
         if (weatherMode === WeatherMode.FORECAST) {
@@ -94,11 +94,10 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     return (
 
         <>
-
             <div className={css.BackToCurrentWeather}>
                 <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
                 <br />
-                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState}</div>
+                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + " (" + dateState.date + ")"} </div>
             </div>
 
             <div className={css.WeatherForecast} ref={wrapperRef}>
@@ -182,8 +181,5 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
         </>
 
     )
-
-
-
 }
 
