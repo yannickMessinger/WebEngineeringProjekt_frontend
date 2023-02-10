@@ -1,8 +1,9 @@
 .select_box {
     color: #ffe81f;
+    position: relative;
 }
 
-.select {
+.trigger_button {
     font-family: "Starjedi", sans-serif;
     font-size: 1.2rem;
     background-color: black;
@@ -11,11 +12,54 @@
     border-radius: 0.5rem;
     border: none;
 }
+
+@media screen and (min-width:500px) {
+    .visible {
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .visible {
+        height: auto;
+    }
+
+    .hidden {
+        height: 0;
+    }
+}
+
+.options {
+    position: relative;
+    transform: translateY(4px);
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 150px;
+    background-color: #fff;
+    z-index: 99;
+    animation: 0.5s ease;
+}
+
+
 .option {
     font-family: "Starjedi", sans-serif;
     background-color: black;
     color: white;
-    position: "absolute";
-    right: "10px";
-    top: "calc(50% - 6px)"
+    padding: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: darkgrey;
+}
+
+.option_selected {
+    background-color: #ffe81f;
+    color: #000;
 }
