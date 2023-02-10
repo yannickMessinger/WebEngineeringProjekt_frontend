@@ -37,7 +37,7 @@ export const LoginFormRework = () => {
         <Lightsaber hasErrors={formErrors} isActive={saberIsActive}/>
         </div>
       <div className={css.login_form}>
-        <LoginForm loginFormStyle={returnCharacter().loginStyle!} hasErrors={formErrors} setErrorState={setFormErrors} activateSaber={setSaberisActive}/>
+        <LoginForm loginFormStyle={returnCharacter().loginStyle!} errorState={formErrors} setErrorState={setFormErrors} activateSaber={setSaberisActive}/>
       </div>
       <div className={css.saber_right}>
       <Lightsaber hasErrors={formErrors} isActive={saberIsActive} />

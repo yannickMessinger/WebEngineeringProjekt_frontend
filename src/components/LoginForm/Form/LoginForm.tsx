@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { FormError } from "./FormInput/FormError";
 import { StyledFormInput } from "./FormInput/StyledFormInput";
@@ -9,17 +9,19 @@ import { useNavigate } from "react-router-dom";
 
 interface  LoginStyleProps{
   loginFormStyle:{background:string}
-  hasErrors :boolean
+  errorState :boolean
   setErrorState: (error:boolean) => void
   activateSaber:(active:boolean) => void
 }
 
-export const LoginForm = ({loginFormStyle,hasErrors,setErrorState,activateSaber}:LoginStyleProps) => {
+export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber}:LoginStyleProps) => {
   //TODO: Validierung der jeweiligen Felder mittels Regex
   //Triggern der Fehler msg?
   //contrast erhöhen durch Anpassen des Farbverlaufs
   
   const { returnCharacter } = useContext(CharacterStylingContext);
+  const[nextPage, setNextPage] = useState(false);
+  const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -34,9 +36,15 @@ export const LoginForm = ({loginFormStyle,hasErrors,setErrorState,activateSaber}
     adress: "",
   });
 
-  const[nextPage, setNextPage] = useState(false);
+  function switchSaber(error:boolean){
+    activateSaber(false)
+    setTimeout(() => {
+      setErrorState(error)
+      activateSaber(true)
+    }, 600);
+  }
 
-  const navigate = useNavigate();
+
 
   const validateFormData = (event: any) => {
     //TODO Regex Expression nutzen für Validierung????
@@ -72,22 +80,23 @@ export const LoginForm = ({loginFormStyle,hasErrors,setErrorState,activateSaber}
     setFormErrors(errors);
     setErrorState(true);
     if(errors.firstName === "" && errors.lastName ==="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
+      //setErrorState(false)
+      switchSaber(false)
+      
       setNextPage(true);
-      setErrorState(false)
-      //TODO disable clicks
-      //add css class...
-      //pointer-events:none
       setTimeout(() =>{
         navigate("/chartransition")
 
-      }, 1000)
+      }, 2000)
       
     }else{
       //hier error msg des jeweiligen charakters triggern?
-
+      //setErrorState(true)
+      switchSaber(true)
       console.log("error in login form")
     }
-    activateSaber(true)
+    
+    
   };
 
   return (
@@ -169,6 +178,7 @@ export const LoginForm = ({loginFormStyle,hasErrors,setErrorState,activateSaber}
         <button style={returnCharacter().button_style}
             onClick={(e) => {
               validateFormData(e);
+              
             }}
           >
             go

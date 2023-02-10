@@ -24,12 +24,15 @@
   }*/
   
   .saber_left { grid-area: saber_left;
-   
+   display: flex;
+   justify-content: center;
     width: 100%;
     height: 100%;
  }
   
   .saber_right { grid-area: saber_right;
+    display: flex;
+   justify-content: center;
     width: 100%;
     height: 100%;
  }

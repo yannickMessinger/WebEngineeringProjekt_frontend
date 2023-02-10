@@ -67,6 +67,7 @@ import obiplanet from "../assets/planets/obiplanet.png"
 import vaderplanet from "../assets/planets/vaderplanet.png"
 
 
+//sounds for characters?
 
 
 
