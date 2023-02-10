@@ -24,7 +24,7 @@ function App() {
         <Route path="/signup" element={<LoginFormRework/>} />
         <Route path="/chartransition" element={<CharInfoTransisitonScreen/>} />
         <Route path='/weather' element={<Weather />} />
-        <Route path='/lightsaber' element={<Lightsaber/>} />
+  
       </Routes>
       
        

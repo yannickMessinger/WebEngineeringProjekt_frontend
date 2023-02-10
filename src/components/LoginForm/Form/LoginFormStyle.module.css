@@ -3,6 +3,10 @@
   src: local('Starjedi'), url(../../../fonts/Starjedi/Starjedi.ttf) format('truetype');
 }
 
+.disable{
+  pointer-events: none;
+}
+
 
 .loginForm{
     margin: 1%;

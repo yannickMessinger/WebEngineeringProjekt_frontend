@@ -3,15 +3,7 @@
     --blade-lightness: 50%;
   }
 
-  *,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-  
- 
-  
-  .lightsaberbody {
+.lightsaberbody {
     
     display: flex;
     justify-content: center;
@@ -58,7 +50,7 @@
         silver 0 47px,
         black 0 50px,
         silver 0 60px,
-        hsl(39 75% 50%) 60px 80px,
+        hsl(0, 0%, 0%) 60px 80px,
         silver 0 100%
     );
 }

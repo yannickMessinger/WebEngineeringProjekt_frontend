@@ -9,12 +9,14 @@ import { useNavigate } from "react-router-dom";
 
 interface  LoginStyleProps{
   loginFormStyle:{background:string}
+  hasErrors :boolean
+  setErrorState: (error:boolean) => void
+  activateSaber:(active:boolean) => void
 }
 
-export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
+export const LoginForm = ({loginFormStyle,hasErrors,setErrorState,activateSaber}:LoginStyleProps) => {
   //TODO: Validierung der jeweiligen Felder mittels Regex
   //Triggern der Fehler msg?
-  //Animation Laserschwerter
   //contrast erhöhen durch Anpassen des Farbverlaufs
   
   const { returnCharacter } = useContext(CharacterStylingContext);
@@ -31,6 +33,8 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
     birthday: "",
     adress: "",
   });
+
+  const[nextPage, setNextPage] = useState(false);
 
   const navigate = useNavigate();
 
@@ -66,13 +70,24 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
     }
 
     setFormErrors(errors);
+    setErrorState(true);
     if(errors.firstName === "" && errors.lastName ==="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
-      navigate("/chartransition")
+      setNextPage(true);
+      setErrorState(false)
+      //TODO disable clicks
+      //add css class...
+      //pointer-events:none
+      setTimeout(() =>{
+        navigate("/chartransition")
+
+      }, 1000)
+      
     }else{
       //hier error msg des jeweiligen charakters triggern?
+
       console.log("error in login form")
     }
-    
+    activateSaber(true)
   };
 
   return (
@@ -83,7 +98,7 @@ export const LoginForm = ({loginFormStyle}:LoginStyleProps) => {
           <LoginPictureFrame img_path={returnCharacter().img_path} />
         </div>
       </div>
-      <div className={css.login_main}>
+      <div className={`${css.login_main} ${nextPage? css.disable: ''}`}>
         
         <div className={css.first_name}>
           <StyledFormInput
