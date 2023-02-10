@@ -5,7 +5,7 @@ import css from "./ButtonBoxStyle.module.css";
 
 export const ButtonBox = () => {
 
-  const {fetchCharInfo} = useSWAPI();
+ 
 
   return (
     <div className={css.buttonbox}>
