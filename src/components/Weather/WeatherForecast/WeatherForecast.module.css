@@ -12,8 +12,6 @@
 
 
     display: flex;
-    /*flex-wrap: wrap;
-    flex-direction: row; */
 }
 
 .Element:hover {
@@ -24,13 +22,11 @@
 
 
 .Element {
-    /*background-color: rgba(231, 231, 231, 0.445);*/
     min-width: 10%;
     flex: auto;
     height: 100%;
     width: 280px;
     color: rgb(0, 0, 0);
-    font-family: Arial, Helvetica, sans-serif;
     border-radius: 0.4rem;
     display: flex;
     justify-content: center;
@@ -70,6 +66,7 @@
     left: 40px;
     right: 0px;
     bottom: 230px;
+    font-family: Starjedi;
 
 }
 

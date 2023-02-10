@@ -7,7 +7,6 @@
 
 .Description {
   text-align: center;
-  padding: 40px 1;
   font-size: larger;
 }
 
@@ -24,10 +23,8 @@
 }
 
 .Image {    
-    max-height: 100px;
+    max-height: 95px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    
 }
