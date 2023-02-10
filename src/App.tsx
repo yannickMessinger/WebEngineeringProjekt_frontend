@@ -11,6 +11,7 @@ import { CharacterInfoFetchWrapper } from "./components/Character/InfoDisplay/Fe
 import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInfoTransisitonScreen";
 import { Weather } from "./pages/Weather";
+import { Lightsaber } from "./components/Lightsaber/Lightsaber";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signup" element={<LoginFormRework/>} />
         <Route path="/chartransition" element={<CharInfoTransisitonScreen/>} />
         <Route path='/weather' element={<Weather />} />
+        <Route path='/lightsaber' element={<Lightsaber/>} />
       </Routes>
       
        

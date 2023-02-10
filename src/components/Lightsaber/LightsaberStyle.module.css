@@ -1,0 +1,126 @@
+:root {
+    --blade-hue: 120;
+    --blade-lightness: 50%;
+  }
+
+  *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+  
+ 
+  
+  .lightsaberbody {
+    
+    display: flex;
+    justify-content: center;
+    width:50%;
+    height: 50%;
+    min-height: 100vh;
+    place-items: center;
+
+  }
+
+
+.lightsaber {
+    margin-top: 25vh;
+    position: relative;
+  }
+
+
+#on_off{
+   position: absolute;
+   width: 0px;
+   height: 0px; 
+}
+
+.hilt{
+    display: block;
+    width: 0.75rem;
+    height:7rem;
+    border-radius: 0 0 4px 4px;
+    background-image: linear-gradient(
+        silver 0 10px,
+        hsl(39 75% 50%) 0 14px,
+        silver 0 15px,
+        black 0 20px,
+        silver 0 22px,
+        black 0 25px,
+        silver 0 27px,
+        black 0 30px,
+        silver 0 32px,
+        black 0 35px,
+        silver 0 37px,
+        black 0 40px,
+        silver 0 42px,
+        black 0 45px,
+        silver 0 47px,
+        black 0 50px,
+        silver 0 60px,
+        hsl(39 75% 50%) 60px 80px,
+        silver 0 100%
+    );
+}
+
+.blade {
+    position: absolute;
+    background: white;
+    height: 350%;
+    width: 100%;
+    bottom: 100%;
+    border-radius: 100vw 100vw 0 0;
+    box-shadow: inset 0 0 4px
+        hsl(var(--blade-hue) 100% var(--blade-lightness) / 1),
+      0 0 1em hsl(var(--blade-hue) 100% var(--blade-lightness) / 0.8),
+      0 0 1.5em hsl(var(--blade-hue) 100% var(--blade-lightness) / 0.7),
+      0 0 2em hsl(var(--blade-hue) 100% var(--blade-lightness) / 0.5),
+      0 0 3em hsl(var(--blade-hue) 100% var(--blade-lightness) / 0.3),
+      0 0 5em hsl(var(--blade-hue) 100% var(--blade-lightness) / 0.2);
+  
+    transition: transform 50ms ease-out;
+    transform-origin: bottom;
+  }
+  
+  .blade::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsl(var(--blade-hue) 100% var(--blade-lightness));
+    border-radius: inherit;
+    filter: blur(0.5em);
+    opacity: 1;
+    animation: pulse linear 5s infinite;
+  }
+  
+  .blade::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    border-radius: inherit;
+    z-index: 10;
+  }
+  
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Turn lightsaber on and off */
+  
+  #on_off:not(:checked) + .blade {
+    transform: scaleY(0);
+  }
+  
+  #on_off:checked + .blade {
+    transform: scaleY(1);
+  }
+  
