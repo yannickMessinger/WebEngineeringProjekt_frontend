@@ -1,72 +1,209 @@
 //pics for char choice
-import boba from "../assets/boba.png";
-import c3po from "../assets/c3_complete.png";
-import darth_vader from "../assets/darth_vader.png";
-import r2 from "../assets/r2.png";
-import yoda from "../assets/yoda_fly.png";
-import darthmaul from "../assets/darthmaul.png";
-import ig88 from "../assets/ig88.png";
-import hanyolo from "../assets/hanyolo.png";
-import imperator from "../assets/imperator.png";
-import obiwan from "../assets/obiwan.png";
-import jarajr from "../assets/jarjar.png";
-import bossk from "../assets/bossk.png";
-import macewindu from "../assets/macewindu.png";
+import boba_choice from "../assets/assets_characterChoice/bobaFett.png";
+import c3po_choice from "../assets/assets_characterChoice/c3po.png";
+import darthVader_choice from "../assets/assets_characterChoice/darthVader.png";
+import r2d2_choice from "../assets/assets_characterChoice/r2d2.png";
+import yoda_choice from "../assets/assets_characterChoice/yoda.png";
+import darthMaul_choice from "../assets/assets_characterChoice/darthMaul.png";
+import ig88_choice from "../assets/assets_characterChoice/ig88.png";
+import hanSolo_choice from "../assets/assets_characterChoice/hanSolo.png";
+import palpatine_choice from "../assets/assets_characterChoice/palpatine.png";
+import obiWan_choice from "../assets/assets_characterChoice/obiWan.png";
+import jarjar_choice from "../assets/assets_characterChoice/jarjar.png";
+import bossk_choice from "../assets/assets_characterChoice/bossk.png";
+import maceWindu_choice from "../assets/assets_characterChoice/maceWindu.png";
 
 //pics for loginform
 
-import boba_login from "../assets/assets_login_screen/boba.jpg";
-import bosk1_login from "../assets/assets_login_screen/bosk1.jpg";
-import bosk2_login from "../assets/assets_login_screen/bosk2.jpg";
-import c3po_login from "../assets/assets_login_screen/c3po.png";
+import boba_login from "../assets/assets_login_screen/bobaFett.jpg";
+import bossk_login from "../assets/assets_login_screen/bossk.jpg";
+import c3po_login from "../assets/assets_login_screen/c3po.jpg";
 import r2d2_login from "../assets/assets_login_screen/r2d2.jpg";
-import hansolo_login from "../assets/assets_login_screen/hansolo.jpg";
+import hanSolo_login from "../assets/assets_login_screen/hanSolo.jpg";
 import ig88_login from "../assets/assets_login_screen/ig88.jpg";
 import jarjar_login from "../assets/assets_login_screen/jarjar.jpg";
-import maul_login from "../assets/assets_login_screen/maul.jpg";
-import obiwan_login from "../assets/assets_login_screen/obiwan.jpg";
-import sidious_login from "../assets/assets_login_screen/sidious.jpg";
-import vader_login from "../assets/assets_login_screen/vader_login.jpg";
-import windu1_login from "../assets/assets_login_screen/windu1.jpg";
-import windu2_login from "../assets/assets_login_screen/windu2.jpg";
+import darthMaul_login from "../assets/assets_login_screen/darthMaul.jpg";
+import obiWan_login from "../assets/assets_login_screen/obiWan.jpg";
+import palpatine_login from "../assets/assets_login_screen/palpatine.jpg";
+import darthVader_login from "../assets/assets_login_screen/darthVader.jpg";
+import maceWindu_login from "../assets/assets_login_screen/maceWindu.jpg";
 import yoda_login from "../assets/assets_login_screen/yoda.jpg";
 
 //pics for transition screen
 
-import yodasship from "../assets/shipassets/yodasship.png"
-import vadersship from "../assets/shipassets/vaderstie.png"
-import r2d2ship from "../assets/shipassets/r2andc3ship.png"
-import macewinduship from "../assets/shipassets/starfighter.png"
-import slave1 from "../assets/shipassets/slave1.png"
-import maulsship from "../assets/shipassets/maulship.png"
-import bossksship from "../assets/shipassets/bossksship2.png"
-import falcon from "../assets/shipassets/millfalcon.png"
-import ig88ship from "../assets/shipassets/ig88ship.png"
-import stardestroyer from "../assets/shipassets/sidiousship.png"
-import jarjarsship from "../assets/shipassets/jarjarship.png"
-import winduship from "../assets/shipassets/macewinduship.png"
-import starfighter from "../assets/shipassets/starfighter.png"
-
+import yoda_ship from "../assets/assets_ship/yoda.png";
+import darthVader_ship from "../assets/assets_ship/darthVader.png";
+import r2d2_ship from "../assets/assets_ship/r2d2.png";
+import c3po_ship from "../assets/assets_ship/c3po.png";
+import maceWindu_ship from "../assets/assets_ship/maceWindu.png";
+import boba_ship from "../assets/assets_ship/bobaFett.png";
+import darthMaul_ship from "../assets/assets_ship/darthMaul.png";
+import bossk_ship from "../assets/assets_ship/bossk.png";
+import hanSolo_ship from "../assets/assets_ship/hanSolo.png";
+import ig88_ship from "../assets/assets_ship/ig88.png";
+import palpatine_ship from "../assets/assets_ship/palpatine.png";
+import jarjar_ship from "../assets/assets_ship/jarjar.png";
+import obiWan_ship from "../assets/assets_ship/obiWan.png";
 
 //planetpics
-import yodaplanet from "../assets/planets/yodaplanet.png"
-import c3poplanet from "../assets/planets/c3poplanet.png" //auch für r2 und darth vader
-import bobaplanet from "../assets/planets/bobaplanet.png"
-import maulplanet from "../assets/planets/darthmaulplanet.png"
-import bosskplanet from "../assets/planets/bosskplanet.png"
-import hanplanet from "../assets/planets/hanplanet.png"
-import ig88planet from "../assets/planets/iggiplanet.png"
-import sidiousplanet from "../assets/planets/sidiousplanet.png"
-import jarjarplanet from "../assets/planets/jarjarplanet.png"
-import maceplanet from "../assets/planets/maceplanet.png"
-import obiplanet from "../assets/planets/obiplanet.png"
-import vaderplanet from "../assets/planets/vaderplanet.png"
-
+import yoda_planet from "../assets/assets_planets/yoda.png";
+import c3po_planet from "../assets/assets_planets/c3po.png";
+import r2d2_planet from "../assets/assets_planets/r2d2.png";
+import boba_planet from "../assets/assets_planets/bobaFett.png";
+import darthMaul_planet from "../assets/assets_planets/darthMaul.png";
+import bossk_planet from "../assets/assets_planets/bossk.png";
+import hanSolo_planet from "../assets/assets_planets/hanSolo.png";
+import ig88_planet from "../assets/assets_planets/ig88.png";
+import palpatine_planet from "../assets/assets_planets/palpatine.png";
+import jarjar_planet from "../assets/assets_planets/jarjar.png";
+import maceWindu_planet from "../assets/assets_planets/maceWindu.png";
+import obiWan_planet from "../assets/assets_planets/obiWan.png";
+import darthVader_planet from "../assets/assets_planets/darthVader.png";
 
 //sounds for characters?
 
-
-
-export{
-    
+export enum CHARACTER {
+  YODA,
+  C3PO,
+  R2D2,
+  DARTHVADER,
+  BOBAFETT,
+  DARTHMAUL,
+  BOSSK,
+  HANSOLO,
+  IG88,
+  PALPATINE,
+  JARJAR,
+  MACEWINDU,
+  OBIWAN,
 }
+
+interface CharImageData {
+  choiceImgPath: string;
+  loginFormImgPath: string;
+  shipImgPath: string;
+  transitionImgPath: string;
+  planetImgPath: string;
+  soundFilePath: string;
+}
+
+let charMap = new Map<CHARACTER, CharImageData>();
+
+charMap.set(CHARACTER.YODA, {
+  choiceImgPath: yoda_choice,
+  loginFormImgPath: yoda_login,
+  shipImgPath: yoda_login,
+  transitionImgPath: yoda_ship,
+  planetImgPath: yoda_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.C3PO, {
+  choiceImgPath: c3po_choice,
+  loginFormImgPath: c3po_login,
+  shipImgPath: c3po_login,
+  transitionImgPath: c3po_ship,
+  planetImgPath: c3po_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.R2D2, {
+  choiceImgPath: r2d2_choice,
+  loginFormImgPath: r2d2_login,
+  shipImgPath: r2d2_login,
+  transitionImgPath: r2d2_ship,
+  planetImgPath: r2d2_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.DARTHVADER, {
+  choiceImgPath: darthVader_choice,
+  loginFormImgPath: darthVader_login,
+  shipImgPath: darthVader_login,
+  transitionImgPath: darthVader_ship,
+  planetImgPath: darthVader_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.BOBAFETT, {
+  choiceImgPath: boba_choice,
+  loginFormImgPath: boba_login,
+  shipImgPath: boba_login,
+  transitionImgPath: boba_ship,
+  planetImgPath: boba_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.DARTHMAUL, {
+  choiceImgPath: darthMaul_choice,
+  loginFormImgPath: darthMaul_login,
+  shipImgPath: darthMaul_login,
+  transitionImgPath: darthMaul_ship,
+  planetImgPath: darthMaul_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.BOSSK, {
+  choiceImgPath: bossk_choice,
+  loginFormImgPath: bossk_login,
+  shipImgPath: bossk_login,
+  transitionImgPath: bossk_ship,
+  planetImgPath: bossk_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.HANSOLO, {
+  choiceImgPath: hanSolo_choice,
+  loginFormImgPath: hanSolo_login,
+  shipImgPath: hanSolo_login,
+  transitionImgPath: hanSolo_ship,
+  planetImgPath: hanSolo_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.IG88, {
+  choiceImgPath: ig88_choice,
+  loginFormImgPath: ig88_login,
+  shipImgPath: ig88_login,
+  transitionImgPath: ig88_ship,
+  planetImgPath: ig88_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.PALPATINE, {
+  choiceImgPath: palpatine_choice,
+  loginFormImgPath: palpatine_login,
+  shipImgPath: palpatine_login,
+  transitionImgPath: palpatine_ship,
+  planetImgPath: palpatine_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.JARJAR, {
+  choiceImgPath: jarjar_choice,
+  loginFormImgPath: jarjar_login,
+  shipImgPath: jarjar_login,
+  transitionImgPath: jarjar_ship,
+  planetImgPath: jarjar_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.MACEWINDU, {
+  choiceImgPath: maceWindu_choice,
+  loginFormImgPath: maceWindu_login,
+  shipImgPath: maceWindu_login,
+  transitionImgPath: maceWindu_ship,
+  planetImgPath: maceWindu_planet,
+  soundFilePath: "",
+});
+
+charMap.set(CHARACTER.OBIWAN, {
+  choiceImgPath: obiWan_choice,
+  loginFormImgPath: obiWan_login,
+  shipImgPath: obiWan_login,
+  transitionImgPath: obiWan_ship,
+  planetImgPath: obiWan_planet,
+  soundFilePath: "",
+});
+
+export { charMap };
