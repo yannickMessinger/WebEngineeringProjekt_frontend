@@ -92,7 +92,7 @@ let charMap = new Map<CHARACTER, CharImageData>();
 charMap.set(CHARACTER.YODA, {
   choiceImgPath: yoda_choice,
   loginFormImgPath: yoda_login,
-  shipImgPath: yoda_login,
+  shipImgPath: yoda_ship,
   transitionImgPath: yoda_ship,
   planetImgPath: yoda_planet,
   soundFilePath: "",
@@ -101,7 +101,7 @@ charMap.set(CHARACTER.YODA, {
 charMap.set(CHARACTER.C3PO, {
   choiceImgPath: c3po_choice,
   loginFormImgPath: c3po_login,
-  shipImgPath: c3po_login,
+  shipImgPath: c3po_ship,
   transitionImgPath: c3po_ship,
   planetImgPath: c3po_planet,
   soundFilePath: "",
@@ -110,7 +110,7 @@ charMap.set(CHARACTER.C3PO, {
 charMap.set(CHARACTER.R2D2, {
   choiceImgPath: r2d2_choice,
   loginFormImgPath: r2d2_login,
-  shipImgPath: r2d2_login,
+  shipImgPath: r2d2_ship,
   transitionImgPath: r2d2_ship,
   planetImgPath: r2d2_planet,
   soundFilePath: "",
@@ -119,7 +119,7 @@ charMap.set(CHARACTER.R2D2, {
 charMap.set(CHARACTER.DARTHVADER, {
   choiceImgPath: darthVader_choice,
   loginFormImgPath: darthVader_login,
-  shipImgPath: darthVader_login,
+  shipImgPath: darthVader_ship,
   transitionImgPath: darthVader_ship,
   planetImgPath: darthVader_planet,
   soundFilePath: "",
@@ -128,7 +128,7 @@ charMap.set(CHARACTER.DARTHVADER, {
 charMap.set(CHARACTER.BOBAFETT, {
   choiceImgPath: boba_choice,
   loginFormImgPath: boba_login,
-  shipImgPath: boba_login,
+  shipImgPath: boba_ship,
   transitionImgPath: boba_ship,
   planetImgPath: boba_planet,
   soundFilePath: "",
@@ -137,7 +137,7 @@ charMap.set(CHARACTER.BOBAFETT, {
 charMap.set(CHARACTER.DARTHMAUL, {
   choiceImgPath: darthMaul_choice,
   loginFormImgPath: darthMaul_login,
-  shipImgPath: darthMaul_login,
+  shipImgPath: darthMaul_ship,
   transitionImgPath: darthMaul_ship,
   planetImgPath: darthMaul_planet,
   soundFilePath: "",
@@ -146,7 +146,7 @@ charMap.set(CHARACTER.DARTHMAUL, {
 charMap.set(CHARACTER.BOSSK, {
   choiceImgPath: bossk_choice,
   loginFormImgPath: bossk_login,
-  shipImgPath: bossk_login,
+  shipImgPath: bossk_ship,
   transitionImgPath: bossk_ship,
   planetImgPath: bossk_planet,
   soundFilePath: "",
@@ -155,7 +155,7 @@ charMap.set(CHARACTER.BOSSK, {
 charMap.set(CHARACTER.HANSOLO, {
   choiceImgPath: hanSolo_choice,
   loginFormImgPath: hanSolo_login,
-  shipImgPath: hanSolo_login,
+  shipImgPath: hanSolo_ship,
   transitionImgPath: hanSolo_ship,
   planetImgPath: hanSolo_planet,
   soundFilePath: "",
@@ -164,7 +164,7 @@ charMap.set(CHARACTER.HANSOLO, {
 charMap.set(CHARACTER.IG88, {
   choiceImgPath: ig88_choice,
   loginFormImgPath: ig88_login,
-  shipImgPath: ig88_login,
+  shipImgPath: ig88_ship,
   transitionImgPath: ig88_ship,
   planetImgPath: ig88_planet,
   soundFilePath: "",
@@ -173,7 +173,7 @@ charMap.set(CHARACTER.IG88, {
 charMap.set(CHARACTER.PALPATINE, {
   choiceImgPath: palpatine_choice,
   loginFormImgPath: palpatine_login,
-  shipImgPath: palpatine_login,
+  shipImgPath: palpatine_ship,
   transitionImgPath: palpatine_ship,
   planetImgPath: palpatine_planet,
   soundFilePath: "",
@@ -182,7 +182,7 @@ charMap.set(CHARACTER.PALPATINE, {
 charMap.set(CHARACTER.JARJAR, {
   choiceImgPath: jarjar_choice,
   loginFormImgPath: jarjar_login,
-  shipImgPath: jarjar_login,
+  shipImgPath: jarjar_ship,
   transitionImgPath: jarjar_ship,
   planetImgPath: jarjar_planet,
   soundFilePath: "",
@@ -191,7 +191,7 @@ charMap.set(CHARACTER.JARJAR, {
 charMap.set(CHARACTER.MACEWINDU, {
   choiceImgPath: maceWindu_choice,
   loginFormImgPath: maceWindu_login,
-  shipImgPath: maceWindu_login,
+  shipImgPath: maceWindu_ship,
   transitionImgPath: maceWindu_ship,
   planetImgPath: maceWindu_planet,
   soundFilePath: "",
@@ -200,7 +200,7 @@ charMap.set(CHARACTER.MACEWINDU, {
 charMap.set(CHARACTER.OBIWAN, {
   choiceImgPath: obiWan_choice,
   loginFormImgPath: obiWan_login,
-  shipImgPath: obiWan_login,
+  shipImgPath: obiWan_ship,
   transitionImgPath: obiWan_ship,
   planetImgPath: obiWan_planet,
   soundFilePath: "",

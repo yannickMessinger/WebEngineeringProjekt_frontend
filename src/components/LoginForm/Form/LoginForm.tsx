@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { FormError } from "./FormInput/FormError";
 import { StyledFormInput } from "./FormInput/StyledFormInput";
 import css from "./LoginFormStyle.module.css";
 import { LoginPictureFrame } from "./LoginPictureFrame/LoginPictureFrame";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../../../context/LoginContext";
 
 
 interface  LoginStyleProps{
@@ -19,7 +20,9 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   //Triggern der Fehler msg?
   //contrast erhöhen durch Anpassen des Farbverlaufs
   
+  
   const { currentChar } = useContext(CharacterStylingContext);
+  const {logIn} = useContext(LoginContext)
   const[nextPage, setNextPage] = useState(false);
   const navigate = useNavigate();
 
@@ -28,6 +31,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   const [birthday, setBirthday] = useState("");
   const [adress, setAdress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  
   const [formErrors, setFormErrors] = useState({
     firstName: "",
     lastName: "",
@@ -80,7 +84,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     setFormErrors(errors);
     setErrorState(true);
     if(errors.firstName === "" && errors.lastName ==="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
-      //setErrorState(false)
+      logIn(firstName,lastName,birthday,adress,phoneNumber);
       switchSaber(false)
       
       setNextPage(true);

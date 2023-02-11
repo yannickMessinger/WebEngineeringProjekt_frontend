@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 
 interface LoginProps {
-  logIn: (firstName: string, lastName: string) => void;
+  logIn: (firstName: string, lastName: string,birthday:string, adress:string, phoneNumber:string) => void;
   logOut: () => void;
   isLoggedIn: boolean;
 }
@@ -17,19 +17,37 @@ export const LoginContext = React.createContext<LoginProps>({
 });
 
 export function LoginContextProvider({ children }: Props) {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastName] = useState("");
-
-  const logIn = useCallback((firstName: string, lastName: string) => {
-    //console.log(`f: ${firstName} l:${lastName} is ${isLoggedIn}`);
+  const [birthday, setBirthday] = useState("");
+  const [adress, setAdress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  
+  
+  
+  
+  
+  const logIn = useCallback((firstName: string, lastName: string, birthday:string, adress:string, phoneNumber:string ) => {
+  
     setFirstname(firstName);
     setLastName(lastName);
+    setBirthday(birthday);
+    setAdress(adress)
+    setPhoneNumber(phoneNumber)
+
     setIsLoggedIn(true);
   }, []);
 
   const logOut = useCallback(() => {
     setIsLoggedIn(false);
+    setFirstname('');
+    setLastName('');
+    setBirthday('');
+    setAdress('')
+    setPhoneNumber('')  
+  
   }, []);
 
   const value = useMemo(
@@ -38,10 +56,10 @@ export function LoginContextProvider({ children }: Props) {
       logIn,
       logOut,
     }),
-    [isLoggedIn]
+    [isLoggedIn,logIn,logOut]
   );
 
-  console.log(`User f: ${firstName} l:${lastName} is ${isLoggedIn}`);
+  console.log(`User ${firstName} ${lastName}, ${birthday}, ${adress}, ${phoneNumber}, is logged in: ${isLoggedIn}`)
 
   
   return (
