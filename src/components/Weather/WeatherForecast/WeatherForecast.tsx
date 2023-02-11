@@ -93,7 +93,7 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
             <div className={css.BackToCurrentWeather}>
                 <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
                 <br />
-                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + " (" + dateState.date + ")"} </div>
+                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
             </div>
 
             <div className={css.WeatherForecast} ref={wrapperRef}>

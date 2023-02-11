@@ -4,7 +4,10 @@
     position: relative;
     width: 250px;
     box-sizing: border-box;
+    
 }
+
+
 
 .search input {
     box-sizing: border-box;
