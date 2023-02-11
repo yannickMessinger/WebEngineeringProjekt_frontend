@@ -12,9 +12,11 @@ import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginO
 import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInfoTransisitonScreen";
 import { Weather } from "./pages/Weather";
 import { Lightsaber } from "./components/Lightsaber/Lightsaber";
+import { LoginContextProvider } from "./context/LoginContext";
 
 function App() {
   return (
+    <LoginContextProvider>
     <CharacterStylingContextProvider>
     <BrowserRouter>
       <Routes>
@@ -31,6 +33,7 @@ function App() {
       
     </BrowserRouter>
   </CharacterStylingContextProvider>
+  </LoginContextProvider>
   );
 }
 
