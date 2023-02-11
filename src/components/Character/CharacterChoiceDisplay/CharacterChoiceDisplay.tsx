@@ -5,9 +5,9 @@ import { CharacterPicture } from "../CharacterPicture/CharacterPicture";
 
 
 export const CharacterChoiceDisplay= () => {
-  const { charChoiceHandlerNext, charChoiceHandlerPrev, returnCharacter } = useContext(CharacterStylingContext);
+  const { charChoiceHandlerNext, charChoiceHandlerPrev,currentChar} = useContext(CharacterStylingContext);
   
-  const [toggleChar, setToggleChar] = useState(false);
+  
 
   
 
@@ -18,15 +18,12 @@ export const CharacterChoiceDisplay= () => {
         onClick={() => charChoiceHandlerPrev()}
       ></div>
       <div
-        className={`${css.characterDisplay} ${
-          toggleChar ? css.characterDisplayToggle : css.characterDisplay
-        }`}
+        className={`${css.characterDisplay}`}
         
       >
         <CharacterPicture
-          swapi_id={returnCharacter().swapi_id}
-          name={returnCharacter().name}
-          img_path={returnCharacter().img_path}
+          name={currentChar!.name}
+          img_path={currentChar!.img_path}
         />
       </div>
       <div

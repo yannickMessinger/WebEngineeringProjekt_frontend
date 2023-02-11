@@ -19,7 +19,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   //Triggern der Fehler msg?
   //contrast erhöhen durch Anpassen des Farbverlaufs
   
-  const { returnCharacter } = useContext(CharacterStylingContext);
+  const { currentChar } = useContext(CharacterStylingContext);
   const[nextPage, setNextPage] = useState(false);
   const navigate = useNavigate();
 
@@ -104,7 +104,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       <div className={css.login_header}>
         <p>Welcome</p>
         <div>
-          <LoginPictureFrame img_path={returnCharacter().img_path} />
+          <LoginPictureFrame img_path={currentChar!.img_path} />
         </div>
       </div>
       <div className={`${css.login_main} ${nextPage? css.disable: ''}`}>
@@ -175,7 +175,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
         </div>
 
         <div className={css.submit_button}>
-        <button style={returnCharacter().button_style}
+        <button 
             onClick={(e) => {
               validateFormData(e);
               

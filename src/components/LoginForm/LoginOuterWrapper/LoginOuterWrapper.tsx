@@ -15,12 +15,12 @@ export const LoginFormRework = () => {
   //TODO: Schriftfarbe bei hellen Hintergründen mit mehr Kontrast auf dunkel setzen
   
   //Transition Screen mit Übergang zur Info Seite
-  const { returnCharacter } = useContext(CharacterStylingContext);
+  const { currentChar } = useContext(CharacterStylingContext);
   const[formErrors, setFormErrors] = useState(false);
   const[saberIsActive, setSaberisActive] = useState(false);
   
   const imgStyles = {
-    backgroundImage:`url(${returnCharacter().login_img_path})`,
+    backgroundImage:`url(${currentChar!.login_img_path})`,
     height:'100%',
     minHeight: '100vh',
     overflow:'auto',
@@ -37,7 +37,7 @@ export const LoginFormRework = () => {
         <Lightsaber hasErrors={formErrors} isActive={saberIsActive}/>
         </div>
       <div className={css.login_form}>
-        <LoginForm loginFormStyle={returnCharacter().loginStyle!} errorState={formErrors} setErrorState={setFormErrors} activateSaber={setSaberisActive}/>
+        <LoginForm loginFormStyle={currentChar!.loginStyle!} errorState={formErrors} setErrorState={setFormErrors} activateSaber={setSaberisActive}/>
       </div>
       <div className={css.saber_right}>
       <Lightsaber hasErrors={formErrors} isActive={saberIsActive} />

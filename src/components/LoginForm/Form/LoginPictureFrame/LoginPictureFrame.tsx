@@ -4,7 +4,7 @@ import css from "./LoginPictureFrameStyle.module.css"
 
 
 interface LoginPictureFrameProps{
-    img_path: string
+    img_path: string | undefined
 }
 
 export const LoginPictureFrame = ({img_path}:LoginPictureFrameProps) => {

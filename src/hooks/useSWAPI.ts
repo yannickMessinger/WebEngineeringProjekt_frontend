@@ -12,7 +12,7 @@ export const useSWAPI = () => {
   const [planetInfo, setPlanetInfo] = useState<PlanetInfo>();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { returnCharacter } = useContext(CharacterStylingContext);
+  const { currentChar } = useContext(CharacterStylingContext);
 
   //geht das iwie coola mit promise.all?
 
@@ -64,7 +64,7 @@ export const useSWAPI = () => {
     console.log("fetch Char Info from Swapi");
 
     const SWAPI_URL = `http://swapi.dev/api/people/?search=${
-      returnCharacter().name
+      currentChar?.name
     }`;
 
     try {

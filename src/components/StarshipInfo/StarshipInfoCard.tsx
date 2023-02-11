@@ -11,11 +11,11 @@ interface StarshipInfoProps{
 
 
 export const StarshipInfoCard = ({info}:StarshipInfoProps) => {
-  const {returnCharacter} = useContext(CharacterStylingContext);
+  const {currentChar} = useContext(CharacterStylingContext);
 
   return (
     <div className={css.wrapper}>
-       <LoginPictureFrame img_path={returnCharacter().ship_img_path!}></LoginPictureFrame>
+       <LoginPictureFrame img_path={currentChar?.ship_img_path!}></LoginPictureFrame>
       <div>name: {info?.name}</div>
       <div>model: {info?.model}</div>
       <div>manufacturer: {info?.manufacturer}</div>

@@ -21,7 +21,6 @@ import macewindu from "../assets/macewindu.png";
 
 import boba_login from "../assets/assets_login_screen/boba.jpg";
 import bosk1_login from "../assets/assets_login_screen/bosk1.jpg";
-import bosk2_login from "../assets/assets_login_screen/bosk2.jpg";
 import c3po_login from "../assets/assets_login_screen/c3po.png";
 import r2d2_login from "../assets/assets_login_screen/r2d2.jpg";
 import hansolo_login from "../assets/assets_login_screen/hansolo.jpg";
@@ -64,33 +63,42 @@ import sidiousplanet from "../assets/planets/sidiousplanet.png"
 import jarjarplanet from "../assets/planets/jarjarplanet.png"
 import maceplanet from "../assets/planets/maceplanet.png"
 import obiplanet from "../assets/planets/obiplanet.png"
-import vaderplanet from "../assets/planets/vaderplanet.png"
+
 
 
 //sounds for characters?
 
 
 
-interface CharacterStylingContextProps {
+interface CharacterStylingContextReturnType {
   charChoiceHandlerNext: () => void;
   charChoiceHandlerPrev: () => void;
-  returnCharacter: () => Character;
   setDarkCharacters:() => void;
   setLightCharacters:() => void;
+  currentChar:Character
  }
 
-export const CharacterStylingContext = React.createContext<CharacterStylingContextProps>({
-  charChoiceHandlerNext: () => {},
-  charChoiceHandlerPrev: () => {},
-  returnCharacter: (): any => {},
-  setDarkCharacters:() => {},
-  setLightCharacters:() => {}
- 
+type Props = {
+  children: React.ReactNode
+};
+
+
+export const CharacterStylingContext = React.createContext<CharacterStylingContextReturnType>({
+  charChoiceHandlerNext: () => { },
+  charChoiceHandlerPrev: () => { },
+  setDarkCharacters: () => { },
+  setLightCharacters: () => { },
+  currentChar: {name: "", img_path: '', side: side.LIGHT, validationErrorMsg:"", login_img_path: '', loginStyle:{background:''}, ship_img_path:'', charInfoFrameColor:{r:0,g:0,b:0, a:0}, planet_img_path:''}
 });
 
-export function CharacterContextProvider({ children }: any) {
+export function CharacterStylingContextProvider({ children }: Props) {
   
-  const [charIndex, setCharIndex] = useState(0);
+  
+
+  const [charIndex, setCharIndex] = useState<number>(0);
+  
+  console.log("init context", charIndex)
+
   const charList: Array<Character> = [
     {name: "Yoda", img_path: yoda, side: side.LIGHT, validationErrorMsg:"correcting alle errors you must!", login_img_path: yoda_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(9,69,6,1) 80%)'}, ship_img_path:yodasship, charInfoFrameColor:{r:9,g:69,b:6, a:1}, planet_img_path:yodaplanet},
     {name: "C-3PO",  img_path: c3po,side: side.LIGHT, validationErrorMsg:"sir, please correct your input!", login_img_path: c3po_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(233,224,19,1) 80%)'}, ship_img_path:r2d2ship,charInfoFrameColor:{r:233,g:224,b:19, a:1}, planet_img_path:c3poplanet},
@@ -101,7 +109,7 @@ export function CharacterContextProvider({ children }: any) {
     {name:"Bossk", img_path:bossk, side: side.DARK, validationErrorMsg:"time to hunt errors!", login_img_path:bosk1_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(40,34,0,1) 80%)'},ship_img_path:bossksship,charInfoFrameColor:{r:40,g:34,b:0, a:1}, planet_img_path:bosskplanet},
     {name:"Han Solo", img_path:hanyolo, side: side.LIGHT, validationErrorMsg:"Never tell me the errors!", login_img_path:hansolo_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(163,157,112,1) 80%'},ship_img_path:falcon,charInfoFrameColor:{r:163,g:157,b:112, a:1}, planet_img_path:hanplanet},
     {name:"IG-88", img_path:ig88, side:side.DARK, validationErrorMsg:"He is no good to me with errors!", login_img_path:ig88_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(69,69,69,1) 80%)'}, ship_img_path:ig88ship,charInfoFrameColor:{r:69,g:69,b:69, a:1}, planet_img_path:ig88planet},
-    {name:"Palpatine", img_path:imperator, side: side.DARK, validationErrorMsg:"correct the errors now! DO IT!", login_img_path:sidious_login ,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'},button_style:{background:'red', color:'black'}, ship_img_path:stardestroyer,charInfoFrameColor:{r:255,g:0,b:0, a:1},planet_img_path:sidiousplanet},
+    {name:"Palpatine", img_path:imperator, side: side.DARK, validationErrorMsg:"correct the errors now! DO IT!", login_img_path:sidious_login ,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(0,0,0,1) 80%)'}, ship_img_path:stardestroyer,charInfoFrameColor:{r:255,g:0,b:0, a:1},planet_img_path:sidiousplanet},
     {name:"Jar Jar Bink", img_path:jarajr, side:side.LIGHT, validationErrorMsg:"yousa musta correct the erroaa!", login_img_path:jarjar_login, loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(172,108,3,1) 80%)'}, ship_img_path:jarjarsship,charInfoFrameColor:{r:172,g:108,b:3, a:1},planet_img_path:jarjarplanet},
     {name:"Mace Windu", img_path:macewindu, side:side.LIGHT, validationErrorMsg:"this error is over!", login_img_path:windu1_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(46,24,0,1) 80%)'}, ship_img_path:winduship,charInfoFrameColor:{r:46,g:24,b:0, a:1},planet_img_path:maceplanet},
     {name:"Obi Wan Kenobi", img_path:obiwan, side:side.LIGHT, validationErrorMsg:"you were supposed to correct the errors, not create them!", login_img_path:obiwan_login,loginStyle:{background:'linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(150,84,12,1) 80%)'}, ship_img_path:starfighter,charInfoFrameColor:{r:150,g:84,b:12, a:1},planet_img_path:obiplanet}
@@ -110,13 +118,16 @@ export function CharacterContextProvider({ children }: any) {
   
 
 
-  const [characterList, setCharacterlist] = useState(charList)
+  const [characterList, setCharacterlist] = useState<Array<Character>>(charList)
+  const [currentChar, setCurrentChar] = useState<Character>(characterList[charIndex])
   
   function setDarkCharacters():void{
     
     const newList = darkCharsList
     setCharacterlist(newList)
     setCharIndex(0)
+
+    setCurrentChar(newList[0])
   }
 
   function setLightCharacters():void{
@@ -124,6 +135,8 @@ export function CharacterContextProvider({ children }: any) {
     const newList = lightCharsList
     setCharacterlist(newList)
     setCharIndex(0)
+
+    setCurrentChar(newList[0])
   }
 
   const lightCharsList:Array<Character> = charList.filter((char) =>{
@@ -134,29 +147,43 @@ export function CharacterContextProvider({ children }: any) {
     return char.side === side.DARK
   })
 
-  function charChoiceHandlerNext(){
+  function charChoiceHandlerNext():void{
+   
+    
+    let newCharIndex
     if (charIndex === (characterList.length - 1)) {
-      setCharIndex(0);
-
+      newCharIndex = 0
+      setCharIndex(newCharIndex);
+      setCurrentChar(characterList[newCharIndex])
       return;
     }
-    setCharIndex((prevCharIndex) => prevCharIndex + 1);
+    
+    newCharIndex = charIndex + 1
+    setCharIndex(newCharIndex => newCharIndex + 1);
+   
+    setCurrentChar(characterList[newCharIndex])
   };
 
-  function charChoiceHandlerPrev(){
+  function charChoiceHandlerPrev():void{
+    
+    console.log(charIndex)
+  
+    let newCharIndex
     if (charIndex === 0) {
-      setCharIndex((characterList.length - 1));
-
+      let newCharIndex = characterList.length - 1
+      setCharIndex(newCharIndex);
+      setCurrentChar(characterList[newCharIndex])
       return;
     }
-    setCharIndex((prevCharIndex) => (prevCharIndex - 1));
-  };
 
-  function returnCharacter(): Character{
-    return characterList[charIndex];
+    newCharIndex = charIndex - 1
+    setCharIndex(newCharIndex => (newCharIndex - 1));
+    
+    setCurrentChar(characterList[newCharIndex])
   };
 
   
+
 
 
   
@@ -165,14 +192,14 @@ export function CharacterContextProvider({ children }: any) {
     () => ({
       charChoiceHandlerNext,
       charChoiceHandlerPrev,
-      returnCharacter,
       setDarkCharacters,
-      setLightCharacters
+      setLightCharacters,
+      currentChar
     }),
-    [charChoiceHandlerNext,charChoiceHandlerPrev,returnCharacter, setLightCharacters,setDarkCharacters]
+    [charChoiceHandlerNext,charChoiceHandlerPrev,setLightCharacters,setDarkCharacters,currentChar]
   );
 
-  // wrap the context around all children
+  
   return (
     <CharacterStylingContext.Provider value={value}>
       {children}

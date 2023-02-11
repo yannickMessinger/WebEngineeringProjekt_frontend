@@ -6,7 +6,7 @@ import { Home } from "./pages/Home";
 import { Quiz } from "./pages/Quiz";
 //import './App.css';
 import { CharacterChoice } from "./pages/CharacterCoice/CharacterChoice";
-import { CharacterContextProvider } from "./context/CharacterStylingContext";
+import { CharacterStylingContextProvider } from "./context/CharacterStylingContext";
 import { CharacterInfoFetchWrapper } from "./components/Character/InfoDisplay/FetchWrapper/CharacterInfoFetchWrapper";
 import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInfoTransisitonScreen";
@@ -15,7 +15,7 @@ import { Lightsaber } from "./components/Lightsaber/Lightsaber";
 
 function App() {
   return (
-    <CharacterContextProvider>
+    <CharacterStylingContextProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CharacterChoice />} />
@@ -30,7 +30,7 @@ function App() {
        
       
     </BrowserRouter>
-  </CharacterContextProvider>
+  </CharacterStylingContextProvider>
   );
 }
 

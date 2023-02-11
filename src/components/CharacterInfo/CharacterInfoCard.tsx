@@ -11,10 +11,10 @@ interface CharacterInfoCardProps{
 
 
 export const CharacterInfoCard = ({info}:CharacterInfoCardProps) => {
-  const {returnCharacter} = useContext(CharacterStylingContext);
+  const {currentChar} = useContext(CharacterStylingContext);
   return (
     <div className={css.wrapper}>
-      <LoginPictureFrame img_path={returnCharacter().img_path}></LoginPictureFrame>
+      <LoginPictureFrame img_path={currentChar!.img_path}></LoginPictureFrame>
       <div>name: {info?.name}</div>
       <div>birth year: {info?.birth_year}</div>
       <div>eye color: {info?.eye_color}</div>

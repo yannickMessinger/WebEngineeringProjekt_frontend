@@ -23,7 +23,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   //ggf 3D display versuchen für charakter einzubauen
   //lässt sich die InfoCard als componente verallgemeinern?
 
-  const {returnCharacter} = useContext(CharacterStylingContext);
+  const {currentChar} = useContext(CharacterStylingContext);
   const infoWrapper = useRef<HTMLInputElement>(null);
   const planetInfoDisplayCard = useRef<HTMLInputElement>(null);
   const characterInfoDisplayCard = useRef<HTMLInputElement>(null);
@@ -47,7 +47,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
 
         card.current?.style.setProperty("--cursorX", `${x}px`);
         card.current?.style.setProperty("--cursorY", `${y}px`);
-        card.current?.style.setProperty("--color",`rgba(${returnCharacter().charInfoFrameColor!.r},${returnCharacter().charInfoFrameColor!.g},${returnCharacter().charInfoFrameColor!.b},${returnCharacter().charInfoFrameColor!.a})`) 
+        card.current?.style.setProperty("--color",`rgba(${currentChar?.charInfoFrameColor!.r},${currentChar?.charInfoFrameColor!.g},${currentChar?.charInfoFrameColor!.b},${currentChar?.charInfoFrameColor!.a})`) 
       });
     };
 
