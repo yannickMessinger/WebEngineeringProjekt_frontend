@@ -1,23 +1,22 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import css from "./CharInfoTransitionScreenStyle.module.css"
-import xwing from "../../assets/shipassets/xwing.png"
 import { useSWAPI } from '../../hooks/useSWAPI';
 import { InfoDisplay } from '../Character/InfoDisplay/InfoDisplay';
 import { CharacterStylingContext } from '../../context/CharacterStylingContext';
 
-//hier ggf schon data fetchen für Character info??
+
 
 export const CharInfoTransisitonScreen = () => {
 
-  const { charInfo, starshipInfo,planetInfo, loading, error, fetchCharInfo} = useSWAPI();
+  const { charInfo, starshipInfo,planetInfo, loading} = useSWAPI();
   const {currentChar} = useContext(CharacterStylingContext);
-  //fetchCharInfo()
+ 
   
   return (
     <div className={css.backgroundimg}>
       {loading ? (
        <div className={css.xwing}>
-          <img src={currentChar?.ship_img_path} width='50px' height='50px'/>
+          <img src={currentChar?.ship_img_path} alt={"spaceship_fyling"} width='50px' height='50px'/>
       </div>
       ) : (
         <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={planetInfo}/>

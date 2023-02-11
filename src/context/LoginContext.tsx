@@ -4,6 +4,7 @@ interface LoginProps {
   logIn: (firstName: string, lastName: string,birthday:string, adress:string, phoneNumber:string) => void;
   logOut: () => void;
   isLoggedIn: boolean;
+  updateScore:(points:number) => void
 }
 
 type Props = {
@@ -14,6 +15,7 @@ export const LoginContext = React.createContext<LoginProps>({
   logIn: () => {},
   logOut: () => {},
   isLoggedIn: false,
+  updateScore:() => {}
 });
 
 export function LoginContextProvider({ children }: Props) {
@@ -24,8 +26,12 @@ export function LoginContextProvider({ children }: Props) {
   const [birthday, setBirthday] = useState("");
   const [adress, setAdress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  
-  
+  const [score, setScore] = useState(0);
+
+    
+  const updateScore = useCallback((points:number) =>{
+    setScore(score + points)
+  },[score])
   
   
   
@@ -55,8 +61,10 @@ export function LoginContextProvider({ children }: Props) {
       isLoggedIn,
       logIn,
       logOut,
+      score,
+      updateScore
     }),
-    [isLoggedIn,logIn,logOut]
+    [isLoggedIn,logIn,logOut,score,updateScore]
   );
 
   console.log(`User ${firstName} ${lastName}, ${birthday}, ${adress}, ${phoneNumber}, is logged in: ${isLoggedIn}`)
