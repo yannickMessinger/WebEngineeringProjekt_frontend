@@ -28,8 +28,7 @@ export const WeatherScreen = () => {
 
     if (starWarsPlanet !== "noPlanet" && starWarsPlanet !== "default") {
         weatherLocation = <span>{weatherData.location} </span>;
-        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchCoordinates={fetchCoordinates} weatherMode={weatherMode} />;
-        weatherDescription = <WeatherDescription weatherData={weatherData} />;
+        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchCoordinates={fetchCoordinates} weatherMode={weatherMode} weatherData= {weatherData} />;
     } else {
         weatherLocation = <span></span>;
         weatherForecast = <span></span>;
@@ -55,9 +54,6 @@ export const WeatherScreen = () => {
                     </div>
                     <div className={css.StarWarsPlanet}>
                         <WeatherPlanet planetName={starWarsPlanet} />
-                    </div>
-                    <div className={css.WeatherDescription}>
-                        {weatherDescription}
                     </div>
                     <div className={css.WeatherForecast}>
                         {weatherForecast}

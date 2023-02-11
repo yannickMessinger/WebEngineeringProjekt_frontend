@@ -3,6 +3,11 @@ import { EnumType } from "typescript";
 import { WeatherMode } from "../../../hooks/useWeather";
 import css from "./WeatherForecast.module.css"
 import { WeatherForecastElement } from "./WeatherForecastElement";
+import upIcon from "../../../assets/icons/arrow_up.png";
+import downIcon from "../../../assets/icons/arrow_down.png";
+import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
+
+
 
 
 interface WeatherForecastProps {
@@ -19,13 +24,22 @@ interface WeatherForecastProps {
     fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) => void
     fetchCoordinates: () => void
     weatherMode: WeatherMode
+    weatherData: {
+        location: string;
+        temp: string;
+        weatherDescription: {
+            description: string;
+            image: string;
+        };
+    }
 }
 
-export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchCoordinates, weatherMode }) => {
+export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchCoordinates, weatherMode, weatherData }) => {
 
     const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
     const [contentState, setContentState] = useState(arr);
     const [dateState, setDateState] = useState({ weekDay: "", date: "" });
+    const [foldState, setFoldState] = useState(false)
     const wrapperRef = useRef<HTMLInputElement>(null);
     const cardRef0 = useRef<HTMLInputElement>(null);
     const cardRef1 = useRef<HTMLInputElement>(null);
@@ -34,10 +48,11 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     const cardRef4 = useRef<HTMLInputElement>(null);
     const cardRef5 = useRef<HTMLInputElement>(null);
     const cardRef6 = useRef<HTMLInputElement>(null);
-    const currentWeatherButtonRef = useRef<HTMLButtonElement>(null)
+    const currentWeatherButtonRef = useRef<HTMLButtonElement>(null);
+    const backToCurrentWeatherRef = useRef<HTMLInputElement>(null);
+    const [foldButtonState, setFoldButtonState] = useState(<img src={upIcon} alt="up" />);
 
-    const cardRefs = [cardRef0, cardRef1, cardRef2, cardRef3, cardRef4, cardRef5, cardRef6]
-
+    const cardRefs = [cardRef0, cardRef1, cardRef2, cardRef3, cardRef4, cardRef5, cardRef6];
 
     useEffect(() => {
         const mouseMovedForElements = ($event: MouseEvent) => {
@@ -72,6 +87,24 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
         }
     }
 
+    const foldTiles = () => {
+        const currentWrapperTiles = wrapperRef.current;
+        const currentWrapperAbove = backToCurrentWeatherRef.current;
+        if (currentWrapperTiles !== null && currentWrapperAbove !== null) {
+            if (foldState) {
+                currentWrapperTiles.className = css.WeatherForecast;
+                currentWrapperAbove.className = css.BackToCurrentWeather;
+                setFoldButtonState(<img src={upIcon} alt="up" />);
+                setFoldState(false)
+            } else {
+                currentWrapperTiles.className = css.WeatherForecast_down;
+                currentWrapperAbove.className = css.BackToCurrentWeather_down;
+                setFoldButtonState(<img src={downIcon} alt="down" />);
+                setFoldState(true)
+            }
+        }
+    }
+
     useEffect(() => {
         const currentButton = currentWeatherButtonRef.current;
         if (weatherMode === WeatherMode.CURRENT) {
@@ -90,10 +123,14 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
 
     return (
         <>
-            <div className={css.BackToCurrentWeather}>
+
+            <div className={css.BackToCurrentWeather} ref={backToCurrentWeatherRef}>
+                <div className={css.WeatherDescription}>
+                    <WeatherDescription weatherData={weatherData} />
+                </div>
                 <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
-                <br />
                 <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
+                <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
             </div>
 
             <div className={css.WeatherForecast} ref={wrapperRef}>
