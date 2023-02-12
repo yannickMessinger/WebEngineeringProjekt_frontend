@@ -178,8 +178,8 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             )}
         </div>
 
-        <div className={css.submit_button}>
-        <button 
+
+        <button  className={css.submit_button}
             onClick={(e) => {
               validateFormData(e);
               
@@ -187,7 +187,6 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           >
             go
           </button>
-        </div>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ export const CharInfoTransisitonScreen = () => {
  
   
   return (
+    
     <div className={css.backgroundimg}>
       {loading ? (
        <div className={css.xwing}>

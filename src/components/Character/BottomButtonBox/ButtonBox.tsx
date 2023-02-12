@@ -1,6 +1,5 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom';
-import { useSWAPI } from '../../../hooks/useSWAPI';
 import css from "./ButtonBoxStyle.module.css";
 
 export const ButtonBox = () => {

@@ -15,11 +15,11 @@ export const LightDarkSideChoice = () => {
 
   return (
     
-    <div>
+    
         <div className={css.switchtheme}>
             <SideImageButton logopath={rebel_logo} className={css.rebelLogo} side={side.LIGHT} setSide={setLightCharacters}/>
             <SideImageButton logopath={empire_logo} className={css.empireLogo} side={side.DARK} setSide={setDarkCharacters}/>
           </div>
-    </div>
+    
   )
 }

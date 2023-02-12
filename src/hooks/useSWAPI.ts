@@ -14,9 +14,8 @@ export const useSWAPI = () => {
   const [loading, setLoading] = useState(false);
   const { currentChar } = useContext(CharacterStylingContext);
 
-  //geht das iwie coola mit promise.all?
-
   useEffect(() => {
+    console.log("fetchhhhh")
     setError(false);
     setLoading(true);
     fetchCharInfo()
@@ -47,9 +46,9 @@ export const useSWAPI = () => {
       .finally(() => {
         setTimeout(() => {
           setLoading(false);
-        }, 10000);
+        }, 6000);
       });
-  }, []);
+  }, [currentChar]);
 
   return {
     fetchCharInfo,

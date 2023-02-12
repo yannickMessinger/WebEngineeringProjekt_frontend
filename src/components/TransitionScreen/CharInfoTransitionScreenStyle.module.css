@@ -1,21 +1,27 @@
 
 .backgroundimg{
   background-image:url('../../assets/assets_transition/671306.jpg');
-    
     height: 100%;
     min-height: 100vh;
     overflow: auto; 
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
+   
+
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .xwing{
     
     position: absolute;
+    top: 20vw;
     left: -5vw;
-    top: 2vw;
     
-    animation: fly 10s  ease-in-out;
+    animation: fly 6s  ease-in-out;
     animation-delay: 0.5s;
     /*
     animation-iteration-count: 1;
@@ -27,14 +33,25 @@
 
 @keyframes fly{
     0%{
-        transform: translate(0vw, 0vh);
+        transform: translate(0vw, 0vh) rotate(-30deg);
         
       
     }
 
+    50%{
+      transform: translate(30vw)  rotate(-30deg);
+    }
+
+ 
+
+
+  
+
 
     100%{
-        transform: translate(110vw, 110vh) rotate(50deg);
+        transform: translate(110vw)  rotate(-30deg);
+        display: none;
+        visibility: hidden;
        
         
     }
