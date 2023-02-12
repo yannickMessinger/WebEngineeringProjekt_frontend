@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { FormError } from "./FormInput/FormError";
-import { StyledFormInput } from "./FormInput/StyledFormInput";
+import { FormError } from "./FormError/FormError";
 import css from "./LoginFormStyle.module.css";
-import { LoginPictureFrame } from "./LoginPictureFrame/LoginPictureFrame";
+import { PictureFrame } from "./LoginPictureFrame/PictureFrame";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../context/LoginContext";
 
@@ -17,7 +16,7 @@ interface  LoginStyleProps{
 
 export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber}:LoginStyleProps) => {
   //TODO: Validierung der jeweiligen Felder mittels Regex
-  //Triggern der Fehler msg?
+  //Username validierung format
   //contrast erhöhen durch Anpassen des Farbverlaufs
   
   
@@ -25,12 +24,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   const {logIn} = useContext(LoginContext)
   const[nextPage, setNextPage] = useState(false);
   const navigate = useNavigate();
+  const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const[userName, setUserName] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [adress, setAdress] = useState("");
+  const [mailAdress, setMailAdress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   
   const [formErrors, setFormErrors] = useState({
@@ -39,7 +39,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     userName:"",
     phoneNumber: "",
     birthday: "",
-    adress: "",
+    mailAdress: "",
   });
 
   function switchSaber(error:boolean){
@@ -61,8 +61,10 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       userName:"",
       phoneNumber: "",
       birthday: "",
-      adress: "",
+      mailAdress: "",
     };
+
+    //console.log(new Date(birthday) > new Date(Date.now()))
 
     if (firstName === "") {
       errors.firstName = "kaa leere vorname";
@@ -85,14 +87,23 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       errors.birthday = "kaa leere geboortsdaach";
     }
 
-    if (adress === "") {
-      errors.adress = "kaa leere Adress";
+    if(new Date(birthday) > new Date(Date.now())){
+      errors.birthday ="kaa Geburtstag aus de zukunft!"
+    }
+    
+
+    if (mailAdress === "") {
+      errors.mailAdress = "kaa leere Adress";
+    }
+    
+    if(!validEmail.test(mailAdress)){
+      errors.mailAdress ="Mail ned im passenden Format!"
     }
 
     setFormErrors(errors);
     setErrorState(true);
-    if(errors.firstName === "" && errors.lastName ==="" && errors.userName=="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
-      logIn(firstName,lastName,userName,birthday,adress,phoneNumber);
+    if(errors.firstName === "" && errors.lastName ==="" && errors.userName=="" && errors.phoneNumber === "" && errors.birthday === "" && errors.mailAdress === ""){
+      logIn(firstName,lastName,userName,birthday,mailAdress,phoneNumber);
       switchSaber(false)
       
       setNextPage(true);
@@ -114,84 +125,84 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       <div className={css.login_header}>
         <p>Welcome</p>
         <div>
-          <LoginPictureFrame img_path={currentChar!.img_path} />
+          <PictureFrame img_path={currentChar!.img_path} />
         </div>
       </div>
       <div className={`${css.login_main} ${nextPage? css.disable: ''}`}>
         
         <div className={css.first_name}>
-          <StyledFormInput
+          <input
             value={firstName}
-            onchange={setFirstName}
+            onChange={(e)=> {setFirstName(e.target.value)}}
             type={"text"}
-            classname={css.styledinput}
+            className={css.styledinput}
             placeholder={"firstname"}
-          ></StyledFormInput>
+          ></input>
           {formErrors.firstName && (
             <FormError name={formErrors.firstName}></FormError>
           )}
         </div>
 
         <div className={css.last_name}>
-          <StyledFormInput
+          <input
             value={lastName}
-            onchange={setLastName}
+            onChange={(e) =>{setLastName(e.target.value)}}
             type={"text"}
-            classname={css.styledinput}
+            className={css.styledinput}
             placeholder={"lastname"}
-          ></StyledFormInput>
+          ></input>
           {formErrors.lastName && (
             <FormError name={formErrors.lastName}></FormError>
           )}
         </div>
 
         <div className={css.user_name}>
-          <StyledFormInput
+          <input
             value={userName}
-            onchange={setUserName}
+            onChange={(e) => {setUserName(e.target.value)}}
             type={"text"}
-            classname={css.styledinput}
+            className={css.styledinput}
             placeholder={"user name"}
-          ></StyledFormInput>
+          ></input>
           {formErrors.lastName && (
             <FormError name={formErrors.userName}></FormError>
           )}
         </div>
 
         <div className={css.birthday}>
-          <StyledFormInput
+          <input
             value={birthday}
-            onchange={setBirthday}
+            onChange={(e) =>{setBirthday(e.target.value)}}
             type={"date"}
-            classname={css.styledinput}
+            className={css.styledinput}
             placeholder={"birthday"}
-          ></StyledFormInput>
+          ></input>
           {formErrors.birthday && (
             <FormError name={formErrors.birthday}></FormError>
           )}
         </div>
 
         <div className={css.adress}>
-          <StyledFormInput
-            value={adress}
-            onchange={setAdress}
+          <input
+            value={mailAdress}
+            onChange={(e) => {setMailAdress(e.target.value)}}
             type={"text"}
-            classname={css.styledinput}
+            className={css.styledinput}
             placeholder={"emailadress"}
-          ></StyledFormInput>
-          {formErrors.adress && (
-            <FormError name={formErrors.adress}></FormError>
+          ></input>
+          {formErrors.mailAdress && (
+            <FormError name={formErrors.mailAdress}></FormError>
           )}
         </div>
 
         <div className={css.phone_number}>
-        <StyledFormInput
+        <input
               value={phoneNumber}
-              onchange={setPhoneNumber}
+              onChange={(e) =>{setPhoneNumber(e.target.value)}}
               type={"text"}
-              classname={css.styledinput}
+              className={css.styledinput}
               placeholder={"phonenumber"}
-            ></StyledFormInput>
+            ></input>
             {formErrors.phoneNumber && (
               <FormError name={formErrors.phoneNumber}></FormError>
             )}

@@ -7,7 +7,7 @@ interface LoginPictureFrameProps{
     img_path: string | undefined
 }
 
-export const LoginPictureFrame = ({img_path}:LoginPictureFrameProps) => {
+export const PictureFrame = ({img_path}:LoginPictureFrameProps) => {
   return (
     <div className={css.frame}>
         <img src={img_path} className={css.login_character_img}></img>

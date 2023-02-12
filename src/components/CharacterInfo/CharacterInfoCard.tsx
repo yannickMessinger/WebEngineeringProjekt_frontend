@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CharacterStylingContext } from '../../context/CharacterStylingContext';
 import { CharacterInfo } from '../../typings/CharacterInfo'
-import { LoginPictureFrame } from '../LoginForm/Form/LoginPictureFrame/LoginPictureFrame';
+import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame';
 import css from './CharacterInfoCardStyle.module.css'
 
 //InfoCards in eine gesamte Komponente transformieren
@@ -14,7 +14,7 @@ export const CharacterInfoCard = ({info}:CharacterInfoCardProps) => {
   const {currentChar} = useContext(CharacterStylingContext);
   return (
     <div className={css.wrapper}>
-      <LoginPictureFrame img_path={currentChar!.img_path}></LoginPictureFrame>
+      <PictureFrame img_path={currentChar!.img_path}/>
       <div>name: {info?.name}</div>
       <div>birth year: {info?.birth_year}</div>
       <div>eye color: {info?.eye_color}</div>

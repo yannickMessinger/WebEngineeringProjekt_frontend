@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { CharacterStylingContext } from '../../context/CharacterStylingContext'
 import { StarshipInfo } from '../../typings/IStarshipInfo'
-import { LoginPictureFrame } from '../LoginForm/Form/LoginPictureFrame/LoginPictureFrame'
+import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame'
 import css from './StarshipInfoCardStyle.module.css'
-//InfoCards in eine gesamte Komponente transformieren
+
 
 interface StarshipInfoProps{
   info:StarshipInfo | undefined
@@ -15,7 +15,7 @@ export const StarshipInfoCard = ({info}:StarshipInfoProps) => {
 
   return (
     <div className={css.wrapper}>
-       <LoginPictureFrame img_path={currentChar?.ship_img_path!}></LoginPictureFrame>
+       <PictureFrame img_path={currentChar?.ship_img_path!}/>
       <div>name: {info?.name}</div>
       <div>model: {info?.model}</div>
       <div>manufacturer: {info?.manufacturer}</div>
