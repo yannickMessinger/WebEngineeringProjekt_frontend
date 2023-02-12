@@ -1,4 +1,5 @@
 .switchtheme {
+    
     display: flex;
     justify-content: space-around;
     grid-area: 2 / 1 / 3 / 2;
@@ -12,4 +13,18 @@
  .rebelLogo{
   width:90px;
   height: 60px;
+ }
+
+
+ @media screen and (max-width: 800px) {
+
+    .empireLogo{
+        width:30px;
+        height: 30px;
+       }
+      
+       .rebelLogo{
+        width:60px;
+        height: 40px;
+       }
  }

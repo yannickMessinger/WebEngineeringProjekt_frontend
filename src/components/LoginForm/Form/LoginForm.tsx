@@ -28,6 +28,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const[userName, setUserName] = useState("");
   const [birthday, setBirthday] = useState("");
   const [adress, setAdress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -35,6 +36,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   const [formErrors, setFormErrors] = useState({
     firstName: "",
     lastName: "",
+    userName:"",
     phoneNumber: "",
     birthday: "",
     adress: "",
@@ -56,6 +58,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     const errors = {
       firstName: "",
       lastName: "",
+      userName:"",
       phoneNumber: "",
       birthday: "",
       adress: "",
@@ -68,6 +71,11 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     if (lastName === "") {
       errors.lastName = "kaa leere nachname";
     }
+
+     if (userName === "") {
+      errors.userName = "kaa leere username";
+    }
+
 
     if (phoneNumber === "") {
       errors.phoneNumber = "kaa leere nummä";
@@ -83,8 +91,8 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
     setFormErrors(errors);
     setErrorState(true);
-    if(errors.firstName === "" && errors.lastName ==="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
-      logIn(firstName,lastName,birthday,adress,phoneNumber);
+    if(errors.firstName === "" && errors.lastName ==="" && errors.userName=="" && errors.phoneNumber === "" && errors.birthday === "" && errors.adress === ""){
+      logIn(firstName,lastName,userName,birthday,adress,phoneNumber);
       switchSaber(false)
       
       setNextPage(true);
@@ -94,8 +102,6 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       }, 2000)
       
     }else{
-      //hier error msg des jeweiligen charakters triggern?
-      //setErrorState(true)
       switchSaber(true)
       console.log("error in login form")
     }
@@ -136,6 +142,19 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           ></StyledFormInput>
           {formErrors.lastName && (
             <FormError name={formErrors.lastName}></FormError>
+          )}
+        </div>
+
+        <div className={css.user_name}>
+          <StyledFormInput
+            value={userName}
+            onchange={setUserName}
+            type={"text"}
+            classname={css.styledinput}
+            placeholder={"user name"}
+          ></StyledFormInput>
+          {formErrors.lastName && (
+            <FormError name={formErrors.userName}></FormError>
           )}
         </div>
 

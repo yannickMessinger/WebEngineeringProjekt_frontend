@@ -18,15 +18,17 @@
   .saber_left { grid-area: saber_left;
    display: flex;
    justify-content: center;
-    width: 100%;
+    width: 10%;
     height: 100%;
+  
  }
   
   .saber_right { grid-area: saber_right;
     display: flex;
    justify-content: center;
-    width: 100%;
+    width: 10%;
     height: 100%;
+    
  }
   
   .login_form { grid-area: login_form;
@@ -36,5 +38,15 @@
      width: 100%;
      min-height: 90%;
  }
+
+
+ @keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
 
 

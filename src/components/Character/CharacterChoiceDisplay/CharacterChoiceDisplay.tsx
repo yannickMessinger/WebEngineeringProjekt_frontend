@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import css from "./CharacterChoiceDisplay.module.css";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { CharacterPicture } from "../CharacterPicture/CharacterPicture";
+
 
 
 export const CharacterChoiceDisplay= () => {
@@ -21,10 +21,7 @@ export const CharacterChoiceDisplay= () => {
         className={`${css.characterDisplay}`}
         
       >
-        <CharacterPicture
-          name={currentChar!.name}
-          img_path={currentChar!.img_path}
-        />
+         <img src={currentChar.img_path} className={css.character_img} ></img>
       </div>
       <div
         className={css.arrowright}

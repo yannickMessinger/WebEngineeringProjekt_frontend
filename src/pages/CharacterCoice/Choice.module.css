@@ -24,7 +24,6 @@
 }
 
 .charakterbox { 
-    
     background-color: black;
     clip-path: polygon(0% 0%,
                    100% 0%,
@@ -32,6 +31,7 @@
                     0% 100%);
     opacity: 90%;
     grid-area: charakterbox;
+  
  }
 
 
@@ -49,3 +49,5 @@
     
     grid-area: rest;
  }
+
+ 

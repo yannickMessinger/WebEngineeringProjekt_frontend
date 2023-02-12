@@ -25,9 +25,11 @@ export const Lightsaber = ({hasErrors,isActive}:LightSaberProps) => {
     }
 
     
+    
 
     useEffect(() => {
-        setActivateSaber(isActive? true : false)
+        setActivateSaber(isActive ? true : false)
+       
         if(hasErrors){
             toogleSaberRed()
         }else{
@@ -40,7 +42,7 @@ export const Lightsaber = ({hasErrors,isActive}:LightSaberProps) => {
   return (
     <div className={css.lightsaberbody}>
       <div className={css.lightsaber}>
-        <input type={"checkbox"} id={css.on_off} checked={activateSaber}/>
+        <input type={"checkbox"} id={css.on_off} checked={activateSaber} readOnly={true}/>
         <div className={css.blade} ref={bladeRef}/>
         <label className={css.hilt}/>
       </div>
