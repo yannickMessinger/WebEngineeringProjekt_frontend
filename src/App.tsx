@@ -7,7 +7,6 @@ import { Quiz } from "./pages/Quiz";
 //import './App.css';
 import { CharacterChoice } from "./pages/CharacterCoice/CharacterChoice";
 import { CharacterStylingContextProvider } from "./context/CharacterStylingContext";
-import { CharacterInfoFetchWrapper } from "./components/Character/InfoDisplay/FetchWrapper/CharacterInfoFetchWrapper";
 import { LoginFormRework } from "./components/LoginForm/LoginOuterWrapper/LoginOuterWrapper";
 import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInfoTransisitonScreen";
 import { Weather } from "./pages/Weather";
@@ -22,7 +21,6 @@ function App() {
       <Routes>
         <Route path="/" element={<CharacterChoice />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/charinfo" element ={<CharacterInfoFetchWrapper/>}/>
         <Route path="/signup" element={<LoginFormRework/>} />
         <Route path="/chartransition" element={<CharInfoTransisitonScreen/>} />
         <Route path='/weather' element={<Weather />} />

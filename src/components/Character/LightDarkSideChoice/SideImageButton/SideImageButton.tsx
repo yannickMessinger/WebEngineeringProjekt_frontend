@@ -14,7 +14,7 @@ export const SideImageButton = ({logopath,className, setSide}:SideProps) => {
 
   return (
     <div>
-         <img src={logopath} className={className} onClick={() => {setSide()}} />
+         <img src={logopath} className={className} alt={'side_of_character'} onClick={setSide} />
     </div>
    
   )
