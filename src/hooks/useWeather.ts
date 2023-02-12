@@ -3,14 +3,14 @@ import { useEffect, useState } from "react"
 
 export enum WeatherMode {
     FORECAST = 'Vorhersage',
-    CURRENT = 'Akutelles Wetter'
+    CURRENT = 'Aktuelles Wetter'
 };
 
 export const useWeather = () => {
 
 
     const [location, setLocation] = useState("");
-    const [weatherData, setWeatherData] = useState({ location: "", temp: "", weatherDescription: { description: "", image: "" } });
+    const [weatherData, setWeatherData] = useState({ location: "", temp: "", wind: "", weatherDescription: { description: "", image: "" } });
     const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weekDays: [], weathercode: [], windspeed: [] });
     const [starWarsPlanet, setStarWarsPlanet] = useState("default");
     const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT);
@@ -66,7 +66,7 @@ export const useWeather = () => {
             .then(response => response.json())
             .then((obj) => {
                 console.log(obj);
-                const weatherDataObj = { location: locationName, temp: obj.current_weather.temperature + "°C", weatherDescription: weatherCodeMap.get(obj.current_weather.weathercode) };
+                const weatherDataObj = { location: locationName, temp: obj.current_weather.temperature + "°C", wind: obj.current_weather.windspeed, weatherDescription: weatherCodeMap.get(obj.current_weather.weathercode) };
                 console.log(weatherDataObj)
                 decideStarWarsPlanet(parseInt(weatherDataObj.temp));
                 setWeatherData(weatherDataObj);
@@ -108,19 +108,19 @@ export const useWeather = () => {
         console.log(weekDays);
         console.log(dailyForecast.time);
         console.log(weatherDescriptions);
-        const weatherDataObjForecast = { tempMax: dailyForecast.temperature_2m_max, tempMin: dailyForecast.temperature_2m_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weekDays: weekDays ,weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
+        const weatherDataObjForecast = { tempMax: dailyForecast.temperature_2m_max, tempMin: dailyForecast.temperature_2m_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weekDays: weekDays, weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
         setWeatherDataForecast(weatherDataObjForecast);
     }
 
     function calculateWeekdayByDate(dates: number[]) {
         return dates.map((date) => {
-            const weekNumber = new Date(date);        
+            const weekNumber = new Date(date);
             return weatherDateMap.get(weekNumber.getDay());
         })
     }
 
-    function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) {
-        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2) + "°C", weatherDescription: weathercode };
+    function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, windspeed: number , weathercode: { description: string, image: string }) {
+        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2) + "°C", wind: windspeed + "km/h" ,weatherDescription: weathercode };
         decideStarWarsPlanet((tempMin + tempMax) / 2);
         setWeatherData(weatherDataObj);
         setWeatherMode(WeatherMode.FORECAST)

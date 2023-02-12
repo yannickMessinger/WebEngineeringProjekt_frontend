@@ -21,12 +21,13 @@ interface WeatherForecastProps {
         weathercode: Array<{ description: string, image: string }>
         windspeed: Array<number>
     };
-    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) => void
+    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, wind: number ,weathercode: { description: string, image: string }) => void
     fetchCoordinates: () => void
     weatherMode: WeatherMode
     weatherData: {
         location: string;
         temp: string;
+        wind: string;
         weatherDescription: {
             description: string;
             image: string;
@@ -76,7 +77,7 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     }, [])
 
     const handleClick = (count: number) => {
-        fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.weathercode[count])
+        fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.windspeed[count], weatherForecast.weathercode[count])
         arr[count] = css.ContentSelected;
         setContentState(arr);
         setDateState({ weekDay: weatherForecast.weekDays[count], date: weatherForecast.time[count] });
