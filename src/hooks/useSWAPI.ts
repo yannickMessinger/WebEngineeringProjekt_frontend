@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { CharacterStylingContext } from "../context/CharacterStylingContext";
 import { CharacterInfo } from "../typings/CharacterInfo";
 import { PlanetInfo } from "../typings/IPlanetInfo";
-import { StarshipInfo } from "../typings/IStarshipinfo";
+import { StarshipInfo } from "../typings/IStarshipInfo";
 
 
 
