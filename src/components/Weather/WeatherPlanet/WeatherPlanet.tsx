@@ -10,7 +10,7 @@ export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ pla
     let content;
 
     if (planetName === "default") {
-        content = (<div className={css.InitialStatement}>Auf welchem Planeten herrscht das selbe Wetter, wie bei dir auf der Erde?<br /> Gebe deinen Standort ein!</div>)
+        content = (<div className={css.InitialStatement}>Auf welchem Planeten herrschen die gleichen Temperaturen, wie bei dir auf der Erde?<br /> Gebe deinen Standort ein, um es herauszufinden!</div>)
     } else if (planetName === "noPlanet") {
         content = (<div className={css.InitialStatement}>Diesen Standort gibt es leider nicht!</div>)
     } else {

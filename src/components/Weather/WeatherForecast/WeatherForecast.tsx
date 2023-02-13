@@ -3,6 +3,9 @@ import { EnumType } from "typescript";
 import { WeatherMode } from "../../../hooks/useWeather";
 import css from "./WeatherForecast.module.css"
 import { WeatherForecastElement } from "./WeatherForecastElement";
+import upIcon from "../../../assets/icons/arrow_up.png";
+import downIcon from "../../../assets/icons/arrow_down.png";
+import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
 
 
 interface WeatherForecastProps {
@@ -16,16 +19,26 @@ interface WeatherForecastProps {
         weathercode: Array<{ description: string, image: string }>
         windspeed: Array<number>
     };
-    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, weathercode: { description: string, image: string }) => void
+    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, wind: number, weathercode: { description: string, image: string }) => void
     fetchCoordinates: () => void
     weatherMode: WeatherMode
+    weatherData: {
+        location: string;
+        temp: string;
+        wind: string;
+        weatherDescription: {
+            description: string;
+            image: string;
+        };
+    }
 }
 
-export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchCoordinates, weatherMode }) => {
+export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchCoordinates, weatherMode, weatherData }) => {
 
     const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
     const [contentState, setContentState] = useState(arr);
-    const [dateState, setDateState] = useState("");
+    const [dateState, setDateState] = useState({ weekDay: "", date: "" });
+    const [foldState, setFoldState] = useState(false)
     const wrapperRef = useRef<HTMLInputElement>(null);
     const cardRef0 = useRef<HTMLInputElement>(null);
     const cardRef1 = useRef<HTMLInputElement>(null);
@@ -34,14 +47,14 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     const cardRef4 = useRef<HTMLInputElement>(null);
     const cardRef5 = useRef<HTMLInputElement>(null);
     const cardRef6 = useRef<HTMLInputElement>(null);
-    const currentWeatherButtonRef = useRef<HTMLButtonElement>(null)
+    const currentWeatherButtonRef = useRef<HTMLButtonElement>(null);
+    const backToCurrentWeatherRef = useRef<HTMLInputElement>(null);
+    const [foldButtonState, setFoldButtonState] = useState(<img src={upIcon} alt="up" />);
 
-    const cardRefs = [cardRef0, cardRef1, cardRef2, cardRef3, cardRef4, cardRef5, cardRef6]
-
+    const cardRefs = [cardRef0, cardRef1, cardRef2, cardRef3, cardRef4, cardRef5, cardRef6];
 
     useEffect(() => {
-
-        const mouseMoved = ($event: MouseEvent) => {
+        const mouseMovedForElements = ($event: MouseEvent) => {
             console.log("TEst test ets")
             cardRefs.forEach((card) => {
                 const rect = card.current?.getBoundingClientRect();
@@ -54,18 +67,18 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
                 }
             })
         }
-        wrapperRef.current?.addEventListener('mousemove', mouseMoved);
+        wrapperRef.current?.addEventListener('mousemove', mouseMovedForElements);
 
         return () => {
-            wrapperRef.current?.removeEventListener('mousemove', mouseMoved)
+            wrapperRef.current?.removeEventListener('mousemove', mouseMovedForElements);
         }
     }, [])
 
     const handleClick = (count: number) => {
-        fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.weathercode[count])
+        fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.windspeed[count], weatherForecast.weathercode[count])
         arr[count] = css.ContentSelected;
         setContentState(arr);
-        setDateState(weatherForecast.weekDays[count]);
+        setDateState({ weekDay: weatherForecast.weekDays[count], date: weatherForecast.time[count] });
     }
     const showCurrenWeather = () => {
         if (weatherMode === WeatherMode.FORECAST) {
@@ -73,32 +86,52 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
         }
     }
 
+    const foldTiles = () => {
+        const currentWrapperTiles = wrapperRef.current;
+        const currentWrapperAbove = backToCurrentWeatherRef.current;
+        if (currentWrapperTiles !== null && currentWrapperAbove !== null) {
+            if (foldState) {
+                currentWrapperTiles.className = css.WeatherForecast;
+                currentWrapperAbove.className = css.BackToCurrentWeather;
+                setFoldButtonState(<img src={upIcon} alt="up" />);
+                setFoldState(false)
+            } else {
+                currentWrapperTiles.className = css.WeatherForecast_down;
+                currentWrapperAbove.className = css.BackToCurrentWeather_down;
+                setFoldButtonState(<img src={downIcon} alt="down" />);
+                setFoldState(true)
+            }
+        }
+    }
+
     useEffect(() => {
+        const currentButton = currentWeatherButtonRef.current;
         if (weatherMode === WeatherMode.CURRENT) {
             const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
             setContentState(arr)
-            if (currentWeatherButtonRef.current !== null) {
-                currentWeatherButtonRef.current.style.backgroundColor = "#808080a4";
-                currentWeatherButtonRef.current.style.color = "#696969";
+            if (currentButton !== null) {
+                currentButton.className = css.showCurrentWeatherButton_disabled;
+
             }
         } else if (weatherMode === WeatherMode.FORECAST) {
-            if (currentWeatherButtonRef.current !== null) {
-                currentWeatherButtonRef.current.style.backgroundColor = "#e7e7e7";
-                currentWeatherButtonRef.current.style.color = "black";
-
+            if (currentButton !== null) {
+                currentButton.className = css.showCurrentWeatherButton;
             }
         }
-
     }, [weatherMode])
 
     return (
-
         <>
 
-            <div className={css.BackToCurrentWeather}>
-                <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
-                <br />
-                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState}</div>
+            <div className={css.BackToCurrentWeather} ref={backToCurrentWeatherRef}>
+                <div className={css.WeatherDescription}>
+                    <WeatherDescription weatherData={weatherData} />
+                </div>
+                <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
+                <div className={css.TileControllRow}>
+                    <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
+                    <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
+                </div>
             </div>
 
             <div className={css.WeatherForecast} ref={wrapperRef}>
@@ -182,8 +215,5 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
         </>
 
     )
-
-
-
 }
 

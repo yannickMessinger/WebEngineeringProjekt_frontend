@@ -24,10 +24,10 @@ export const WeatherForecastElement: React.FunctionComponent<WeatherForecastElem
                     {description.description}
                 </div>
                 <div className={css.TempMax}>
-                    {tempMax}°C
+                    max: {tempMax}°C
                 </div>
                 <div className={css.TempMin}>
-                    {tempMin}°C
+                    min: {tempMin}°C
                 </div>
             </div>
         </>

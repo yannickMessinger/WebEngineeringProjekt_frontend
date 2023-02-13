@@ -1,33 +1,77 @@
-
 .Date {
     margin: 2px;
     text-align: center;
-    font-size: larger;
+    font-size: 1vw;
+    font-weight: 600;
+
 }
 
 .Description {
-  text-align: center;
-  padding: 40px 1;
-  font-size: larger;
+    text-align: center;
+    font-size: 0.9vw;
+    font-weight: 649;
 }
 
 .TempMax {
     float: right;
-    font-size: large;
+    font-size: 0.8vw;
     margin-right: 7px;
+    font-weight: 600;
+
 }
 
 .TempMin {
     float: left;
-    font-size: large;
+    font-size: 0.8vw;
     margin-left: 7px;
+    font-weight: 600;
+
 }
 
-.Image {    
-    max-height: 100px;
+.Image {
+    max-height: 4.4vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    font-weight: 600;
+}
+
+
+
+@media only screen and (max-width: 450px) {
+    .Image {
+        max-height: 55px;
+    }
+
+    .Date {
+        margin: 2px;
+        text-align: center;
+        font-size: medium;
+        font-weight: 600;
     
+    }
+    
+    .Description {
+        text-align: center;
+        font-size: medium;
+        font-weight: 600;
+    }
+    
+    .TempMax {
+        float: right;
+        font-size: medium;
+        margin-right: 7px;
+        font-weight: 600;
+    
+    }
+    
+    .TempMin {
+        float: left;
+        font-size: medium;
+        margin-left: 7px;
+        font-weight: 600;
+    
+    }
+    
+
 }

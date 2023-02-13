@@ -16,20 +16,45 @@ export const WeatherScreen = () => {
 
 
     useEffect(() => {
+        const decideIfBackgroundGetChanged = ((event: UIEvent) => {
+            if (window.innerWidth > 450) {
+                setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
+
+            } else {
+                setBackgroundPlanetUrl("./weather_backgrounds/phone/" + starWarsPlanet.toLowerCase() + "_phone.png");
+            }
+        });
+        console.log(backgroundPlanetUrl)
+
+        window.addEventListener("resize", decideIfBackgroundGetChanged);
+        return () => {
+            window.removeEventListener("resize", decideIfBackgroundGetChanged);
+        }
+
+    });
+
+    useEffect(() => {
         if (location != "") {
             fetchCoordinates();
         }
     }, [location]);
 
     useEffect(() => {
-        setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
+        if (window.innerWidth > 450) {
+            setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
+
+        } else {
+            setBackgroundPlanetUrl("./weather_backgrounds/phone/" + starWarsPlanet.toLowerCase() + "_phone.png");
+        }
         console.log(backgroundPlanetUrl)
     }, [starWarsPlanet])
 
+
+
+
     if (starWarsPlanet !== "noPlanet" && starWarsPlanet !== "default") {
         weatherLocation = <span>{weatherData.location} </span>;
-        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchCoordinates={fetchCoordinates} weatherMode={weatherMode} />;
-        weatherDescription = <WeatherDescription weatherData={weatherData} />;
+        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchCoordinates={fetchCoordinates} weatherMode={weatherMode} weatherData={weatherData} />;
     } else {
         weatherLocation = <span></span>;
         weatherForecast = <span></span>;
@@ -41,11 +66,9 @@ export const WeatherScreen = () => {
             <div className={css.WholeWeather}>
                 <div className={css.Background}
                     style={{
+
                         backgroundImage: `url(${backgroundPlanetUrl})`,
-                        backgroundSize: '100%',
-                        backgroundRepeat: 'no-repeat',
-                        height: '100vh',
-                        width: '100vw',
+
                     }} >
                     <div className={css.Searchbar}>
                         <Searchbar setLocation={setLocation} />
@@ -55,9 +78,6 @@ export const WeatherScreen = () => {
                     </div>
                     <div className={css.StarWarsPlanet}>
                         <WeatherPlanet planetName={starWarsPlanet} />
-                    </div>
-                    <div className={css.WeatherDescription}>
-                        {weatherDescription}
                     </div>
                     <div className={css.WeatherForecast}>
                         {weatherForecast}

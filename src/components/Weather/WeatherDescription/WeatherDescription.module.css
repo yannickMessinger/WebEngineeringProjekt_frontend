@@ -1,27 +1,82 @@
 .Weather_description {
     color: white;
-    font-size: xx-large;
-    max-width: 100px;
-
-    padding-left: 10%;
+    font-size: 1.3vw;
+    padding-left: 3%;
+    font-family: Starjedi;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
 }
 
 .Weather {
     display: flex;
+    max-width: 360px;
+
 }
 
 .Image {
     max-width: 100px;
     max-height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .Weather_img {
-    position: relative;
-    width: 120px;
-    height: 100;
+    width: 5vw;
+    height: 5vw;
+}
 
+.WeatherValues {
+    font-family: Starjedi;
+    display: flex;
+    /*width: 300px;*/
+    font-size: 1.3vw;
+}
+
+.WeatherDescriptionWrapper {
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+}
+
+@media only screen and (max-width: 450px) {
+    .Weather_description {
+        color: white;
+        font-size: 15px;
+        padding-left: 3%;
+        font-family: Starjedi;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+    }
+    
+    .Weather {
+        display: flex;
+        max-width: 100px;
+    }
+    
+    .Image {
+        max-width: 40px;
+        max-height: 100%;
+    }
+    
+    .Weather_img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .WeatherValues {
+        font-family: Starjedi;
+        display: flex;
+        width: 150px;
+        font-size: 16px;
+
+    }
+    
+    .WeatherDescriptionWrapper {
+        position: absolute;
+        right: 0px;
+        bottom: 135px;
+    }
+    
 }

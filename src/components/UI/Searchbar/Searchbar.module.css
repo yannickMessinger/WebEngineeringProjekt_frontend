@@ -2,8 +2,9 @@
     box-sizing: border-box;
     color: white;
     position: relative;
-    width: 250px;
+    width: 260px;
     box-sizing: border-box;
+    
 }
 
 .search input {
@@ -14,6 +15,7 @@
     display: block;
     font-size: large;
     color: white;
+    border-radius: 0.4rem; 
 }
 
 .search button {
@@ -34,3 +36,19 @@
     width: 25px;
     height: auto;
 }
+
+@media only screen and (max-width: 850px) {
+    .search {
+        width: 200px;
+        
+    }
+    .search input {
+        padding: 10px 30px 10px 10px;
+    }
+
+    .search button {
+        padding: 8px 10px;
+    }
+    
+}
+
