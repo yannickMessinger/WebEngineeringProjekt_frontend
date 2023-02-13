@@ -2,6 +2,14 @@ import { side } from "../typings/ESide";
 import { Character } from "../typings/ICharacter";
 import { CHARACTER, charMap } from "./imageData";
 
+
+
+
+
+
+
+
+
 export const charList: Array<Character> = [
     {
       name: "Yoda",
@@ -10,7 +18,8 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.YODA)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(9,69,6,1) 80%)",
+          "linear-gradient(0deg,rgba(0,0,0,0.30) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(11,50,5,0.9) 60%)"
+          
       },
       ship_img_path: charMap.get(CHARACTER.YODA)?.shipImgPath,
       charInfoFrameColor: { r: 9, g: 69, b: 6, a: 1 },
@@ -23,7 +32,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.C3PO)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(233,224,19,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(144,94,0,1) 60%)",
       },
       ship_img_path: charMap.get(CHARACTER.C3PO)?.shipImgPath,
       charInfoFrameColor: { r: 233, g: 224, b: 19, a: 1 },
@@ -36,7 +45,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.R2D2)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(19,34,233,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(0,8,110,1) 60%)",
       },
       ship_img_path: charMap.get(CHARACTER.R2D2)?.shipImgPath,
       charInfoFrameColor: { r: 19, g: 34, b: 233, a: 1 },
@@ -62,7 +71,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.BOBAFETT)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(8,34,0,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(0,40,1,1) 60%)",
       },
       ship_img_path: charMap.get(CHARACTER.BOBAFETT)?.shipImgPath,
       charInfoFrameColor: { r: 8, g: 34, b: 0, a: 1 },
@@ -101,7 +110,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.HANSOLO)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(163,157,112,1) 80%",
+          "linear-gradient(0deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(150,144,120,1) 60%)",
       },
       ship_img_path: charMap.get(CHARACTER.HANSOLO)?.shipImgPath,
       charInfoFrameColor: { r: 163, g: 157, b: 112, a: 1 },
@@ -114,7 +123,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.IG88)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(69,69,69,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.4990371148459384) 0%, rgba(164,164,164,0.6643032212885154) 0%, rgba(34,34,34,0.9051995798319328) 66%)",
       },
       ship_img_path: charMap.get(CHARACTER.IG88)?.shipImgPath,
       charInfoFrameColor: { r: 69, g: 69, b: 69, a: 1 },
@@ -134,13 +143,13 @@ export const charList: Array<Character> = [
       planet_img_path: charMap.get(CHARACTER.PALPATINE)?.planetImgPath,
     },
     {
-      name: "Jar Jar Bink",
+      name: "Jar Jar Binks",
       img_path: charMap.get(CHARACTER.JARJAR)?.choiceImgPath,
       side: side.LIGHT,
       login_img_path: charMap.get(CHARACTER.JARJAR)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(172,108,3,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.4990371148459384) 0%, rgba(164,164,164,0.6643032212885154) 0%, rgba(140,73,0,1) 66%)",
       },
       ship_img_path: charMap.get(CHARACTER.JARJAR)?.shipImgPath,
       charInfoFrameColor: { r: 172, g: 108, b: 3, a: 1 },
@@ -153,7 +162,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.MACEWINDU)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(255,255,255,0) 30%, rgba(46,24,0,1) 80%)",
+          "linear-gradient(0deg, rgba(0,0,0,0.4990371148459384) 0%, rgba(164,164,164,0.6643032212885154) 0%, rgba(70,36,0,1) 66%)",
       },
       ship_img_path: charMap.get(CHARACTER.MACEWINDU)?.shipImgPath,
       charInfoFrameColor: { r: 46, g: 24, b: 0, a: 1 },

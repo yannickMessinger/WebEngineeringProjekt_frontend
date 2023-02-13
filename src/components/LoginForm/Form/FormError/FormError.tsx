@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./FormErrorStyle.module.css"
 
 interface errorProps {
   name: string;
@@ -7,7 +8,7 @@ interface errorProps {
 export const FormError = ({ name }: errorProps) => {
   return (
     <>
-      <strong style={{ color: "red",paddingLeft:'5%' }}>{name}</strong>
+      <strong className={`${css.error}`}>{name}</strong>
     </>
   );
 };

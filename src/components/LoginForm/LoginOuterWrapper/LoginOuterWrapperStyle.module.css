@@ -10,6 +10,9 @@
     justify-items: end; 
     width: 100%; 
     height: 100%; 
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 
     
   }
@@ -20,6 +23,10 @@
    justify-content: center;
     width: 10%;
     height: 100%;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
   
  }
   
@@ -28,6 +35,10 @@
    justify-content: center;
     width: 10%;
     height: 100%;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
     
  }
   
@@ -47,6 +58,32 @@
   100% {
       opacity: 1;
    }
+}
+
+@media screen and (max-width: 800px) {
+
+  .login_form { grid-area: login_form;
+    margin-top:1%;
+    display: flex;
+    justify-content: center;
+     min-width: 50%;
+     min-height: 50%;
+ }
+
+  
+  .saber_left {
+    display: none;
+   
+     
+   
+  }
+   
+   .saber_right { 
+     display: none;
+    
+     
+     
+  }
 }
 
 

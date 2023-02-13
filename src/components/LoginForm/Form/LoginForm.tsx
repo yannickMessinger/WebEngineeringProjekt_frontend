@@ -67,37 +67,37 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     //console.log(new Date(birthday) > new Date(Date.now()))
 
     if (firstName === "") {
-      errors.firstName = "kaa leere vorname";
+      errors.firstName = "Vorname leer";
     }
 
     if (lastName === "") {
-      errors.lastName = "kaa leere nachname";
+      errors.lastName = "Nachname leer";
     }
 
      if (userName === "") {
-      errors.userName = "kaa leere username";
+      errors.userName = "Username leer";
     }
 
 
     if (phoneNumber === "") {
-      errors.phoneNumber = "kaa leere nummä";
+      errors.phoneNumber = "leere Nummer";
     }
 
     if (birthday === "") {
-      errors.birthday = "kaa leere geboortsdaach";
+      errors.birthday = "Geburtstag leer";
     }
 
     if(new Date(birthday) > new Date(Date.now())){
-      errors.birthday ="kaa Geburtstag aus de zukunft!"
+      errors.birthday ="kein zukünftiger Geburtstag!"
     }
     
 
     if (mailAdress === "") {
-      errors.mailAdress = "kaa leere Adress";
+      errors.mailAdress = "Mailadresse leer";
     }
     
     if(!validEmail.test(mailAdress)){
-      errors.mailAdress ="Mail ned im passenden Format!"
+      errors.mailAdress ="falsches Mailformat"
     }
 
     setFormErrors(errors);
@@ -137,10 +137,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             type={"text"}
             className={css.styledinput}
             placeholder={"firstname"}
-          ></input>
+          />
+          <div>
           {formErrors.firstName && (
             <FormError name={formErrors.firstName}></FormError>
           )}
+          </div>
+          
         </div>
 
         <div className={css.last_name}>
@@ -150,10 +153,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             type={"text"}
             className={css.styledinput}
             placeholder={"lastname"}
-          ></input>
+          />
+          <div>
           {formErrors.lastName && (
             <FormError name={formErrors.lastName}></FormError>
           )}
+          </div>
+         
         </div>
 
         <div className={css.user_name}>
@@ -163,10 +169,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             type={"text"}
             className={css.styledinput}
             placeholder={"user name"}
-          ></input>
+          />
+          <div>
           {formErrors.lastName && (
             <FormError name={formErrors.userName}></FormError>
           )}
+          </div>
+          
         </div>
 
         <div className={css.birthday}>
@@ -176,10 +185,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             type={"date"}
             className={css.styledinput}
             placeholder={"birthday"}
-          ></input>
+          />
+          <div>
           {formErrors.birthday && (
             <FormError name={formErrors.birthday}></FormError>
           )}
+          </div>
+          
         </div>
 
         <div className={css.adress}>
@@ -189,10 +201,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             type={"text"}
             className={css.styledinput}
             placeholder={"emailadress"}
-          ></input>
+          />
+          <div>
           {formErrors.mailAdress && (
             <FormError name={formErrors.mailAdress}></FormError>
           )}
+          </div>
+          
         </div>
 
         <div className={css.phone_number}>
@@ -202,10 +217,13 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
               type={"text"}
               className={css.styledinput}
               placeholder={"phonenumber"}
-            ></input>
+            />
+            <div>
             {formErrors.phoneNumber && (
               <FormError name={formErrors.phoneNumber}></FormError>
             )}
+            </div>
+           
         </div>
 
 
