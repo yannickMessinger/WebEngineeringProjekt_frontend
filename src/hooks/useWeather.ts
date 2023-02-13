@@ -120,7 +120,7 @@ export const useWeather = () => {
     }
 
     function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, windspeed: number , weathercode: { description: string, image: string }) {
-        const weatherDataObj = { location: location, temp: ((tempMin + tempMax) / 2).toFixed(2) + "°C", wind: windspeed + "km/h" ,weatherDescription: weathercode };
+        const weatherDataObj = { location: location, temp: (tempMax).toFixed(2) + "°C", wind: windspeed + "km/h" ,weatherDescription: weathercode };
         decideStarWarsPlanet((tempMin + tempMax) / 2);
         setWeatherData(weatherDataObj);
         setWeatherMode(WeatherMode.FORECAST)

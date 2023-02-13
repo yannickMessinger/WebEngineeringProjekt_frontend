@@ -28,7 +28,7 @@
 .WeatherValues {
     font-family: Starjedi;
     display: flex;
-    /*width: 300px;*/
+    width: 220px;
     font-size: 1.3vw;
 }
 
