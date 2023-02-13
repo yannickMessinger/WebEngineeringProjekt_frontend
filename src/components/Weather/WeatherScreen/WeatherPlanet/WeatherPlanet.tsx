@@ -15,15 +15,18 @@ export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ pla
         content = (<div className={css.InitialStatement}>Diesen Standort gibt es leider nicht!</div>)
     } else {
         content = (
-            <><div className={css.Like}>
-                wie auf
-            </div><div className={css.PlanetName}>
+            <>
+                <div className={css.Like}>
+                    wie auf
+                </div>
+                <div className={css.PlanetName}>
                     {planetName}
-                </div></>
+                </div>
+            </>
         )
 
     }
-    
+
     return (
         <div className={css.WeatherPlanet}>
             {content}

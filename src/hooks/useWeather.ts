@@ -1,55 +1,52 @@
 import { url } from "inspector";
 import { useEffect, useState } from "react"
-
-export enum WeatherMode {
-    FORECAST = 'Vorhersage',
-    CURRENT = 'Aktuelles Wetter'
-};
+import { IWeatherData } from "../typings/weather/IWeatherData";
+import { IWeatherForecast } from "../typings/weather/IWeatherForecast";
+import { IWeatherJsonData } from "../typings/weather/IWeatherJsonData";
+import { WeatherMode } from "../typings/weather/WeatherMode";
 
 export const useWeather = () => {
 
-
-    const [location, setLocation] = useState("");
-    const [weatherData, setWeatherData] = useState({ location: "", temp: "", wind: "", weatherDescription: { description: "", image: "" } });
-    const [weatherDataForecast, setWeatherDataForecast] = useState({ tempMax: [], tempMin: [], sunrise: [], sunset: [], time: [], weekDays: [], weathercode: [], windspeed: [] });
-    const [starWarsPlanet, setStarWarsPlanet] = useState("default");
-    const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT);
-    const API_KEY = "79a9ad1cd477e4c6265d4b1882c856b0";
+    const API_KEY_FOR_ENCODING = "79a9ad1cd477e4c6265d4b1882c856b0";
     const BASE_WEATHER_ENCODING_URL = "https://api.openweathermap.org";
     const GEO_ENCODING_RELATIVE_URL = "/geo/1.0/direct";
-
     const BASE_WEATHER_URL = "https://api.open-meteo.com";
     const WEATHER_DATA_FORECAST_RELATIVE_URL = "v1/forecast";
 
     const weatherCodeMap = initializeWeatherCodeMap();
     const weatherDateMap = initializeWeatherDateMap();
 
+    const weatherDataObj: IWeatherData = { location: "", temp: "", wind: "", weatherDescription: { description: "", image: "" } };
+    const weatherDataForecastObj: IWeatherForecast = { tempMax: [], tempMin: [], time: [], weekDays: [], weathercode: [], windspeed: [] }
+
+    const [location, setLocation] = useState("");
+    const [weatherData, setWeatherData] = useState(weatherDataObj);
+    const [weatherDataForecast, setWeatherDataForecast] = useState(weatherDataForecastObj);
+    const [starWarsPlanet, setStarWarsPlanet] = useState("default");
+    const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT);
+
     function fetchCoordinates() {
         const url = new URL(GEO_ENCODING_RELATIVE_URL, BASE_WEATHER_ENCODING_URL);
         url.searchParams.append('q', location);
         url.searchParams.append('limit', '1')
-        url.searchParams.append('appid', API_KEY);
+        url.searchParams.append('appid', API_KEY_FOR_ENCODING);
 
         fetch(url.toString())
             .then(response => response.json())
-            .then((obj) => {
-                console.log(obj);
-                if (obj[0].hasOwnProperty('local_names') && obj[0].local_names.hasOwnProperty('de')) {
-                    setLocation(obj[0].local_names.de);
-                    fetchWeather(obj[0].lat, obj[0].lon, location);
-                } else {
-                    fetchWeather(obj[0].lat, obj[0].lon, location);
+            .then((rawCoordinatesObj: any) => {
+                if (rawCoordinatesObj[0].hasOwnProperty('local_names') && rawCoordinatesObj[0].local_names.hasOwnProperty('de')) {
+                    setLocation(rawCoordinatesObj[0].local_names.de);
                 }
+                fetchWeather(rawCoordinatesObj[0].lat, rawCoordinatesObj[0].lon);
+
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
                 setStarWarsPlanet("noPlanet")
             })
     }
 
-    function fetchWeather(lat: string, lon: string, locationName: string) {
-        console.log(lat);
-        console.log(lon);
+    function fetchWeather(lat: string, lon: string) {
         const url = new URL(WEATHER_DATA_FORECAST_RELATIVE_URL, BASE_WEATHER_URL);
         url.searchParams.append("latitude", lat);
         url.searchParams.append("longitude", lon);
@@ -57,73 +54,70 @@ export const useWeather = () => {
         url.searchParams.append("daily", "temperature_2m_min");
         url.searchParams.append("daily", "temperature_2m_max");
         url.searchParams.append("daily", "weathercode");
-        url.searchParams.append("daily", "sunrise");
-        url.searchParams.append("daily", "sunset");
         url.searchParams.append("daily", "windspeed_10m_max");
         url.searchParams.append("timezone", "auto");
 
         fetch(url.toString())
             .then(response => response.json())
-            .then((obj) => {
-                console.log(obj);
-                const weatherDataObj = { location: locationName, temp: obj.current_weather.temperature + "°C", wind: obj.current_weather.windspeed, weatherDescription: weatherCodeMap.get(obj.current_weather.weathercode) };
-                console.log(weatherDataObj)
-                decideStarWarsPlanet(parseInt(weatherDataObj.temp));
-                setWeatherData(weatherDataObj);
-                buildForecastObject(obj.daily);
-                setWeatherMode(WeatherMode.CURRENT)
+            .then((weatherJsonData: IWeatherJsonData) => {
+                fillWeatherStates(weatherJsonData);
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
             })
+    }
+
+    function fillWeatherStates(weatherJsonData: IWeatherJsonData) {
+        const weatherDataObj: IWeatherData = {
+            location: location,
+            temp: weatherJsonData.current_weather.temperature + "°C",
+            wind: weatherJsonData.current_weather.windspeed + "",
+            weatherDescription: weatherCodeMap.get(weatherJsonData.current_weather.weathercode)
+        };
+        decideStarWarsPlanet(parseInt(weatherDataObj.temp));
+        setWeatherData(weatherDataObj);
+        buildForecastObject(weatherJsonData.daily);
+        setWeatherMode(WeatherMode.CURRENT)
     }
 
     function decideStarWarsPlanet(temp: number) {
-        if (temp <= 0) {
-            setStarWarsPlanet("Hoth");
-        } else if (temp <= 7) {
-            setStarWarsPlanet("Dagobah");
-        } else if (temp <= 14) {
-            setStarWarsPlanet("Naboo");
-        } else if (temp <= 21) {
-            setStarWarsPlanet("Yavin4");
-        } else if (temp <= 28) {
-            setStarWarsPlanet("Bespin");
-        } else if (temp <= 35) {
-            setStarWarsPlanet("Tatooine");
-        } else if (temp > 35) {
-            setStarWarsPlanet("Mustafar");
+        const planets = [
+            { tempRange: [0, 0], planet: "Hoth" },
+            { tempRange: [1, 7], planet: "Dagobah" },
+            { tempRange: [8, 14], planet: "Naboo" },
+            { tempRange: [15, 21], planet: "Yavin4" },
+            { tempRange: [22, 28], planet: "Bespin" },
+            { tempRange: [29, 35], planet: "Tatooine" },
+            { tempRange: [36, Number.MAX_SAFE_INTEGER], planet: "Mustafar" },
+        ];
+
+        const matchingPlanet = planets.find(({ tempRange }) =>
+            tempRange[0] <= temp && temp <= tempRange[1]
+        );
+
+        if (matchingPlanet) {
+            setStarWarsPlanet(matchingPlanet.planet);
         }
     }
 
-    function buildForecastObject(dailyForecast: any) {
-        console.log(dailyForecast);
-        console.log(dailyForecast.weathercode);
+    function buildForecastObject(dailyForecast: IWeatherJsonData["daily"]) {
         const weatherDescriptions = dailyForecast.weathercode.map((code: number) => weatherCodeMap.get(code));
-        const dateEU = dailyForecast.time.map((date: string) => {
-            const dateArr = date.split("-");
-            return dateArr[2] + "." + dateArr[1] + "." + dateArr[0];
-        })
-        const weekDays: any = calculateWeekdayByDate(dailyForecast.time);
-        console.log(weekDays);
-        console.log(dailyForecast.time);
-        console.log(weatherDescriptions);
-        const weatherDataObjForecast = { tempMax: dailyForecast.temperature_2m_max, tempMin: dailyForecast.temperature_2m_min, sunrise: dailyForecast.sunrise, sunset: dailyForecast.sunset, time: dateEU, weekDays: weekDays, weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
+        const dateEU = calculateDateEU(dailyForecast.time);
+        const weekDays = calculateWeekdayByDate(dailyForecast.time);
+
+        const weatherDataObjForecast: IWeatherForecast = { tempMax: dailyForecast.temperature_2m_max, tempMin: dailyForecast.temperature_2m_min, time: dateEU, weekDays: weekDays, weathercode: weatherDescriptions, windspeed: dailyForecast.windspeed_10m_max };
         setWeatherDataForecast(weatherDataObjForecast);
     }
 
-    function calculateWeekdayByDate(dates: number[]) {
-        return dates.map((date) => {
-            const weekNumber = new Date(date);
-            return weatherDateMap.get(weekNumber.getDay());
-        })
+    function calculateWeekdayByDate(dates: string[]) {
+        return dates.map(date => weatherDateMap.get(new Date(date).getDay()));
     }
 
-    function fillWeatherDataWithForecast(tempMin: number, tempMax: number, time: string, windspeed: number , weathercode: { description: string, image: string }) {
-        const weatherDataObj = { location: location, temp: (tempMax).toFixed(2) + "°C", wind: windspeed + "km/h" ,weatherDescription: weathercode };
-        decideStarWarsPlanet((tempMin + tempMax) / 2);
-        setWeatherData(weatherDataObj);
-        setWeatherMode(WeatherMode.FORECAST)
+    function calculateDateEU(time: string[]) {
+        return time.map((date: string) => {
+            const dateArr = date.split("-");
+            return dateArr[2] + "." + dateArr[1] + "." + dateArr[0];
+        })
     }
 
     function initializeWeatherDateMap() {
@@ -191,15 +185,31 @@ export const useWeather = () => {
         return weatherCodeMap;
     }
 
+    useEffect(() => {
+        fetchWeatherData();
+    }, [location]);
+
+    function fetchWeatherData() {
+        if (location != "") {
+            fetchCoordinates();
+        }
+    }
+
+    function fillWeatherDataWithForecast(tempMax: number, windspeed: number, weathercode: { description: string, image: string }) {
+        const weatherDataObj = { location: location, temp: (tempMax).toFixed(2) + "°C", wind: windspeed + "km/h", weatherDescription: weathercode };
+        decideStarWarsPlanet(tempMax);
+        setWeatherData(weatherDataObj);
+        setWeatherMode(WeatherMode.FORECAST)
+    }
+
     return {
-        location,
-        setLocation,
-        fetchCoordinates,
         weatherData,
         starWarsPlanet,
         weatherDataForecast,
+        weatherMode,
+        setLocation,
+        fetchWeatherData,
         fillWeatherDataWithForecast,
-        weatherMode
     }
 
 }

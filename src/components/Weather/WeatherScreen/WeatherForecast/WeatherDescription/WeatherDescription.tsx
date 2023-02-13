@@ -1,8 +1,9 @@
 import React from "react";
+import { IWeatherData } from "../../../../../typings/weather/IWeatherData";
 import css from "./WeatherDescription.module.css"
 
 interface WeatherDescriptionProps {
-    weatherData: { location: string, temp: string, wind: string, weatherDescription: { description: string, image: string } };
+    weatherData: IWeatherData;
 }
 
 export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps> = ({ weatherData }) => {

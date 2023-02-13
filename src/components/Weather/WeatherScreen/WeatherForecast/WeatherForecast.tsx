@@ -1,39 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { EnumType } from "typescript";
-import { WeatherMode } from "../../../hooks/useWeather";
 import css from "./WeatherForecast.module.css"
-import { WeatherForecastElement } from "./WeatherForecastElement";
-import upIcon from "../../../assets/icons/arrow_up.png";
-import downIcon from "../../../assets/icons/arrow_down.png";
-import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
+import { WeatherForecastElement } from "./WeatherForecastElement/WeatherForecastElement";
+import upIcon from "../../../../assets/icons/arrow_up.png";
+import downIcon from "../../../../assets/icons/arrow_down.png";
+import { WeatherDescription } from "./WeatherDescription/WeatherDescription";
+import { WeatherMode } from "../../../../typings/weather/WeatherMode";
+import { IWeatherData } from "../../../../typings/weather/IWeatherData";
+import { IWeatherForecast } from "../../../../typings/weather/IWeatherForecast";
 
 
 interface WeatherForecastProps {
-    weatherForecast: {
-        tempMax: Array<number>,
-        tempMin: Array<number>
-        sunrise: Array<number>
-        sunset: Array<number>
-        time: Array<string>
-        weekDays: Array<string>
-        weathercode: Array<{ description: string, image: string }>
-        windspeed: Array<number>
-    };
-    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, wind: number, weathercode: { description: string, image: string }) => void
-    fetchCoordinates: () => void
+    weatherForecast: IWeatherForecast
+    fillWeatherDataWithForecast: ( tempMax: number, wind: number, weathercode: { description: string, image: string }) => void
+    fetchWeatherData: () => void
     weatherMode: WeatherMode
-    weatherData: {
-        location: string;
-        temp: string;
-        wind: string;
-        weatherDescription: {
-            description: string;
-            image: string;
-        };
-    }
+    weatherData: IWeatherData
 }
 
-export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchCoordinates, weatherMode, weatherData }) => {
+export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({ weatherForecast, fillWeatherDataWithForecast, fetchWeatherData, weatherMode, weatherData }) => {
 
     const arr = [css.Content, css.Content, css.Content, css.Content, css.Content, css.Content, css.Content]
     const [contentState, setContentState] = useState(arr);
@@ -75,14 +60,14 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
     }, [])
 
     const handleClick = (count: number) => {
-        fillWeatherDataWithForecast(weatherForecast.tempMin[count], weatherForecast.tempMax[count], weatherForecast.time[count], weatherForecast.windspeed[count], weatherForecast.weathercode[count])
+        fillWeatherDataWithForecast(weatherForecast.tempMax[count], weatherForecast.windspeed[count], weatherForecast.weathercode[count])
         arr[count] = css.ContentSelected;
         setContentState(arr);
         setDateState({ weekDay: weatherForecast.weekDays[count], date: weatherForecast.time[count] });
     }
     const showCurrenWeather = () => {
         if (weatherMode === WeatherMode.FORECAST) {
-            fetchCoordinates()
+            fetchWeatherData()
         }
     }
 
