@@ -25,6 +25,16 @@
   grid-area: arrowleft;
 }
 
+.arrowleft:hover{
+ 
+  cursor: pointer;
+}
+
+.arrowright:hover{
+ 
+  cursor: pointer;
+}
+
 .arrowright {
   margin-top: 150px;
   width: 0;

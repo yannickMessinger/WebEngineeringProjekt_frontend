@@ -27,6 +27,14 @@
   font-size: 16px;
  }
 
+ .startbutton:hover{
+ 
+  background-color: rgb(221, 221, 4); 
+  border: solid 2px white;
+  cursor: pointer;
+ 
+ }
+
  @media screen and (max-width: 800px) {
   .startbutton{
     font-family: Starjedi;

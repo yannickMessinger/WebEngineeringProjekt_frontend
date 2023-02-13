@@ -8,12 +8,24 @@
  .empireLogo{
   width:60px;
   height: 60px;
+  
  }
+
+
 
  .rebelLogo{
   width:90px;
   height: 60px;
  }
+
+ .empireLogo:hover{
+    cursor: pointer;
+    
+   }
+
+   .rebelLogo:hover{
+   cursor: pointer;
+   }
 
 
  @media screen and (max-width: 800px) {
