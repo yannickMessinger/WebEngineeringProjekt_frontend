@@ -1,16 +1,36 @@
 
 
 .Like {
-    font-size: xx-large;
+    font-size: 1.5vw;
 }
 
 .PlanetName {
-    font-size: 100px;
+    font-size: 4.7vw;
 }
 
 
 .InitialStatement {
-    font-size: xx-large;
+    font-size: 1.5vw;
     text-align: center;
     color: rgb(255, 232, 31);
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .PlanetName {
+        font-size: 50px;
+    }
+
+    .Like {
+        font-size: large;
+        text-align: center;
+    }
+
+    .InitialStatement {
+        font-size: larger;
+        text-align: center;
+        margin: 20px;
+        color: rgb(255, 232, 31);
+    }
 }

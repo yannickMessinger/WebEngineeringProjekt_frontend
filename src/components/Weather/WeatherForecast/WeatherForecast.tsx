@@ -8,8 +8,6 @@ import downIcon from "../../../assets/icons/arrow_down.png";
 import { WeatherDescription } from "../WeatherDescription/WeatherDescription";
 
 
-
-
 interface WeatherForecastProps {
     weatherForecast: {
         tempMax: Array<number>,
@@ -21,7 +19,7 @@ interface WeatherForecastProps {
         weathercode: Array<{ description: string, image: string }>
         windspeed: Array<number>
     };
-    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, wind: number ,weathercode: { description: string, image: string }) => void
+    fillWeatherDataWithForecast: (tempMin: number, tempMax: number, time: string, wind: number, weathercode: { description: string, image: string }) => void
     fetchCoordinates: () => void
     weatherMode: WeatherMode
     weatherData: {
@@ -129,9 +127,11 @@ export const WeatherForecast: React.FunctionComponent<WeatherForecastProps> = ({
                 <div className={css.WeatherDescription}>
                     <WeatherDescription weatherData={weatherData} />
                 </div>
-                <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
                 <div className={css.WeatherMode}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
-                <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
+                <div className={css.TileControllRow}>
+                    <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
+                    <button className={css.showCurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
+                </div>
             </div>
 
             <div className={css.WeatherForecast} ref={wrapperRef}>

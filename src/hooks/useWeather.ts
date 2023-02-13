@@ -92,7 +92,7 @@ export const useWeather = () => {
         } else if (temp <= 35) {
             setStarWarsPlanet("Tatooine");
         } else if (temp > 35) {
-            setStarWarsPlanet("Mustafa");
+            setStarWarsPlanet("Mustafar");
         }
     }
 
