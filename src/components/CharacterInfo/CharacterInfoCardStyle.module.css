@@ -58,10 +58,10 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color) 50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }
 
 .birth_year {
@@ -82,10 +82,10 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color) 50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }
 
 .eye_color {
@@ -106,10 +106,10 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color) 50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }
 
 .hair_color {
@@ -131,10 +131,10 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color) 50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }
 
 .height {
@@ -155,10 +155,10 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color)50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }
 
 .skin_color {
@@ -180,8 +180,8 @@
   border-image: linear-gradient(
       to left,
       rgba(0, 0, 0, 1) 1%,
-      rgba(0, 255, 255, 1) 50%,
+      var(--color)50%,
       rgba(0, 0, 0, 1) 100%
     )
-    100% 0 100% 0/3px 0 3px 0 stretch;
+    100% 0 100% 0/1px 0 1px 0 stretch;
 }

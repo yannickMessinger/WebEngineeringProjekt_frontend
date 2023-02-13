@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./TopLogo.module.css";
-import logo from "../../../assets/logo_no_back.png";
+import logo from "../../../assets/assets_characterChoice/logo_no_back.png";
 
 export const TopLogo = () => {
   return (

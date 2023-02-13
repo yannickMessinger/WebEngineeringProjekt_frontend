@@ -175,7 +175,7 @@ charMap.set(CHARACTER.PALPATINE, {
   loginFormImgPath: palpatine_login,
   shipImgPath: palpatine_ship,
   transitionImgPath: palpatine_ship,
-  planetImgPath: palpatine_planet,
+  planetImgPath: obiWan_planet,
   soundFilePath: "",
 });
 
@@ -184,7 +184,7 @@ charMap.set(CHARACTER.JARJAR, {
   loginFormImgPath: jarjar_login,
   shipImgPath: jarjar_ship,
   transitionImgPath: jarjar_ship,
-  planetImgPath: jarjar_planet,
+  planetImgPath: obiWan_planet,
   soundFilePath: "",
 });
 

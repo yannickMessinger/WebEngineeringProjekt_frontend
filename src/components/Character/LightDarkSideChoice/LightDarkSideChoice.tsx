@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import css from "./SideChoice.module.css";
 
-import rebel_logo from "../../../assets/rebel_logo.png";
-import empire_logo from "../../../assets/empire_logo.png";
+import rebel_logo from "../../../assets/assets_characterChoice/rebel_logo.png";
+import empire_logo from "../../../assets/assets_characterChoice/empire_logo.png";
 import { CharacterStylingContext } from '../../../context/CharacterStylingContext';
 import { SideImageButton} from './SideImageButton/SideImageButton';
 import {side} from "../../../typings/ESide"

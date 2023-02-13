@@ -7,9 +7,9 @@ import { StarshipInfo } from "../typings/IStarshipInfo";
 
 
 export const useSWAPI = () => {
-  const [charInfo, setCharInfo] = useState<CharacterInfo>();
-  const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>();
-  const [planetInfo, setPlanetInfo] = useState<PlanetInfo>();
+  const [charInfo, setCharInfo] = useState<CharacterInfo>({name: "no info available",birth_year:"no info available", eye_color:"no info available", hair_color:"no info available", height:"no info available", homeworld:"no info available", skin_color:"no info available"});
+  const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>({name:"no info available",model:"no info available",manufacturer:"no info available",length:"no info available",hyperdrive_rating:"no info available", max_atmosphering_speed:"no info available"});
+  const [planetInfo, setPlanetInfo] = useState<PlanetInfo>({climate:"no info available", diameter:"no info available", gravity:"no info available", name:"no info available", population:"no info available", terrain:"no info available"});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const { currentChar } = useContext(CharacterStylingContext);
@@ -23,24 +23,29 @@ export const useSWAPI = () => {
         if (result!.starships!.length > 0) {
           fetchStarShipInfo(result!.starships![0])
             .then((starship) => {
-              setStarShipInfo(starship);
+              setStarShipInfo(starship!);
             })
             .catch((error) => {
               setError(error);
             });
+        }else{
+          
+          console.log("kei schifff")
         }
 
         if (result?.homeworld !== "") {
           fetchPlanetInfo(result!.homeworld!)
             .then((planetInfo) => {
-              setPlanetInfo(planetInfo);
+              setPlanetInfo(planetInfo!);
             })
             .catch((error) => {
               setError(error);
             });
+        }else{
+          console.log("kei planet")
         }
 
-        setCharInfo(result);
+        setCharInfo(result!);
       })
       .catch((e) => setError(e))
       .finally(() => {
@@ -110,6 +115,8 @@ export const useSWAPI = () => {
       const rawInfo = await response.json();
 
       const starshipInfo: StarshipInfo = rawInfo;
+
+      console.log(`name: ${starshipInfo.name}`)
 
       return starshipInfo;
     } catch (error) {
