@@ -1,4 +1,173 @@
-.wrapper{
-    background-color: aqua;
+.planetInfoWrapper {  
+    display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.5fr 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-auto-columns: 1fr;
+      gap: 0px 0px;
+      grid-auto-flow: row;
+      justify-items: center;
+      grid-template-areas:
+        "header"
+        "planet_pic"
+        "name"
+        "diameter"
+        "gravity"
+        "climate"
+        "population"
+        "terrain";
+      width: 100%;
+      height: 100%;
+    }
+  
+    .header{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      grid-area: header;
+      width: 100%;
+      height: 50%;
+      margin-top: 3%;
+    color:whitesmoke
+    }
+  
     
-}
+    .planet_pic { grid-area: planet_pic;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+     
+   }
+    
+    .name { grid-area: name;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #ffffff;
+      width: 90%;
+      height: 90%;
+      
+      padding-left: 5%;
+  
+      border-style: solid;
+      border-width: 1px;
+      border-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 1) 1%,
+          rgba(0, 255, 255, 1) 50%,
+          rgba(0, 0, 0, 1) 100%
+        )
+        100% 0 100% 0/1px 0 1px 0 stretch;
+   }
+    
+    .diameter { grid-area: diameter;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #ffffff;
+      width: 90%;
+      height: 90%;
+  
+      border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 1%,
+        rgba(0, 255, 255, 1) 50%,
+        rgba(0, 0, 0, 1) 100%
+      )
+      100% 0 100% 0/1px 0 1px 0 stretch;
+  
+      padding-left: 5%;
+   }
+    
+    .gravity { grid-area: gravity;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      width: 90%;
+      height: 90%;
+  
+      border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 1%,
+        rgba(0, 255, 255, 1) 50%,
+        rgba(0, 0, 0, 1) 100%
+      )
+      100% 0 100% 0/1px 0 1px 0 stretch;
+      padding-left: 5%;
+      color: #ffffff;
+  
+   }
+    
+    .climate { grid-area: climate;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      width: 90%;
+      height: 90%;
+  
+      border-style: solid;
+      border-width: 1px;
+      border-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 1) 1%,
+          rgba(0, 255, 255, 1) 50%,
+          rgba(0, 0, 0, 1) 100%
+        )
+        100% 0 100% 0/1px 0 1px 0 stretch;
+      padding-left: 5%;
+      color: #ffffff;
+   }
+    
+    .population { grid-area: population;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+     
+      width: 90%;
+      height: 90%;
+  
+      border-width: 1px;
+    border-style: solid;
+  
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 1%,
+        rgba(0, 255, 255, 1) 50%,
+        rgba(0, 0, 0, 1) 100%
+      )
+      100% 0 100% 0/1px 0 1px 0 stretch;
+      color: #ffffff;
+      padding-left: 5%;
+   }
+    
+    .terrain { grid-area: terrain;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+     
+      width: 90%;
+      height: 90%;
+  
+      border-style: solid;
+      border-width: 1px;
+      border-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 1) 1%,
+          rgba(0, 255, 255, 1) 50%,
+          rgba(0, 0, 0, 1) 100%
+        )
+        100% 0 100% 0/1px 0 1px 0 stretch;
+      padding-left: 5%;
+      color: #ffffff;
+   }

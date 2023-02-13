@@ -6,7 +6,7 @@ import { StarshipInfo } from "../../../typings/IStarshipInfo";
 import { CharacterInfoCard } from "../../CharacterInfo/CharacterInfoCard";
 import { PlanetInfoCard } from "../../PlanetInfo/PlanetInfoCard";
 import { StarshipInfoCard } from "../../StarshipInfo/StarshipInfoCard";
-import { Char3D } from "./Char3D";
+
 
 import "./InfoDisplayStyle.scss";
 

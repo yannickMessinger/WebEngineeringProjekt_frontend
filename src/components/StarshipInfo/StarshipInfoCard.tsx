@@ -14,14 +14,15 @@ export const StarshipInfoCard = ({info}:StarshipInfoProps) => {
   const {currentChar} = useContext(CharacterStylingContext);
 
   return (
-    <div className={css.wrapper}>
-       <PictureFrame img_path={currentChar?.ship_img_path!}/>
-      <div>name: {info?.name}</div>
-      <div>model: {info?.model}</div>
-      <div>manufacturer: {info?.manufacturer}</div>
-      <div>length: {info?.length}</div>
-      <div>hyperdrive rating: {info?.hyperdrive_rating}</div>
-      <div>max speed: {info?.max_atmosphering_speed}</div>
+    <div className={css.starshipInfoWrapper}>
+      <div className={css.header}>Shipinfo</div>
+      <div className={css.ship_pic}><PictureFrame img_path={currentChar?.ship_img_path!}/></div>
+       <div className={css.name}>name: {info?.name}</div>
+      <div className={css.model}>model: {info?.model}</div>
+      <div className={css.manufacturer}>manufacturer: {info?.manufacturer}</div>
+      <div className={css.length}>length: {info?.length}</div>
+      <div className={css.hyperdrive}>hyperdrive rating: {info?.hyperdrive_rating}</div>
+      <div className={css.max_speed}>max speed: {info?.max_atmosphering_speed}</div>
     </div>
   )
 }
