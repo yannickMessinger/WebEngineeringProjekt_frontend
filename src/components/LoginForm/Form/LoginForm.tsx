@@ -25,6 +25,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
   const[nextPage, setNextPage] = useState(false);
   const navigate = useNavigate();
   const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
+  const onlyNumbers= new RegExp('/^[0-9]*$/')
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -67,37 +68,37 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     //console.log(new Date(birthday) > new Date(Date.now()))
 
     if (firstName === "") {
-      errors.firstName = "Vorname leer";
+      errors.firstName = "empty first name";
     }
 
     if (lastName === "") {
-      errors.lastName = "Nachname leer";
+      errors.lastName = "empty last name";
     }
 
      if (userName === "") {
-      errors.userName = "Username leer";
+      errors.userName = "empty username";
     }
 
 
     if (phoneNumber === "") {
-      errors.phoneNumber = "leere Nummer";
+      errors.phoneNumber = "empty phone number";
     }
 
     if (birthday === "") {
-      errors.birthday = "Geburtstag leer";
+      errors.birthday = "empty birthday";
     }
 
     if(new Date(birthday) > new Date(Date.now())){
-      errors.birthday ="kein zukünftiger Geburtstag!"
+      errors.birthday ="no birthday from future"
     }
     
 
     if (mailAdress === "") {
-      errors.mailAdress = "Mailadresse leer";
+      errors.mailAdress = "empty mail adress";
     }
     
     if(!validEmail.test(mailAdress)){
-      errors.mailAdress ="falsches Mailformat"
+      errors.mailAdress ="wrong mail format"
     }
 
     setFormErrors(errors);

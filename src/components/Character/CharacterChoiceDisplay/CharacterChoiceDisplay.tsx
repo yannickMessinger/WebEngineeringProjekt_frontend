@@ -2,14 +2,9 @@ import React, { useContext, useState } from "react";
 import css from "./CharacterChoiceDisplay.module.css";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 
-
-
-export const CharacterChoiceDisplay= () => {
-  const { charChoiceHandlerNext, charChoiceHandlerPrev,currentChar} = useContext(CharacterStylingContext);
-  
-  
-
-  
+export const CharacterChoiceDisplay = () => {
+  const { charChoiceHandlerNext, charChoiceHandlerPrev, currentChar } =
+    useContext(CharacterStylingContext);
 
   return (
     <div className={css.choosechar}>
@@ -17,11 +12,8 @@ export const CharacterChoiceDisplay= () => {
         className={css.arrowleft}
         onClick={() => charChoiceHandlerPrev()}
       ></div>
-      <div
-        className={`${css.characterDisplay}`}
-        
-      >
-         <img src={currentChar.img_path} className={css.character_img} ></img>
+      <div className={`${css.characterDisplay}`}>
+        <img src={currentChar.img_path} className={css.character_img}></img>
       </div>
       <div
         className={css.arrowright}

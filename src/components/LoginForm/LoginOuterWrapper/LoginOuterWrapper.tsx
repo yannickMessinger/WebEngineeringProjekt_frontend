@@ -5,7 +5,7 @@ import { CharacterStylingContext } from "../../../context/CharacterStylingContex
 import { Lightsaber } from "../../Lightsaber/Lightsaber";
 
 
-export const LoginFormRework = () => {
+export const LoginFormOuterWrapper = () => {
   
   //TODO: Farbverlauf weiter nach unten um Schirft besser lesbar zu machen
   //TODO: Schriftfarbe bei hellen Hintergründen mit mehr Kontrast auf dunkel setzen
@@ -42,3 +42,5 @@ export const LoginFormRework = () => {
     </div>
   );
 };
+
+export { LoginForm };
