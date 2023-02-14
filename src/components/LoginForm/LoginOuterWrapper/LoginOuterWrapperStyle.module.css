@@ -62,12 +62,13 @@
 
 @media screen and (max-width: 800px) {
 
-  .login_form { grid-area: login_form;
+  .login_form { 
+    grid-area: login_form;
     margin-top:1%;
     display: flex;
     justify-content: center;
-     min-width: 50%;
-     min-height: 50%;
+     min-width: 100%;
+     min-height: 100%;
  }
 
   

@@ -65,7 +65,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       mailAdress: "",
     };
 
-    //console.log(new Date(birthday) > new Date(Date.now()))
+  
 
     if (firstName === "") {
       errors.firstName = "empty first name";

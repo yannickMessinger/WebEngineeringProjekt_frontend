@@ -16,6 +16,8 @@
 
  }
 
+ /*
+
  .logoSizing{
    
     object-fit: contain;
@@ -24,10 +26,37 @@
     max-height: 185px;
  }
 
+ */
+
  .toptext{
     font-family: Starjedi;
     color:yellow;
     font-size: x-large;
     display: flex;
     justify-content: center;
+}
+
+
+@media screen and (min-width: 400px) {
+
+   .logoSizing{
+   
+      object-fit: contain;
+      max-height: 100%;
+      max-width: 100%;
+      max-height: 185px;
+   }
+}
+
+@media screen and (max-width: 400px) {
+
+   .logoSizing{
+   
+      object-fit: contain;
+      max-height: 100%;
+      max-width: 100%;
+      max-height: 80px;
+   }
+
+
 }

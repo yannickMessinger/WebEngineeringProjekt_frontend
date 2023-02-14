@@ -67,7 +67,7 @@ export const useSWAPI = () => {
   async function fetchCharInfo(): Promise<CharacterInfo | undefined> {
     console.log("fetch Char Info from Swapi");
 
-    const SWAPI_URL = `http://swapi.dev/api/people/?search=${
+    const SWAPI_URL = `https://swapi.py4e.com/api/people/?search=${
       currentChar?.name
     }`;
 

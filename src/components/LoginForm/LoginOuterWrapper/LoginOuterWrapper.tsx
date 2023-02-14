@@ -7,8 +7,6 @@ import { Lightsaber } from "../../Lightsaber/Lightsaber";
 
 export const LoginFormOuterWrapper = () => {
   
-  //TODO: Farbverlauf weiter nach unten um Schirft besser lesbar zu machen
-  //TODO: Schriftfarbe bei hellen Hintergründen mit mehr Kontrast auf dunkel setzen
 
   const { currentChar } = useContext(CharacterStylingContext);
   const [formErrors, setFormErrors] = useState(false);

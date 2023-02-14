@@ -1,64 +1,78 @@
-.background{
-    display: grid; 
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 1.2fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
-    gap: 0px 0px; 
-    
+.charselect {
+  display: grid;
+  min-height: 100vh;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1.3fr 0.3fr 1.5fr 0.4fr;
+  gap: 0px 0px;
+}
 
-    grid-template-areas: 
-    "charakterbox rest"
-    "charakterbox rest"; 
+.rest {
+  grid-area: rest;
+}
 
-    background-image:url('../../assets/assets_characterChoice/hyper_black_white.jpg');
-    
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .background {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+
+    grid-template-areas:
+      "charakterbox rest"
+      "charakterbox rest";
+
+    background-image: url("../../assets/assets_characterChoice/hyper_black_white.jpg");
+
     height: 100%;
     min-height: 100vh;
-    overflow: auto; 
+    overflow: auto;
     background-size: cover;
     background-repeat: no-repeat;
 
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    
+  }
 
-   
-    
-}
-
-.charakterbox { 
+  .charakterbox {
     background-color: black;
-    clip-path: polygon(0% 0%,
-                   100% 0%,
-                   100% 100%,
-                    0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     opacity: 90%;
     grid-area: charakterbox;
-  
- }
+  }
+}
 
+@media screen and (max-width: 400px) {
+  .background {
+    display: block;
 
+    background-image: url("../../assets/assets_characterChoice/hyper_black_white.jpg");
 
- .charselect {
-    display: grid; 
+    height: 100%;
     min-height: 100vh;
-    grid-auto-columns: 1fr; 
-    grid-template-rows:  1.3fr 0.3fr 1.5fr 0.4fr; 
-    gap: 0px 0px; 
+    overflow: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
 
-  
-  .rest { 
-    
-    grid-area: rest;
- }
+  .charakterbox {
+    display: block;
 
- @keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
+    min-width: 100%;
+    min-height: 100%;
   }
-  100% {
-      opacity: 1;
-   }
 }
