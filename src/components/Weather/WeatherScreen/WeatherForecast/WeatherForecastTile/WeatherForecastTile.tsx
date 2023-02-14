@@ -1,16 +1,16 @@
 import React, { FormEvent, useState } from "react";
 import ReactDOM from "react-dom";
-import css from "./WeatherForecastElement.module.css"
+import css from "./WeatherForecastTile.module.css"
 
-interface WeatherForecastElementProps {
+interface WeatherForecastTileProps {
     tempMax: number,
     tempMin: number,
     time: string,
-    description: {description: string, image: string },
+    description: { description: string, image: string },
 }
 
 
-export const WeatherForecastElement: React.FunctionComponent<WeatherForecastElementProps> = ({ tempMax, tempMin, time, description }) => {
+export const WeatherForecastTile: React.FunctionComponent<WeatherForecastTileProps> = ({ tempMax, tempMin, time, description }) => {
     return (
         <>
             <div>
@@ -18,7 +18,7 @@ export const WeatherForecastElement: React.FunctionComponent<WeatherForecastElem
                     {time}
                 </div>
                 <div >
-                    <img className= {css.Image} src= {"./weather_symbols/" + description.image + ".png"} alt="Not available"/>
+                    <img className={css.Image} src={"./weather_symbols/" + description.image + ".png"} alt="Not available" />
                 </div>
                 <div className={css.Description}>
                     {description.description}

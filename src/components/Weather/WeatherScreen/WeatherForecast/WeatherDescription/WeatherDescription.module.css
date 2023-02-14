@@ -28,7 +28,7 @@
 .WeatherValues {
     font-family: Starjedi;
     display: flex;
-    /*width: 300px;*/
+    width: 12vw;
     font-size: 1.3vw;
 }
 
@@ -49,22 +49,22 @@
         align-items: center;
         max-width: 100%;
     }
-    
+
     .Weather {
         display: flex;
         max-width: 100px;
     }
-    
+
     .Image {
         max-width: 40px;
         max-height: 100%;
     }
-    
+
     .Weather_img {
         width: 40px;
         height: 40px;
     }
-    
+
     .WeatherValues {
         font-family: Starjedi;
         display: flex;
@@ -72,11 +72,41 @@
         font-size: 16px;
 
     }
-    
+
     .WeatherDescriptionWrapper {
         position: absolute;
         right: 0px;
         bottom: 135px;
     }
-    
+}
+
+@media only screen and (max-width: 950px) and (min-width: 450px) {
+    .Weather_description {
+        font-size: 2.3vw;
+    }
+
+    .Image {
+        max-width: 60px;
+        max-height: 100%;
+    }
+
+    .Weather_img {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .WeatherValues {
+
+        width: 180px;
+        font-size: 2.3vw;
+
+    }
+
+    .WeatherDescriptionWrapper {
+        position: absolute;
+        right: 0px;
+
+    }
+
+
 }
