@@ -100,6 +100,13 @@
     font-size: 1.5vw;
 }
 
+.WeatherForecast {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
+}
+
 .TileControlWrapper {
     animation: slideinControls 0.7s ease-in-out;
 }
