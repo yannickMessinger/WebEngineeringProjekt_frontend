@@ -19,9 +19,6 @@ interface InfoProps {
 
 export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
   
-  
-  //ggf 3D display versuchen für charakter einzubauen
-  //lässt sich die InfoCard als componente verallgemeinern?
 
   const {currentChar} = useContext(CharacterStylingContext);
   const infoWrapper = useRef<HTMLInputElement>(null);

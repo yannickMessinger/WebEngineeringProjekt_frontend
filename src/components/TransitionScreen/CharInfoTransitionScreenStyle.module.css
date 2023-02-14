@@ -8,116 +8,37 @@
     background-repeat: no-repeat;
     overflow: hidden;
    
-
 }
+
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-.xwing{
-    
-    position: absolute;
-    top: 20vw;
-    left: -5vw;
-    
-    animation: fly 6s  ease-in-out;
-    animation-delay: 0.5s;
-    /*
-    animation-iteration-count: 1;
-    */
-    animation-fill-mode: forwards;
-    
+.xwing {
+  position: absolute;
+  top: 20vw;
+  left: -5vw;
+
+  animation: fly 6s ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-
-@keyframes fly{
-    0%{
-        transform: translate(0vw, 0vh) rotate(-30deg);
-        
-      
-    }
-
-    50%{
-      transform: translate(30vw)  rotate(-30deg);
-    }
-
- 
-
-
-  
-
-
-    100%{
-        transform: translate(110vw)  rotate(-30deg);
-        display: none;
-        visibility: hidden;
-       
-        
-    }
-}
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  /* 
-  .scene { 
-    animation: 🤫 300s infinite linear;
+@keyframes fly {
+  0% {
+    transform: translate(0vw, 0vh) rotate(-30deg);
   }
-  
-  @keyframes 🤫 {
-    0%{
-      filter: hue-rotate(0)
-    }
-    50% {
-      filter: hue-rotate(180deg) saturation(5);
-      transform: scaleX(4000);
-      perspective: 50px;
-    }
-   
-    100%{
-      filter: hue-rotate(360deg);
-    }
-  } 
-  */
+
+  50% {
+    transform: translate(30vw) rotate(-30deg);
+  }
+
+  100% {
+    transform: translate(110vw) rotate(-30deg);
+    display: none;
+    visibility: hidden;
+  }
+}
+
+
