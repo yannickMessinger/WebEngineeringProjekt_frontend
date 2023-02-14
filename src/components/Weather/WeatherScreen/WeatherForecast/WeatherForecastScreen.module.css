@@ -2,17 +2,15 @@
     0% {
         bottom: -500px;
     }
-
     100% {
         bottom: 0px;
     }
 }
 
-@keyframes slidout {
+@keyframes slideout {
     0% {
         bottom: 0px;
     }
-
     100% {
         bottom: -500px;
     }
@@ -22,24 +20,22 @@
     0% {
         bottom: 1vw;
     }
-
     100% {
         bottom: 11.5vw;
     }
 }
 
-@keyframes slidoutOther {
+@keyframes slideoutOther {
     0% {
         bottom: 11.5vw;
     }
-
     100% {
         bottom: 1vw;
     }
 }
 
-
-.WeatherForecast {
+.Tiles,
+.Tiles_down {
     border: 0px solid rgba(255, 255, 255, 0.815);
     height: 8.7vw;
     display: inline-flex;
@@ -49,43 +45,37 @@
     right: 10px;
     bottom: 0px;
     gap: 15px;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.Tiles {
     animation: slidein 0.7s ease-in-out;
 }
 
-.WeatherForecast_down {
-    border: 0px solid rgba(255, 255, 255, 0.815);
-    height: 8.7vw;
-    display: inline-flex;
-    position: fixed;
-    justify-content: space-around;
-    left: 10px;
-    right: 10px;
-    bottom: 0px;
-    gap: 15px;
-    padding: 2rem;
-    animation: slidout 0.7s ease-in-out;
+.Tiles_down {
+    animation: slideout 0.7s ease-in-out;
     bottom: -500px;
 }
 
-.Element:hover {
-    background: radial-gradient(75rem circle at var(--xPos) var(--yPos),
-            rgb(3, 43, 70),
-            transparent 20%);
-}
-
-.Element {
+.Tile {
     flex: auto;
     height: 100%;
     width: 8.7vw;
-    color: rgb(0, 0, 0);
+    color: black;
     border-radius: 0.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.Content {
+.Tile:hover {
+    background: radial-gradient(75rem circle at var(--xPos) var(--yPos),
+            rgb(3, 43, 70),
+            transparent 20%);
+}
+
+.TileContent,
+.TileContentSelected {
     background-color: #808080a4;
     border-radius: inherit;
     transition: all 0.25s;
@@ -93,104 +83,87 @@
     width: calc(100% - 0.1rem);
 }
 
-.ContentSelected {
+.TileContentSelected {
     background-color: rgba(58, 80, 97, 0.884);
-    border-radius: inherit;
-    transition: all 0.25s;
-    height: calc(100% - 0.1rem);
-    width: calc(100% - 0.1rem);
 }
 
-
-.BackToCurrentWeather {
+.TileControlWrapper,
+.TileControlWrapper_down {
     position: fixed;
     left: 30px;
     right: 0px;
     bottom: 11.5vw;
     font-size: 1.5vw;
+}
+
+.TileControlWrapper {
     animation: slideinOther 0.7s ease-in-out;
-}
-
-.BackToCurrentWeather_down {
-    position: fixed;
-    left: 30px;
-    right: 0px;
-    bottom: 11.5vw;
+    }
+    
+    .TileControlWrapper_down {
+    animation: slideoutOther 0.7s ease-in-out;
     bottom: 1vw;
-    font-size: 1.5vw;
-    animation: slidoutOther 0.7s ease-in-out;
-
-}
-
-.WeatherMode {
+    }
+    
+    .Date {
     left: 40px;
     right: 0px;
     bottom: 245px;
     font-family: Starjedi;
     margin-left: 7px;
-
-}
-
-.showCurrentWeatherButton_disabled {
-
+    }
+    
+    .CurrentWeatherButton_disabled,
+    .CurrentWeatherButton {
     border: none;
     padding: 0.7vw 1.5vw;
     text-align: center;
     text-decoration: none;
     font-size: 0.8vw;
+    border-radius: 0.4rem;
+    margin: 10px 10px 10px 20px;
+    }
+    
+    .CurrentWeatherButton_disabled {
     background-color: #b1b1b1a4;
     color: #505050;
-    border-radius: 0.4rem;
-    margin: 10px 10px 10px 20px;
-}
-
-.showCurrentWeatherButton {
-
-    border: none;
-    color: white;
-    padding: 0.7vw 1.5vw;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.8vw;
-    cursor: pointer;
+    }
+    
+    .CurrentWeatherButton {
     background-color: #e7e7e7;
     color: black;
-    border-radius: 0.4rem;
-    margin: 10px 10px 10px 20px;
-
-}
-
-
-.showCurrentWeatherButton:hover {
+    cursor: pointer;
+    }
+    
+    .CurrentWeatherButton:hover {
     background-color: rgba(58, 80, 97, 0.884);
-}
-
-
-.FoldButton {
+    }
+    
+    .FoldButton {
     background-color: #808080a4;
     border-radius: 0.4rem;
     font-weight: bolder;
     margin-left: 15px;
     cursor: pointer;
     border: none;
-}
-
-.FoldButton:hover {
+    }
+    
+    .FoldButton:hover {
     background-color: rgba(58, 80, 97, 0.884);
-}
-
-.FoldButton img {
+    }
+    
+    .FoldButton img {
     width: 1vw;
     height: 1vw;
-}
-
-.WeatherDescription {
+    }
+    
+    .WeatherDescription {
     position: absolute;
     bottom: 15px;
     right: 1vw;
     bottom: 0.5vw;
-}
-
+    }
+    
 @media only screen and (max-width: 450px) {
 
 
@@ -215,7 +188,7 @@
     }
 
 
-    .WeatherForecast {
+    .Tiles {
         display: flex;
         position: fixed;
         justify-content: space-around;
@@ -239,7 +212,7 @@
 
     }
 
-    .WeatherForecast_down {
+    .Tiles_down {
         display: flex;
         position: fixed;
         justify-content: space-around;
@@ -263,13 +236,13 @@
         overflow-x: auto;
     }
 
-    .Element:hover {
+    .Tile:hover {
         background: radial-gradient(75rem circle at var(--xPos) var(--yPos),
                 rgb(3, 43, 70),
                 transparent 20%);
     }
 
-    .Element {
+    .Tile {
         min-width: none;
         flex: auto;
         color: rgb(0, 0, 0);
@@ -284,7 +257,7 @@
 
     }
 
-    .Content {
+    .TileContent {
         background-color: #808080a4;
         border-radius: inherit;
         transition: all 0.25s;
@@ -293,7 +266,7 @@
 
     }
 
-    .ContentSelected {
+    .TileContentSelected {
         background-color: rgba(58, 80, 97, 0.884);
         border-radius: inherit;
         transition: all 0.25s;
@@ -302,7 +275,7 @@
     }
 
 
-    .BackToCurrentWeather {
+    .TileControlWrapper {
         position: fixed;
         left: 8px;
         right: 0px;
@@ -311,7 +284,7 @@
         animation: slideinOther 0.7s ease-in-out;
     }
 
-    .BackToCurrentWeather_down {
+    .TileControlWrapper_down {
         position: fixed;
         left: 8px;
         right: 0px;
@@ -322,7 +295,7 @@
 
     }
 
-    .WeatherMode {
+    .Date {
         left: 40px;
         right: 0px;
         bottom: 245px;
@@ -330,20 +303,20 @@
         margin-left: 7px;
     }
 
-    .showCurrentWeatherButton_disabled {
+    .CurrentWeatherButton_disabled {
         padding: 6px 12px;
         font-size: 12px;
         margin: 5px 5px 5px 15px;
     }
 
-    .showCurrentWeatherButton {
+    .CurrentWeatherButton {
 
         padding: 5px 12px;
         font-size: 12px;
         margin: 5px 5px 5px 15px;
     }
 
-    .showCurrentWeatherButton:hover {
+    .CurrentWeatherButton:hover {
         background-color: rgba(58, 80, 97, 0.884);
     }
 
@@ -385,13 +358,13 @@
         }
 
         100% {
-            bottom: 170px;
+            bottom: 190px;
         }
     }
 
     @keyframes slidoutOther {
         0% {
-            bottom: 170px;
+            bottom: 190px;
         }
 
         100% {
@@ -400,8 +373,8 @@
     }
 
 
-    .WeatherForecast {
-        height: 130px;
+    .Tiles {
+        height: 150px;
         width: auto;
         scroll-behavior: smooth;
         display: flex;
@@ -411,8 +384,8 @@
 
     }
 
-    .WeatherForecast_down {
-        height: 120px;
+    .Tiles_down {
+        height: 150px;
         width: auto;
         scroll-behavior: smooth;
         display: flex;
@@ -421,7 +394,7 @@
         overflow-x: auto;
     }
     
-    .Element {
+    .Tile {
         min-width: none;
         flex: auto;
         color: rgb(0, 0, 0);
@@ -436,39 +409,39 @@
 
     }
 
-    .BackToCurrentWeather {
+    .TileControlWrapper {
         position: fixed;
         left: 8px;
         right: 0px;
-        bottom: 170px;
+        bottom: 190px;
         font-size: x-large;
         animation: slideinOther 0.7s ease-in-out;
     }
 
-    .BackToCurrentWeather_down {
+    .TileControlWrapper_down {
         position: fixed;
         left: 8px;
         right: 0px;
-        bottom: 170px;
+        bottom: 190px;
         font-size: x-large;
         animation: slidoutOther 0.7s ease-in-out;
         bottom: 40px;
     }
 
-    .showCurrentWeatherButton_disabled {
+    .CurrentWeatherButton_disabled {
         padding: 8px 12px;
         font-size: 18px;
         margin: 10px 10px 10px 15px;
     }
 
-    .showCurrentWeatherButton {
+    .CurrentWeatherButton {
 
         padding: 8px 12px;
         font-size: 18px;
         margin: 10px 10px 10px 15px;
     }
 
-    .showCurrentWeatherButton:hover {
+    .CurrentWeatherButton:hover {
         background-color: rgba(58, 80, 97, 0.884);
     }
 
@@ -490,7 +463,4 @@
         width: 17px;
         height: 17px
     }
-
-
-
 }

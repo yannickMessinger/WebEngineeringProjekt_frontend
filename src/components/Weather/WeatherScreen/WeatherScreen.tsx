@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useWeather } from "../../../hooks/useWeather";
 import { Searchbar } from "../../UI/Searchbar/Searchbar";
 import { WeatherDescription } from "./WeatherForecast/WeatherDescription/WeatherDescription";
-import { WeatherForecast } from "./WeatherForecast/WeatherForecast";
+import { WeatherForecastScreen } from "./WeatherForecast/WeatherForecastScreen";
 import { WeatherPlanet } from "./WeatherPlanet/WeatherPlanet";
 
 import css from "./WeatherScreen.module.css"
@@ -17,7 +17,7 @@ export const WeatherScreen = () => {
 
     const decideBackgroundPlanet = (() => {
         if (window.innerWidth > 450) {
-            setBackgroundPlanetUrl("./weather_backgrounds/" + starWarsPlanet.toLowerCase() + ".png");
+            setBackgroundPlanetUrl("./weather_backgrounds/desktop/" + starWarsPlanet.toLowerCase() + ".png");
 
         } else {
             setBackgroundPlanetUrl("./weather_backgrounds/phone/" + starWarsPlanet.toLowerCase() + "_phone.png");
@@ -42,7 +42,7 @@ export const WeatherScreen = () => {
 
     if (starWarsPlanet !== "noPlanet" && starWarsPlanet !== "default") {
         weatherLocation = <span>{weatherData.location}</span>;
-        weatherForecast = <WeatherForecast weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchWeatherData={fetchWeatherData} weatherMode={weatherMode} weatherData={weatherData} />;
+        weatherForecast = <WeatherForecastScreen weatherForecast={weatherDataForecast} fillWeatherDataWithForecast={fillWeatherDataWithForecast} fetchWeatherData={fetchWeatherData} weatherMode={weatherMode} weatherData={weatherData} />;
     } else {
         weatherLocation = <span></span>;
         weatherForecast = <span></span>;
