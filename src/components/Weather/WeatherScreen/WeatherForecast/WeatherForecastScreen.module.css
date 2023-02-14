@@ -1,34 +1,38 @@
-@keyframes slidein {
+@keyframes slideinTiles {
     0% {
         bottom: -500px;
     }
+
     100% {
         bottom: 0px;
     }
 }
 
-@keyframes slideout {
+@keyframes slideoutTiles {
     0% {
         bottom: 0px;
     }
+
     100% {
         bottom: -500px;
     }
 }
 
-@keyframes slideinOther {
+@keyframes slideinControls {
     0% {
         bottom: 1vw;
     }
+
     100% {
-        bottom: 11.5vw;
+        bottom: 10vw;
     }
 }
 
-@keyframes slideoutOther {
+@keyframes slideoutControls {
     0% {
-        bottom: 11.5vw;
+        bottom: 10vw;
     }
+
     100% {
         bottom: 1vw;
     }
@@ -46,14 +50,15 @@
     bottom: 0px;
     gap: 15px;
     padding: 1rem;
+    padding-top: 0.5rem;
 }
 
 .Tiles {
-    animation: slidein 0.7s ease-in-out;
+    animation: slideinTiles 0.7s ease-in-out;
 }
 
 .Tiles_down {
-    animation: slideout 0.7s ease-in-out;
+    animation: slideoutTiles 0.7s ease-in-out;
     bottom: -500px;
 }
 
@@ -64,7 +69,6 @@
     color: black;
     border-radius: 0.4rem;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -92,29 +96,26 @@
     position: fixed;
     left: 30px;
     right: 0px;
-    bottom: 11.5vw;
+    bottom: 10vw;
     font-size: 1.5vw;
 }
 
 .TileControlWrapper {
-    animation: slideinOther 0.7s ease-in-out;
-    }
-    
-    .TileControlWrapper_down {
-    animation: slideoutOther 0.7s ease-in-out;
+    animation: slideinControls 0.7s ease-in-out;
+}
+
+.TileControlWrapper_down {
+    animation: slideoutControls 0.7s ease-in-out;
     bottom: 1vw;
-    }
-    
-    .Date {
-    left: 40px;
-    right: 0px;
-    bottom: 245px;
+}
+
+.Date {
     font-family: Starjedi;
     margin-left: 7px;
-    }
-    
-    .CurrentWeatherButton_disabled,
-    .CurrentWeatherButton {
+}
+
+.CurrentWeatherButton_disabled,
+.CurrentWeatherButton {
     border: none;
     padding: 0.7vw 1.5vw;
     text-align: center;
@@ -122,52 +123,51 @@
     font-size: 0.8vw;
     border-radius: 0.4rem;
     margin: 10px 10px 10px 20px;
-    }
-    
-    .CurrentWeatherButton_disabled {
+}
+
+.CurrentWeatherButton_disabled {
     background-color: #b1b1b1a4;
     color: #505050;
-    }
-    
-    .CurrentWeatherButton {
+}
+
+.CurrentWeatherButton {
     background-color: #e7e7e7;
     color: black;
     cursor: pointer;
-    }
-    
-    .CurrentWeatherButton:hover {
+}
+
+.CurrentWeatherButton:hover {
     background-color: rgba(58, 80, 97, 0.884);
-    }
-    
-    .FoldButton {
+}
+
+.FoldButton {
     background-color: #808080a4;
     border-radius: 0.4rem;
     font-weight: bolder;
     margin-left: 15px;
     cursor: pointer;
     border: none;
-    }
-    
-    .FoldButton:hover {
+}
+
+.FoldButton:hover {
     background-color: rgba(58, 80, 97, 0.884);
-    }
-    
-    .FoldButton img {
+}
+
+.FoldButton img {
     width: 1vw;
     height: 1vw;
-    }
-    
-    .WeatherDescription {
+}
+
+.WeatherDescription {
     position: absolute;
-    bottom: 15px;
     right: 1vw;
     bottom: 0.5vw;
-    }
-    
+}
+
 @media only screen and (max-width: 450px) {
 
 
-    @keyframes slideinOther {
+    @keyframes slideinControls_mobile {
         0% {
             bottom: 40px;
         }
@@ -177,7 +177,7 @@
         }
     }
 
-    @keyframes slidoutOther {
+    @keyframes slidoutControls_mobile {
         0% {
             bottom: 160px;
         }
@@ -187,154 +187,65 @@
         }
     }
 
-
-    .Tiles {
-        display: flex;
-        position: fixed;
-        justify-content: space-around;
+    .Tiles,
+    .Tiles_down {
         left: 5px;
         right: 5px;
         bottom: 0px;
         gap: 8px;
         padding: 1rem;
         padding-top: 1rem;
-        animation: slidein 0.7s ease-in-out;
         width: auto;
         height: 130px;
-        overflow: scroll;
+        overflow-x: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        overflow-x: auto;
-
     }
 
+    .Tiles {
+        animation: slideinTiles 0.7s ease-in-out;
+    }
+    
     .Tiles_down {
-        display: flex;
-        position: fixed;
-        justify-content: space-around;
-        left: 5px;
-        right: 5px;
-        bottom: 0px;
-        gap: 8px;
-        padding: 1rem;
-        padding-top: 1rem;
-        animation: slidout 0.7s ease-in-out;
+        animation: slideoutTiles 0.7s ease-in-out;
         bottom: -500px;
-        width: 350px;
-        height: 130px;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        overflow-x: auto;
-    }
-
-    .Tile:hover {
-        background: radial-gradient(75rem circle at var(--xPos) var(--yPos),
-                rgb(3, 43, 70),
-                transparent 20%);
     }
 
     .Tile {
-        min-width: none;
-        flex: auto;
-        color: rgb(0, 0, 0);
         border-radius: 0.4rem;
-        display: flex;
-        justify-content: center;
         align-items: center;
         width: 200px;
         height: 100%;
-        flex-grow: 7;
-        flex-shrink: 0;
-
     }
 
-    .TileContent {
-        background-color: #808080a4;
-        border-radius: inherit;
-        transition: all 0.25s;
-        height: calc(100% - 0.1rem);
-        width: calc(100% - 0.1rem);
-
-    }
-
-    .TileContentSelected {
-        background-color: rgba(58, 80, 97, 0.884);
-        border-radius: inherit;
-        transition: all 0.25s;
-        height: calc(100% - 0.1rem);
-        width: calc(100% - 0.1rem);
-    }
-
-
-    .TileControlWrapper {
-        position: fixed;
-        left: 8px;
-        right: 0px;
-        bottom: 160px;
-        font-size: large;
-        animation: slideinOther 0.7s ease-in-out;
-    }
-
+    .TileControlWrapper,
     .TileControlWrapper_down {
         position: fixed;
         left: 8px;
-        right: 0px;
+        right: 0;
         bottom: 160px;
         font-size: large;
-        animation: slidoutOther 0.7s ease-in-out;
+    }
+
+    .TileControlWrapper {
+        animation: slideinControls_mobile 0.7s ease-in-out;
+    }
+
+    .TileControlWrapper_down {
+        animation: slidoutControls_mobile 0.7s ease-in-out;
         bottom: 40px;
-
     }
 
-    .Date {
-        left: 40px;
-        right: 0px;
-        bottom: 245px;
-        font-family: Starjedi;
-        margin-left: 7px;
-    }
-
-    .CurrentWeatherButton_disabled {
-        padding: 6px 12px;
-        font-size: 12px;
-        margin: 5px 5px 5px 15px;
-    }
-
+    .CurrentWeatherButton_disabled,
     .CurrentWeatherButton {
-
         padding: 5px 12px;
         font-size: 12px;
         margin: 5px 5px 5px 15px;
     }
-
-    .CurrentWeatherButton:hover {
-        background-color: rgba(58, 80, 97, 0.884);
-    }
-
-
-    .FoldButton {
-        background-color: #808080a4;
-        border-radius: 0.4rem;
-        font-weight: bolder;
-        margin-left: 15px;
-        cursor: pointer;
-        border: none;
-
-    }
-
-    .FoldButton:hover {
-        background-color: rgba(58, 80, 97, 0.884);
-    }
-
+    
     .FoldButton img {
         width: 10px;
         height: 10px
@@ -349,10 +260,7 @@
 
 @media only screen and (max-width: 950px) and (min-width: 450px) {
 
-
-
-
-    @keyframes slideinOther {
+    @keyframes slideinControls_tablet {
         0% {
             bottom: 40px;
         }
@@ -362,7 +270,7 @@
         }
     }
 
-    @keyframes slidoutOther {
+    @keyframes slidoutControls_table {
         0% {
             bottom: 190px;
         }
@@ -372,18 +280,7 @@
         }
     }
 
-
-    .Tiles {
-        height: 150px;
-        width: auto;
-        scroll-behavior: smooth;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        overflow-x: auto;
-
-    }
-
+    .Tiles,
     .Tiles_down {
         height: 150px;
         width: auto;
@@ -392,75 +289,50 @@
         flex-wrap: wrap;
         flex-direction: column;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
     }
-    
+
     .Tile {
         min-width: none;
         flex: auto;
-        color: rgb(0, 0, 0);
+        color: #000;
         border-radius: 0.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 200px;
         height: 100%;
-        flex-grow: 7;
-        flex-shrink: 0;
-
     }
 
-    .TileControlWrapper {
-        position: fixed;
-        left: 8px;
-        right: 0px;
-        bottom: 190px;
-        font-size: x-large;
-        animation: slideinOther 0.7s ease-in-out;
-    }
-
+    .TileControlWrapper,
     .TileControlWrapper_down {
         position: fixed;
         left: 8px;
         right: 0px;
-        bottom: 190px;
         font-size: x-large;
-        animation: slidoutOther 0.7s ease-in-out;
-        bottom: 40px;
     }
 
+    .TileControlWrapper {
+        bottom: 190px;
+        animation: slideinControls_tablet 0.7s ease-in-out;
+    }
+
+    .TileControlWrapper_down {
+        bottom: 40px;
+        animation: slidoutControls_table 0.7s ease-in-out;
+    }
+
+    .CurrentWeatherButton,
     .CurrentWeatherButton_disabled {
         padding: 8px 12px;
         font-size: 18px;
         margin: 10px 10px 10px 15px;
     }
 
-    .CurrentWeatherButton {
-
-        padding: 8px 12px;
-        font-size: 18px;
-        margin: 10px 10px 10px 15px;
-    }
-
-    .CurrentWeatherButton:hover {
-        background-color: rgba(58, 80, 97, 0.884);
-    }
-
-
-    .FoldButton {
-        background-color: #808080a4;
-        border-radius: 0.4rem;
-        font-weight: bolder;
-        margin-left: 15px;
-        cursor: pointer;
-        border: none;
-    }
-
-    .FoldButton:hover {
-        background-color: rgba(58, 80, 97, 0.884);
-    }
 
     .FoldButton img {
         width: 17px;
-        height: 17px
+        height: 17px;
     }
 }
