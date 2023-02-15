@@ -1,35 +1,16 @@
 @font-face {
-  font-family: "Starjedi";
-  src: local("Starjedi"),
-    url(../../../fonts/Starjedi/Starjedi.ttf) format("truetype");
+  font-family: 'Mandalore';
+  src: local('Mandalore'), url(../../../fonts/Mandalore/Mandalore.ttf) format('truetype');
 }
 
 .disable {
   pointer-events: none;
 }
 
-/*
-.loginForm{
-  
-    width: 50%;
-    height:100%;
-   
-    border-radius: 25px;
-
-    display: grid; 
-    grid-auto-columns: 1fr; 
-  
-    grid-template-rows: 0.4fr 1.4fr; 
-    gap: 0px 0px; 
-   grid-template-areas: 
-    "login_header login_header login_header"
-    "login_main login_main login_main"; 
-   justify-items: end; 
- 
-}*/
 
 .login_header {
-  font-family: Starjedi;
+  font-family:   Mandalore;
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,6 +42,7 @@
 }
 
 .first_name {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -70,6 +52,7 @@
 }
 
 .last_name {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -79,6 +62,7 @@
 }
 
 .user_name {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -88,6 +72,7 @@
 }
 
 .birthday {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -97,7 +82,9 @@
   color: #dadada;
 }
 
+
 .adress {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -107,6 +94,7 @@
 }
 
 .phone_number {
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -116,9 +104,10 @@
 }
 
 .submit_button {
+  font-family: Mandalore;
+  font-size: x-large;
   margin-top: 5%;
   grid-area: submit;
-  font-family: Starjedi;
   border-radius: 25px;
   border: none;
   width: 90%;
@@ -133,7 +122,8 @@
 }
 
 .styledinput {
-  font-family: Starjedi;
+  font-family: Mandalore;
+  font-size: x-large;
   width: 85%;
   margin-top: 2%;
   margin-left: 5%;
@@ -145,7 +135,7 @@
   color: #dadada;
 }
 
-/*was diese*/
+
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }

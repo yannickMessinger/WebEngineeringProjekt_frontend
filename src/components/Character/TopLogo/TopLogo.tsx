@@ -14,7 +14,7 @@ export const TopLogo = () => {
       </div>
 
       <div className={css.toptext}>
-        <p>Character</p>
+        <p>Charakter</p>
       </div>
     </div>
   );

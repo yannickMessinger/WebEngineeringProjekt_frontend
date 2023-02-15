@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'Starjedi';
-    src: local('Starjedi'), url(../../../fonts/Starjedi/Starjedi.ttf) format('truetype');
-  }
+  font-family: 'Mandalore';
+  src: local('Mandalore'), url(../../../fonts/Mandalore/Mandalore.ttf) format('truetype');
+}
 
 .buttonbox { 
     
@@ -12,7 +12,7 @@
  }
 
  .startbutton{
-  font-family: Starjedi;
+  font-family: Mandalore;
   margin-top: 3%;
   min-width:350px;
   min-height:50px;
@@ -37,7 +37,7 @@
 
  @media screen and (max-width: 800px) {
   .startbutton{
-    font-family: Starjedi;
+    font-family: Mandalore;
     margin-top: 3%;
     min-width:100px;
     min-height:50px;
@@ -45,11 +45,10 @@
     border-radius: 10px;
     border: none;
     color: black;
-    /*padding: 15px 32px;*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
    }
 
 
