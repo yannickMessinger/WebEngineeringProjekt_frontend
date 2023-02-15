@@ -43,9 +43,9 @@ describe('loginformtest', () =>{
         cy.get('#root > div > div > div:nth-child(3) > div > div > div').should('be.visible')
         cy.get('#root > div > div > div:nth-child(1) > div > div > div').should('be.visible')
         cy.wait(5000)
-        cy.findByText(/planet info/i).should('exist')
-        cy.findByText(/character info/i).should('exist')
-        cy.findByText(/ship info/i).should('exist')
+        cy.findByText(/Planet Info/i).should('exist')
+        cy.findByText(/Charakter Info/i).should('exist')
+        cy.findByText(/Schiff Info/i).should('exist')
         
         
     })
