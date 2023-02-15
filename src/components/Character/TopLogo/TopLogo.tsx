@@ -10,7 +10,7 @@ export const TopLogo = () => {
       </div>
 
       <div className={css.logoWrapper}>
-        <img src={logo} className={css.logoSizing} />
+        <img src={logo} className={css.logoSizing} alt={'StarWarsLogo'}/>
       </div>
 
       <div className={css.toptext}>

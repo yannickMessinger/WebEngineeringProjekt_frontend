@@ -21,7 +21,7 @@ export const StarshipInfoCard = ({info}:StarshipInfoProps) => {
   return (
     <div className={css.starshipInfoWrapper} ref={starShipInfoWrapper}>
       <div className={css.header}>Ship Info</div>
-      <div className={css.ship_pic}><PictureFrame img_path={currentChar?.ship_img_path!}/></div>
+      <div className={css.ship_pic}><PictureFrame img_path={currentChar?.ship_img_path!} testid={currentChar.name!} /></div>
        <div className={css.name}>Name: {info?.name}</div>
       <div className={css.model}>Model: {info?.model}</div>
       <div className={css.manufacturer}>Manufacturer: {info?.manufacturer}</div>

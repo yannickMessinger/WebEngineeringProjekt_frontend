@@ -21,7 +21,7 @@ export const CharacterInfoCard = ({info}:CharacterInfoCardProps) => {
   return (
     <div className={css.characterInfoWrapper} ref={characterInfoWrapper}>
       <div className={css.header}>Character Info</div>
-      <div className={css.char_pic}><PictureFrame img_path={currentChar!.img_path}/></div>
+      <div className={css.char_pic}><PictureFrame img_path={currentChar!.img_path} testid={currentChar.name!}/></div>
       <div className={css.name}>Name: {info?.name}</div>
       <div className={css.birth_year}>Birth year: {info?.birth_year}</div>
       <div className={css.eye_color}>Eyecolor: {info?.eye_color}</div>

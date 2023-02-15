@@ -24,7 +24,7 @@ export const PlanetInfoCard = ({info}: PlanetInfoCardProps) => {
   return (
     <div className={css.planetInfoWrapper} ref={planetInfoWrapper}>
       <div className={css.header}>Planet Info</div>
-      <div className={css.planet_pic}><PictureFrame img_path={currentChar?.planet_img_path!}/></div>
+      <div className={css.planet_pic}><PictureFrame img_path={currentChar?.planet_img_path!} testid={currentChar.name!}/></div>
       <div className={css.name}>Name: {info?.name}</div>
       <div className={css.diameter}>Diameter: {info?.diameter} km</div>
       <div className={css.gravity}>Gravity: {info?.gravity} g</div>

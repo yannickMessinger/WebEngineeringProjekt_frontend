@@ -25,7 +25,7 @@ export const LoginFormOuterWrapper = () => {
     <div className={css.outerWrapper} style={imgStyles}>
       <div className={css.login_form}>
         <div className={css.saber_left}>
-          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} />
+          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} data-testid={'saber_left'}/>
         </div>
         <LoginForm
           loginFormStyle={currentChar!.loginStyle!}
@@ -34,7 +34,7 @@ export const LoginFormOuterWrapper = () => {
           activateSaber={setSaberisActive}
         />
         <div className={css.saber_right}>
-          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} />
+          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} data-testid={'saber_right'}/>
         </div>
       </div>
     </div>

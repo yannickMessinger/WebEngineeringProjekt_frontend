@@ -4,12 +4,12 @@ import { side } from "../typings/ESide";
 import {charList} from "./charList"
 
 const lightCharsList: Array<Character> = charList.filter((char) => {
-  console.log("light")
+  
   return char.side === side.LIGHT;
 });
 
 const darkCharsList: Array<Character> = charList.filter((char) => {
-  console.log("dark")
+ 
   return char.side === side.DARK;
 });
 
@@ -89,7 +89,7 @@ export function CharacterStylingContextProvider({ children }: Props) {
   }
 
   function charChoiceHandlerPrev(): void {
-    console.log(charIndex);
+    
 
     let newCharIndex;
     if (charIndex === 0) {

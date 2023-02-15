@@ -126,13 +126,14 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       <div className={css.login_header}>
         <p>Welcome</p>
         <div>
-          <PictureFrame img_path={currentChar!.img_path} />
+          <PictureFrame img_path={currentChar!.img_path} testid={currentChar.name!}/>
         </div>
       </div>
       <div className={`${css.login_main} ${nextPage? css.disable: ''}`}>
         
         <div className={css.first_name}>
           <input
+            data-testid={'firstName'}
             value={firstName}
             onChange={(e)=> {setFirstName(e.target.value)}}
             type={"text"}
@@ -141,7 +142,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           />
           <div>
           {formErrors.firstName && (
-            <FormError name={formErrors.firstName}></FormError>
+            <FormError name={formErrors.firstName}  data-testid={'firstNameError'}></FormError>
           )}
           </div>
           
@@ -149,6 +150,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
         <div className={css.last_name}>
           <input
+          data-testid={'lastName'}
             value={lastName}
             onChange={(e) =>{setLastName(e.target.value)}}
             type={"text"}
@@ -157,7 +159,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           />
           <div>
           {formErrors.lastName && (
-            <FormError name={formErrors.lastName}></FormError>
+            <FormError name={formErrors.lastName} data-testid={'lastNameError'}></FormError>
           )}
           </div>
          
@@ -165,15 +167,16 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
         <div className={css.user_name}>
           <input
+            data-testid={'userName'}
             value={userName}
             onChange={(e) => {setUserName(e.target.value)}}
             type={"text"}
             className={css.styledinput}
-            placeholder={"user name"}
+            placeholder={"username"}
           />
           <div>
           {formErrors.lastName && (
-            <FormError name={formErrors.userName}></FormError>
+            <FormError name={formErrors.userName} data-testid={'userNameError'}></FormError>
           )}
           </div>
           
@@ -181,6 +184,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
         <div className={css.birthday}>
           <input
+            data-testid={'birthday'}
             value={birthday}
             onChange={(e) =>{setBirthday(e.target.value)}}
             type={"date"}
@@ -189,7 +193,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           />
           <div>
           {formErrors.birthday && (
-            <FormError name={formErrors.birthday}></FormError>
+            <FormError name={formErrors.birthday} data-testid={'birthdayError'}></FormError>
           )}
           </div>
           
@@ -197,6 +201,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
         <div className={css.adress}>
           <input
+            data-testid={'mailadress'}
             value={mailAdress}
             onChange={(e) => {setMailAdress(e.target.value)}}
             type={"text"}
@@ -205,7 +210,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
           />
           <div>
           {formErrors.mailAdress && (
-            <FormError name={formErrors.mailAdress}></FormError>
+            <FormError name={formErrors.mailAdress} data-testid={'mailadressError'}></FormError>
           )}
           </div>
           
@@ -213,6 +218,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
 
         <div className={css.phone_number}>
         <input
+              data-testid={'phonenumber'}
               value={phoneNumber}
               onChange={(e) =>{setPhoneNumber(e.target.value)}}
               type={"text"}
@@ -221,7 +227,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
             />
             <div>
             {formErrors.phoneNumber && (
-              <FormError name={formErrors.phoneNumber}></FormError>
+              <FormError name={formErrors.phoneNumber} data-testid={'phoneNumberError'}></FormError>
             )}
             </div>
            
@@ -234,7 +240,7 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
               
             }}
           >
-            go
+            register
           </button>
       </div>
     </div>

@@ -12,29 +12,28 @@ import { CharInfoTransisitonScreen } from "./components/TransitionScreen/CharInf
 import { Weather } from "./pages/Weather";
 import { Lightsaber } from "./components/Lightsaber/Lightsaber";
 import { LoginContextProvider } from "./context/LoginContext";
+import { InfoDisplayWrapper } from "./components/Character/InfoDisplay/InfoDisplayWrapper";
 
 function App() {
   return (
     <LoginContextProvider>
-    <CharacterStylingContextProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CharacterChoice/>} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/signup" element={<LoginFormOuterWrapper/>} />
-        <Route path="/chartransition" element={<CharInfoTransisitonScreen/>} />
-        <Route path='/weather' element={<Weather />} />
-  
-      </Routes>
-      
-       
-      
-    </BrowserRouter>
-  </CharacterStylingContextProvider>
-  </LoginContextProvider>
+      <CharacterStylingContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<CharacterChoice />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/signup" element={<LoginFormOuterWrapper />} />
+            <Route
+              path="/chartransition"
+              element={<CharInfoTransisitonScreen />}
+            />
+            <Route path={'/infodisplay'} element={<InfoDisplayWrapper/>}/>
+            <Route path="/weather" element={<Weather />} />
+          </Routes>
+        </BrowserRouter>
+      </CharacterStylingContextProvider>
+    </LoginContextProvider>
   );
 }
 
 export default App;
-
-

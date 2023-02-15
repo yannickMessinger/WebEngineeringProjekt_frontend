@@ -6,15 +6,16 @@ interface SideProps{
     logopath:string
     className:string
     setSide: () => void
+    altTitle: string
 }
 
 //namen ändern
 
-export const SideImageButton = ({logopath,className, setSide}:SideProps) => {
+export const SideImageButton = ({logopath,className, setSide, altTitle}:SideProps) => {
 
   return (
     <div>
-         <img src={logopath} className={className} alt={'side_of_character'} onClick={setSide} />
+         <img src={logopath} className={className} alt={altTitle} onClick={setSide} />
     </div>
    
   )

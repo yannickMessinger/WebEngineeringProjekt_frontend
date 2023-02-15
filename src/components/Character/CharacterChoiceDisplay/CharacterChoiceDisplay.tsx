@@ -5,6 +5,8 @@ import { CharacterStylingContext } from "../../../context/CharacterStylingContex
 export const CharacterChoiceDisplay = () => {
   const { charChoiceHandlerNext, charChoiceHandlerPrev, currentChar } =
     useContext(CharacterStylingContext);
+    
+    
 
   return (
     <div className={css.choosechar}>
@@ -13,7 +15,7 @@ export const CharacterChoiceDisplay = () => {
         onClick={() => charChoiceHandlerPrev()}
       ></div>
       <div className={`${css.characterDisplay}`}>
-        <img src={currentChar.img_path} className={css.character_img}></img>
+        <img src={currentChar!.img_path} className={css.character_img} alt={'charPic'} id={currentChar.name} data-testid={currentChar.name}/>
       </div>
       <div
         className={css.arrowright}
