@@ -34,7 +34,7 @@
     }
 }
 
-@media only screen and (max-width: 950px) and (min-width: 450px) {
+@media only screen and (max-width: 950px) and (min-width: 500px) {
 
     .PlanetName {
         font-size: 70px;

@@ -26,7 +26,7 @@ export const WeatherForecastScreen: React.FunctionComponent<WeatherForecastProps
     const [foldButtonState, setFoldButtonState] = useState(<img src={upIcon} alt="up" />);
 
     const currentWeatherButtonRef = useRef<HTMLButtonElement>(null);
-    const tileControlWrapperRef = useRef<HTMLInputElement>(null);
+    const descriptionControlWrapperRef = useRef<HTMLInputElement>(null);
     const tilesRef = useRef<HTMLInputElement>(null);
 
     const tileRef0 = useRef<HTMLInputElement>(null);
@@ -97,16 +97,16 @@ export const WeatherForecastScreen: React.FunctionComponent<WeatherForecastProps
 
     const foldTiles = () => {
         const currentWrapperTiles = tilesRef.current;
-        const currentWrapperAbove = tileControlWrapperRef.current;
+        const currentWrapperAbove = descriptionControlWrapperRef.current;
         if (currentWrapperTiles !== null && currentWrapperAbove !== null) {
             if (foldState) {
                 currentWrapperTiles.className = css.Tiles;
-                currentWrapperAbove.className = css.TileControlWrapper;
+                currentWrapperAbove.className = css.DescriptionControlWrapper;
                 setFoldButtonState(<img src={upIcon} alt="up" />);
                 setFoldState(false)
             } else {
                 currentWrapperTiles.className = css.Tiles_down;
-                currentWrapperAbove.className = css.TileControlWrapper_down;
+                currentWrapperAbove.className = css.DescriptionControlWrapper_down;
                 setFoldButtonState(<img src={downIcon} alt="down" />);
                 setFoldState(true)
             }
@@ -132,17 +132,21 @@ export const WeatherForecastScreen: React.FunctionComponent<WeatherForecastProps
 
     return (
         <>
-            <div className={css.TileControlWrapper} ref={tileControlWrapperRef}>
-                <div className={css.WeatherDescription}>
-                    <WeatherDescription weatherData={weatherData} />
+            <div className={css.weatherForecastScreen}>
+                <div className={css.DescriptionControlWrapper} ref={descriptionControlWrapperRef}>
+                    <div className={css.WeatherDescription}>
+                        <WeatherDescription weatherData={weatherData} />
+                    </div>
+                    <div className={css.TileControlWrapper}>
+                        <div className={css.Date}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
+                        <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
+                        <button className={css.CurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
+                    </div>
                 </div>
-                <div className={css.Date}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
-                <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
-                <button className={css.CurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
-            </div>
 
-            <div className={css.Tiles} ref={tilesRef}>
-                {tileslistJSX}
+                <div className={css.Tiles} ref={tilesRef}>
+                    {tileslistJSX}
+                </div>
             </div>
         </>
 
