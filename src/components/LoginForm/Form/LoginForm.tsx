@@ -6,52 +6,55 @@ import { PictureFrame } from "./LoginPictureFrame/PictureFrame";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../context/LoginContext";
 
-
-interface  LoginStyleProps{
-  loginFormStyle:{background:string}
-  errorState :boolean
-  setErrorState: (error:boolean) => void
-  activateSaber:(active:boolean) => void
+interface LoginStyleProps {
+  loginFormStyle: { background: string };
+  errorState: boolean;
+  setErrorState: (error: boolean) => void;
+  activateSaber: (active: boolean) => void;
 }
 
-export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber}:LoginStyleProps) => {
+export const LoginForm = ({
+  loginFormStyle,
+  errorState,
+  setErrorState,
+  activateSaber,
+}: LoginStyleProps) => {
   //TODO: Validierung der jeweiligen Felder mittels Regex
   //Username validierung format
   //contrast erhöhen durch Anpassen des Farbverlaufs
-  
-  
+
   const { currentChar } = useContext(CharacterStylingContext);
-  const {logIn} = useContext(LoginContext)
-  const[nextPage, setNextPage] = useState(false);
+  const { logIn } = useContext(LoginContext);
+  const [nextPage, setNextPage] = useState(false);
   const navigate = useNavigate();
-  const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
-  const onlyNumbers= new RegExp('/^[0-9]*$/')
+  const validEmail = new RegExp(
+    "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
+  );
+  const validPhoneNumber = new RegExp("^[0-9]*$");
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const[userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [birthday, setBirthday] = useState("");
   const [mailAdress, setMailAdress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  
+
   const [formErrors, setFormErrors] = useState({
     firstName: "",
     lastName: "",
-    userName:"",
+    userName: "",
     phoneNumber: "",
     birthday: "",
     mailAdress: "",
   });
 
-  function switchSaber(error:boolean){
-    activateSaber(false)
+  function switchSaber(error: boolean) {
+    activateSaber(false);
     setTimeout(() => {
-      setErrorState(error)
-      activateSaber(true)
+      setErrorState(error);
+      activateSaber(true);
     }, 600);
   }
-
-
 
   const validateFormData = (event: any) => {
     //TODO Regex Expression nutzen für Validierung????
@@ -59,13 +62,11 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
     const errors = {
       firstName: "",
       lastName: "",
-      userName:"",
+      userName: "",
       phoneNumber: "",
       birthday: "",
       mailAdress: "",
     };
-
-  
 
     if (firstName === "") {
       errors.firstName = "empty first name";
@@ -75,50 +76,55 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       errors.lastName = "empty last name";
     }
 
-     if (userName === "") {
+    if (userName === "") {
       errors.userName = "empty username";
     }
 
-
     if (phoneNumber === "") {
       errors.phoneNumber = "empty phone number";
+    }
+
+    if (!validPhoneNumber.test(phoneNumber)) {
+      errors.phoneNumber = "digits only!";
     }
 
     if (birthday === "") {
       errors.birthday = "empty birthday";
     }
 
-    if(new Date(birthday) > new Date(Date.now())){
-      errors.birthday ="no birthday from future"
+    if (new Date(birthday) > new Date(Date.now())) {
+      errors.birthday = "no birthday from future";
     }
-    
 
     if (mailAdress === "") {
       errors.mailAdress = "empty mail adress";
     }
-    
-    if(!validEmail.test(mailAdress)){
-      errors.mailAdress ="wrong mail format"
+
+    if (!validEmail.test(mailAdress)) {
+      errors.mailAdress = "format: user@example.com";
     }
 
     setFormErrors(errors);
     setErrorState(true);
-    if(errors.firstName === "" && errors.lastName ==="" && errors.userName=="" && errors.phoneNumber === "" && errors.birthday === "" && errors.mailAdress === ""){
-      logIn(firstName,lastName,userName,birthday,mailAdress,phoneNumber);
-      switchSaber(false)
-      
-      setNextPage(true);
-      setTimeout(() =>{
-        navigate("/chartransition")
+    if (
+      errors.firstName === "" &&
+      errors.lastName === "" &&
+      errors.userName === "" &&
+      errors.phoneNumber === "" &&
+      errors.birthday === "" &&
+      errors.mailAdress === ""
+    ) {
+      logIn(firstName, lastName, userName, birthday, mailAdress, phoneNumber);
+      switchSaber(false);
 
-      }, 2000)
-      
-    }else{
-      switchSaber(true)
-      console.log("error in login form")
+      setNextPage(true);
+      setTimeout(() => {
+        navigate("/chartransition");
+      }, 2000);
+    } else {
+      switchSaber(true);
+      console.log("error in login form");
     }
-    
-    
   };
 
   return (
@@ -126,122 +132,147 @@ export const LoginForm = ({loginFormStyle,errorState,setErrorState,activateSaber
       <div className={css.login_header}>
         <p>Welcome</p>
         <div>
-          <PictureFrame img_path={currentChar!.img_path} testid={currentChar.name!}/>
+          <PictureFrame
+            img_path={currentChar!.img_path}
+            testid={currentChar.name!}
+          />
         </div>
       </div>
-      <div className={`${css.login_main} ${nextPage? css.disable: ''}`}>
-        
+      <div className={`${css.login_main} ${nextPage ? css.disable : ""}`}>
         <div className={css.first_name}>
           <input
-            data-testid={'firstName'}
+            data-testid={"firstName"}
             value={firstName}
-            onChange={(e)=> {setFirstName(e.target.value)}}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
             type={"text"}
             className={css.styledinput}
             placeholder={"firstname"}
           />
           <div>
-          {formErrors.firstName && (
-            <FormError name={formErrors.firstName}  data-testid={'firstNameError'}></FormError>
-          )}
+            {formErrors.firstName && (
+              <FormError
+                name={formErrors.firstName}
+                data-testid={"firstNameError"}
+              ></FormError>
+            )}
           </div>
-          
         </div>
 
         <div className={css.last_name}>
           <input
-          data-testid={'lastName'}
+            data-testid={"lastName"}
             value={lastName}
-            onChange={(e) =>{setLastName(e.target.value)}}
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
             type={"text"}
             className={css.styledinput}
             placeholder={"lastname"}
           />
           <div>
-          {formErrors.lastName && (
-            <FormError name={formErrors.lastName} data-testid={'lastNameError'}></FormError>
-          )}
+            {formErrors.lastName && (
+              <FormError
+                name={formErrors.lastName}
+                data-testid={"lastNameError"}
+              ></FormError>
+            )}
           </div>
-         
         </div>
 
         <div className={css.user_name}>
           <input
-            data-testid={'userName'}
+            data-testid={"userName"}
             value={userName}
-            onChange={(e) => {setUserName(e.target.value)}}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
             type={"text"}
             className={css.styledinput}
             placeholder={"username"}
           />
           <div>
-          {formErrors.lastName && (
-            <FormError name={formErrors.userName} data-testid={'userNameError'}></FormError>
-          )}
+            {formErrors.lastName && (
+              <FormError
+                name={formErrors.userName}
+                data-testid={"userNameError"}
+              ></FormError>
+            )}
           </div>
-          
         </div>
 
         <div className={css.birthday}>
           <input
-            data-testid={'birthday'}
+            data-testid={"birthday"}
             value={birthday}
-            onChange={(e) =>{setBirthday(e.target.value)}}
+            onChange={(e) => {
+              setBirthday(e.target.value);
+            }}
             type={"date"}
             className={css.styledinput}
             placeholder={"birthday"}
           />
           <div>
-          {formErrors.birthday && (
-            <FormError name={formErrors.birthday} data-testid={'birthdayError'}></FormError>
-          )}
+            {formErrors.birthday && (
+              <FormError
+                name={formErrors.birthday}
+                data-testid={"birthdayError"}
+              ></FormError>
+            )}
           </div>
-          
         </div>
 
         <div className={css.adress}>
           <input
-            data-testid={'mailadress'}
+            data-testid={"mailadress"}
             value={mailAdress}
-            onChange={(e) => {setMailAdress(e.target.value)}}
+            onChange={(e) => {
+              setMailAdress(e.target.value);
+            }}
             type={"text"}
             className={css.styledinput}
             placeholder={"emailadress"}
           />
           <div>
-          {formErrors.mailAdress && (
-            <FormError name={formErrors.mailAdress} data-testid={'mailadressError'}></FormError>
-          )}
+            {formErrors.mailAdress && (
+              <FormError
+                name={formErrors.mailAdress}
+                data-testid={"mailadressError"}
+              ></FormError>
+            )}
           </div>
-          
         </div>
 
         <div className={css.phone_number}>
-        <input
-              data-testid={'phonenumber'}
-              value={phoneNumber}
-              onChange={(e) =>{setPhoneNumber(e.target.value)}}
-              type={"text"}
-              className={css.styledinput}
-              placeholder={"phonenumber"}
-            />
-            <div>
+          <input
+            data-testid={"phonenumber"}
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
+            type={"text"}
+            className={css.styledinput}
+            placeholder={"phonenumber"}
+          />
+          <div>
             {formErrors.phoneNumber && (
-              <FormError name={formErrors.phoneNumber} data-testid={'phoneNumberError'}></FormError>
+              <FormError
+                name={formErrors.phoneNumber}
+                data-testid={"phoneNumberError"}
+              ></FormError>
             )}
-            </div>
-           
+          </div>
         </div>
 
-
-        <button  className={css.submit_button}
-            onClick={(e) => {
-              validateFormData(e);
-              
-            }}
-          >
-            register
-          </button>
+        <button
+          className={css.submit_button}
+          onClick={(e) => {
+            validateFormData(e);
+          }}
+        >
+          register
+        </button>
       </div>
     </div>
   );
