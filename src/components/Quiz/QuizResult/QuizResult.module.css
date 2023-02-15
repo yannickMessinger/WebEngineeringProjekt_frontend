@@ -32,6 +32,10 @@
     transform: rotateY(180deg);
 }
 
+.center {
+    text-align: center;
+}
+
 @keyframes spin {
     from {
         transform: rotateY(0deg);
