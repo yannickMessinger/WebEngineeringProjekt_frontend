@@ -3,7 +3,9 @@
     padding: 15px;
 }
 
-.list_item, .right, .false {
+.list_item,
+.right,
+.false {
     font-size: 20px;
     background-color: darkgray;
     padding: 16px;
@@ -19,14 +21,15 @@
     box-shadow: 0 0 20px 10px blue
 }
 
-.right, .false {
+.right,
+.false {
+    color: white;
     animation: blinker 1s infinite;
 }
 
 .right {
     background-color: green;
     box-shadow: 0 0 20px 10px green;
-    pointer-events: none;
 }
 
 .false {
@@ -40,6 +43,6 @@
 
 @keyframes blinker {
     50% {
-      opacity: 0.5;
+        opacity: 0.5;
     }
 }
