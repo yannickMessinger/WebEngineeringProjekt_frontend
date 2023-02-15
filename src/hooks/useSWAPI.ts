@@ -31,7 +31,7 @@ export const useSWAPI = () => {
         terrain: "keine Info",
     });
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { currentChar } = useContext(CharacterStylingContext);
 
     useEffect(() => {

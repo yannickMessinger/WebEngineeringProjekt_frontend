@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router";
-import { BrowserRouter } from "react-router-dom";
 import { QuizMenu } from "../../components/Quiz/QuizMenu/QuizMenu";
 import { Home } from "../../pages/Home";
 import { Quiz } from "../../pages/Quiz";
@@ -14,10 +13,7 @@ export const Main = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/characterchoice" element={<CharacterChoice />} />
-            <Route
-              path="/chartransition"
-              element={<CharInfoTransisitonScreen />}
-            />
+            <Route path="/info" element={<CharInfoTransisitonScreen />} />
             <Route path="/signup" element={<LoginFormOuterWrapper />} />
             <Route path="/quiz" element={<QuizMenu />} />
             <Route path="/quiz/play" element={<Quiz />} />

@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useUser } from "../hooks/useUser";
-import { Header } from "../layouts/Header/Header";
 import { Menu } from "../components/Menu/Menu";
+import { CharacterChoice } from "./CharacterCoice/CharacterChoice";
+import { LoginContext } from "../context/LoginContext";
 
 export const Home = () => {
-    const { loggedIn } = useUser();
+    const { isLoggedIn } = useContext(LoginContext);
 
-    //   if(!loggedIn) {
-    //       return (
-    //           <Signup />
-    //       )
-    //   }
+    if (!isLoggedIn) {
+        return <CharacterChoice />;
+    }
 
     return (
         <>

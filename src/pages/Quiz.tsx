@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Question } from "../components/Quiz/Question/Question";
 import { Header } from "../layouts/Header/Header";
 import { QuizHeader } from "../components/Header/QuizHeader";
 import { useQuiz } from "../hooks/useQuiz";
 import { useUser } from "../hooks/useUser";
 import { QuizResult } from "../components/Quiz/QuizResult/QuizResult";
+import { LoginContext } from "../context/LoginContext";
 
 export const Quiz = () => {
     const difficulty = localStorage.getItem("difficulty");
     const amount = localStorage.getItem("amount");
-    const { score, updateScore } = useUser();
+    const { score, updateScore } = useContext(LoginContext);
     const [index, setIndex] = useState(0);
     const { questions, loading, error } = useQuiz(
         difficulty || "easy",
