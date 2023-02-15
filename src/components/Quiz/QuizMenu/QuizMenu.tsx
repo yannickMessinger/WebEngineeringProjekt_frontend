@@ -61,7 +61,6 @@ export const QuizMenu = () => {
 
     return (
         <>
-            <Header />
             <p className={`${css.text} ${css.center}`}>
                 Wähle einen Schwierigkeitsgrad und die Anzahl der Fragen aus.
             </p>
@@ -85,10 +84,9 @@ export const QuizMenu = () => {
                 />
             </div>
             <div className={css.center}>
-                <p className={css.text}>{difficulty}</p>
                 <br />
-                <button className={css.ok_button} onClick={(e) => send()}>
-                    OK
+                <button className={css.play_button} onClick={(e) => send()}>
+                    <label>Let's start!</label>
                 </button>
             </div>
             <div>

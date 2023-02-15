@@ -3,23 +3,20 @@
     position: relative;
 }
 
-.trigger_button {
-    font-family: "Starjedi", sans-serif;
-    font-size: 1.2rem;
-    background-color: black;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
+.text_label {
+    font-size: x-large;
 }
 
 @media screen and (min-width:500px) {
     .visible {
-        visibility: visible;
+        /* visibility: visible; */
+        height: auto;
+
     }
 
     .hidden {
         visibility: hidden;
+        height: 0;
     }
 }
 
@@ -33,19 +30,33 @@
     }
 }
 
+.gray_text {
+    color: lightgray;
+}
+
+.trigger_button {
+    font-family: "Starjedi", sans-serif;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    padding: 0.4rem;
+    font-size: medium;
+    border: 2px solid gray;
+    margin: 1rem;
+}
+
+.trigger_button:hover {
+    text-decoration: underline;
+}
+
 .options {
     position: relative;
-    transform: translateY(4px);
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: auto;
-    max-height: 150px;
-    background-color: #fff;
-    z-index: 99;
-    animation: 0.5s ease;
+    display: block;
 }
-
 
 .option {
     font-family: "Starjedi", sans-serif;

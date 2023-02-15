@@ -32,11 +32,15 @@ export const Select = ({
 
     return (
         <div className={css.select_box}>
+            <label className={css.text_label}>{label}</label>
+            <br />
+            <label className={css.gray_text}>aktuell -{value}-</label>
+            <br />
             <button
                 onClick={() => setShowDropDown(!showDropDown)}
                 className={css.trigger_button}
             >
-                {label}
+                ändern
             </button>
             <div
                 className={`${css.options} ${
@@ -49,7 +53,10 @@ export const Select = ({
                         className={`${css.option} ${
                             isSelected(option) && css.option_selected
                         }`}
-                        onClick={() => onChange(option)}
+                        onClick={() => {
+                            onChange(option);
+                            setShowDropDown(false);
+                        }}
                     >
                         {option.label}
                     </div>

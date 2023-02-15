@@ -6,16 +6,15 @@ import { Menu } from "../components/Menu/Menu";
 export const Home = () => {
     const { loggedIn } = useUser();
 
-  //   if(!loggedIn) {
-  //       return (
-  //           <Signup />
-  //       )
-  //   }
+    //   if(!loggedIn) {
+    //       return (
+    //           <Signup />
+    //       )
+    //   }
 
-  return (
-    <>
-      <Header />
-      <Menu />
-    </>
-  );
+    return (
+        <>
+            <Menu />
+        </>
+    );
 };
