@@ -1,5 +1,4 @@
 import React, { FormEvent, useState } from "react";
-import ReactDOM from "react-dom";
 import css from "./WeatherForecastTile.module.css"
 
 interface WeatherForecastTileProps {

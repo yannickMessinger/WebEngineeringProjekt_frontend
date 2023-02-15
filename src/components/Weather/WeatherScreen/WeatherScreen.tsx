@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useWeather } from "../../../hooks/useWeather";
 import { Searchbar } from "../../UI/Searchbar/Searchbar";
-import { WeatherDescription } from "./WeatherForecast/WeatherDescription/WeatherDescription";
 import { WeatherForecastScreen } from "./WeatherForecast/WeatherForecastScreen";
 import { WeatherPlanet } from "./WeatherPlanet/WeatherPlanet";
 
@@ -11,7 +10,6 @@ export const WeatherScreen = () => {
 
     let weatherLocation;
     let weatherForecast;
-    let weatherDescription;
     const { setLocation, fetchWeatherData, weatherData, starWarsPlanet, weatherDataForecast, fillWeatherDataWithForecast, weatherMode } = useWeather();
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
@@ -46,7 +44,6 @@ export const WeatherScreen = () => {
     } else {
         weatherLocation = <span></span>;
         weatherForecast = <span></span>;
-        weatherDescription = <span></span>;
     }
 
     return (
