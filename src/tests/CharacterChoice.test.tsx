@@ -16,7 +16,7 @@ test("TopLogo component contains correct output, is rendered correctly", () => {
     </MemoryRouter>
   );
   const chooseYour = screen.getByText(/Waehle deinen/i);
-  const character = screen.getByText(/Character/i);
+  const character = screen.getByText(/Charakter/i);
 
   expect(chooseYour).toBeInTheDocument();
   expect(character).toBeInTheDocument();
@@ -40,7 +40,6 @@ test("Character Display has correct alt title", () => {
   );
 
   const testImage = document.querySelector("img") as HTMLImageElement;
-  //const img = screen.getByTestId("Yoda")
   expect(testImage.alt).toBe("charPic");
 });
 

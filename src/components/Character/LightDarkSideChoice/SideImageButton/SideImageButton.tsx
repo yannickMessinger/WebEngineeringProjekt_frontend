@@ -9,7 +9,6 @@ interface SideProps{
     altTitle: string
 }
 
-//namen ändern
 
 export const SideImageButton = ({logopath,className, setSide, altTitle}:SideProps) => {
 

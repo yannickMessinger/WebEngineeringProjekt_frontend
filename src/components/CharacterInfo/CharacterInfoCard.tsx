@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { CharacterStylingContext } from '../../context/CharacterStylingContext';
 import { CharacterInfo } from '../../typings/CharacterInfo'
 import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame';
 import css from './CharacterInfoCardStyle.module.css'
 
-//InfoCards in eine gesamte Komponente transformieren
+
 interface CharacterInfoCardProps{
   info: CharacterInfo | undefined
 }

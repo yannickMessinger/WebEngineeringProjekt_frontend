@@ -1,6 +1,4 @@
-import React from "react";
 import css from "./FormErrorStyle.module.css"
-
 interface errorProps {
   name: string;
 }

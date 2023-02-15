@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import css from "./SideChoice.module.css";
 
 import rebel_logo from "../../../assets/assets_characterChoice/rebel_logo.png";

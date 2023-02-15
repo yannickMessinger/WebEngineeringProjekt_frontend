@@ -85,10 +85,6 @@ export function LoginContextProvider({ children }: Props) {
         [isLoggedIn, logIn, logOut, score, updateScore]
     );
 
-    console.log(
-        `User ${firstName} ${lastName}, ${userName}, ${birthday}, ${adress}, ${phoneNumber}, is logged in: ${isLoggedIn}`
-    );
-
     return (
         <LoginContext.Provider value={value}>{children}</LoginContext.Provider>
     );

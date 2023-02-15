@@ -8,113 +8,6 @@
 }
 
 
-.login_header {
-  font-family:   Mandalore;
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  grid-area: login_header;
-  width: 100%;
-  color: #dadada;
-}
-
-.login_main {
-  grid-area: login_main;
-  width: 100%;
-
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  justify-items: end;
-  width: 100%;
-  height: 100%;
-  grid-template-areas:
-    "first_name"
-    "last_name"
-    "user_name"
-    "birthday"
-    "email"
-    "phone"
-    "submit";
-}
-
-.first_name {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: first_name;
-  width: 100%;
-  height: 100%;
-}
-
-.last_name {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: last_name;
-  width: 100%;
-  height: 100%;
-}
-
-.user_name {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: user_name;
-  width: 100%;
-  height: 100%;
-}
-
-.birthday {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: birthday;
-  width: 100%;
-  height: 100%;
-  color: #dadada;
-}
-
-
-.adress {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: email;
-  width: 100%;
-  height: 100%;
-}
-
-.phone_number {
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  grid-area: phone;
-  width: 100%;
-  height: 100%;
-}
-
-.submit_button {
-  font-family: Mandalore;
-  font-size: x-large;
-  margin-top: 5%;
-  grid-area: submit;
-  border-radius: 25px;
-  border: none;
-  width: 90%;
-  height: 30%;
-  justify-self: center;
-}
-
 .submit_button:hover {
   background-color: #b9b9b9;
   border: solid white 2px;
@@ -167,20 +60,146 @@
 
     display: block;
   }
-}
 
-@media screen and (min-width: 400px) and (max-width: 500px) {
-  .loginForm {
-    
+  .login_header {
+    font-family:   Mandalore;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: login_header;
+    width: 100%;
+    color: #dadada;
+  }
+  
+  .login_main {
+    grid-area: login_main;
+    width: 100%;
+  
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    justify-items: end;
     width: 100%;
     height: 100%;
-    border-radius: 25px;
-
-    display: block;
+    grid-template-areas:
+      "first_name"
+      "last_name"
+      "user_name"
+      "birthday"
+      "email"
+      "phone"
+      "submit";
   }
+  
+  .first_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: first_name;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .last_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: last_name;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .user_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: user_name;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .birthday {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: birthday;
+    width: 100%;
+    height: 100%;
+    color: #dadada;
+    flex-wrap: wrap;
+  }
+  
+  
+  .adress {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: email;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .phone_number {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: phone;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .submit_button {
+    font-family: Mandalore;
+    font-size: x-large;
+    margin-top: 5%;
+    grid-area: submit;
+    border-radius: 25px;
+    border: none;
+    width: 90%;
+    height: 30%;
+    justify-self: center;
+    flex-wrap: wrap;
+  }
+  
+  .submit_button:hover {
+    background-color: #b9b9b9;
+    border: solid white 2px;
+    cursor: pointer;
+  }
+  
+  .styledinput {
+    font-family: Mandalore;
+    font-size: x-large;
+    width: 85%;
+    margin-top: 2%;
+    margin-left: 5%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    line-height: 45px;
+    outline: none;
+    color: #dadada;
+  }
+
 }
 
-@media screen and (min-width: 500px) {
+
+
+@media screen and (min-width: 400px) {
   .loginForm {
     width: 50%;
     height: 100%;
@@ -196,5 +215,133 @@
       "login_header login_header login_header"
       "login_main login_main login_main";
     justify-items: end;
+  }
+
+
+  .login_header {
+    font-family:   Mandalore;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: login_header;
+    width: 100%;
+    color: #dadada;
+  }
+  
+  .login_main {
+    grid-area: login_main;
+    width: 100%;
+  
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    justify-items: end;
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+      "first_name"
+      "last_name"
+      "user_name"
+      "birthday"
+      "email"
+      "phone"
+      "submit";
+  }
+  
+  .first_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: first_name;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .last_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: last_name;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .user_name {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: user_name;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .birthday {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: birthday;
+    width: 100%;
+    height: 100%;
+    color: #dadada;
+  }
+  
+  
+  .adress {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: email;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .phone_number {
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: phone;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .submit_button {
+    font-family: Mandalore;
+    font-size: x-large;
+    margin-top: 5%;
+    grid-area: submit;
+    border-radius: 25px;
+    border: none;
+    width: 90%;
+    height: 30%;
+    justify-self: center;
+  }
+  
+  .submit_button:hover {
+    background-color: #b9b9b9;
+    border: solid white 2px;
+    cursor: pointer;
+  }
+  
+  .styledinput {
+    font-family: Mandalore;
+    font-size: x-large;
+    width: 85%;
+    margin-top: 2%;
+    margin-left: 5%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    line-height: 45px;
+    outline: none;
+    color: #dadada;
   }
 }

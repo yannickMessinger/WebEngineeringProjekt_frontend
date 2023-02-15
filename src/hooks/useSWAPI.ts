@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CharacterStylingContext } from "../context/CharacterStylingContext";
 import { CharacterInfo } from "../typings/CharacterInfo";
 import { PlanetInfo } from "../typings/IPlanetInfo";
@@ -35,7 +35,7 @@ export const useSWAPI = () => {
     const { currentChar } = useContext(CharacterStylingContext);
 
     useEffect(() => {
-        console.log("fetchhhhh");
+
         setError(false);
         setLoading(true);
         fetchCharInfo()
@@ -49,7 +49,7 @@ export const useSWAPI = () => {
                             setError(error);
                         });
                 } else {
-                    console.log("kei schifff");
+                    console.log("no ship data");
                 }
 
                 if (result?.homeworld !== "") {
@@ -61,7 +61,7 @@ export const useSWAPI = () => {
                             setError(error);
                         });
                 } else {
-                    console.log("kei planet");
+                    console.log("no planet data");
                 }
 
                 setCharInfo(result!);
@@ -79,6 +79,7 @@ export const useSWAPI = () => {
         charInfo,
         starshipInfo,
         planetInfo,
+        fetchAllData,
         error,
         loading,
     };
@@ -177,5 +178,43 @@ export const useSWAPI = () => {
                 terrain: "errors",
             };
         }
+    }
+
+
+    async function fetchAllData(url:string){
+        fetchCharInfo()
+            .then((result) => {
+                if (result!.starships!.length > 0) {
+                    fetchStarShipInfo(result!.starships![0])
+                        .then((starship) => {
+                            setStarShipInfo(starship!);
+                        })
+                        .catch((error) => {
+                            setError(error);
+                        });
+                } else {
+                    console.log("no ship data");
+                }
+
+                if (result?.homeworld !== "") {
+                    fetchPlanetInfo(result!.homeworld!)
+                        .then((planetInfo) => {
+                            setPlanetInfo(planetInfo!);
+                        })
+                        .catch((error) => {
+                            setError(error);
+                        });
+                } else {
+                    console.log("no planet data");
+                }
+
+                setCharInfo(result!);
+            })
+            .catch((e) => setError(e))
+            .finally(() => {
+                setTimeout(() => {
+                    setLoading(false);
+                }, 6000);
+            });
     }
 };

@@ -1,12 +1,8 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { CharacterStylingContext } from '../../context/CharacterStylingContext'
 import { PlanetInfo } from '../../typings/IPlanetInfo'
 import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame'
 import css from "./PlanetInfoCardStyle.module.css"
-
-//InfoCards in eine gesamte Komponente transformieren
-
-//Planetenbilder raussuchen
 interface PlanetInfoCardProps{
   info: PlanetInfo | undefined
 }

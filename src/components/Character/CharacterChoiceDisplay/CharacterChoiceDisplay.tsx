@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext} from "react";
 import css from "./CharacterChoiceDisplay.module.css";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 

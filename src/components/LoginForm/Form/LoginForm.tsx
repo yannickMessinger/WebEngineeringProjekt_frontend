@@ -15,14 +15,10 @@ interface LoginStyleProps {
 
 export const LoginForm = ({
     loginFormStyle,
-    errorState,
     setErrorState,
     activateSaber,
 }: LoginStyleProps) => {
-    //TODO: Validierung der jeweiligen Felder mittels Regex
-    //Username validierung format
-    //contrast erhöhen durch Anpassen des Farbverlaufs
-
+   
     const { currentChar } = useContext(CharacterStylingContext);
     const { logIn } = useContext(LoginContext);
     const [nextPage, setNextPage] = useState(false);
@@ -56,7 +52,7 @@ export const LoginForm = ({
         }, 600);
     }
 
-    const validateFormData = (event: any) => {
+    const validateFormData = (event: React.MouseEvent) => {
         //TODO Regex Expression nutzen für Validierung????
         event.preventDefault();
         const errors = {

@@ -1,8 +1,5 @@
 
-import React from 'react'
-import css from "./LoginPictureFrameStyle.module.css"
-
-
+import css from "./PictureFrameStyle.module.css"
 interface LoginPictureFrameProps{
     img_path: string | undefined
     testid:string

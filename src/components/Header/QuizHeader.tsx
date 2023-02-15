@@ -1,4 +1,3 @@
-import React from "react";
 import css from "./QuizHeader.module.css";
 
 interface IProps {

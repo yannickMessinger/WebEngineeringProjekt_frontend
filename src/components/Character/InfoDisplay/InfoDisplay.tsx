@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { CharacterInfo } from "../../../typings/CharacterInfo";
 import { PlanetInfo } from "../../../typings/IPlanetInfo";

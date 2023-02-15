@@ -1,4 +1,4 @@
-import React from 'react'
+
 import css from "./Characterstyle.module.css";
 import { Character } from "../../../typings/ICharacter"
 
