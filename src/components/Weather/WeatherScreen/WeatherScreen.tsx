@@ -14,7 +14,7 @@ export const WeatherScreen = () => {
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
     const decideBackgroundPlanet = (() => {
-        if (window.innerWidth > 450) {
+        if (window.innerWidth > 500) {
             setBackgroundPlanetUrl("./weather_backgrounds/desktop/" + starWarsPlanet.toLowerCase() + ".png");
 
         } else {
