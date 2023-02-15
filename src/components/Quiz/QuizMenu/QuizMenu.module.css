@@ -19,8 +19,22 @@
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
     }
+}
+
+.play_button {
+    background-color: black;
+    border-color: white;
+    padding: 0.5rem;
+    font-family: 'Starjedi';
+    color: white;
+    font-size: large;
+}
+
+.play_button:hover {
+    background-color: #ffe81f;
+    color: black;
 }
 
 .text {

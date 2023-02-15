@@ -15,9 +15,18 @@
     box-shadow: 0 0 15px 5px;
 }
 
-.visible {
-    height: auto;
-    width: 100%;
+@media screen and (max-width: 950px) {
+    .visible {
+        height: auto;
+        width: 90%;
+    }
+}
+
+@media screen and (min-width:950px) {
+    .visible {
+        height: auto;
+        width: 500px;
+    }
 }
 
 .invisible {

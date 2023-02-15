@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IQuestion } from "./IQuestion";
+import { IQuestion, QuestionType } from "./IQuestion";
 import css from "./Question.module.css";
 import { AnswerCard } from "../Answer/AnswerCard/AnswerCard";
 
@@ -19,7 +19,11 @@ export const Question = ({ question, onClickNext }: IProps) => {
 
     return (
         <div className={css.question_card}>
-            <h2 className={css.question_text}>{questionText}</h2>
+            <h2 className={css.question_text}>
+                {questionType !== QuestionType.FILL_IN_THE_BLANK
+                    ? questionText
+                    : "Fülle den Satz aus!"}
+            </h2>
             <img
                 src={
                     image.data !== null
@@ -29,6 +33,7 @@ export const Question = ({ question, onClickNext }: IProps) => {
                 className={image.data !== null ? css.visible : css.invisible}
             />
             <AnswerCard
+                questionText={questionText}
                 answerList={answerOptions}
                 answerImages={answerImages}
                 questionType={questionType}

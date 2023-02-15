@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { IQuestion } from "../components/Quiz/Question/IQuestion";
 
-export const useQuiz = (difficulty: string) => {
+export const useQuiz = (difficulty: string, amount: number) => {
     const [questions, setQuestions] = useState(
         Array<{ attributes: IQuestion; id: number }>()
     );
     const [error, setError] = useState(false);
+
+    function shuffleAndLimit(array: Array<any>) {
+        array.sort(() => Math.random() - 0.5);
+        if (array.length > amount) {
+            let slicedArray = array.slice(0, amount);
+            return slicedArray;
+        }
+        return array;
+    }
 
     useEffect(() => {
         async function fetchQuestions() {
@@ -25,8 +34,8 @@ export const useQuiz = (difficulty: string) => {
                     }
                 );
                 const json = await response.json();
-                setQuestions(json.data);
-                console.log(json.data);
+                setQuestions(shuffleAndLimit(json.data));
+                console.log(questions);
             } catch (error) {
                 setError(true);
             }
