@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Question } from "../components/Quiz/Question/Question";
 import { Header } from "../layouts/Header/Header";
-import { QuizHeader } from "../components/Header/QuizHeader";
+import { QuizHeader } from "../components/Quiz/QuizHeader/QuizHeader";
 import { useQuiz } from "../hooks/useQuiz";
 import { useUser } from "../hooks/useUser";
 import { QuizResult } from "../components/Quiz/QuizResult/QuizResult";
