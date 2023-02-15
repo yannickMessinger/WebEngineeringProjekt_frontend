@@ -1,22 +1,32 @@
 .select_box {
     color: #ffe81f;
     position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .text_label {
+    font-family: "Starjedi";
     font-size: x-large;
+}
+
+.gray_text {
+    font-family: "Mandalore";
+    color: lightgray;
 }
 
 @media screen and (min-width:500px) {
     .visible {
-        /* visibility: visible; */
         height: auto;
-
     }
 
     .hidden {
         visibility: hidden;
         height: 0;
+    }
+
+    .gray_text {
+        font-size: large;
     }
 }
 
@@ -28,11 +38,12 @@
     .hidden {
         height: 0;
     }
+
+    .text_label {
+        font-size: large;
+    }
 }
 
-.gray_text {
-    color: lightgray;
-}
 
 .trigger_button {
     font-family: "Starjedi", sans-serif;

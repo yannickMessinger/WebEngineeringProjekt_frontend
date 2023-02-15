@@ -17,6 +17,7 @@ export const QuizMenu = () => {
     const [difficulty, setDifficulty] = useState("easy");
     const [amount, setAmount] = useState("10");
 
+    const [showLightSabers, setShowLightSabers] = useState(false);
     const [showDifficulty, setShowDifficulty] = useState(false);
     const [showAmount, setShowAmount] = useState(false);
 
@@ -56,42 +57,52 @@ export const QuizMenu = () => {
     };
 
     const send = async () => {
-        navigate("/quiz/play");
+        setShowLightSabers(true);
+        setTimeout(() => {
+            navigate("/quiz/play");
+        }, 3500);
     };
 
     return (
         <>
-            <p className={`${css.text} ${css.center}`}>
-                Wähle einen Schwierigkeitsgrad und die Anzahl der Fragen aus.
-            </p>
-            <div className={css.selectbox}>
-                <Select
-                    label={"Schwierigkeitsgrad"}
-                    value={difficulty}
-                    options={difficultyOptions}
-                    onChange={handleDifficulty}
-                    showDropDown={showDifficulty}
-                    setShowDropDown={setShowDifficulty}
-                />
-                <br />
-                <Select
-                    label={"Anzahl an Fragen"}
-                    value={amount}
-                    options={amountOptions}
-                    onChange={handleAmount}
-                    showDropDown={showAmount}
-                    setShowDropDown={setShowAmount}
-                />
-            </div>
-            <div className={css.center}>
-                <br />
-                <button className={css.play_button} onClick={(e) => send()}>
-                    <label>Let's start!</label>
-                </button>
-            </div>
-            <div>
+            {showLightSabers ? (
                 <LightSaberFight />
-            </div>
+            ) : (
+                <>
+                    <p className={`${css.text} ${css.centered_horizontally}`}>
+                        Wähle einen Schwierigkeitsgrad und die Anzahl der Fragen
+                        aus.
+                    </p>
+                    <div className={css.selectbox}>
+                        <Select
+                            label={"Schwierigkeitsgrad"}
+                            value={difficulty}
+                            options={difficultyOptions}
+                            onChange={handleDifficulty}
+                            showDropDown={showDifficulty}
+                            setShowDropDown={setShowDifficulty}
+                        />
+                        <br />
+                        <Select
+                            label={"Anzahl an Fragen"}
+                            value={amount}
+                            options={amountOptions}
+                            onChange={handleAmount}
+                            showDropDown={showAmount}
+                            setShowDropDown={setShowAmount}
+                        />
+                    </div>
+                    <div className={css.centered_horizontally}>
+                        <br />
+                        <button
+                            className={css.play_button}
+                            onClick={(e) => send()}
+                        >
+                            <label>Let's start!</label>
+                        </button>
+                    </div>
+                </>
+            )}
         </>
     );
 };

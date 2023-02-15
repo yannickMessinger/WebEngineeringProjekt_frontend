@@ -1,8 +1,9 @@
 .text {
+    font-family: "Starjedi";
     font-size: x-large;
     color: white;
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 5rem;
 }
 
 .loader {
@@ -11,6 +12,7 @@
     position: absolute;
     left: 0;
     right: 0;
+    top: 40%;
     margin: 0 auto;
     padding-top: 6rem;
     z-index: 1000;
