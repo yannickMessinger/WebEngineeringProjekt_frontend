@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IAnswer } from "../IAnswer";
 import { PictureAnswer } from "./PictureAnswer/PictureAnswer";
 import css from "./Picture.module.css";
@@ -14,6 +14,11 @@ interface IProps {
 }
 
 export const Picture = ({ answerList, answerImages, onClickNext }: IProps) => {
+    const [answerClicked, setAnswerClicked] = useState({
+        text: "",
+        isRight: false,
+        image: "",
+    });
     return (
         <div className={css.container}>
             {answerList.map((answer: IAnswer) => {
@@ -22,9 +27,12 @@ export const Picture = ({ answerList, answerImages, onClickNext }: IProps) => {
                 });
                 return (
                     <PictureAnswer
+                        key={answer.text}
                         imageSource={imageSource.attributes.formats.small.url}
                         answerOption={answer}
                         onClick={onClickNext}
+                        answerClicked={answerClicked}
+                        setAnswerClicked={setAnswerClicked}
                     />
                 );
             })}

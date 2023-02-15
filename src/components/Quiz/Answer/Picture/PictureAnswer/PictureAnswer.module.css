@@ -1,8 +1,70 @@
-.image {
-    width: 50%;
-    height: auto;
+@media screen and (max-width: 400px) {
+    .image {
+        max-width: 80%;
+        max-height: 70%;
+        padding: 0.2rem;
+        border-radius: 10px;
+    }
+
+    .answer_container,
+    .right,
+    .false {
+        width: 350px;
+        margin: 0.1rem;
+        min-height: 300px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .image {
+        max-width: 80%;
+        max-height: 70%;
+        padding: 1rem;
+        border-radius: 25px;
+    }
+
+    .answer_container,
+    .right,
+    .false {
+        width: 400px;
+        margin: 1rem;
+    }
 }
 
 .answer_container {
-    
+    border-color: grey;
+}
+
+.answer_container,
+.right,
+.false {
+    border: 3px solid grey;
+    border-radius: 16px;
+    height: auto;
+}
+
+.answer_container:hover {
+    border-color: blue;
+    box-shadow: 0 0 20px 10px blue;
+}
+
+.right,
+.false {
+    animation: blinker 1s infinite;
+}
+
+.right {
+    border-color: green;
+    box-shadow: 0 0 20px 10px green;
+}
+
+.false {
+    border-color: red;
+    box-shadow: 0 0 20px 10px red;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.7;
+    }
 }

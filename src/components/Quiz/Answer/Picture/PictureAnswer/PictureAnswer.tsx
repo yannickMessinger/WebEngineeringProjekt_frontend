@@ -6,16 +6,22 @@ interface IProps {
     imageSource: string;
     answerOption: IAnswer;
     onClick: (wasCorrect: boolean, onCorrect: number, onFalse: number) => void;
+    answerClicked: IAnswer;
+    setAnswerClicked: (value: IAnswer) => void;
 }
 
 export const PictureAnswer = ({
     imageSource,
     answerOption,
     onClick,
+    answerClicked,
+    setAnswerClicked,
 }: IProps) => {
     const api_url = "http://localhost:1337";
-    console.log(imageSource);
+    const [boxColor, setBoxColor] = useState("");
     function clickAnswer() {
+        setAnswerClicked(answerOption);
+        setBoxColor(answerOption.isRight ? css.right : css.false);
         setTimeout(() => {
             onClick(answerOption.isRight, 5, -5);
         }, 2000);
@@ -25,10 +31,12 @@ export const PictureAnswer = ({
         <div
             onClick={() => clickAnswer()}
             //${answerOption.isRight ? css.right : css.false}
-            className={` ${css.answer_container}`}
+            className={`${
+                answerClicked === answerOption ? boxColor : css.answer_container
+            }`}
         >
-            <img src={`${api_url}${imageSource}`} className={css.image} />
             <p>{answerOption.text}</p>
+            <img src={`${api_url}${imageSource}`} className={css.image} />
         </div>
     );
 };
