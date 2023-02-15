@@ -30,12 +30,11 @@ export const PictureAnswer = ({
     return (
         <div
             onClick={() => clickAnswer()}
-            //${answerOption.isRight ? css.right : css.false}
             className={`${
                 answerClicked === answerOption ? boxColor : css.answer_container
             }`}
         >
-            <p>{answerOption.text}</p>
+            <p className={css.answertext}>{answerOption.text}</p>
             <img src={`${api_url}${imageSource}`} className={css.image} />
         </div>
     );

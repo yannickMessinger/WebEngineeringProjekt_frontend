@@ -1,35 +1,47 @@
 .question_text {
     color: white;
-    font-family: "Mandalore";
 }
 
 .question_card {
-    margin: 0 auto;
+    font-family: "Starjedi";
+    text-align: center;
+    margin: auto;
     background-color: black;
     padding: 16px;
     border-radius: 16px;
     color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px-18px;
-    width: 80%;
-    height: auto;
+    max-width: 80%;
+    max-height: 90%;
     border-style: solid;
     box-shadow: 0 0 15px 5px;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 400px) {
     .visible {
         height: auto;
-        width: 90%;
+        width: 50%;
+    }
+    .question_card {
+        margin-bottom: 1rem;
     }
 }
 
-@media screen and (min-width:950px) {
+@media screen and (min-width: 400px) and (max-width:1050px) {
     .visible {
-        height: auto;
-        width: 500px;
+        max-height: 300px;
+        width: auto;
+    }
+}
+
+@media screen and (min-width:1050px) {
+    .visible {
+        max-height: 400px;
+        width: auto;
     }
 }
 
 .invisible {
     height: 0px;
+    border-radius: 100px;
 }

@@ -15,7 +15,27 @@
     }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 400px) and (max-width:1050px) {
+    .answertext {
+        font-size: small;
+    }
+    .image {
+        max-width: 80%;
+        max-height: 60%;
+        padding: 0.5rem;
+        border-radius: 25px;
+    }
+
+    .answer_container,
+    .right,
+    .false {
+        width: 40%;
+        max-height: 200px;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 1050px) {
     .image {
         max-width: 80%;
         max-height: 70%;
@@ -26,7 +46,8 @@
     .answer_container,
     .right,
     .false {
-        width: 400px;
+        max-width: 20%;
+        max-height: 300px;
         margin: 1rem;
     }
 }
