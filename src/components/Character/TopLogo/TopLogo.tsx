@@ -6,7 +6,7 @@ export const TopLogo = () => {
   return (
     <div className={css.logo}>
       <div className={css.toptext}>
-        <p>Choose your</p>
+        <p>Waehle deinen</p>
       </div>
 
       <div className={css.logoWrapper}>

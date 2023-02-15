@@ -10,9 +10,10 @@ import { useNavigate } from 'react-router';
 
 export const CharInfoTransisitonScreen = () => {
 
-  const {loading} = useSWAPI();
+  
+  const { charInfo, starshipInfo,planetInfo,loading} = useSWAPI();
   const {currentChar} = useContext(CharacterStylingContext);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   return (
     
@@ -22,7 +23,7 @@ export const CharInfoTransisitonScreen = () => {
           <img src={currentChar?.ship_img_path} alt={"spaceship_fyling"} width='50px' height='50px'/>
       </div>
       ) : (
-        <InfoDisplayWrapper/>
+        <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={planetInfo}/>
       )}
       
     </div>

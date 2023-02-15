@@ -69,39 +69,39 @@ export const LoginForm = ({
     };
 
     if (firstName === "") {
-      errors.firstName = "empty first name";
+      errors.firstName = "Vorname leer";
     }
 
     if (lastName === "") {
-      errors.lastName = "empty last name";
+      errors.lastName = "Nachname leer";
     }
 
     if (userName === "") {
-      errors.userName = "empty username";
+      errors.userName = "Username leer";
     }
 
     if (phoneNumber === "") {
-      errors.phoneNumber = "empty phone number";
+      errors.phoneNumber = "TelNum leer";
     }
 
     if (!validPhoneNumber.test(phoneNumber)) {
-      errors.phoneNumber = "digits only!";
+      errors.phoneNumber = "nur Zahlen!";
     }
 
     if (birthday === "") {
-      errors.birthday = "empty birthday";
+      errors.birthday = "Geburtstag leer";
     }
 
     if (new Date(birthday) > new Date(Date.now())) {
-      errors.birthday = "no birthday from future";
+      errors.birthday = "kein Geb. aus Zukunft";
     }
 
     if (mailAdress === "") {
-      errors.mailAdress = "empty mail adress";
+      errors.mailAdress = "Mail leer";
     }
 
     if (!validEmail.test(mailAdress)) {
-      errors.mailAdress = "format: user@example.com";
+      errors.mailAdress = "Format: user@example.com";
     }
 
     setFormErrors(errors);
@@ -130,7 +130,7 @@ export const LoginForm = ({
   return (
     <div className={css.loginForm} style={loginFormStyle}>
       <div className={css.login_header}>
-        <p>Welcome</p>
+        <p>Willkommen</p>
         <div>
           <PictureFrame
             img_path={currentChar!.img_path}
@@ -148,7 +148,7 @@ export const LoginForm = ({
             }}
             type={"text"}
             className={css.styledinput}
-            placeholder={"firstname"}
+            placeholder={"Vorname"}
           />
           <div>
             {formErrors.firstName && (
@@ -169,7 +169,7 @@ export const LoginForm = ({
             }}
             type={"text"}
             className={css.styledinput}
-            placeholder={"lastname"}
+            placeholder={"Nachname"}
           />
           <div>
             {formErrors.lastName && (
@@ -190,7 +190,7 @@ export const LoginForm = ({
             }}
             type={"text"}
             className={css.styledinput}
-            placeholder={"username"}
+            placeholder={"Username"}
           />
           <div>
             {formErrors.lastName && (
@@ -211,7 +211,7 @@ export const LoginForm = ({
             }}
             type={"date"}
             className={css.styledinput}
-            placeholder={"birthday"}
+            placeholder={"Geburtstag"}
           />
           <div>
             {formErrors.birthday && (
@@ -232,7 +232,7 @@ export const LoginForm = ({
             }}
             type={"text"}
             className={css.styledinput}
-            placeholder={"emailadress"}
+            placeholder={"Mailadresse"}
           />
           <div>
             {formErrors.mailAdress && (
@@ -253,7 +253,7 @@ export const LoginForm = ({
             }}
             type={"text"}
             className={css.styledinput}
-            placeholder={"phonenumber"}
+            placeholder={"Telefonnummer"}
           />
           <div>
             {formErrors.phoneNumber && (
@@ -271,7 +271,7 @@ export const LoginForm = ({
             validateFormData(e);
           }}
         >
-          register
+         Registrieren
         </button>
       </div>
     </div>

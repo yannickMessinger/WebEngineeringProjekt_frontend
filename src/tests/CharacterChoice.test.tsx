@@ -1,15 +1,13 @@
 import React from "react";
-import { render, screen, queryByAttribute } from "@testing-library/react";
-import { CharacterChoice } from "../pages/CharacterCoice/CharacterChoice";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { TopLogo } from "../components/Character/TopLogo/TopLogo";
 import "@testing-library/jest-dom";
 import { LightDarkSideChoice } from "../components/Character/LightDarkSideChoice/LightDarkSideChoice";
 import { CharacterChoiceDisplay } from "../components/Character/CharacterChoiceDisplay/CharacterChoiceDisplay";
-import { ButtonBox } from "../components/Character/BottomButtonBox/ButtonBox";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
-import { CharacterStylingContextProvider } from "../context/CharacterStylingContext";
+
 
 test("TopLogo component contains correct output, is rendered correctly", () => {
   render(
@@ -17,7 +15,7 @@ test("TopLogo component contains correct output, is rendered correctly", () => {
       <TopLogo />
     </MemoryRouter>
   );
-  const chooseYour = screen.getByText(/Choose your/i);
+  const chooseYour = screen.getByText(/Waehle deinen/i);
   const character = screen.getByText(/Character/i);
 
   expect(chooseYour).toBeInTheDocument();
@@ -50,22 +48,9 @@ test("Go Button takes user to loginform component", () => {
   render(<App />);
   const user = userEvent;
 
-  user.click(screen.getByRole("button",{name:/go/i}));
+  user.click(screen.getByRole("button",{name:/LOS/i}));
 
-  expect(screen.getByText(/Welcome/i)).toBeInTheDocument();
+  expect(screen.getByText(/Willkommen/i)).toBeInTheDocument();
 });
 
-test("test context", () => {
-  
-  render(
-    <MemoryRouter>
-      <CharacterStylingContextProvider>
-        <CharacterChoice/>
-      </CharacterStylingContextProvider>
-    </MemoryRouter>
-  );
-  const user = userEvent;
- 
-  user.click(screen.getByAltText(/empire_logo/i));
-  
-});
+

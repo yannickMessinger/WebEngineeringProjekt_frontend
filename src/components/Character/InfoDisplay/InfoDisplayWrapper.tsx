@@ -4,10 +4,11 @@ import { InfoDisplay } from './InfoDisplay'
 
 export const InfoDisplayWrapper = () => {
   
-    const { charInfo, starshipInfo,planetInfo} = useSWAPI();
+    //const { charInfo, starshipInfo,planetInfo} = useSWAPI();
   
   
     return (
-        <InfoDisplay charInfo={charInfo} shipInfo={starshipInfo} planetInfo={planetInfo}/>
+      <></>
+       
   )
 }

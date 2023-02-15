@@ -7,9 +7,9 @@ import { StarshipInfo } from "../typings/IStarshipInfo";
 
 
 export const useSWAPI = () => {
-  const [charInfo, setCharInfo] = useState<CharacterInfo>({name: "no info available",birth_year:"no info available", eye_color:"no info available", hair_color:"no info available", height:"no info available", homeworld:"no info available", skin_color:"no info available"});
-  const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>({name:"no info available",model:"no info available",manufacturer:"no info available",length:"no info available",hyperdrive_rating:"no info available", max_atmosphering_speed:"no info available"});
-  const [planetInfo, setPlanetInfo] = useState<PlanetInfo>({climate:"no info available", diameter:"no info available", gravity:"no info available", name:"no info available", population:"no info available", terrain:"no info available"});
+  const [charInfo, setCharInfo] = useState<CharacterInfo>({name: "keine Info",birth_year:"keine Info", eye_color:"keine Info", hair_color:"keine Info", height:"keine Info", homeworld:"keine Info", skin_color:"keine Info"});
+  const [starshipInfo, setStarShipInfo] = useState<StarshipInfo>({name:"keine Info",model:"keine Info",manufacturer:"keine Info",length:"keine Info",hyperdrive_rating:"keine Info", max_atmosphering_speed:"keine Info"});
+  const [planetInfo, setPlanetInfo] = useState<PlanetInfo>({climate:"keine Info", diameter:"keine Info", gravity:"keine Info", name:"keine Info", population:"keine Info", terrain:"keine Info"});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const { currentChar } = useContext(CharacterStylingContext);
