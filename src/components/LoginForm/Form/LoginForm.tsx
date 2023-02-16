@@ -21,6 +21,7 @@ interface LoginStyleProps {
  * Also the lightsabers are activated and the blade is set to red color. The user
  * is not directed to next page unless form is filled out correctly. 
  * Then lightsabers are set to green and login function of LoginContext saves the login informations.
+ * In mobile view frame around picture is set to green to symbolize correct data.
  * @param loginFormStyle passed style prop that contains parameters for color gradient, based on choosen character
  * @param setErrorState passed function to set errorState in LoginOuterWrapping component to activate lightsabers in correct color.
  * @param activateSaber passed funtion to activate lightsaberblade
@@ -31,7 +32,8 @@ export const LoginForm = ({
   setErrorState,
   activateSaber,
 }: LoginStyleProps) => {
-  const loginFormWrapper = useRef<HTMLInputElement>(null);
+  const loginFormRef = useRef<HTMLInputElement>(null);
+  const pictureFrameRef = useRef<HTMLInputElement>(null);
   const { currentChar } = useContext(CharacterStylingContext);
   const { logIn } = useContext(LoginContext);
   const [nextPage, setNextPage] = useState(false);
@@ -59,7 +61,7 @@ export const LoginForm = ({
 
   //sets parameters for background color gradient
   useEffect(() => {
-    loginFormWrapper.current?.style.setProperty(
+    loginFormRef.current?.style.setProperty(
       "--backgroundGradient",
       loginFormStyle.background
     );
@@ -140,6 +142,10 @@ export const LoginForm = ({
     ) {
       logIn(firstName, lastName, userName, birthday, mailAdress, phoneNumber);
       switchSaber(false);
+      if(window.innerWidth <= 400){
+        pictureFrameRef.current?.style.setProperty('--pictureFrameColor','green')
+       
+      }
       //function to disable clicking when navigating to next page
       setNextPage(true);
       setTimeout(() => {
@@ -152,13 +158,13 @@ export const LoginForm = ({
   };
 
   return (
-    <div className={css.loginForm} ref={loginFormWrapper}>
+    <div className={css.loginForm} ref={loginFormRef}>
       <div className={css.login_header}>
         <p>Willkommen</p>
-        <div>
+        <div ref={pictureFrameRef} className={css.pictureFrame}>
           <PictureFrame
             img_path={currentChar!.img_path} 
-            testid={currentChar.name!}          
+            testid={currentChar.name!}        
             />
         </div>
       </div>
@@ -217,7 +223,7 @@ export const LoginForm = ({
             placeholder={"Username"}
           />
           <div>
-            {formErrors.lastName && (
+            {formErrors.userName && (
               <FormError
                 errormsg={formErrors.userName}
                 data-testid={"userNameError"}
@@ -287,9 +293,9 @@ export const LoginForm = ({
               ></FormError>
             )}
           </div>
-        </div>
-
-        <button
+        </div >
+      
+        <button 
           className={css.submit_button}
           onClick={(e) => {
             validateFormData(e);
@@ -297,7 +303,8 @@ export const LoginForm = ({
         >
           Registrieren
         </button>
-      </div>
+        </div>
+      
     </div>
   );
 };
