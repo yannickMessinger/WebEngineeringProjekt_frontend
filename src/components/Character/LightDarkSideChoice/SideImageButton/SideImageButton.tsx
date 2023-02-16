@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react"
 import {side} from "../../../../typings/ESide"
 
 
@@ -7,14 +8,15 @@ interface SideProps{
     className:string
     setSide: () => void
     altTitle: string
+    setSideChoosen:  Dispatch<SetStateAction<boolean>>
 }
 
 
-export const SideImageButton = ({logopath,className, setSide, altTitle}:SideProps) => {
+export const SideImageButton = ({logopath,className, setSide, altTitle, setSideChoosen}:SideProps) => {
 
   return (
     <div>
-         <img src={logopath} className={className} alt={altTitle} onClick={setSide} />
+         <img src={logopath} className={className} alt={altTitle} onClick={() =>{setSide(); setSideChoosen(true)}}/>
     </div>
    
   )

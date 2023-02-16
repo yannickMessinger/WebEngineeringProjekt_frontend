@@ -1,6 +1,4 @@
 .choosechar {
-  
-  
   display: grid;
   justify-items: center;
   grid-auto-columns: 1fr;
@@ -9,42 +7,30 @@
   gap: 0px 0px;
   grid-template-areas: "arrowleft character arrowright";
 
- 
   grid-area: 3 / 1 / 4 / 2;
 }
 
-
-.arrowleft {
-  margin-top: 150px;
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  justify-self: flex-end;
-
-  border-right: 30px solid #d9d9d9;
-  grid-area: arrowleft;
-}
-
-.arrowleft:hover{
- 
+.arrowleft:hover {
   cursor: pointer;
 }
 
-.arrowright:hover{
- 
+.arrowright:hover {
   cursor: pointer;
 }
 
 .arrowright {
   margin-top: 150px;
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
+
   justify-self: flex-start;
-  border-left: 30px solid #d9d9d9;
+
   grid-area: arrowright;
+}
+
+.arrowleft {
+  margin-top: 150px;
+  justify-self: flex-end;
+
+  grid-area: arrowleft;
 }
 
 .characterDisplay {
@@ -55,13 +41,9 @@
   max-height: 100%;
   max-width: 100%;
   grid-area: character;
-
-  
 }
 
-
 .character_img {
-  
   max-width: 100%;
   max-height: 350px;
   object-fit: contain;
@@ -85,21 +67,10 @@
   }
 
   .arrowleft {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid #d9d9d9;
     grid-area: arrows_small;
   }
 
   .arrowright {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid #d9d9d9;
-
     grid-area: arrows_small;
   }
 
@@ -109,4 +80,3 @@
     max-height: 150px;
   }
 }
-

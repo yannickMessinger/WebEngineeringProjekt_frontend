@@ -4,18 +4,30 @@ import { CharacterChoiceDisplay } from "../../components/Character/CharacterChoi
 import { LightDarkSideChoice } from "../../components/Character/LightDarkSideChoice/LightDarkSideChoice";
 import { TopLogo } from "../../components/Character/TopLogo/TopLogo";
 import { ButtonBox } from "../../components/Character/BottomButtonBox/ButtonBox";
+import { useState } from "react";
 
 export const CharacterChoice = () => {
+
+  const [sideChoosen, setSideChoosen] = useState(false)
+
   return (
     <div className={css.background}>
       <div className={css.charakterbox}>
         <div className={css.charselect}>
-          <TopLogo />
+          {sideChoosen ?  
+          <TopLogo textOverLogo={"Waehle deinen"} textUnderLogo={"Charakter"} /> 
+          :  
+          <TopLogo textOverLogo={"Waehle deine "} textUnderLogo={"Seite"} />
+          }
+          {sideChoosen ?   
+          <CharacterChoiceDisplay /> :
+           <></>
+           }
 
-          <CharacterChoiceDisplay />
-          <LightDarkSideChoice />
-
-          <ButtonBox />
+         
+          <LightDarkSideChoice setSideChoosen={setSideChoosen}/>
+          {sideChoosen ?  <ButtonBox /> : <></>} 
+         
         </div>
       </div>
 

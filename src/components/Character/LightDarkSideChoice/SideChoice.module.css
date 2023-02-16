@@ -6,6 +6,7 @@
  }
 
  .empireLogo{
+   transition: transform .7s ease-in-out;
   width:60px;
   height: 60px;
   
@@ -14,21 +15,24 @@
 
 
  .rebelLogo{
-  width:90px;
-  height: 60px;
+   transition: transform .7s ease-in-out;
+   width:60px;
+   height: 60px;
  }
 
  .empireLogo:hover{
     cursor: pointer;
+    transform: rotate(360deg) scale(1.2);
     
    }
 
    .rebelLogo:hover{
    cursor: pointer;
+   transform: rotate(360deg) scale(1.2);
    }
 
 
- @media screen and (max-width: 800px) {
+ @media screen and (max-width: 400px) {
 
     .empireLogo{
         width:30px;
@@ -36,7 +40,7 @@
        }
       
        .rebelLogo{
-        width:60px;
-        height: 40px;
+        width:30px;
+        height: 30px;
        }
  }

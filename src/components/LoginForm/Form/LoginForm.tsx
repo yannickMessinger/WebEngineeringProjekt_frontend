@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { FormError } from "./FormError/FormError";
 import css from "./LoginFormStyle.module.css";
@@ -18,7 +18,7 @@ export const LoginForm = ({
     setErrorState,
     activateSaber,
 }: LoginStyleProps) => {
-   
+    const loginFormWrapper = useRef<HTMLInputElement>(null);
     const { currentChar } = useContext(CharacterStylingContext);
     const { logIn } = useContext(LoginContext);
     const [nextPage, setNextPage] = useState(false);
@@ -43,6 +43,10 @@ export const LoginForm = ({
         birthday: "",
         mailAdress: "",
     });
+
+    useEffect(() =>{
+        loginFormWrapper.current?.style.setProperty('--backgroundGradient',loginFormStyle.background)
+    },[])
 
     function switchSaber(error: boolean) {
         activateSaber(false);
@@ -131,7 +135,7 @@ export const LoginForm = ({
     };
 
     return (
-        <div className={css.loginForm} style={loginFormStyle}>
+        <div className={css.loginForm} ref={loginFormWrapper}>
             <div className={css.login_header}>
                 <p>Willkommen</p>
                 <div>

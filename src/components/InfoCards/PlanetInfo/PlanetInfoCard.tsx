@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react'
-import { CharacterStylingContext } from '../../context/CharacterStylingContext'
-import { PlanetInfo } from '../../typings/IPlanetInfo'
-import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame'
+import { CharacterStylingContext } from '../../../context/CharacterStylingContext'
+import { PlanetInfo } from '../../../typings/IPlanetInfo'
+import { PictureFrame } from '../../LoginForm/Form/LoginPictureFrame/PictureFrame'
 import css from "./PlanetInfoCardStyle.module.css"
 interface PlanetInfoCardProps{
   info: PlanetInfo | undefined
@@ -15,7 +15,7 @@ export const PlanetInfoCard = ({info}: PlanetInfoCardProps) => {
 
   useEffect(() => {
     planetInfoWrapper.current?.style.setProperty("--color", `rgba(${currentChar?.charInfoFrameColor!.r},${currentChar?.charInfoFrameColor!.g},${currentChar?.charInfoFrameColor!.b},${currentChar?.charInfoFrameColor!.a})`);
-  },[])
+  },[currentChar.charInfoFrameColor])
 
   return (
     <div className={css.planetInfoWrapper} ref={planetInfoWrapper}>

@@ -13,13 +13,3 @@
     object-fit: contain;
 }
 
-@media screen and (max-width: 350px) {
-    .frame{
-        display: none;
-    }
-    
-    .login_character_img{
-       display: none;
-    }
-    
-   }

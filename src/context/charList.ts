@@ -45,7 +45,7 @@ export const charList: Array<Character> = [
       login_img_path: charMap.get(CHARACTER.R2D2)?.loginFormImgPath,
       loginStyle: {
         background:
-          "linear-gradient(0deg, rgba(0,0,0,0.5158438375350141) 0%, rgba(164,164,164,0.6643032212885154) 11%, rgba(0,8,110,1) 60%)",
+          "linear-gradient(0deg,rgba(0,0,0,0.5158438375350141)0%,rgba(164,164,164,0.6643032212885154)11%,rgba(0,8,110,1) 60%)",
       },
       ship_img_path: charMap.get(CHARACTER.R2D2)?.shipImgPath,
       charInfoFrameColor: { r: 19, g: 34, b: 233, a: 1 },

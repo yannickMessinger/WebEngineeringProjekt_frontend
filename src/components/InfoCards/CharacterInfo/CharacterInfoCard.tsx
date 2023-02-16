@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react'
-import { CharacterStylingContext } from '../../context/CharacterStylingContext';
-import { CharacterInfo } from '../../typings/CharacterInfo'
-import { PictureFrame } from '../LoginForm/Form/LoginPictureFrame/PictureFrame';
+import { CharacterStylingContext } from '../../../context/CharacterStylingContext';
+import { CharacterInfo } from '../../../typings/CharacterInfo'
+import { PictureFrame } from '../../LoginForm/Form/LoginPictureFrame/PictureFrame';
 import css from './CharacterInfoCardStyle.module.css'
 
 
@@ -17,7 +17,7 @@ export const CharacterInfoCard = ({info}:CharacterInfoCardProps) => {
 
   useEffect(() => {
     characterInfoWrapper.current?.style.setProperty("--color", `rgba(${currentChar?.charInfoFrameColor!.r},${currentChar?.charInfoFrameColor!.g},${currentChar?.charInfoFrameColor!.b},${currentChar?.charInfoFrameColor!.a})`);
-  },[])
+  },[currentChar.charInfoFrameColor])
   return (
     <div className={css.characterInfoWrapper} ref={characterInfoWrapper}>
       <div className={css.header}>Charakter Info</div>

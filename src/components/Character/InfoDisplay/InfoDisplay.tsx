@@ -1,11 +1,11 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useMemo, useRef } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { CharacterInfo } from "../../../typings/CharacterInfo";
 import { PlanetInfo } from "../../../typings/IPlanetInfo";
 import { StarshipInfo } from "../../../typings/IStarshipInfo";
-import { CharacterInfoCard } from "../../CharacterInfo/CharacterInfoCard";
-import { PlanetInfoCard } from "../../PlanetInfo/PlanetInfoCard";
-import { StarshipInfoCard } from "../../StarshipInfo/StarshipInfoCard";
+import { CharacterInfoCard } from "../../InfoCards/CharacterInfo/CharacterInfoCard";
+import { PlanetInfoCard } from "../../InfoCards/PlanetInfo/PlanetInfoCard";
+import { StarshipInfoCard } from "../../InfoCards/StarshipInfo/StarshipInfoCard";
 
 
 import "./InfoDisplayStyle.scss";
@@ -28,15 +28,18 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
 
 
 
-  const infoCardList = [
-    planetInfoDisplayCard,
-    characterInfoDisplayCard,
-    shipInfoDisplayCard,
-  ];
+  const infoCardList = useMemo(() =>{
+    return [
+      planetInfoDisplayCard,
+      characterInfoDisplayCard,
+      shipInfoDisplayCard,
+    ]
+  },[]) 
 
   useEffect(() => {
     const trackGradient = ($event: MouseEvent) => {
       infoCardList.forEach((card) => {
+      
         const cardBoundingBox = card.current!.getBoundingClientRect();
 
         const x = $event.clientX - cardBoundingBox.left;
@@ -53,7 +56,7 @@ export const InfoDisplay = ({ charInfo, shipInfo, planetInfo }: InfoProps) => {
     return () => {
       infoWrapper.current?.removeEventListener("mousemove", trackGradient);
     };
-  }, []);
+  }, [currentChar.charInfoFrameColor, infoCardList]);
 
 
   return (

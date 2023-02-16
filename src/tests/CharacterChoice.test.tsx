@@ -12,7 +12,7 @@ import App from "../App";
 test("TopLogo component contains correct output, is rendered correctly", () => {
   render(
     <MemoryRouter>
-      <TopLogo />
+      <TopLogo textOverLogo={""} textUnderLogo={""} />
     </MemoryRouter>
   );
   const chooseYour = screen.getByText(/Waehle deinen/i);
@@ -23,7 +23,9 @@ test("TopLogo component contains correct output, is rendered correctly", () => {
 });
 
 test("light and dark side buttons appear in LightDarkChoice Component", () => {
-  render(<LightDarkSideChoice />);
+  render(<LightDarkSideChoice setSideChoosen={function (value: React.SetStateAction<boolean>): void {
+    throw new Error("Function not implemented.");
+  } } />);
 
   const lightButton = screen.getByAltText(/rebel_logo/i);
   const darkButton = screen.getByAltText(/empire_logo/i);

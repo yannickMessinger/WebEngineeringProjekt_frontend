@@ -1,11 +1,18 @@
 import css from "./TopLogo.module.css";
 import logo from "../../../assets/assets_characterChoice/logo_no_back.png";
 
-export const TopLogo = () => {
+
+interface TopLogoProps {
+  textOverLogo:string
+  textUnderLogo:string
+}
+
+
+export const TopLogo = ({textOverLogo,textUnderLogo} : TopLogoProps) => {
   return (
     <div className={css.logo}>
       <div className={css.toptext}>
-        <p>Waehle deinen</p>
+        <p>{textOverLogo}</p>
       </div>
 
       <div className={css.logoWrapper}>
@@ -13,7 +20,7 @@ export const TopLogo = () => {
       </div>
 
       <div className={css.toptext}>
-        <p>Charakter</p>
+        <p>{textUnderLogo}</p>
       </div>
     </div>
   );

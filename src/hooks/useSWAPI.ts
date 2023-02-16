@@ -85,7 +85,7 @@ export const useSWAPI = () => {
     };
 
     async function fetchCharInfo(): Promise<CharacterInfo | undefined> {
-        console.log("fetch Char Info from Swapi");
+        
 
         const SWAPI_URL = `https://swapi.dev/api//people/?search=${currentChar?.name}`;
 
@@ -121,7 +121,7 @@ export const useSWAPI = () => {
     async function fetchStarShipInfo(
         STARSHIP_URL: string
     ): Promise<StarshipInfo | undefined> {
-        console.log("fetch Ship Info from Swapi");
+       
         try {
             const response = await fetch(STARSHIP_URL, { method: "GET" });
 
@@ -153,7 +153,7 @@ export const useSWAPI = () => {
     async function fetchPlanetInfo(
         PLANET_URL: string
     ): Promise<PlanetInfo | undefined> {
-        console.log("fetch Planet Info from Swapi");
+       
         try {
             const response = await fetch(PLANET_URL, { method: "GET" });
 
