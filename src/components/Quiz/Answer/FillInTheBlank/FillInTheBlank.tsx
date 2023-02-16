@@ -40,7 +40,6 @@ export const FillInTheBlank = ({
     }, [questionText]);
 
     function clickSubmit() {
-        console.log(selectedAnswer.text);
         setBoxColor(selectedAnswer.isRight ? css.right : css.false);
         setSubmitted(true);
         setTimeout(() => {

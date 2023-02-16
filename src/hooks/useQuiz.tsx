@@ -57,7 +57,6 @@ export const useQuiz = (difficulty: string, amount: number) => {
                 );
                 const json = await response.json();
                 setQuestions(shuffleAndLimit(json.data));
-                console.log(questions);
             } catch (error) {
                 setError(true);
             }
