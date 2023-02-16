@@ -25,7 +25,6 @@ export const AnswerCard = ({
     questionType,
     onClickNext,
 }: IProps) => {
-    console.log(questionType);
     switch (questionType) {
         case QuestionType.MULTIPLE_CHOICE:
             return (

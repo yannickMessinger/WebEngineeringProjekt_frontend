@@ -5,7 +5,7 @@ import css from "./Picture.module.css";
 
 interface IProps {
     answerList: IAnswer[];
-    answerImages: { data: [any] };
+    answerImages: { data: any[] };
     onClickNext: (
         wasCorrect: boolean,
         onRight: number,
