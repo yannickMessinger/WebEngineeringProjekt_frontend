@@ -42,7 +42,7 @@
 .Tiles,
 .Tiles_down {
     border: 0px solid rgba(255, 255, 255, 0.815);
-    height: 9vw;
+    height: 9.3vw;
     display: flex;
     position: relative;
     justify-content: center;
