@@ -24,7 +24,7 @@
     position: relative;
     top: 50px;
     left: 50px;
-    font-size: 1.7vw;
+    font-size: 2.7vw;
     font-family: 'Mandalore' ;
     max-width: 200px;
 }
@@ -83,9 +83,6 @@
     }
 
     .Background {
-        height: 100vh;
-        width: 100vw;
-        background-repeat: no-repeat;
         background-size: 130%;
     }
 
@@ -100,9 +97,6 @@
     }
 
     .Background {
-        height: 100vh;
-        width: 100vw;
-        background-repeat: no-repeat;
         background-size: 270%;
         background-position: 30%;
     }
@@ -111,10 +105,21 @@
 @media only screen and (max-width: 1500px) and (min-width: 950px) and (min-height: 750px) {
 
     .Background {
-        height: 100vh;
-        width: 100vw;
-        background-repeat: no-repeat;
+
         background-size: 200%;
         background-position: 50%;
     }
 }
+
+
+@media only screen and (max-height: 750px) and (min-width: 950px) {
+    .WeatherForecast {
+        bottom: 13%;
+    }
+    .Background {
+
+        background-size: 200%;
+        background-position: 50%;
+    }
+}
+    
