@@ -1,6 +1,7 @@
 .no_list {
     list-style-type: none;
     padding: 15px;
+    margin: 0;
 }
 
 .list_item,
@@ -15,6 +16,15 @@
     cursor: pointer;
 }
 
+@media screen and (max-width:500px) {
+    .list_item,
+    .right,
+    .false {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+}
+
 .list_item:hover {
     color: white;
     background-color: blue;
@@ -24,7 +34,7 @@
 .right,
 .false {
     color: white;
-    animation: blinker 1s infinite;
+    animation: blinker 1s ease infinite;
 }
 
 .right {
@@ -42,7 +52,15 @@
 }
 
 @keyframes blinker {
+    0% {
+        opacity: 100%;
+    }
+
     50% {
-        opacity: 0.5;
+        opacity: 70%;
+    }
+
+    100% {
+        opacity: 100%;
     }
 }

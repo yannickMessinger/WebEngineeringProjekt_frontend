@@ -1,0 +1,30 @@
+.disabled {
+    pointer-events: none;
+}
+
+.right,
+.false {
+    animation: blinker 1s ease infinite;
+}
+
+.right {
+    color: green;
+}
+
+.false {
+    color: red;
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 50%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 50%;
+    }
+}

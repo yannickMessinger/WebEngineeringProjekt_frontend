@@ -24,14 +24,19 @@ export const FillInTheBlank = ({
         isRight: false,
         image: "",
     });
+    const [submitted, setSubmitted] = useState(false);
+    const [boxColor, setBoxColor] = useState("");
 
     useEffect(() => {
         const separator = "(options)";
         const result = questionText.split(separator);
         setQuestionValue(result);
-        answerList.forEach(async (answer) => {
-            options.set(answer.text, answer);
+        let varOptions: Map<string, IAnswer> = new Map();
+        answerList.forEach((answer) => {
+            varOptions.set(answer.text, answer);
         });
+        setOptions(varOptions);
+        console.log(varOptions);
         setSelectedAnswer({
             text: "",
             isRight: false,
@@ -40,12 +45,18 @@ export const FillInTheBlank = ({
     }, [questionText]);
 
     function clickSubmit() {
-        onClickNext(selectedAnswer.isRight, 5, -5);
+        console.log(selectedAnswer.text);
+        setBoxColor(selectedAnswer.isRight ? css.right : css.false);
+        setSubmitted(true);
+        setTimeout(() => {
+            setSubmitted(false);
+            onClickNext(selectedAnswer.isRight, 5, -5);
+        }, 2000);
+        setSelectedAnswer({ text: "", isRight: false, image: "" });
     }
 
-    function handleSelectChange(answer: IAnswer) {
-        const selectedOption = options.get(answer.text);
-
+    function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+        const selectedOption = options.get(event.target.value);
         if (selectedOption !== undefined) {
             setSelectedAnswer(selectedOption);
         }
@@ -53,11 +64,19 @@ export const FillInTheBlank = ({
 
     return (
         <>
-            <div>
+            <div
+                className={`${css.box} ${submitted ? css.disabled : ""} ${
+                    submitted ? boxColor : css.hidden
+                }`}
+            >
                 {splittedQuestionText[0]}
                 <span>
-                    <select className={`${css.select} ${css.starjedi}`}>
-                        <option value="" disabled selected>
+                    <select
+                        className={`${css.select} ${css.starjedi}`}
+                        onChange={(e) => handleSelectChange(e)}
+                        defaultValue={""}
+                    >
+                        <option disabled value={""}>
                             --Wähle Antwortmöglichkeit--
                         </option>
                         {answerList.map((answer) => (
@@ -65,9 +84,6 @@ export const FillInTheBlank = ({
                                 value={answer.text}
                                 key={answer.text}
                                 className={css.answer}
-                                onClick={() => {
-                                    handleSelectChange(answer);
-                                }}
                             >
                                 {answer.text}
                             </option>
@@ -78,7 +94,9 @@ export const FillInTheBlank = ({
             </div>
             <button
                 onClick={clickSubmit}
-                className={`${css.ok_button} ${css.starjedi}`}
+                className={`${css.ok_button} ${css.starjedi} ${
+                    submitted ? css.disabled : ""
+                }`}
             >
                 Fertig
             </button>

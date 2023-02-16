@@ -14,7 +14,7 @@ export const Slider = ({value, updateValue, minValue, maxValue, step}:IProps) =>
         updateValue(Number(e.target.value))
     }
     return (
-        <>
+        <div className={css.slidercontainer}>
         <input
             className={css.slider}
             type="range"
@@ -24,6 +24,6 @@ export const Slider = ({value, updateValue, minValue, maxValue, step}:IProps) =>
             value={value}
             onChange={handleChange} 
         />
-        </>
+        </div>
     )
 }

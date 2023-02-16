@@ -20,7 +20,7 @@ export const Picture = ({ answerList, answerImages, onClickNext }: IProps) => {
         image: "",
     });
     return (
-        <div className={css.container}>
+        <div className={css.pictures_container}>
             {answerList.map((answer: IAnswer) => {
                 const imageSource = answerImages.data.find((ele) => {
                     return ele.attributes.name === answer.image;
