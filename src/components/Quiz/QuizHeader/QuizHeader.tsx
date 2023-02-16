@@ -1,14 +1,17 @@
 import css from "./QuizHeader.module.css";
 
 interface IProps {
-	score: number;
+    score: number;
+    maxScore: number;
 }
-export const QuizHeader = ({ score }: IProps) => {
-	return (
-		<>
-			<div className={css.info}>
-				<p>Score {score}/100</p>
-			</div>
-		</>
-	);
+export const QuizHeader = ({ score, maxScore }: IProps) => {
+    return (
+        <>
+            <div className={css.info}>
+                <p>
+                    Score {score}/{maxScore}
+                </p>
+            </div>
+        </>
+    );
 };

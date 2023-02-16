@@ -70,8 +70,8 @@ export const QuizMenu = () => {
             ) : (
                 <>
                     <p className={`${css.text} ${css.centered_horizontally}`}>
-                        Wähle einen Schwierigkeitsgrad und die Anzahl der Fragen
-                        aus.
+                        Wähle einen Schwierigkeitsgrad und die maximale Anzahl
+                        der Fragen aus, mit denen du das quiz spielen willst.
                     </p>
                     <div className={css.selectbox}>
                         <Select
@@ -84,7 +84,7 @@ export const QuizMenu = () => {
                         />
                         <br />
                         <Select
-                            label={"Anzahl an Fragen"}
+                            label={"max. Anzahl an Fragen"}
                             value={amount}
                             options={amountOptions}
                             onChange={handleAmount}

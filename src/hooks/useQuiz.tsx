@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { IQuestion } from "../components/Quiz/Question/IQuestion";
+import { IQuestion, QuestionType } from "../components/Quiz/Question/IQuestion";
+
+interface IQuestionItem {
+    attributes: IQuestion;
+    id: number;
+}
 
 export const useQuiz = (difficulty: string, amount: number) => {
-    const [questions, setQuestions] = useState(
-        Array<{ attributes: IQuestion; id: number }>()
-    );
+    const [questions, setQuestions] = useState(Array<IQuestionItem>());
     const [error, setError] = useState(false);
+    const [maxPossibleScore, setMaxPossibleScore] = useState(-1);
 
     function shuffleAndLimit(array: Array<any>) {
         array.sort(() => Math.random() - 0.5);
@@ -13,6 +17,24 @@ export const useQuiz = (difficulty: string, amount: number) => {
             let slicedArray = array.slice(0, amount);
             return slicedArray;
         }
+        let maxScore = 0;
+        array.map((ele: IQuestionItem) => {
+            switch (ele.attributes.questionType) {
+                case QuestionType.ESTIMATION:
+                    maxScore += 10;
+                    break;
+                case QuestionType.FILL_IN_THE_BLANK:
+                    maxScore += 5;
+                    break;
+                case QuestionType.MULTIPLE_CHOICE:
+                    maxScore += 5;
+                    break;
+                case QuestionType.PICTURE:
+                    maxScore += 5;
+                    break;
+            }
+        });
+        setMaxPossibleScore(maxScore);
         return array;
     }
 
@@ -46,5 +68,6 @@ export const useQuiz = (difficulty: string, amount: number) => {
         questions,
         loading: questions.length === 0,
         error: error,
+        maxPossibleScore
     };
 };

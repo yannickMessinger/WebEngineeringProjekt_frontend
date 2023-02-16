@@ -11,7 +11,7 @@ export const Quiz = () => {
     const amount = localStorage.getItem("amount");
     const { score, updateScore } = useContext(LoginContext);
     const [index, setIndex] = useState(0);
-    const { questions, loading, error } = useQuiz(
+    const { questions, loading, error, maxPossibleScore } = useQuiz(
         difficulty || "easy",
         parseInt(amount || "10")
     );
@@ -40,7 +40,7 @@ export const Quiz = () => {
         return (
             <div className="App">
                 {/* 1. Quiz Header with current score display */}
-                <QuizHeader score={score} />
+                <QuizHeader score={score} maxScore={maxPossibleScore}/>
 
                 {/* 2. Question Card */}
                 <Question
