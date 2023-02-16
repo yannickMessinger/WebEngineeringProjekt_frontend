@@ -34,7 +34,7 @@ export const Select = ({
         <div className={css.select_box}>
             <label className={css.text_label}>{label}</label>
             <br />
-            <label className={css.gray_text}>aktuell {value}</label>
+            <label className={css.gray_text}>{value}</label>
             <br />
             <button
                 onClick={() => setShowDropDown(!showDropDown)}

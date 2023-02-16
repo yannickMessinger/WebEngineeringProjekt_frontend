@@ -13,9 +13,9 @@ export const Estimation = ({answerList, onClickNext}:IProps) => {
     function updateValue (newValue:number) {
         setValue(newValue);
     }
-    function clickSubmit(wasCorret:boolean) {
+    function clickSubmit(wasCorrect:boolean) {
         setValue(Number(0))
-        onClickNext(wasCorret, 10, -4);
+        onClickNext(wasCorrect, 10, -4);
     }
 
     return (

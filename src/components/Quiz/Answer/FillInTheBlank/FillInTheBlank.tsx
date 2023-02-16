@@ -27,10 +27,8 @@ export const FillInTheBlank = ({
 
     useEffect(() => {
         const separator = "(options)";
-
         const result = questionText.split(separator);
         setQuestionValue(result);
-
         answerList.forEach(async (answer) => {
             options.set(answer.text, answer);
         });
@@ -45,8 +43,8 @@ export const FillInTheBlank = ({
         onClickNext(selectedAnswer.isRight, 5, -5);
     }
 
-    function handleSelectChange(event: any) {
-        const selectedOption = options.get(event.target.value);
+    function handleSelectChange(answer: IAnswer) {
+        const selectedOption = options.get(answer.text);
 
         if (selectedOption !== undefined) {
             setSelectedAnswer(selectedOption);
@@ -56,22 +54,34 @@ export const FillInTheBlank = ({
     return (
         <>
             <div>
-                <p className={css.redText}>
-                    {splittedQuestionText[0]}
-                    <span>
-                        <select onChange={handleSelectChange}>
-                            <option value="" disabled selected>
-                                --Wähle eine Antwortmöglichkeit aus--
+                {splittedQuestionText[0]}
+                <span>
+                    <select className={`${css.select} ${css.starjedi}`}>
+                        <option value="" disabled selected>
+                            --Wähle Antwortmöglichkeit--
+                        </option>
+                        {answerList.map((answer) => (
+                            <option
+                                value={answer.text}
+                                key={answer.text}
+                                className={css.answer}
+                                onClick={() => {
+                                    handleSelectChange(answer);
+                                }}
+                            >
+                                {answer.text}
                             </option>
-                            {answerList.map((answer) => {
-                                return <option>{answer.text}</option>;
-                            })}
-                        </select>
-                    </span>
-                    {splittedQuestionText[1]}
-                </p>
-                <button onClick={clickSubmit}>Fertig</button>
+                        ))}
+                    </select>
+                </span>
+                {splittedQuestionText[1]}
             </div>
+            <button
+                onClick={clickSubmit}
+                className={`${css.ok_button} ${css.starjedi}`}
+            >
+                Fertig
+            </button>
         </>
     );
 };

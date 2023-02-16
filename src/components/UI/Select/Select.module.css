@@ -26,7 +26,11 @@
     }
 
     .gray_text {
-        font-size: large;
+        font-size: x-large;
+    }
+
+    .trigger_button {
+        font-size: small;
     }
 }
 
@@ -42,22 +46,25 @@
     .text_label {
         font-size: large;
     }
+
+    .trigger_button {
+        font-size: x-small;
+    }
 }
 
 
 .trigger_button {
     font-family: "Starjedi", sans-serif;
-    font-size: 1.2rem;
     background-color: black;
     color: white;
     padding: 0.4rem;
-    font-size: medium;
     border: 2px solid gray;
     margin: 1rem;
 }
 
 .trigger_button:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .options {

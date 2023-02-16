@@ -1,3 +1,36 @@
-.text {
-    color: white;
+.select {
+    margin:0.1rem;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 1px #ccc;
+    background-color: #000;
+    color: #ffe81f;
+    text-align: center;
+}
+
+.select:hover {
+    box-shadow: 0 0 0 1px #999;
+}
+
+.select:focus {
+    box-shadow: 0 0 0 2px #ffe81f;
+    outline: none;
+}
+
+.starjedi {
+    font-family: "Starjedi";
+}
+
+.ok_button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 2.5rem;
+}
+
+.ok_button:hover {
+    border: 1px solid grey;
+    background-color: #ffe81f;
 }
