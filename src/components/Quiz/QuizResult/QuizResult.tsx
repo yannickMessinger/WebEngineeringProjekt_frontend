@@ -26,7 +26,7 @@ function findLevel(percentage: number) {
     const PADAWAN: ILevel = {
         imageSrc: PADAWAN_IMG,
         slogan: "viel zu lernen du noch hast!",
-        boxColor: css.purple,
+        boxColor: css.white,
     };
     const JEDI_RITTER: ILevel = {
         imageSrc: JEDI_RITTER_IMG,
@@ -75,13 +75,15 @@ export const QuizResult = ({
             <div className={css.mandalore}>
                 <h1 className={css.title}>Geschafft!</h1>
                 <h3 className={css.score}>
-                    Du hast {finalScore} von {mostPossibleScore} Punkte
-                    erreicht! <br /> Und {correctAnswers} von {questionAmount}{" "}
-                    Fragen richtig beantwortet.
+                    Du hast {finalScore} von {mostPossibleScore} Punkten
+                    erreicht! <br /> Und {correctAnswers} von {questionAmount} Fragen richtig beantwortet.
                 </h3>
             </div>
             <h3 className={`${css.starjedi} ${css.title}`}>{level.slogan}</h3>
-            <img className={`${css.image} ${level.boxColor}`} src={level.imageSrc} />
+            <img
+                className={`${css.image} ${level.boxColor}`}
+                src={level.imageSrc}
+            />
         </div>
     );
 };

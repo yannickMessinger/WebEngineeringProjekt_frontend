@@ -37,11 +37,6 @@ export const FillInTheBlank = ({
         });
         setOptions(varOptions);
         console.log(varOptions);
-        setSelectedAnswer({
-            text: "",
-            isRight: false,
-            image: "",
-        });
     }, [questionText]);
 
     function clickSubmit() {
@@ -52,7 +47,6 @@ export const FillInTheBlank = ({
             setSubmitted(false);
             onClickNext(selectedAnswer.isRight, 5, -5);
         }, 2000);
-        setSelectedAnswer({ text: "", isRight: false, image: "" });
     }
 
     function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
