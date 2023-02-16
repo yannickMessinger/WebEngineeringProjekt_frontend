@@ -1,6 +1,8 @@
 .title {
     color: #ffe81f;
     text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .score {
@@ -23,11 +25,29 @@
 .image {
     max-width: 90%;
     max-height: 70%;
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+.red {
+    box-shadow: 0 0 20px 10px red;
+}
+
+.green {
+    box-shadow: 0 0 20px 10px green;
+}
+
+.lightblue {
+    box-shadow: 0 0 20px 10px lightblue;
+}
+
+.purple {
+    box-shadow: 0 0 20px 10px purple;
 }
 
 @media screen and (max-width: 500px) {
     .starjedi {
-        font-size: x-large;
+        font-size: large;
     }
 }
 

@@ -14,24 +14,29 @@ interface IProps {
 interface ILevel {
     imageSrc: string;
     slogan: string;
+    boxColor: string;
 }
 
 function findLevel(percentage: number) {
     const DARTH_VADER: ILevel = {
         imageSrc: DARTH_VADER_IMG,
         slogan: "ich finde ihren Mangel an Wissen beklagenswert!",
+        boxColor: css.red,
     };
     const PADAWAN: ILevel = {
         imageSrc: PADAWAN_IMG,
         slogan: "viel zu lernen du noch hast!",
+        boxColor: css.purple,
     };
     const JEDI_RITTER: ILevel = {
         imageSrc: JEDI_RITTER_IMG,
         slogan: "Den Rang eines Meisters gewähren wir dir nicht",
+        boxColor: css.lightblue,
     };
     const JEDI_MEISTER: ILevel = {
         imageSrc: JEDI_MEISTER_IMG,
         slogan: "Willkommen im hohen Rat der Jedi",
+        boxColor: css.green,
     };
     let level: ILevel;
     if (percentage > 0.85) {
@@ -54,6 +59,7 @@ export const QuizResult = ({
     const [level, setLevel] = useState<ILevel>({
         imageSrc: "",
         slogan: "",
+        boxColor: "",
     });
     useEffect(() => {
         const reachedPercentage = calculatePercentage();
@@ -69,12 +75,13 @@ export const QuizResult = ({
             <div className={css.mandalore}>
                 <h1 className={css.title}>Geschafft!</h1>
                 <h3 className={css.score}>
-                    Du hast {finalScore} von {mostPossibleScore} Punkte erreicht! <br/> Und {correctAnswers}{" "}
-                    von {questionAmount} Fragen richtig beantwortet.
+                    Du hast {finalScore} von {mostPossibleScore} Punkte
+                    erreicht! <br /> Und {correctAnswers} von {questionAmount}{" "}
+                    Fragen richtig beantwortet.
                 </h3>
             </div>
             <h3 className={`${css.starjedi} ${css.title}`}>{level.slogan}</h3>
-            <img className={css.image} src={level.imageSrc} />
+            <img className={`${css.image} ${level.boxColor}`} src={level.imageSrc} />
         </div>
     );
 };
