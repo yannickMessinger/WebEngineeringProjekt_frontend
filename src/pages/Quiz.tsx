@@ -53,6 +53,7 @@ export const Quiz = () => {
         return (
             <QuizResult
                 finalScore={score}
+                mostPossibleScore={maxPossibleScore}
                 correctAnswers={correctAnswers}
                 questionAmount={questions.length}
             />

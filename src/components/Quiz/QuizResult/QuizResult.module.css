@@ -4,44 +4,35 @@
 }
 
 .score {
-    color: white;
-}
-
-.Icon {
-    perspective: 1000px;
-    height: 100px;
-    width: 100px;
-    position: relative;
-    animation: spin 3s linear infinite;
-}
-
-.front,
-.back {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-}
-
-.front {
-    transform: rotateY(0deg);
-}
-
-.back {
-    transform: rotateY(180deg);
+    color: lightgray;
 }
 
 .center {
     text-align: center;
+    color: white;
 }
 
-@keyframes spin {
-    from {
-        transform: rotateY(0deg);
-    }
+.mandalore {
+    font-family: "Mandalore";
+}
 
-    to {
-        transform: rotateY(360deg);
+.starjedi {
+    font-family: "Starjedi";
+}
+
+.image {
+    max-width: 90%;
+    max-height: 70%;
+}
+
+@media screen and (max-width: 500px) {
+    .starjedi {
+        font-size: x-large;
+    }
+}
+
+@media sreen and (min-width: 500px) {
+    .starjedi {
+        font-size: xx-large;
     }
 }
