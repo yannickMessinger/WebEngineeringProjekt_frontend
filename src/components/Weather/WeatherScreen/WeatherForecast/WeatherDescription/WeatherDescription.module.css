@@ -1,17 +1,19 @@
 .Weather_description {
-    color: white;
-    font-size: 1.3vw;
+    font-size: 1.6vw;
     padding-left: 3%;
-    font-family: Starjedi;
+    font-family: 'Mandalore';
     justify-content: center;
     display: flex;
     align-items: center;
     max-width: 100%;
+    
 }
 
 .Weather {
     display: flex;
     max-width: 200px;
+    margin-top: 1.5vw;
+
 
 }
 
@@ -26,21 +28,19 @@
 }
 
 .WeatherValues {
-    font-family: Starjedi;
+    font-family: 'Mandalore';
     display: flex;
     width: 12vw;
-    font-size: 1.3vw;
+    font-size: 1.6vw;
 }
 
 .WeatherDescriptionWrapper {
     float: right;
-    
-
 }
 
 @media only screen and (max-width: 500px) {
     .Weather_description {
-        font-size: 15px;
+        font-size: 2vh;
     }
 
     .Weather {
@@ -59,10 +59,9 @@
     }
 
     .WeatherValues {
-        font-family: Starjedi;
         display: flex;
         width: 150px;
-        font-size: 16px;
+        font-size: 2.5vh;
 
     }
 
@@ -73,7 +72,7 @@
 
 @media only screen and (max-width: 950px) and (min-width: 500px) {
     .Weather_description {
-        font-size: 3.3vw;
+        font-size: 4.3vw;
     }
 
     .Image {
@@ -88,7 +87,7 @@
 
     .WeatherValues {
         width: 180px;
-        font-size: 2.5vw;
+        font-size: 3.5vw;
     }
 
     .WeatherDescriptionWrapper {

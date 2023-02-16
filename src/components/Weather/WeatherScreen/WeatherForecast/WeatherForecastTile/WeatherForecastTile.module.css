@@ -44,15 +44,12 @@
     }
 
     .Date {
-        margin: 2px;
-        text-align: center;
         font-size: medium;
         font-weight: 600;
     
     }
     
     .Description {
-        text-align: center;
         font-size: medium;
         font-weight: 600;
     }
@@ -60,18 +57,11 @@
     .TempMax {
         float: right;
         font-size: medium;
-        margin-right: 7px;
-        font-weight: 600;
-        position: absolute;
     }
     
     .TempMin {
         float: left;
         font-size: medium;
-        margin-left: 7px;
-        font-weight: 600;
-        position: absolute;
-
     }
     
 
@@ -84,7 +74,6 @@
     }
 
     .Date {
-        margin: 2px;
         text-align: center;
         font-size: medium;
         font-weight: 600;

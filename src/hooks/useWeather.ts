@@ -71,7 +71,7 @@ export const useWeather = () => {
         const weatherDataObj: IWeatherData = {
             location: location,
             temp: weatherJsonData.current_weather.temperature + "°C",
-            wind: weatherJsonData.current_weather.windspeed + "",
+            wind: weatherJsonData.current_weather.windspeed + " km/h",
             weatherDescription: weatherCodeMap.get(weatherJsonData.current_weather.weathercode)
         };
         decideStarWarsPlanet(parseInt(weatherDataObj.temp));
@@ -196,7 +196,7 @@ export const useWeather = () => {
     }
 
     function fillWeatherDataWithForecast(tempMax: number, windspeed: number, weathercode: { description: string, image: string }) {
-        const weatherDataObj = { location: location, temp: (tempMax).toFixed(2) + "°C", wind: windspeed + "km/h", weatherDescription: weathercode };
+        const weatherDataObj = { location: location, temp: (tempMax).toFixed(2) + "°C", wind: windspeed + " km/h", weatherDescription: weathercode };
         decideStarWarsPlanet(tempMax);
         setWeatherData(weatherDataObj);
         setWeatherMode(WeatherMode.FORECAST)
