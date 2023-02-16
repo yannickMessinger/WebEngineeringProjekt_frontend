@@ -1,6 +1,3 @@
-/**
- * Interface for objects to dislpay starship infos that were fetched from swapi.
- */
 export interface StarshipInfo{
     name:string,
     model:string,
