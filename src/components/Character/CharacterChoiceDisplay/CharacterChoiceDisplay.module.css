@@ -8,6 +8,10 @@
   grid-template-areas: "arrowleft character arrowright";
 
   grid-area: 3 / 1 / 4 / 2;
+
+  animation: fadeInAnimation ease 0.8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .arrowleft:hover {
@@ -78,5 +82,14 @@
     margin-top: 25%;
     max-width: 100%;
     max-height: 150px;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

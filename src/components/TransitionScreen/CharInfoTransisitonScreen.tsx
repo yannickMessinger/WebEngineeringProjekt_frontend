@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import css from "./CharInfoTransitionScreenStyle.module.css";
 import { useSWAPI } from "../../hooks/useSWAPI";
-import { InfoDisplay } from "../Character/InfoDisplay/InfoDisplay";
+import { InfoDisplay } from "../InfoDisplay/InfoDisplay";
 import { CharacterStylingContext } from "../../context/CharacterStylingContext";
-
+/**
+ * Component that is used to display flying animation as loading screen, while api call is made in hook.
+ * When loading is finished, infos are displayed. Uses character specific spaceship.
+ * @returns Wrapping component as loading screen.
+ */
 export const CharInfoTransisitonScreen = () => {
     const { loading, charInfo, starshipInfo, planetInfo } = useSWAPI();
     const { currentChar } = useContext(CharacterStylingContext);

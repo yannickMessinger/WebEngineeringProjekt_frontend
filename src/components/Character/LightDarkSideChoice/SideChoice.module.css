@@ -1,46 +1,39 @@
 .switchtheme {
-    
-    display: flex;
-    justify-content: space-around;
-    grid-area: 2 / 1 / 3 / 2;
- }
+  display: flex;
+  justify-content: space-around;
+  grid-area: 2 / 1 / 3 / 2;
+}
 
- .empireLogo{
-   transition: transform .7s ease-in-out;
-  width:60px;
+.empireLogo {
+  transition: transform 0.7s ease-in-out;
+  width: 60px;
   height: 60px;
-  
- }
+}
 
+.rebelLogo {
+  transition: transform 0.7s ease-in-out;
+  width: 60px;
+  height: 60px;
+}
 
+.empireLogo:hover {
+  cursor: pointer;
+  transform: rotate(360deg) scale(1.2);
+}
 
- .rebelLogo{
-   transition: transform .7s ease-in-out;
-   width:60px;
-   height: 60px;
- }
+.rebelLogo:hover {
+  cursor: pointer;
+  transform: rotate(360deg) scale(1.2);
+}
 
- .empireLogo:hover{
-    cursor: pointer;
-    transform: rotate(360deg) scale(1.2);
-    
-   }
+@media screen and (max-width: 400px) {
+  .empireLogo {
+    width: 30px;
+    height: 30px;
+  }
 
-   .rebelLogo:hover{
-   cursor: pointer;
-   transform: rotate(360deg) scale(1.2);
-   }
-
-
- @media screen and (max-width: 400px) {
-
-    .empireLogo{
-        width:30px;
-        height: 30px;
-       }
-      
-       .rebelLogo{
-        width:30px;
-        height: 30px;
-       }
- }
+  .rebelLogo {
+    width: 30px;
+    height: 30px;
+  }
+}

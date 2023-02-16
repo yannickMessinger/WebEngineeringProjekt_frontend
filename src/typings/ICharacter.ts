@@ -1,6 +1,9 @@
-
+/**
+ * interface for styling objects that contain styling informations about certain character.
+ * Contains image paths to display correct picture and values for colors to style application indivually.
+ */
 import {side} from "./ESide"
-export interface Character {
+export interface CharacterStyle {
     name?: string,
     img_path?: string,
     side?:side

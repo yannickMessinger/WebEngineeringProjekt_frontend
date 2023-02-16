@@ -3,11 +3,11 @@ import { LoginForm } from "../Form/LoginForm";
 import css from "./LoginOuterWrapperStyle.module.css";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { Lightsaber } from "../../Lightsaber/Lightsaber";
-
-
+/**
+ * wrapper class that contains left lightsaber, the login form in the middle and the right lightsaber
+ * @returns Component with login form so that user can register
+ */
 export const LoginFormOuterWrapper = () => {
-  
-
   const { currentChar } = useContext(CharacterStylingContext);
   const [formErrors, setFormErrors] = useState(false);
   const [saberIsActive, setSaberisActive] = useState(false);
@@ -25,20 +25,25 @@ export const LoginFormOuterWrapper = () => {
     <div className={css.outerWrapper} style={imgStyles}>
       <div className={css.login_form}>
         <div className={css.saber_left}>
-          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} data-testid={'saber_left'}/>
+          <Lightsaber
+            hasErrors={formErrors}
+            isActive={saberIsActive}
+            data-testid={"saber_left"}
+          />
         </div>
         <LoginForm
           loginFormStyle={currentChar!.loginStyle!}
-          errorState={formErrors}
           setErrorState={setFormErrors}
           activateSaber={setSaberisActive}
         />
         <div className={css.saber_right}>
-          <Lightsaber hasErrors={formErrors} isActive={saberIsActive} data-testid={'saber_right'}/>
+          <Lightsaber
+            hasErrors={formErrors}
+            isActive={saberIsActive}
+            data-testid={"saber_right"}
+          />
         </div>
       </div>
     </div>
   );
 };
-
-

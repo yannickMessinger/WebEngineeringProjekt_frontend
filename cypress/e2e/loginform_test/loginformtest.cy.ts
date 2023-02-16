@@ -1,11 +1,19 @@
 import cypress from "cypress"
 import '@testing-library/cypress/add-commands'
 
-describe('loginformtest', () =>{
-    it('user journey where user pics character bossk, registers, form is validated, and than displays character info.', () => {
+describe('userjourney', () =>{
+    it('user journey where user picks dark side, than picks character bossk, registers, form is validated, and than displays character info.', () => {
         cy.visit('http://localhost:3000/')
+        cy.findByText(/waehle deine/i).should('exist')
+        cy.findByText(/seite/i).should('exist')
+        cy.findByText(/charakter/i).should('not.exist')
+        cy.findByRole('img', {name: /charpic/i}).should('not.exist')
+        cy.wait(1000)
         cy.findByRole('img', {name: /empire_logo/i}).click()
         cy.wait(1000)
+        cy.findByText(/charakter/i).should('exist')
+        cy.findByRole('img', {name: /charpic/i}).should('exist')
+        cy.wait(500)
         cy.get('#root > div > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(3)').click()
         cy.wait(1000)
         cy.get('#root > div > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(3)').click()
@@ -14,7 +22,7 @@ describe('loginformtest', () =>{
         cy.wait(1000)
         cy.findByRole('button', { name: /LOS/i}).click()
         cy.wait(1000)
-        cy.get('[data-testid="Bossk"]')
+        cy.get('#root > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1)').find('img').should('have.attr', 'test-id').should('include','Bossk')
         cy.get('#root > div > div:nth-child(2) > div > div:nth-child(3) > div > div > div').should('not.be.visible')
         cy.get('#root > div > div:nth-child(2) > div > div:nth-child(3) > div > div > div').should('not.be.visible')
         cy.get('input[placeholder*="Vorname"]').type('yannick')

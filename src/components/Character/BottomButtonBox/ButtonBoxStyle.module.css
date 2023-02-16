@@ -1,47 +1,44 @@
 @font-face {
-  font-family: 'Mandalore';
-  src: local('Mandalore'), url(../../../fonts/Mandalore/Mandalore.ttf) format('truetype');
+  font-family: "Mandalore";
+  src: local("Mandalore"),
+    url(../../../fonts/Mandalore/Mandalore.ttf) format("truetype");
 }
 
-.buttonbox { 
-    
-    display: flex;
-    justify-content: center;
-    
-    grid-area: 4 / 1 / 5 / 2;
- }
+.buttonbox {
+  display: flex;
+  justify-content: center;
 
- .startbutton{
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.startbutton {
   font-family: Mandalore;
   margin-top: 3%;
-  min-width:350px;
-  min-height:50px;
-  background-color: yellow; 
+  min-width: 350px;
+  min-height: 50px;
+  background-color: yellow;
   border-radius: 10px;
   border: none;
   color: black;
-  /*padding: 15px 32px;*/
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
- }
+}
 
- .startbutton:hover{
- 
-  background-color: rgb(221, 221, 4); 
+.startbutton:hover {
+  background-color: rgb(221, 221, 4);
   border: solid 2px white;
   cursor: pointer;
- 
- }
+}
 
- @media screen and (max-width: 800px) {
-  .startbutton{
+@media screen and (max-width: 800px) {
+  .startbutton {
     font-family: Mandalore;
     margin-top: 3%;
-    min-width:100px;
-    min-height:50px;
-    background-color: yellow; 
+    min-width: 100px;
+    min-height: 50px;
+    background-color: yellow;
     border-radius: 10px;
     border: none;
     color: black;
@@ -49,11 +46,5 @@
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-   }
-
-
-
-
- }
-
- 
+  }
+}

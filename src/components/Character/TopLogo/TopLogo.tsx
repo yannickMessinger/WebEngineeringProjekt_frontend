@@ -1,14 +1,18 @@
 import css from "./TopLogo.module.css";
 import logo from "../../../assets/assets_characterChoice/logo_no_back.png";
 
-
 interface TopLogoProps {
-  textOverLogo:string
-  textUnderLogo:string
+  textOverLogo: string;
+  textUnderLogo: string;
 }
-
-
-export const TopLogo = ({textOverLogo,textUnderLogo} : TopLogoProps) => {
+/**
+ * Component that represents the top part of the CharacterChoice component, contains different text depending
+ * on if user has choosen light or dark side
+ * @param textOverLogo passed text to be displayed over the Star Wars Logo
+ * @param textUnderLogo passed text to be displayed under the Star Wars Logo
+ * @returns the top part of CharacterChoice component
+ */
+export const TopLogo = ({ textOverLogo, textUnderLogo }: TopLogoProps) => {
   return (
     <div className={css.logo}>
       <div className={css.toptext}>
@@ -16,7 +20,7 @@ export const TopLogo = ({textOverLogo,textUnderLogo} : TopLogoProps) => {
       </div>
 
       <div className={css.logoWrapper}>
-        <img src={logo} className={css.logoSizing} alt={'StarWarsLogo'}/>
+        <img src={logo} className={css.logoSizing} alt={"StarWarsLogo"} />
       </div>
 
       <div className={css.toptext}>
