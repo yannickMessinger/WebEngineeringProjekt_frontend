@@ -1,5 +1,5 @@
 import { side } from "../../typings/ESide";
-import { CharacterStyle } from "../../typings/ICharacter";
+import { CharacterStyle } from "../../typings/ICharacterStyle";
 import { CHARACTER, charMap } from "../context_data/imageData";
 
 /**

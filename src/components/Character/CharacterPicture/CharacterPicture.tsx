@@ -1,5 +1,5 @@
 import css from "./CharacterPictureStyle.module.css";
-import { CharacterStyle} from "../../../typings/ICharacter";
+import { CharacterStyle} from "../../../typings/ICharacterStyle";
 
 /**
  * component that resizes and displays picture of currently choosen star wars character

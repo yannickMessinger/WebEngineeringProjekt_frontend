@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { CharacterStyle } from "../typings/ICharacter";
+import { CharacterStyle } from "../typings/ICharacterStyle";
 import { side } from "../typings/ESide";
 import { charList } from "./context_data/charList";
 
