@@ -16,6 +16,7 @@ interface LoginProps {
   isLoggedIn: boolean;
   score: number;
   updateScore: (points: number) => void;
+  resetScore: () => void;
 }
 
 type Props = {
@@ -28,6 +29,7 @@ export const LoginContext = React.createContext<LoginProps>({
   isLoggedIn: false,
   score: 0,
   updateScore: () => {},
+  resetScore: () => {},
 });
 
 export function LoginContextProvider({ children }: Props) {
@@ -46,6 +48,10 @@ export function LoginContextProvider({ children }: Props) {
     },
     [score]
   );
+
+  const resetScore = () => {
+    setScore(0);
+  }
 
   const logIn = useCallback(
     (
@@ -84,6 +90,7 @@ export function LoginContextProvider({ children }: Props) {
       logOut,
       score,
       updateScore,
+      resetScore,
     }),
     [isLoggedIn, logIn, logOut, score, updateScore]
   );

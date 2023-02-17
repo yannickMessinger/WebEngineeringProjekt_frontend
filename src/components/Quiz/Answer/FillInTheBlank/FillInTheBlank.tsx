@@ -17,17 +17,19 @@ export const FillInTheBlank = ({
     answerList,
     onClickNext,
 }: IProps) => {
-    const [splittedQuestionText, setQuestionValue] = useState(Array<string>());
-    const [options, setOptions] = useState(new Map<string, IAnswer>());
-    const [selectedAnswer, setSelectedAnswer] = useState({
+    const disabledValue: IAnswer = {
         text: "",
         isRight: false,
         image: "",
-    });
+    };
+    const [splittedQuestionText, setQuestionValue] = useState(Array<string>());
+    const [options, setOptions] = useState(new Map<string, IAnswer>());
+    const [selectedAnswer, setSelectedAnswer] = useState(disabledValue);
     const [submitted, setSubmitted] = useState(false);
     const [boxColor, setBoxColor] = useState("");
 
     useEffect(() => {
+        setSelectedAnswer(disabledValue)
         const separator = "(options)";
         const result = questionText.split(separator);
         setQuestionValue(result);
@@ -36,7 +38,6 @@ export const FillInTheBlank = ({
             varOptions.set(answer.text, answer);
         });
         setOptions(varOptions);
-        console.log(varOptions);
     }, [questionText]);
 
     function clickSubmit() {
@@ -67,9 +68,9 @@ export const FillInTheBlank = ({
                     <select
                         className={`${css.select} ${css.starjedi}`}
                         onChange={(e) => handleSelectChange(e)}
-                        defaultValue={""}
+                        value={selectedAnswer.text}
                     >
-                        <option disabled value={""}>
+                        <option selected disabled value={""}>
                             --Wähle Antwortmöglichkeit--
                         </option>
                         {answerList.map((answer) => (
@@ -88,7 +89,7 @@ export const FillInTheBlank = ({
             <button
                 onClick={clickSubmit}
                 className={`${css.ok_button} ${css.starjedi} ${
-                    submitted ? css.disabled : ""
+                    submitted || selectedAnswer.text == "" ? css.disabled : ""
                 }`}
             >
                 Fertig

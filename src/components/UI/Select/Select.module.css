@@ -8,11 +8,14 @@
 .text_label {
     font-family: "Starjedi";
     font-size: x-large;
+    margin: 0.1rem;
+    display: block;
 }
 
 .gray_text {
     font-family: "Mandalore";
     color: lightgray;
+    display: block;
 }
 
 @media screen and (min-width:500px) {
@@ -47,8 +50,12 @@
         font-size: large;
     }
 
+    .gray_text {
+        font-size: large;
+    }
+
     .trigger_button {
-        font-size: x-small;
+        font-size: small;
     }
 }
 

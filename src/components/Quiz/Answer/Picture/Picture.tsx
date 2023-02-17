@@ -28,7 +28,7 @@ export const Picture = ({ answerList, answerImages, onClickNext }: IProps) => {
                 return (
                     <PictureAnswer
                         key={answer.text}
-                        imageSource={imageSource.attributes.formats.small.url}
+                        imageSource={imageSource.attributes.url}
                         answerOption={answer}
                         onClick={onClickNext}
                         answerClicked={answerClicked}

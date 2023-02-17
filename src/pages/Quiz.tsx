@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Question } from "../components/Quiz/Question/Question";
-import { Header } from "../layouts/Header/Header";
 import { QuizHeader } from "../components/Quiz/QuizHeader/QuizHeader";
 import { useQuiz } from "../hooks/useQuiz";
 import { QuizResult } from "../components/Quiz/QuizResult/QuizResult";
@@ -9,14 +8,17 @@ import { LoginContext } from "../context/LoginContext";
 export const Quiz = () => {
     const difficulty = localStorage.getItem("difficulty");
     const amount = localStorage.getItem("amount");
-    const { score, updateScore } = useContext(LoginContext);
+    const { score, updateScore, resetScore } = useContext(LoginContext);
     const [index, setIndex] = useState(0);
     const { questions, loading, error, maxPossibleScore } = useQuiz(
         difficulty || "easy",
         parseInt(amount || "10")
     );
     const [correctAnswers, setCorrectAnswers] = useState(0);
-
+    useEffect(() => {
+        resetScore();
+        console.log(maxPossibleScore);
+    }, [questions]);
     const nextQuestion = (
         wasCorrect: boolean,
         onCorrect: number,
@@ -40,7 +42,7 @@ export const Quiz = () => {
         return (
             <div className="App">
                 {/* 1. Quiz Header with current score display */}
-                <QuizHeader score={score} maxScore={maxPossibleScore}/>
+                <QuizHeader score={score} maxScore={maxPossibleScore} />
 
                 {/* 2. Question Card */}
                 <Question

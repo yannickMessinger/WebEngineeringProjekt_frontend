@@ -62,7 +62,7 @@ export const useQuiz = (difficulty: string, amount: number) => {
             }
         }
         fetchQuestions();
-    }, [difficulty]);
+    }, [difficulty, amount]);
     return {
         questions,
         loading: questions.length === 0,

@@ -7,7 +7,7 @@ export const Menu = () => {
         <div className={css.menubox}>
             <MenuButton display={"quiz"} to={"/quiz"} />
             <MenuButton display={"Wetter"} to={"/weather"} />
-            <MenuButton display={"Character Info"} to={"/info"} />
+            <MenuButton display={"Character info"} to={"/info"} />
         </div>
     );
 };
