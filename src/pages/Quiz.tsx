@@ -10,6 +10,10 @@ interface IProps {
     isLoggedIn: boolean;
 }
 
+/**
+ * Starting Page for the Quiz where settings can be made,
+ * by clicking on the Button, the actual quiz game begins
+ */
 export const Quiz = ({ isLoggedIn }: IProps) => {
     const difficulty = localStorage.getItem("difficulty");
     const amount = localStorage.getItem("amount");

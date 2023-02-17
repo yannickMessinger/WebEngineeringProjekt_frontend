@@ -5,7 +5,15 @@ interface IQuestionItem {
     attributes: IQuestion;
     id: number;
 }
-
+/**
+ * useQuiz is a hook to fetch data from Strapi API depending on the chosen difficulty level,
+ * shuffles received questions and limit the amount of questions accordingly to given amount,
+ * calculates max possible score
+ * 
+ * @param difficulty level of difficulty of the quiz
+ * @param amount max amount of questions user is willing to play
+ * @returns 
+ */
 export const useQuiz = (difficulty: string, amount: number) => {
     const [questions, setQuestions] = useState(Array<IQuestionItem>());
     const [loading, setLoading] = useState(true);
@@ -59,7 +67,7 @@ export const useQuiz = (difficulty: string, amount: number) => {
                     }
                 );
                 const json = await response.json();
-                await setQuestions(shuffleAndLimit(json.data));
+                setQuestions(shuffleAndLimit(json.data));
             } catch (error) {
                 setError(true);
             }
