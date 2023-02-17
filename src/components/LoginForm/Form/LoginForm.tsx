@@ -180,7 +180,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Vorname"}
           />
-          <div data-cy="error_firstname">
+          <div data-cy="error_firstname" test-id='error_firstname'>
             {formErrors.firstName && (
               <FormError
                 errormsg={formErrors.firstName}
@@ -201,7 +201,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Nachname"}
           />
-          <div data-cy="error_lastname">
+          <div data-cy="error_lastname" test-id='error_lastname'>
             {formErrors.lastName && (
               <FormError
                 errormsg={formErrors.lastName}
@@ -222,7 +222,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Username"}
           />
-          <div data-cy="error_username">
+          <div data-cy="error_username" test-id='error_username'>
             {formErrors.userName && (
               <FormError
                 errormsg={formErrors.userName}
@@ -243,7 +243,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Geburtstag"}
           />
-          <div data-cy="error_birthday">
+          <div data-cy="error_birthday"  test-id='error_birthday'>
             {formErrors.birthday && (
               <FormError
                 errormsg={formErrors.birthday}
@@ -264,7 +264,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Mailadresse"}
           />
-          <div data-cy="error_email">
+          <div data-cy="error_email"  test-id='error_email'>
             {formErrors.mailAdress && (
               <FormError
                 errormsg={formErrors.mailAdress}
@@ -285,7 +285,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Telefonnummer"}
           />
-          <div data-cy="error_phone">
+          <div data-cy="error_phone"  test-id='error_phone'>
             {formErrors.phoneNumber && (
               <FormError
                 errormsg={formErrors.phoneNumber}
@@ -295,7 +295,8 @@ export const LoginForm = ({
           </div>
         </div >
       
-        <button 
+        <button
+          test-id={'formSubmitButton'} 
           className={css.submit_button}
           onClick={(e) => {
             validateFormData(e);
