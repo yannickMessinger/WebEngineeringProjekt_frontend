@@ -44,7 +44,7 @@ test("if correct answer is chosen", () => {
     let slider = screen.getByRole("slider");
     fireEvent.change(slider, { target: { value: "2" } });
 
-    let confirmButton = screen.getByText("ok");
+    let confirmButton = screen.getByText("Fertig");
     fireEvent.click(confirmButton);
 });
 
@@ -66,6 +66,6 @@ test("if wrong answer is chosen", () => {
     let slider = screen.getByRole("slider");
     fireEvent.change(slider, { target: { value: "1" } });
 
-    let confirmButton = screen.getByText("ok");
+    let confirmButton = screen.getByText("Fertig");
     fireEvent.click(confirmButton);
 });
