@@ -24,24 +24,26 @@ export const LoginFormOuterWrapper = () => {
   return (
     <div className={css.outerWrapper} style={imgStyles}>
       <div className={css.login_form}>
-        <div className={css.saber_left}>
+        <div className={css.saber_left} data-cy="saber_left">
           <Lightsaber
             hasErrors={formErrors}
             isActive={saberIsActive}
-            data-testid={"saber_left"}
-          />
+            data-testid={"saber_left"} 
+            cy_id_blade={"blade_left"}          
+            />
         </div>
         <LoginForm
           loginFormStyle={currentChar!.loginStyle!}
           setErrorState={setFormErrors}
           activateSaber={setSaberisActive}
         />
-        <div className={css.saber_right}>
+        <div className={css.saber_right} data-cy="saber_right">
           <Lightsaber
             hasErrors={formErrors}
             isActive={saberIsActive}
-            data-testid={"saber_right"}
-          />
+            data-testid={"saber_right"} 
+            cy_id_blade={"blade_right"}          
+            />
         </div>
       </div>
     </div>

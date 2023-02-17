@@ -15,7 +15,7 @@ interface TopLogoProps {
 export const TopLogo = ({ textOverLogo, textUnderLogo }: TopLogoProps) => {
   return (
     <div className={css.logo}>
-      <div className={css.toptext}>
+      <div className={css.toptext} data-cy="top_text">
         <p>{textOverLogo}</p>
       </div>
 
@@ -23,7 +23,7 @@ export const TopLogo = ({ textOverLogo, textUnderLogo }: TopLogoProps) => {
         <img src={logo} className={css.logoSizing} alt={"StarWarsLogo"} />
       </div>
 
-      <div className={css.toptext}>
+      <div className={css.toptext} data-cy="bottom_text">
         <p>{textUnderLogo}</p>
       </div>
     </div>

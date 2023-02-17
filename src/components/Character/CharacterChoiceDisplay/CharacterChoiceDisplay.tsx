@@ -19,7 +19,7 @@ export const CharacterChoiceDisplay = () => {
 
   return (
     <div className={css.choosechar}>
-      <div className={css.arrowleft} onClick={() => charChoiceHandlerPrev()}>
+      <div className={css.arrowleft} onClick={() => charChoiceHandlerPrev()}  data-cy="char_button_left">
         <img src={arrow_left} alt={"arrow_left"} />
       </div>
       <div className={`${css.characterDisplay}`}>
@@ -31,7 +31,7 @@ export const CharacterChoiceDisplay = () => {
           data-testid={currentChar.name}
         />
       </div>
-      <div className={css.arrowright} onClick={() => charChoiceHandlerNext()}>
+      <div className={css.arrowright} onClick={() => charChoiceHandlerNext()} data-cy="char_button_right">
         <img src={arrow_right} alt={"arrow_right"} />
       </div>
     </div>

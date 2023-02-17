@@ -4,6 +4,7 @@ import css from "./LightsaberStyle.module.css";
 interface LightSaberProps {
   hasErrors: boolean;
   isActive: boolean;
+  cy_id_blade:string
 }
 /**
  * component that represents the lightsaber handle and blade that is used to intensify errors oder success in LoginForm Validation
@@ -11,7 +12,7 @@ interface LightSaberProps {
  * @param isActive prop that is passed to determine if lightsaber is active or not (if blade should be visible or not)
  * @returns Lightsaberhandle and blade with toggle function  to intensify errors oder success in LoginForm Validation
  */
-export const Lightsaber = ({ hasErrors, isActive }: LightSaberProps) => {
+export const Lightsaber = ({ hasErrors, isActive,cy_id_blade }: LightSaberProps) => {
   const [activateSaber, setActivateSaber] = useState(false);
   const bladeRef = useRef<HTMLInputElement>(null);
 
@@ -37,15 +38,15 @@ export const Lightsaber = ({ hasErrors, isActive }: LightSaberProps) => {
   }, [hasErrors, isActive]);
 
   return (
-    <div className={css.lightsaberbody}>
-      <div className={css.lightsaber}>
+    <div className={css.lightsaberbody} data-cy="lightsaber_body">
+      <div className={css.lightsaber} data-cy="lightsaber_handle">
         <input
           type={"checkbox"}
           id={css.on_off}
           checked={activateSaber}
           readOnly={true}
         />
-        <div className={css.blade} ref={bladeRef} />
+        <div className={css.blade} ref={bladeRef} data-cy={cy_id_blade}/>
         <label className={css.hilt} />
       </div>
     </div>

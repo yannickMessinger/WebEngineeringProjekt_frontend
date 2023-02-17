@@ -159,7 +159,7 @@ export const LoginForm = ({
 
   return (
     <div className={css.loginForm} ref={loginFormRef}>
-      <div className={css.login_header}>
+      <div className={css.login_header} data-cy="login_header">
         <p>Willkommen</p>
         <div ref={pictureFrameRef} className={css.pictureFrame}>
           <PictureFrame
@@ -169,7 +169,7 @@ export const LoginForm = ({
         </div>
       </div>
       <div className={`${css.login_main} ${nextPage ? css.disable : ""}`}>
-        <div className={css.first_name}>
+        <div className={css.first_name} data-cy="input_firstname">
           <input
             data-testid={"firstName"}
             value={firstName}
@@ -180,7 +180,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Vorname"}
           />
-          <div>
+          <div data-cy="error_firstname">
             {formErrors.firstName && (
               <FormError
                 errormsg={formErrors.firstName}
@@ -190,7 +190,7 @@ export const LoginForm = ({
           </div>
         </div>
 
-        <div className={css.last_name}>
+        <div className={css.last_name} data-cy="input_lastname">
           <input
             data-testid={"lastName"}
             value={lastName}
@@ -201,7 +201,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Nachname"}
           />
-          <div>
+          <div data-cy="error_lastname">
             {formErrors.lastName && (
               <FormError
                 errormsg={formErrors.lastName}
@@ -211,7 +211,7 @@ export const LoginForm = ({
           </div>
         </div>
 
-        <div className={css.user_name}>
+        <div className={css.user_name} data-cy="input_username">
           <input
             data-testid={"userName"}
             value={userName}
@@ -222,7 +222,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Username"}
           />
-          <div>
+          <div data-cy="error_username">
             {formErrors.userName && (
               <FormError
                 errormsg={formErrors.userName}
@@ -232,7 +232,7 @@ export const LoginForm = ({
           </div>
         </div>
 
-        <div className={css.birthday}>
+        <div className={css.birthday} data-cy="input_birthday">
           <input
             data-testid={"birthday"}
             value={birthday}
@@ -243,7 +243,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Geburtstag"}
           />
-          <div>
+          <div data-cy="error_birthday">
             {formErrors.birthday && (
               <FormError
                 errormsg={formErrors.birthday}
@@ -253,7 +253,7 @@ export const LoginForm = ({
           </div>
         </div>
 
-        <div className={css.adress}>
+        <div className={css.adress} data-cy="input_adress">
           <input
             data-testid={"mailadress"}
             value={mailAdress}
@@ -264,7 +264,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Mailadresse"}
           />
-          <div>
+          <div data-cy="error_email">
             {formErrors.mailAdress && (
               <FormError
                 errormsg={formErrors.mailAdress}
@@ -274,7 +274,7 @@ export const LoginForm = ({
           </div>
         </div>
 
-        <div className={css.phone_number}>
+        <div className={css.phone_number} data-cy="input_phonenumber">
           <input
             data-testid={"phonenumber"}
             value={phoneNumber}
@@ -285,7 +285,7 @@ export const LoginForm = ({
             className={css.styledinput}
             placeholder={"Telefonnummer"}
           />
-          <div>
+          <div data-cy="error_phone">
             {formErrors.phoneNumber && (
               <FormError
                 errormsg={formErrors.phoneNumber}
