@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IAnswer } from "../IAnswer";
+import { IAnswer } from "../../../../typings/quiz/IAnswer";
 import { PictureAnswer } from "./PictureAnswer/PictureAnswer";
 import css from "./Picture.module.css";
 

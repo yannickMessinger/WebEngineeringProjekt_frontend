@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IAnswer } from "../IAnswer";
+import { IAnswer } from "../../../../typings/quiz/IAnswer";
 import css from "./FillInTheBlank.module.css";
 
 interface IProps {

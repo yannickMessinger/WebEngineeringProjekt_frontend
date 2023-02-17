@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IAnswer } from "../../IAnswer";
+import { IAnswer } from "../../../../../typings/quiz/IAnswer";
 import css from "./PictureAnswer.module.css";
 
 interface IProps {

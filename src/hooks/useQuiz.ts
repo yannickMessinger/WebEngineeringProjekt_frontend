@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IQuestion, QuestionType } from "../components/Quiz/Question/IQuestion";
+import { IQuestion, QuestionType } from "../typings/quiz/IQuestion";
 
 interface IQuestionItem {
     attributes: IQuestion;

@@ -1,6 +1,6 @@
 import React from "react";
-import { IAnswer } from "../IAnswer";
-import { QuestionType } from "../../Question/IQuestion";
+import { IAnswer } from "../../../../typings/quiz/IAnswer";
+import { QuestionType } from "../../../../typings/quiz/IQuestion";
 import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Estimation } from "../Estimation/Estimation";
 import { Picture } from "../Picture/Picture";

@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { MultipleChoice } from "../../../components/Quiz/Answer/MultipleChoice/MultipleChoice";
-import { IAnswer } from "../../../components/Quiz/Answer/IAnswer";
+import { IAnswer } from "../../../typings/quiz/IAnswer";
 
 const mockedAnswerOptions:Array<IAnswer> = [
     {

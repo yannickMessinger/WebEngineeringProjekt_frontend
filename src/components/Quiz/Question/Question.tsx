@@ -1,5 +1,5 @@
 import React from "react";
-import { IQuestion, QuestionType } from "./IQuestion";
+import { IQuestion, QuestionType } from "../../../typings/quiz/IQuestion";
 import css from "./Question.module.css";
 import { AnswerCard } from "../Answer/AnswerCard/AnswerCard";
 

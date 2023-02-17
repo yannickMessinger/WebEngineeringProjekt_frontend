@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IAnswer } from "../IAnswer";
+import { IAnswer } from "../../../../typings/quiz/IAnswer";
 import { Slider } from "../../../UI/Slider/Slider";
 import css from "./Estimation.module.css";
 
