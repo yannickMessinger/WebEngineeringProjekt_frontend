@@ -1,36 +1,57 @@
-@media screen and (min-width:500px) {
+@media screen and (min-width: 1000px) {
     .selectbox {
         padding: 20px;
         text-align: center;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
+        align-items: stretch;
     }
 
     .menu_wrapper {
         width: 80%;
     }
+
+    .text {
+        padding: 1rem;
+    }
+
 }
 
-@media screen and (max-width:500px) {
+@media screen and (min-width: 500px) and (max-width: 1000px) {
     .selectbox {
         padding: 20px;
         text-align: center;
         display: flex;
-        flex-direction: column;
         justify-content: center;
+        align-items: flex-end;
     }
+
     .menu_wrapper {
         width: 95%;
+    }
+
+    .text {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .selectbox {
+        text-align: center;
+    }
+
+    .menu_wrapper {
+        width: 95%;
+    }
+
+    .text {
+        padding: 0.5rem;
     }
 }
 
 .menu_wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    margin-top: 2rem;
 }
 
 .play_button {
@@ -40,6 +61,7 @@
     font-family: 'Starjedi';
     color: white;
     font-size: large;
+    margin-top: 1rem;
 }
 
 .play_button:hover {
@@ -51,7 +73,6 @@
     font-family: "Starjedi";
     color: white;
     font-size: large;
-    padding: 1rem;
 }
 
 .centered_horizontally {
