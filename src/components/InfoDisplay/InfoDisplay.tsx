@@ -1,8 +1,8 @@
 import { useContext, useEffect, useMemo, useRef } from "react";
 import { CharacterStylingContext } from "../../context/CharacterStylingContext";
-import { CharacterInfo } from "../../typings/CharacterInfo";
-import { PlanetInfo } from "../../typings/IPlanetInfo";
-import { StarshipInfo } from "../../typings/IStarshipInfo";
+import { CharacterInfo } from "../../typings/character/CharacterInfo";
+import { PlanetInfo } from "../../typings/character/IPlanetInfo";
+import { StarshipInfo } from "../../typings/character/IStarshipInfo";
 import { CharacterInfoCard } from "./CharacterInfo/CharacterInfoCard";
 import { PlanetInfoCard } from "./PlanetInfo/PlanetInfoCard";
 import { StarshipInfoCard } from "./StarshipInfo/StarshipInfoCard";

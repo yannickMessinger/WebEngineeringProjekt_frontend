@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { CharacterStylingContext } from "../context/CharacterStylingContext";
-import { CharacterInfo } from "../typings/CharacterInfo";
-import { PlanetInfo } from "../typings/IPlanetInfo";
-import { StarshipInfo } from "../typings/IStarshipInfo";
+import { CharacterInfo } from "../typings/character/CharacterInfo";
+import { PlanetInfo } from "../typings/character/IPlanetInfo";
+import { StarshipInfo } from "../typings/character/IStarshipInfo";
 
 /**
  * custom Hook to fetch Data from swapi API. Api calls are depended on each other. First

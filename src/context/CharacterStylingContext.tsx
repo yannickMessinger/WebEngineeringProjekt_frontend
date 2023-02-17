@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import { CharacterStyle } from "../typings/ICharacterStyle";
-import { side } from "../typings/ESide";
+import { CharacterStyle } from "../typings/character/ICharacterStyle";
+import { side } from "../typings/character/ESide";
 import { charList } from "./context_data/charList";
 
 const lightCharsList: Array<CharacterStyle> = charList.filter((char) => {

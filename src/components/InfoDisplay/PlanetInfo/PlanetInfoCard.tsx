@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { PlanetInfo } from "../../../typings/IPlanetInfo";
+import { PlanetInfo } from "../../../typings/character/IPlanetInfo";
 import { PictureFrame } from "../../LoginForm/Form/LoginPictureFrame/PictureFrame";
 import css from "./PlanetInfoCardStyle.module.css";
 interface PlanetInfoCardProps {

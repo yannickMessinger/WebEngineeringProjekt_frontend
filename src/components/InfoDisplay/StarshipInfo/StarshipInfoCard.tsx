@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
-import { StarshipInfo } from "../../../typings/IStarshipInfo";
+import { StarshipInfo } from "../../../typings/character/IStarshipInfo";
 import { PictureFrame } from "../../LoginForm/Form/LoginPictureFrame/PictureFrame";
 import css from "./StarshipInfoCardStyle.module.css";
 interface StarshipInfoProps {

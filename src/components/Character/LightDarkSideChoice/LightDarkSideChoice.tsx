@@ -5,7 +5,7 @@ import rebel_logo from "../../../assets/assets_characterChoice/logo_blue.png";
 import empire_logo from "../../../assets/assets_characterChoice/empire_logo.png";
 import { CharacterStylingContext } from "../../../context/CharacterStylingContext";
 import { SideImageButton } from "./SideImageButton/SideImageButton";
-import { side } from "../../../typings/ESide";
+import { side } from "../../../typings/character/ESide";
 
 interface LightDarkSideChoiceProps {
   setSideChoosen: Dispatch<SetStateAction<boolean>>;
