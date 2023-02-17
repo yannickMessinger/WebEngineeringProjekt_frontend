@@ -4,8 +4,13 @@ import { QuizHeader } from "../components/Quiz/QuizHeader/QuizHeader";
 import { useQuiz } from "../hooks/useQuiz";
 import { QuizResult } from "../components/Quiz/QuizResult/QuizResult";
 import { LoginContext } from "../context/LoginContext";
+import { Navigate } from "react-router-dom";
 
-export const Quiz = () => {
+interface IProps {
+    isLoggedIn: boolean;
+}
+
+export const Quiz = ({ isLoggedIn }: IProps) => {
     const difficulty = localStorage.getItem("difficulty");
     const amount = localStorage.getItem("amount");
     const { score, updateScore, resetScore } = useContext(LoginContext);
@@ -32,6 +37,10 @@ export const Quiz = () => {
             updateScore(onFalse);
         }
     };
+
+    if (!isLoggedIn) {
+        return <Navigate to="/" replace/>;
+    }
     if (loading) {
         return <h2>Am Laden</h2>;
     }

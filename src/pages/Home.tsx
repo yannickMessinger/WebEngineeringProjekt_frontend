@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { Menu } from "../components/Menu/Menu";
 import { CharacterChoice } from "./CharacterCoice/CharacterChoice";
 import { LoginContext } from "../context/LoginContext";
+import { Navigate } from "react-router";
 
-export const Home = () => {
-    const { isLoggedIn } = useContext(LoginContext);
+interface IProps {
+    isLoggedIn: boolean;
+}
 
+export const Home = ({ isLoggedIn }: IProps) => {
     if (!isLoggedIn) {
-        return <CharacterChoice />;
+        return <Navigate to={"/characterchoice"} />;
     }
 
     return (

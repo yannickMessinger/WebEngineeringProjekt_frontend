@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Header } from "../../../layouts/Header/Header";
+import React, { useContext, useEffect, useState } from "react";
 import { Select, Option } from "../../UI/Select/Select";
 import css from "./QuizMenu.module.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { LightSaberFight } from "../LightSaberFight/LightSaberFight";
+import { LoginContext } from "../../../context/LoginContext";
 
 enum Difficulty {
     EASY = "easy",
@@ -11,7 +11,11 @@ enum Difficulty {
     HARD = "hard",
 }
 
-export const QuizMenu = () => {
+interface IProps {
+    isLoggedIn: boolean;
+}
+
+export const QuizMenu = ({ isLoggedIn }: IProps) => {
     const navigate = useNavigate();
 
     const [difficulty, setDifficulty] = useState("easy");
@@ -63,6 +67,9 @@ export const QuizMenu = () => {
         }, 3500);
     };
 
+    if (!isLoggedIn) {
+        return <Navigate to="/" replace />;
+    }
     return (
         <>
             {showLightSabers ? (
