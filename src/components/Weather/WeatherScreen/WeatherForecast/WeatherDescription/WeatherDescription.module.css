@@ -1,5 +1,5 @@
 .Weather_description {
-    font-size: 1.6vw;
+    font-size: 1.7vw;
     padding-left: 3%;
     font-family: 'Mandalore';
     justify-content: center;
@@ -13,8 +13,6 @@
     display: flex;
     max-width: 200px;
     margin-top: 1.5vw;
-
-
 }
 
 .Image {
@@ -31,7 +29,7 @@
     font-family: 'Mandalore';
     display: flex;
     width: 12vw;
-    font-size: 1.6vw;
+    font-size: 1.8vw;
 }
 
 .WeatherDescriptionWrapper {
