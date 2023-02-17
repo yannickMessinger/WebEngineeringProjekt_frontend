@@ -5,6 +5,10 @@ import { IWeatherForecast } from "../typings/weather/IWeatherForecast";
 import { IWeatherJsonData } from "../typings/weather/IWeatherJsonData";
 import { WeatherMode } from "../typings/weather/WeatherMode";
 
+/**
+ * hook to provide weather data from API
+ *  
+ */
 export const useWeather = () => {
 
     const API_KEY_FOR_ENCODING = "79a9ad1cd477e4c6265d4b1882c856b0";

@@ -86,20 +86,21 @@ export const WeatherForecastTiles: React.FunctionComponent<WeatherForecastTilesP
             tilesRef.current?.removeEventListener('mousemove', mouseMovedForTiles);
         }
     }, [])
-    
+
     /**
      * initialize all tiles
      */
     function initJsxElementTiles() {
         for (let i = 0; i <= 6; i++) {
             tileslistJSX.push(
-                <div className={css.Tile} onClick={() => selectTile(i)} ref={tileRefsList[i]} data-cy={"tile_" + i}>
-                    <div className={tileContentState[i]}>
+                <div className={css.Tile} onClick={() => selectTile(i)} ref={tileRefsList[i]} data-cy={"tile_" + i} key={i}>
+                    <div className={tileContentState[i]} key={i}>
                         <WeatherForecastTile
                             tempMax={weatherForecast.tempMax[i]}
                             tempMin={weatherForecast.tempMin[i]}
                             time={weatherForecast.time[i]}
                             description={weatherForecast.weathercode[i]}
+                            key={i}
                         />
                     </div>
                 </div>
