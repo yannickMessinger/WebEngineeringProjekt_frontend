@@ -60,6 +60,7 @@
 .Tiles_down {
     animation: slideoutTiles 0.7s ease-in-out;
     bottom: -500px;
+    visibility: hidden;
 }
 
 .Tile {

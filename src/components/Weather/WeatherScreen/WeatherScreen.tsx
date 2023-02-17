@@ -52,11 +52,13 @@ export const WeatherScreen = () => {
                 <div className={css.Background}
                     style={{
                         backgroundImage: `url(${backgroundPlanetUrl})`,
-                    }} >
+                    }} 
+                    data-cy="weather_background"
+                    >
                     <div className={css.Searchbar}>
                         <Searchbar setLocation={setLocation} />
                     </div>
-                    <div className={css.Location}>
+                    <div data-cy="weather_location" className={css.Location}>
                         {weatherLocation}
                     </div>
                     <div className={css.StarWarsPlanet}>

@@ -116,7 +116,7 @@ export const WeatherForecastScreen: React.FunctionComponent<WeatherForecastProps
     function initJsxElementTiles() {
         for (let i = 0; i <= 6; i++) {
             tileslistJSX.push(
-                <div className={css.Tile} onClick={() => selectTile(i)} ref={tileRefsList[i]}>
+                <div className={css.Tile} onClick={() => selectTile(i)} ref={tileRefsList[i]} data-cy={"tile_" + i}>
                     <div className={tileContentState[i]}>
                         <WeatherForecastTile
                             tempMax={weatherForecast.tempMax[i]}
@@ -138,13 +138,13 @@ export const WeatherForecastScreen: React.FunctionComponent<WeatherForecastProps
                         <WeatherDescription weatherData={weatherData} />
                     </div>
                     <div className={css.TileControlWrapper}>
-                        <div className={css.Date}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date} </div>
-                        <button className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
-                        <button className={css.CurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
+                        <div data-cy="date" className={css.Date}>{weatherMode === WeatherMode.CURRENT ? weatherMode : dateState.weekDay + ", " + dateState.date}</div>
+                        <button data-cy="fold_button" className={css.FoldButton} onClick={foldTiles}>{foldButtonState}</button>
+                        <button data-cy="current_weather_button" className={css.CurrentWeatherButton} onClick={showCurrenWeather} ref={currentWeatherButtonRef}>Aktuelles Wetter anzeigen</button>
                     </div>
                 </div>
 
-                <div className={css.Tiles} ref={tilesRef}>
+                <div data-cy="tiles"  className={css.Tiles} ref={tilesRef}>
                     {tileslistJSX}
                 </div>
             </div>

@@ -28,7 +28,7 @@ export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ pla
     }
 
     return (
-        <div className={css.WeatherPlanet}>
+        <div data-cy="weather_planet" className={css.WeatherPlanet}>
             {content}
         </div>
     )
