@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Select, Option } from "../../UI/Select/Select";
 import css from "./QuizMenu.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import { LightSaberFight } from "../LightSaberFight/LightSaberFight";
-import { LoginContext } from "../../../context/LoginContext";
 
 enum Difficulty {
     EASY = "easy",
@@ -75,7 +74,7 @@ export const QuizMenu = ({ isLoggedIn }: IProps) => {
             {showLightSabers ? (
                 <LightSaberFight />
             ) : (
-                <>
+                <div className={css.menu_wrapper}>
                     <p className={`${css.text} ${css.centered_horizontally}`}>
                         Wähle einen Schwierigkeitsgrad und die maximale Anzahl
                         der Fragen aus, mit denen du das quiz spielen willst.
@@ -108,7 +107,7 @@ export const QuizMenu = ({ isLoggedIn }: IProps) => {
                             <label>Let's start!</label>
                         </button>
                     </div>
-                </>
+                </div>
             )}
         </>
     );

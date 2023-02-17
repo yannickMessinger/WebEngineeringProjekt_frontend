@@ -7,6 +7,10 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .menu_wrapper {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -17,6 +21,16 @@
         flex-direction: column;
         justify-content: center;
     }
+    .menu_wrapper {
+        width: 95%;
+    }
+}
+
+.menu_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .play_button {

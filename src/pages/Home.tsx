@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Menu } from "../components/Menu/Menu";
-import { CharacterChoice } from "./CharacterCoice/CharacterChoice";
-import { LoginContext } from "../context/LoginContext";
 import { Navigate } from "react-router";
 
 interface IProps {

@@ -5,7 +5,23 @@
 
 .info {
     color: aliceblue;
-    text-align: right;
-    padding-right: 100px;
-    padding-bottom: 1rem;
+    font-family: "Mandalore";
+}
+
+@media screen and (max-width: 550px) {
+    .info {
+        text-align: center;
+        padding-bottom: 0.5rem;
+        font-size: large;
+        
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .info {
+        font-size: x-large;
+        text-align: right;
+        padding-right: 5rem;
+        padding-bottom: 1rem;
+    }
 }

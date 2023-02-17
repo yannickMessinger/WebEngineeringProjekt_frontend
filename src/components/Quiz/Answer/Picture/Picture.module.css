@@ -1,16 +1,17 @@
 .pictures_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-content: center;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
     .pictures_container {
-        margin: 1rem;
+        margin: 0;
     }
 }
 
-@media screen and (min-width: 400px) and (max-width: 1050px) {
+@media screen and (min-width: 550px) and (max-width: 1050px) {
     .pictures_container {
         margin: 1rem;
     }

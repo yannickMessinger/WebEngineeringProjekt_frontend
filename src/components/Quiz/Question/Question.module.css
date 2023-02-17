@@ -3,7 +3,7 @@
 }
 
 .question_card {
-    min-width: 250px;
+    min-width: 280px;
     font-family: "Starjedi";
     text-align: center;
     margin: auto;
@@ -27,6 +27,7 @@
 
     .question_card {
         margin-bottom: 1rem;
+        min-height: 450px;
     }
 
     .question_text {

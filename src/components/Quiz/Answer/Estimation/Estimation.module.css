@@ -2,20 +2,27 @@
     pointer-events: none;
 }
 
+.x_large {
+    font-size: x-large;
+}
+
 .large {
     font-size: large;
 }
 
 .submit_button {
     font-family: "Starjedi";
-    padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
 }
 
 .submit_button:hover {
-    border: 1px solid grey;
     background-color: #ffe81f;
 }
 

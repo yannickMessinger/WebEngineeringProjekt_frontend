@@ -29,7 +29,6 @@ export const FillInTheBlank = ({
     const [boxColor, setBoxColor] = useState("");
 
     useEffect(() => {
-        setSelectedAnswer(disabledValue)
         const separator = "(options)";
         const result = questionText.split(separator);
         setQuestionValue(result);
@@ -38,7 +37,7 @@ export const FillInTheBlank = ({
             varOptions.set(answer.text, answer);
         });
         setOptions(varOptions);
-    }, [questionText]);
+    }, [questionText, answerList]);
 
     function clickSubmit() {
         setBoxColor(selectedAnswer.isRight ? css.right : css.false);
@@ -46,6 +45,7 @@ export const FillInTheBlank = ({
         setTimeout(() => {
             setSubmitted(false);
             onClickNext(selectedAnswer.isRight, 5, -5);
+            setSelectedAnswer(disabledValue);
         }, 2000);
     }
 
@@ -70,7 +70,7 @@ export const FillInTheBlank = ({
                         onChange={(e) => handleSelectChange(e)}
                         value={selectedAnswer.text}
                     >
-                        <option selected disabled value={""}>
+                        <option disabled value={""}>
                             --Wähle Antwortmöglichkeit--
                         </option>
                         {answerList.map((answer) => (

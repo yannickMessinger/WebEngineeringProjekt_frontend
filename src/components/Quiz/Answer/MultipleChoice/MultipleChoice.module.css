@@ -1,7 +1,11 @@
 .no_list {
     list-style-type: none;
     padding: 15px;
-    margin: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
 }
 
 .list_item,
@@ -17,11 +21,16 @@
 }
 
 @media screen and (max-width:500px) {
+
     .list_item,
     .right,
     .false {
         font-size: 15px;
         margin-top: 10px;
+    }
+
+    .no_list {
+        width: 90%;
     }
 }
 

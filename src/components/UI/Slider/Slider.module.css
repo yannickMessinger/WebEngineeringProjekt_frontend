@@ -3,7 +3,6 @@
 }
 .slider {
     -webkit-appearance: none;
-    width: 100%;
     height: 10px;
     border-radius: 5px;
     background: lightgrey;
@@ -11,8 +10,8 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .slider:hover {
@@ -35,4 +34,16 @@
     border-radius: 50%;
     background: #ffe81f;
     cursor: pointer;
+}
+
+@media screen and (max-width:500px) {
+    .slider {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:500px) {
+    .slider {
+        width: 95%;
+    }
 }

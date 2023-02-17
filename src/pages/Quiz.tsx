@@ -22,7 +22,6 @@ export const Quiz = ({ isLoggedIn }: IProps) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     useEffect(() => {
         resetScore();
-        console.log(maxPossibleScore);
     }, [questions]);
     const nextQuestion = (
         wasCorrect: boolean,
@@ -39,10 +38,12 @@ export const Quiz = ({ isLoggedIn }: IProps) => {
     };
 
     if (!isLoggedIn) {
-        return <Navigate to="/" replace/>;
+        return <Navigate to="/" replace />;
     }
     if (loading) {
-        return <h2>Am Laden</h2>;
+        return (
+            <h2>Am Laden</h2>
+        );
     }
     if (error) {
         return <h2>Etwas verlief schief</h2>;

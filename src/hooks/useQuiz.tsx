@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IQuestion, QuestionType } from "../components/Quiz/Question/IQuestion";
 
 interface IQuestionItem {
@@ -8,17 +8,18 @@ interface IQuestionItem {
 
 export const useQuiz = (difficulty: string, amount: number) => {
     const [questions, setQuestions] = useState(Array<IQuestionItem>());
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [maxPossibleScore, setMaxPossibleScore] = useState(-1);
 
-    function shuffleAndLimit(array: Array<any>) {
+    function shuffleAndLimit(array: Array<IQuestionItem>) {
         array.sort(() => Math.random() - 0.5);
         if (array.length > amount) {
             let slicedArray = array.slice(0, amount);
-            return slicedArray;
+            array = slicedArray;
         }
         let maxScore = 0;
-        array.map((ele: IQuestionItem) => {
+        array.forEach((ele) => {
             switch (ele.attributes.questionType) {
                 case QuestionType.ESTIMATION:
                     maxScore += 10;
@@ -35,10 +36,12 @@ export const useQuiz = (difficulty: string, amount: number) => {
             }
         });
         setMaxPossibleScore(maxScore);
+        setLoading(false);
         return array;
     }
 
     useEffect(() => {
+        setLoading(true);
         async function fetchQuestions() {
             try {
                 const api_url = "http://localhost:1337/api/questions";
@@ -56,7 +59,7 @@ export const useQuiz = (difficulty: string, amount: number) => {
                     }
                 );
                 const json = await response.json();
-                setQuestions(shuffleAndLimit(json.data));
+                await setQuestions(shuffleAndLimit(json.data));
             } catch (error) {
                 setError(true);
             }
@@ -65,8 +68,8 @@ export const useQuiz = (difficulty: string, amount: number) => {
     }, [difficulty, amount]);
     return {
         questions,
-        loading: questions.length === 0,
+        loading: loading,
         error: error,
-        maxPossibleScore
+        maxPossibleScore,
     };
 };

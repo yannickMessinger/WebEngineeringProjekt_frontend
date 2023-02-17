@@ -44,12 +44,14 @@ export const Estimation = ({ answerList, onClickNext }: IProps) => {
                 maxValue={Number(answerList.at(2)?.text)}
                 step={Number(answerList.at(3)?.text)}
             />
-            <p className={`${submitted ? boxColor : ""} ${css.large}`}>{value}</p>
+            <p className={`${submitted ? boxColor : ""} ${css.x_large}`}>
+                {value}
+            </p>
             <button
-                className={`${css.submit_button}`}
+                className={`${css.submit_button} ${css.large}`}
                 onClick={() => clickSubmit(isCorrect(value, correctAnswer))}
             >
-                ok
+                Fertig
             </button>
         </div>
     );
