@@ -5,7 +5,9 @@ import css from "./WeatherDescription.module.css"
 interface WeatherDescriptionProps {
     weatherData: IWeatherData;
 }
-
+/**
+ * Weather description (temperature and wind) at bottom right.
+ */
 export const WeatherDescription: React.FunctionComponent<WeatherDescriptionProps> = ({ weatherData }) => {
 
     return (

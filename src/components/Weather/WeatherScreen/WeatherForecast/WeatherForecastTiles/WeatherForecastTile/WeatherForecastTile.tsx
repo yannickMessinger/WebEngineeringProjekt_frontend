@@ -1,6 +1,9 @@
 import React, { FormEvent, useState } from "react";
 import css from "./WeatherForecastTile.module.css"
 
+/**
+ * component describes the content of one tile
+ */
 interface WeatherForecastTileProps {
     tempMax: number,
     tempMin: number,

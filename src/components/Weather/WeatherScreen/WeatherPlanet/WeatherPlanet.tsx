@@ -4,7 +4,9 @@ import css from "./WeatherPlanet.module.css"
 interface WeatherPlanetProps {
     planetName: string
 }
-
+/**
+ * component describes centered middle planet names part  
+ */
 export const WeatherPlanet: React.FunctionComponent<WeatherPlanetProps> = ({ planetName }) => {
 
     let content;

@@ -9,7 +9,9 @@ import { IWeatherData } from "../../../../typings/weather/IWeatherData";
 import { IWeatherForecast } from "../../../../typings/weather/IWeatherForecast";
 import { WeatherForecastTiles } from "./WeatherForecastTiles/WeatherForecastTiles";
 
-
+/**
+ * The whole screen related to the weather forecast tiles
+ */
 interface WeatherForecastProps {
     weatherForecast: IWeatherForecast
     fillWeatherDataWithForecast: (tempMax: number, wind: number, weathercode: { description: string, image: string }) => void

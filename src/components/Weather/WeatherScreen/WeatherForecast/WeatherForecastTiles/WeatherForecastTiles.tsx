@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IWeatherForecast } from "../../../../../typings/weather/IWeatherForecast";
 import css from "./WeatherForecastTiles.module.css"
-import { WeatherForecastTile } from "../WeatherForecastTile/WeatherForecastTile";
+import { WeatherForecastTile } from "./WeatherForecastTile/WeatherForecastTile";
 import { WeatherMode } from "../../../../../typings/weather/WeatherMode";
 
+/**
+ * component describes wrapper of all tiles
+ */
 interface WeatherForecastTilesProps {
     fillWeatherDataWithForecast: (tempMax: number, wind: number, weathercode: { description: string, image: string }) => void;
     weatherForecast: IWeatherForecast;
@@ -46,7 +49,9 @@ export const WeatherForecastTiles: React.FunctionComponent<WeatherForecastTilesP
         }
     }, [weatherMode])
 
-
+    /**
+     * fold tiles
+     */
     useEffect(() => {
         const currentWrapperTiles = tilesRef.current;
         if (currentWrapperTiles !== null) {
@@ -58,7 +63,9 @@ export const WeatherForecastTiles: React.FunctionComponent<WeatherForecastTilesP
         }
     }, [foldState])
 
-
+    /**
+     * used for mouse hover animation at tiles
+     */
     useEffect(() => {
         const mouseMovedForTiles = (event: MouseEvent) => {
             tileRefsList.forEach((tile) => {
@@ -79,7 +86,10 @@ export const WeatherForecastTiles: React.FunctionComponent<WeatherForecastTilesP
             tilesRef.current?.removeEventListener('mousemove', mouseMovedForTiles);
         }
     }, [])
-
+    
+    /**
+     * initialize all tiles
+     */
     function initJsxElementTiles() {
         for (let i = 0; i <= 6; i++) {
             tileslistJSX.push(

@@ -25,6 +25,10 @@ export const useWeather = () => {
     const [starWarsPlanet, setStarWarsPlanet] = useState("default");
     const [weatherMode, setWeatherMode] = useState(WeatherMode.CURRENT);
 
+    /**
+     * fetch coordinates based on location from https://openweathermap.org/api
+     * Reason for used different Apis: https://open-meteo.com/ does not provide location to coordinates conversion
+     */
     function fetchCoordinates() {
         const url = new URL(GEO_ENCODING_RELATIVE_URL, BASE_WEATHER_ENCODING_URL);
         url.searchParams.append('q', location);
@@ -45,7 +49,12 @@ export const useWeather = () => {
                 setStarWarsPlanet("noPlanet")
             })
     }
-
+    /**
+     * fetch weather data based on lat and long from https://open-meteo.com/. 
+     * Reason for used different Apis: https://openweathermap.org/api does not provide a reasonable forecast free of charge.
+     * @param lat latitude 
+     * @param lon longitude
+     */
     function fetchWeather(lat: string, lon: string) {
         const url = new URL(WEATHER_DATA_FORECAST_RELATIVE_URL, BASE_WEATHER_URL);
         url.searchParams.append("latitude", lat);
@@ -132,7 +141,10 @@ export const useWeather = () => {
 
         return weatherDateMap;
     }
-
+    /**
+     * 
+     * @returns weatherCodeMap for weathercode translation
+     */
     function initializeWeatherCodeMap() {
         const weatherCodeMap = new Map();
         const CLEAR_SKY = { description: 'klarer Himmel', image: "sun" };
@@ -184,7 +196,9 @@ export const useWeather = () => {
 
         return weatherCodeMap;
     }
-
+    /**
+     * fetch weatherdata based on location
+     */
     useEffect(() => {
         fetchWeatherData();
     }, [location]);
