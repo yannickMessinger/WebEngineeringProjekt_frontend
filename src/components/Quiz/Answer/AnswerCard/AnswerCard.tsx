@@ -18,6 +18,9 @@ interface IProps {
     ) => void;
 }
 
+/**
+ * This Component helps finding the right Component to show the Question according to its type
+ */
 export const AnswerCard = ({
     questionText,
     answerList,
