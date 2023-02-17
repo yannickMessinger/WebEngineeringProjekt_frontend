@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Information on how to use the Star Wars Application
+
+This application uses three APIs (SWAPI for Star Wars Information, a Weather API and API of strapi for the Quiz). To use the Quiz, it is necessary to start the strapi API (star-wars-api).
+
+Enjoy our Game and get started by simply typing `npm start`.
