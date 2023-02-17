@@ -165,7 +165,6 @@ export const useSWAPI = () => {
       }
 
       const rawInfo = await response.json();
-      console.log(rawInfo);
       const planetInfo: PlanetInfo = rawInfo;
 
       return planetInfo;
