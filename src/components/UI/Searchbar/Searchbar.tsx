@@ -15,7 +15,6 @@ export const Searchbar: React.FunctionComponent<SearchbarProps> = ({ setLocation
 
     function handleSubmitAfterPressEnter(submitEvent: FormEvent) {
         submitEvent.preventDefault();
-        console.log(value);
         setLocation(value);
     }
     return (
