@@ -1,0 +1,399 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "questionText": "Wer ist der `ater von Luke Skywalker?",
+                "questionType": "MULTIPLE_CHOICE",
+                "answerOptions": [
+                    {
+                        "text": "Darth `ader",
+                        "isRight": true
+                    },
+                    {
+                        "text": "Hello Kitty",
+                        "isRight": false
+                    },
+                    {
+                        "text": "R2-D2",
+                        "isRight": false
+                    },
+                    {
+                        "text": "Spongebob",
+                        "isRight": false
+                    }
+                ],
+                "createdAt": "2022-12-23T14:48:30.156Z",
+                "updatedAt": "2023-02-17T08:00:31.378Z",
+                "publishedAt": "2023-02-17T08:00:31.376Z",
+                "difficulty": "easy",
+                "image": {
+                    "data": null
+                },
+                "answerImages": {
+                    "data": null
+                }
+            }
+        },
+        {
+            "id": 9,
+            "attributes": {
+                "questionText": "Wer ist der `ater dieses Characters?",
+                "questionType": "PICTURE",
+                "answerOptions": [
+                    {
+                        "text": "Jango Fett",
+                        "isRight": true,
+                        "image": "Jango-Fett.webp"
+                    },
+                    {
+                        "text": "Klontrupptler Hilo",
+                        "isRight": false,
+                        "image": "Clone-Trooper.webp"
+                    },
+                    {
+                        "text": "Darth `ader",
+                        "isRight": false,
+                        "image": "darth-vader.jpg"
+                    },
+                    {
+                        "text": "Sturmtruppler Wolfgang",
+                        "isRight": false,
+                        "image": "Stormtrooper.png"
+                    }
+                ],
+                "createdAt": "2023-02-09T21:16:02.212Z",
+                "updatedAt": "2023-02-11T15:40:11.311Z",
+                "publishedAt": "2023-02-09T21:40:16.097Z",
+                "difficulty": "easy",
+                "image": {
+                    "data": {
+                        "id": 11,
+                        "attributes": {
+                            "name": "Boba-Fett.png",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 669,
+                            "height": 755,
+                            "formats": {
+                                "thumbnail": {
+                                    "name": "thumbnail_Boba-Fett.png",
+                                    "hash": "thumbnail_Boba_Fett_2fd41dde39",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 138,
+                                    "height": 156,
+                                    "size": 32.47,
+                                    "url": "/uploads/thumbnail_Boba_Fett_2fd41dde39.png"
+                                },
+                                "small": {
+                                    "name": "small_Boba-Fett.png",
+                                    "hash": "small_Boba_Fett_2fd41dde39",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 443,
+                                    "height": 500,
+                                    "size": 256.66,
+                                    "url": "/uploads/small_Boba_Fett_2fd41dde39.png"
+                                },
+                                "medium": {
+                                    "name": "medium_Boba-Fett.png",
+                                    "hash": "medium_Boba_Fett_2fd41dde39",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 665,
+                                    "height": 750,
+                                    "size": 538.65,
+                                    "url": "/uploads/medium_Boba_Fett_2fd41dde39.png"
+                                }
+                            },
+                            "hash": "Boba_Fett_2fd41dde39",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "size": 150.13,
+                            "url": "/uploads/Boba_Fett_2fd41dde39.png",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2023-02-11T15:39:10.682Z",
+                            "updatedAt": "2023-02-11T15:41:26.493Z"
+                        }
+                    }
+                },
+                "answerImages": {
+                    "data": [
+                        {
+                            "id": 10,
+                            "attributes": {
+                                "name": "Jango-Fett.webp",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 753,
+                                "height": 873,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "thumbnail_Jango-Fett.webp",
+                                        "hash": "thumbnail_Jango_Fett_5c32b7663a",
+                                        "ext": ".webp",
+                                        "mime": "image/webp",
+                                        "path": null,
+                                        "width": 135,
+                                        "height": 156,
+                                        "size": 3.95,
+                                        "url": "/uploads/thumbnail_Jango_Fett_5c32b7663a.webp"
+                                    },
+                                    "medium": {
+                                        "name": "medium_Jango-Fett.webp",
+                                        "hash": "medium_Jango_Fett_5c32b7663a",
+                                        "ext": ".webp",
+                                        "mime": "image/webp",
+                                        "path": null,
+                                        "width": 647,
+                                        "height": 750,
+                                        "size": 57.32,
+                                        "url": "/uploads/medium_Jango_Fett_5c32b7663a.webp"
+                                    },
+                                    "small": {
+                                        "name": "small_Jango-Fett.webp",
+                                        "hash": "small_Jango_Fett_5c32b7663a",
+                                        "ext": ".webp",
+                                        "mime": "image/webp",
+                                        "path": null,
+                                        "width": 431,
+                                        "height": 500,
+                                        "size": 27.88,
+                                        "url": "/uploads/small_Jango_Fett_5c32b7663a.webp"
+                                    }
+                                },
+                                "hash": "Jango_Fett_5c32b7663a",
+                                "ext": ".webp",
+                                "mime": "image/webp",
+                                "size": 97.4,
+                                "url": "/uploads/Jango_Fett_5c32b7663a.webp",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2023-02-09T21:35:28.566Z",
+                                "updatedAt": "2023-02-09T21:35:28.566Z"
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "attributes": {
+                                "name": "Stormtrooper.png",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 1002,
+                                "height": 999,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "thumbnail_Stormtrooper.png",
+                                        "hash": "thumbnail_Stormtrooper_431a78ccd4",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 156,
+                                        "height": 156,
+                                        "size": 27.91,
+                                        "url": "/uploads/thumbnail_Stormtrooper_431a78ccd4.png"
+                                    },
+                                    "small": {
+                                        "name": "small_Stormtrooper.png",
+                                        "hash": "small_Stormtrooper_431a78ccd4",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 500,
+                                        "height": 499,
+                                        "size": 176.59,
+                                        "url": "/uploads/small_Stormtrooper_431a78ccd4.png"
+                                    },
+                                    "medium": {
+                                        "name": "medium_Stormtrooper.png",
+                                        "hash": "medium_Stormtrooper_431a78ccd4",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 750,
+                                        "height": 748,
+                                        "size": 352.83,
+                                        "url": "/uploads/medium_Stormtrooper_431a78ccd4.png"
+                                    },
+                                    "large": {
+                                        "name": "large_Stormtrooper.png",
+                                        "hash": "large_Stormtrooper_431a78ccd4",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 1000,
+                                        "height": 997,
+                                        "size": 533.96,
+                                        "url": "/uploads/large_Stormtrooper_431a78ccd4.png"
+                                    }
+                                },
+                                "hash": "Stormtrooper_431a78ccd4",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "size": 108.97,
+                                "url": "/uploads/Stormtrooper_431a78ccd4.png",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2023-02-09T21:35:06.474Z",
+                                "updatedAt": "2023-02-14T16:10:26.149Z"
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "attributes": {
+                                "name": "Clone-Trooper.webp",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 582,
+                                "height": 582,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "thumbnail_Clone-Trooper.webp",
+                                        "hash": "thumbnail_Clone_Trooper_997429c609",
+                                        "ext": ".webp",
+                                        "mime": "image/webp",
+                                        "path": null,
+                                        "width": 156,
+                                        "height": 156,
+                                        "size": 4,
+                                        "url": "/uploads/thumbnail_Clone_Trooper_997429c609.webp"
+                                    },
+                                    "small": {
+                                        "name": "small_Clone-Trooper.webp",
+                                        "hash": "small_Clone_Trooper_997429c609",
+                                        "ext": ".webp",
+                                        "mime": "image/webp",
+                                        "path": null,
+                                        "width": 500,
+                                        "height": 500,
+                                        "size": 20.97,
+                                        "url": "/uploads/small_Clone_Trooper_997429c609.webp"
+                                    }
+                                },
+                                "hash": "Clone_Trooper_997429c609",
+                                "ext": ".webp",
+                                "mime": "image/webp",
+                                "size": 28.63,
+                                "url": "/uploads/Clone_Trooper_997429c609.webp",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2023-02-09T21:35:06.195Z",
+                                "updatedAt": "2023-02-14T16:24:46.914Z"
+                            }
+                        },
+                        {
+                            "id": 7,
+                            "attributes": {
+                                "name": "darth-vader.jpg",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 2048,
+                                "height": 1365,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "thumbnail_darth-vader.jpg",
+                                        "hash": "thumbnail_darth_vader_46494ecbec",
+                                        "ext": ".jpg",
+                                        "mime": "image/jpeg",
+                                        "path": null,
+                                        "width": 234,
+                                        "height": 156,
+                                        "size": 7.07,
+                                        "url": "/uploads/thumbnail_darth_vader_46494ecbec.jpg"
+                                    },
+                                    "small": {
+                                        "name": "small_darth-vader.jpg",
+                                        "hash": "small_darth_vader_46494ecbec",
+                                        "ext": ".jpg",
+                                        "mime": "image/jpeg",
+                                        "path": null,
+                                        "width": 500,
+                                        "height": 333,
+                                        "size": 22,
+                                        "url": "/uploads/small_darth_vader_46494ecbec.jpg"
+                                    },
+                                    "medium": {
+                                        "name": "medium_darth-vader.jpg",
+                                        "hash": "medium_darth_vader_46494ecbec",
+                                        "ext": ".jpg",
+                                        "mime": "image/jpeg",
+                                        "path": null,
+                                        "width": 750,
+                                        "height": 500,
+                                        "size": 41.52,
+                                        "url": "/uploads/medium_darth_vader_46494ecbec.jpg"
+                                    },
+                                    "large": {
+                                        "name": "large_darth-vader.jpg",
+                                        "hash": "large_darth_vader_46494ecbec",
+                                        "ext": ".jpg",
+                                        "mime": "image/jpeg",
+                                        "path": null,
+                                        "width": 1000,
+                                        "height": 667,
+                                        "size": 67.7,
+                                        "url": "/uploads/large_darth_vader_46494ecbec.jpg"
+                                    }
+                                },
+                                "hash": "darth_vader_46494ecbec",
+                                "ext": ".jpg",
+                                "mime": "image/jpeg",
+                                "size": 274.58,
+                                "url": "/uploads/darth_vader_46494ecbec.jpg",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2023-02-09T21:35:06.096Z",
+                                "updatedAt": "2023-02-09T21:35:06.096Z"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "attributes": {
+                "questionText": "Darth `ader besitzt ein (options) Lichtschwert.",
+                "questionType": "FILL_IN_THE_BLANK",
+                "answerOptions": [
+                    {
+                        "text": "rotes",
+                        "isRight": true
+                    },
+                    {
+                        "text": "grünes",
+                        "isRight": false
+                    },
+                    {
+                        "text": "lilanes",
+                        "isRight": false
+                    },
+                    {
+                        "text": "blaues",
+                        "isRight": false
+                    }
+                ],
+                "createdAt": "2023-02-14T20:45:52.674Z",
+                "updatedAt": "2023-02-15T14:03:32.092Z",
+                "publishedAt": "2023-02-14T20:45:53.564Z",
+                "difficulty": "easy",
+                "image": {
+                    "data": null
+                },
+                "answerImages": {
+                    "data": null
+                }
+            }
+        }
+    ]
+}
