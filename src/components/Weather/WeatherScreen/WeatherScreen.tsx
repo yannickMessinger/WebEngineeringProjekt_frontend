@@ -14,7 +14,7 @@ export const WeatherScreen = () => {
     const [backgroundPlanetUrl, setBackgroundPlanetUrl] = useState("");
 
     const decideBackgroundPlanet = (() => {
-        if (window.innerWidth > 450) {
+        if (window.innerWidth > 500) {
             setBackgroundPlanetUrl("./weather_backgrounds/desktop/" + starWarsPlanet.toLowerCase() + ".png");
 
         } else {
@@ -52,9 +52,9 @@ export const WeatherScreen = () => {
                 <div className={css.Background}
                     style={{
                         backgroundImage: `url(${backgroundPlanetUrl})`,
-                    }} 
+                    }}
                     data-cy="weather_background"
-                    >
+                >
                     <div className={css.Searchbar}>
                         <Searchbar setLocation={setLocation} />
                     </div>
