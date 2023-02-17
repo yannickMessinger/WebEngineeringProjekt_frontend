@@ -80,7 +80,7 @@
 
 .TileContent,
 .TileContentSelected {
-    background-color: #80808049;
+    background-color: #9797974f;
     border-radius: inherit;
     transition: all 0.25s;
     height: calc(100% - 0.5rem);
